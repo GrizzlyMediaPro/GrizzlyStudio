@@ -1,5 +1,19 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "Nohemi";
+  src: url("/fonts/Nohemi-Light-BF6438cc5874bd2.otf") format("opentype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Nohemi";
+  src: url("/fonts/Nohemi-Black-BF6438cc5874bd2.otf") format("opentype");
+  font-weight: 900;
+  font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -19,8 +33,83 @@
   }
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 150px;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.nohemi-heading {
+  font-family: "Nohemi", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.nohemi-black {
+  font-family: "Nohemi", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.nohemi-medium {
+  font-family: "Nohemi", sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.glow-effect {
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.4) 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(0, 0, 0, 0) 70%,
+    rgba(0, 0, 0, 1) 100%
+  );
+}
+
+.card-group:hover .card:not(:hover) {
+  filter: blur(4px);
+}
+
+@keyframes smoothSlideLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(50px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes smoothSlideRight {
+  0% {
+    opacity: 0;
+    transform: translateX(-50px) scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.2s ease-out forwards;
+  animation-delay: 0.5s;
 }
