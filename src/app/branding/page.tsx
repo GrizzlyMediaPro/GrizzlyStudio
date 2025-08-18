@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import FadeInElement from "../components/FadeInElement";
 import { useState, useEffect } from "react";
+import { useLanguage } from "../i18n/LanguageProvider";
 import {
   SiAdobeillustrator,
   SiAdobephotoshop,
@@ -15,6 +17,7 @@ import {
 } from "react-icons/si";
 
 export default function Branding() {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -91,25 +94,25 @@ export default function Branding() {
                 href="/#servicii"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Servicii
+                {t("nav_services")}
               </a>
               <a
                 href="/#portofoliu"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Portofoliu
+                {t("nav_portfolio")}
               </a>
               <a
                 href="/#despre"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Despre
+                {t("nav_about")}
               </a>
               <a
                 href="/#contact"
                 className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
               >
-                Contact
+                {t("nav_contact")}
               </a>
             </div>
 
@@ -159,28 +162,28 @@ export default function Branding() {
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
-                Servicii
+                {t("nav_services")}
               </a>
               <a
                 href="/#portofoliu"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
-                Portofoliu
+                {t("nav_portfolio")}
               </a>
               <a
                 href="/#despre"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
-                Despre
+                {t("nav_about")}
               </a>
               <a
                 href="/#contact"
                 onClick={closeMobileMenu}
                 className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8"
               >
-                Contact
+                {t("nav_contact")}
               </a>
             </div>
           </div>
@@ -219,25 +222,25 @@ export default function Branding() {
                 href="/#servicii"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Servicii
+                {t("nav_services")}
               </a>
               <a
                 href="/#portofoliu"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Portofoliu
+                {t("nav_portfolio")}
               </a>
               <a
                 href="/#despre"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Despre
+                {t("nav_about")}
               </a>
               <a
                 href="/#contact"
                 className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
               >
-                Contact
+                {t("nav_contact")}
               </a>
             </div>
 
@@ -271,21 +274,19 @@ export default function Branding() {
         <div className="flex-1 flex items-center justify-center relative z-10">
           <div className="text-center px-6 max-w-6xl mx-auto">
             <h1 className="nohemi-heading text-4xl md:text-6xl text-white mb-6 leading-tight">
-              Branding și <span className="text-[#ffed88]">Design</span> <br />
-              <span className="text-[#ffed88]">Identitate</span> și{" "}
-              <span className="text-[#ffed88]">Viziune</span>
+              {t("brand_hero_t1")}<span className="text-[#ffed88]">{t("brand_hero_h1")}</span> <br />
+              <span className="text-[#ffed88]">{t("brand_hero_h2")}</span>{t("brand_hero_t2")}<span className="text-[#ffed88]">{t("brand_hero_h3")}</span>
             </h1>
             <p className="nohemi-medium text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto">
-              Creăm identități vizuale puternice care transformă brandurile în
-              experiențe memorabile și recunoscute
+              {t("brand_hero_p")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
-                Începe Proiectul
-              </button>
-              <button className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
-                Vezi Portofoliul
-              </button>
+              <Link href="/#contact" className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
+                {t("brand_cta_start")}
+              </Link>
+              <Link href="/#portofoliu" className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
+                {t("brand_cta_portfolio")}
+              </Link>
             </div>
           </div>
         </div>
@@ -312,12 +313,10 @@ export default function Branding() {
         <FadeInElement delay={0}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Serviciile Noastre de{" "}
-              <span className="text-[#ffed88]">Branding</span>
+              {t("brand_services_h_t1")}<span className="text-[#ffed88]">{t("brand_services_h_h1")}</span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              Oferim soluții complete de branding, de la identitate vizuală până
-              la strategii de brand
+              {t("brand_services_desc")}
             </p>
           </div>
         </FadeInElement>
@@ -343,19 +342,16 @@ export default function Branding() {
                     />
                   </svg>
                 </div>
-                <h3 className="nohemi-medium text-xl text-white mb-3">
-                  Identitate Vizuală
-                </h3>
+                <h3 className="nohemi-medium text-xl text-white mb-3">{t("brand_card_identity_title")}</h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Logo-uri, culori, tipografii și elemente vizuale care definesc
-                  brandul tău
+                  {t("brand_card_identity_desc")}
                 </p>
               </div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li>• Design logo și simboluri</li>
-                <li>• Paletă de culori</li>
-                <li>• Tipografie personalizată</li>
-                <li>• Elemente grafice</li>
+                <li>{t("brand_card_identity_li1")}</li>
+                <li>{t("brand_card_identity_li2")}</li>
+                <li>{t("brand_card_identity_li3")}</li>
+                <li>{t("brand_card_identity_li4")}</li>
               </ul>
             </div>
           </FadeInElement>
@@ -379,18 +375,16 @@ export default function Branding() {
                     />
                   </svg>
                 </div>
-                <h3 className="nohemi-medium text-xl text-white mb-3">
-                  Materiale Promoționale
-                </h3>
+                <h3 className="nohemi-medium text-xl text-white mb-3">{t("brand_card_promo_title")}</h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Design pentru toate materialele promoționale și de marketing
+                  {t("brand_card_promo_desc")}
                 </p>
               </div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li>• Carduri de vizită</li>
-                <li>• Broșuri și cataloage</li>
-                <li>• Banner-e și afișe</li>
-                <li>• Materiale digitale</li>
+                <li>{t("brand_card_promo_li1")}</li>
+                <li>{t("brand_card_promo_li2")}</li>
+                <li>{t("brand_card_promo_li3")}</li>
+                <li>{t("brand_card_promo_li4")}</li>
               </ul>
             </div>
           </FadeInElement>
@@ -414,19 +408,16 @@ export default function Branding() {
                     />
                   </svg>
                 </div>
-                <h3 className="nohemi-medium text-xl text-white mb-3">
-                  Strategie de Brand
-                </h3>
+                <h3 className="nohemi-medium text-xl text-white mb-3">{t("brand_card_strategy_title")}</h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Dezvoltăm strategii complete pentru a-ți construi un brand
-                  puternic și memorabil
+                  {t("brand_card_strategy_desc")}
                 </p>
               </div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li>• Poziționare brand</li>
-                <li>• Mesaj și ton de voce</li>
-                <li>• Strategii de comunicare</li>
-                <li>• Planificare pe termen lung</li>
+                <li>{t("brand_card_strategy_li1")}</li>
+                <li>{t("brand_card_strategy_li2")}</li>
+                <li>{t("brand_card_strategy_li3")}</li>
+                <li>{t("brand_card_strategy_li4")}</li>
               </ul>
             </div>
           </FadeInElement>
@@ -439,12 +430,10 @@ export default function Branding() {
         <FadeInElement delay={800}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Procesul Nostru de{" "}
-              <span className="text-[#ffed88]">Branding</span>
+              {t("brand_process_h_t1")}<span className="text-[#ffed88]">{t("brand_process_h_h1")}</span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              O metodologie clară și transparentă pentru a crea identități
-              vizuale puternice
+              {t("brand_process_desc")}
             </p>
           </div>
         </FadeInElement>
@@ -457,12 +446,9 @@ export default function Branding() {
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">1</span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">
-                Research
-              </h3>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("brand_step1_title")}</h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Analizăm piața, concurența și audiența țintă pentru a înțelege
-                contextul
+                {t("brand_step1_desc")}
               </p>
             </div>
           </FadeInElement>
@@ -473,10 +459,9 @@ export default function Branding() {
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">2</span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">Concept</h3>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("brand_step2_title")}</h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Dezvoltăm concepte creative și direcții vizuale pentru brandul
-                tău
+                {t("brand_step2_desc")}
               </p>
             </div>
           </FadeInElement>
@@ -487,9 +472,9 @@ export default function Branding() {
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">3</span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">Design</h3>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("brand_step3_title")}</h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Creăm toate elementele vizuale și materialele de brand
+                {t("brand_step3_desc")}
               </p>
             </div>
           </FadeInElement>
@@ -500,12 +485,9 @@ export default function Branding() {
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">4</span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">
-                Implementare
-              </h3>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("brand_step4_title")}</h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Lansăm brandul și oferim suport pentru implementarea pe toate
-                canalele
+                {t("brand_step4_desc")}
               </p>
             </div>
           </FadeInElement>
@@ -518,11 +500,10 @@ export default function Branding() {
         <FadeInElement delay={1800}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Instrumentele <span className="text-[#ffed88]">Noastre</span>
+              {t("brand_tools_h_t1")}<span className="text-[#ffed88]">{t("brand_tools_h_h1")}</span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              Folosim cele mai moderne instrumente de design pentru a crea
-              identități vizuale de calitate
+              {t("brand_tools_desc")}
             </p>
           </div>
         </FadeInElement>
@@ -576,11 +557,10 @@ export default function Branding() {
         <FadeInElement delay={2200}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Rezultatele <span className="text-[#ffed88]">Noastre</span>
+              {t("brand_results_h_t1")}<span className="text-[#ffed88]">{t("brand_results_h_h1")}</span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              Transformăm brandurile în experiențe vizuale memorabile și
-              recunoscute
+              {t("brand_results_desc")}
             </p>
           </div>
         </FadeInElement>
@@ -590,16 +570,14 @@ export default function Branding() {
           {/* Rezultat 1 */}
           <FadeInElement delay={2400} direction="up">
             <div className="text-center">
-              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-25 h-25 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
-                  200+
+                  2,000+
                 </span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">
-                Logo-uri
-              </h3>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("brand_res_posts_title")}</h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Logo-uri create pentru branduri diverse
+                {t("brand_res_posts_desc")}
               </p>
             </div>
           </FadeInElement>
@@ -607,16 +585,14 @@ export default function Branding() {
           {/* Rezultat 2 */}
           <FadeInElement delay={2600} direction="up">
             <div className="text-center">
-              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-25 h-25 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
-                  150+
+                  100+
                 </span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">
-                Identități
-              </h3>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("brand_res_campaigns_title")}</h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Identități vizuale complete dezvoltate
+                {t("brand_res_campaigns_desc")}
               </p>
             </div>
           </FadeInElement>
@@ -624,16 +600,14 @@ export default function Branding() {
           {/* Rezultat 3 */}
           <FadeInElement delay={2800} direction="up">
             <div className="text-center">
-              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-25 h-25 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
-                  95%
+                  9
                 </span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">
-                Satisfacție
-              </h3>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("brand_res_types_title")}</h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Clienți mulțumiți cu rezultatele
+                {t("brand_res_types_desc")}
               </p>
             </div>
           </FadeInElement>
@@ -641,14 +615,14 @@ export default function Branding() {
           {/* Rezultat 4 */}
           <FadeInElement delay={3000} direction="up">
             <div className="text-center">
-              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-25 h-25 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
                   24h
                 </span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">Răspuns</h3>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("brand_res_response_title")}</h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Timp de răspuns pentru modificări
+                {t("brand_res_response_desc")}
               </p>
             </div>
           </FadeInElement>
@@ -661,21 +635,18 @@ export default function Branding() {
         <FadeInElement delay={3200}>
           <div className="text-center mb-24">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Gata să începem <span className="text-[#ffed88]">proiectul</span>{" "}
-              tău?
+              {t("brand_cta_h_t1")}<span className="text-[#ffed88]">{t("brand_cta_h_h1")}</span>{t("brand_cta_h_t2")}
             </h2>
             <p className="nohemi-medium text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-              Contactează-ne pentru o consultație gratuită și să discutăm despre
-              cum putem transforma brandul tău într-o identitate vizuală
-              puternică
+              {t("brand_cta_p")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
-                Contactează-ne Acum
-              </button>
-              <button className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
-                Vezi Portofoliul
-              </button>
+              <Link href="/#contact" className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
+                {t("brand_cta_primary")}
+              </Link>
+              <Link href="/#portofoliu" className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
+                {t("brand_cta_secondary")}
+              </Link>
             </div>
           </div>
         </FadeInElement>
@@ -695,44 +666,19 @@ export default function Branding() {
                     className="object-contain"
                   />
                 </div>
-                <p className="text-white/60 text-sm leading-relaxed">
-                  Creăm identități vizuale puternice care transformă brandurile
-                  în experiențe memorabile și recunoscute.
-                </p>
+                <p className="text-white/60 text-sm leading-relaxed">{t("brand_footer_tagline")}</p>
               </div>
 
               {/* Quick links și contact */}
               <div className="flex flex-col sm:flex-row gap-8">
                 {/* Quick Links */}
                 <div>
-                  <h4 className="nohemi-medium text-white text-sm mb-4">
-                    Navigare
-                  </h4>
+                  <h4 className="nohemi-medium text-white text-sm mb-4">{t("footer_nav_label")}</h4>
                   <div className="grid grid-cols-2 gap-2">
-                    <a
-                      href="/#despre"
-                      className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
-                    >
-                      Despre noi
-                    </a>
-                    <a
-                      href="/#servicii"
-                      className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
-                    >
-                      Servicii
-                    </a>
-                    <a
-                      href="/#portofoliu"
-                      className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
-                    >
-                      Portofoliu
-                    </a>
-                    <a
-                      href="/#contact"
-                      className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
-                    >
-                      Contact
-                    </a>
+                    <a href="/#despre" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_about")}</a>
+                    <a href="/#servicii" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_services")}</a>
+                    <a href="/#portofoliu" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_portfolio")}</a>
+                    <a href="/#contact" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_contact")}</a>
                   </div>
                 </div>
 
@@ -783,29 +729,12 @@ export default function Branding() {
 
             {/* Bottom section */}
             <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10">
-              <p className="text-white/50 text-sm mb-4 md:mb-0">
-                © 2024 Grizzly Media Pro. Toate drepturile rezervate.
-              </p>
+              <p className="text-white/50 text-sm mb-4 md:mb-0">{t("footer_rights")}</p>
 
               <div className="flex flex-wrap gap-4 text-sm">
-                <a
-                  href="/politica-confidentialitate"
-                  className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
-                >
-                  Politica de Confidențialitate
-                </a>
-                <a
-                  href="/politica-cookies"
-                  className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
-                >
-                  Politica de Cookies
-                </a>
-                <a
-                  href="/termeni-conditii"
-                  className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
-                >
-                  Termeni și Condiții
-                </a>
+                <a href="/politica-confidentialitate" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300">{t("privacy_policy")}</a>
+                <a href="/politica-cookies" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300">{t("cookies_policy")}</a>
+                <a href="/termeni-conditii" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300">{t("terms_conditions")}</a>
               </div>
             </div>
           </div>

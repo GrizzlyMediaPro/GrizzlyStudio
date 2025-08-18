@@ -4,8 +4,10 @@ import Image from "next/image";
 import PortfolioCarousel from "./components/PortfolioCarousel";
 import FadeInElement from "./components/FadeInElement";
 import { useState, useEffect } from "react";
+import { useLanguage } from "./i18n/LanguageProvider";
 
 export default function Home() {
+  const { t, lang, setLang } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -81,26 +83,27 @@ export default function Home() {
                 href="#servicii"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Servicii
+                {t("nav_services")}
               </a>
               <a
                 href="#portofoliu"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Portofoliu
+                {t("nav_portfolio")}
               </a>
               <a
                 href="#despre"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Despre
+                {t("nav_about")}
               </a>
               <a
                 href="#contact"
                 className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
               >
-                Contact
+                {t("nav_contact")}
               </a>
+              {/* Toggle limbă mutat sub navbar */}
             </div>
 
             {/* Hamburger menu pentru mobile */}
@@ -209,25 +212,25 @@ export default function Home() {
                 href="#servicii"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Servicii
+                {t("nav_services")}
               </a>
               <a
                 href="#portofoliu"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Portofoliu
+                {t("nav_portfolio")}
               </a>
               <a
                 href="#despre"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Despre
+                {t("nav_about")}
               </a>
               <a
                 href="#contact"
                 className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
               >
-                Contact
+                Programeaza o intalnire!
               </a>
             </div>
 
@@ -257,13 +260,55 @@ export default function Home() {
           </div>
         </header>
 
+        {/* Toggle limbă sub navbar, centrat (non-fixed) */}
+        <div className="mt-24 flex justify-center z-10">
+          <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3 py-1 flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.15)]">
+            <span
+              className={`text-xs font-medium ${
+                lang === "ro" ? "text-white" : "text-white/60"
+              }`}
+            >
+              RO
+            </span>
+            <button
+              onClick={() => setLang(lang === "ro" ? "en" : "ro")}
+              className="w-12 h-7 bg-white/10 border border-white/20 rounded-full p-1 flex items-center hover:bg-white/20 transition"
+              aria-label="Language toggle"
+            >
+              <div
+                className={`w-5 h-5 bg-white rounded-full shadow-lg transition-transform ${
+                  lang === "en" ? "translate-x-5" : "translate-x-0"
+                }`}
+              ></div>
+            </button>
+            <span
+              className={`text-xs font-medium ${
+                lang === "en" ? "text-white" : "text-white/60"
+              }`}
+            >
+              EN
+            </span>
+          </div>
+        </div>
+
         {/* Conținut centrat în partea de sus */}
         <div className="flex-1 flex items-center justify-center relative z-10">
           <div className="text-center px-6 max-w-6xl mx-auto">
             <h1 className="nohemi-heading text-4xl md:text-6xl text-white mb-6 leading-tight">
-              Nu construim doar <span className="text-[#ffed88]">site-uri</span>
-              , construim <span className="text-[#ffed88]">branduri</span>.
+              {t("hero_t1")}
+              <span className="text-[#ffed88]">{t("hero_h1")}</span>
+              {t("hero_t2")}
+              <span className="text-[#ffed88]">{t("hero_h2")}</span>
+              {t("hero_t3")}
             </h1>
+            <div className="mt-6">
+              <a
+                href="#contact"
+                className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg"
+              >
+                Programeaza o intalnire!
+              </a>
+            </div>
           </div>
         </div>
 
@@ -288,86 +333,50 @@ export default function Home() {
         {/* Descriere agentie */}
         <FadeInElement delay={0}>
           <div className="text-center mb-16">
-            <p className="nohemi-medium text-lg md:text-xl text-white/80 leading-relaxed max-w-4xl mx-auto">
-              Grizzly Media Pro este o agenție de dezvoltare digitală
-              specializată în{" "}
-              <span className="text-[#ffed88] font-semibold">
-                web development
-              </span>
-              ,{" "}
-              <span className="text-[#ffed88] font-semibold">
-                mobile development
-              </span>{" "}
-              și{" "}
-              <span className="text-[#ffed88] font-semibold">
-                marketing online
-              </span>
-              . Transformăm viziunea ta în realitate digitală cu soluții
-              personalizate și tehnologii de ultimă generație.
-            </p>
-          </div>
-        </FadeInElement>
-
-        {/* Secțiunea cu toggle-uri */}
-        <FadeInElement delay={200}>
-          <div className="text-center mb-12">
-            <h2 className="nohemi-heading text-2xl md:text-3xl text-white mb-8">
-              Mai întâi, alege-ți preferințele
+            <h2 className="nohemi-heading font-bold text-2xl md:text-3xl text-white mb-6">
+              <span className="text-[#ffed88]">Fără</span> o prezență digitală
+              clară, clienții <span className="text-[#ffed88]">te uită</span> și
+              competiția<span className="text-[#ffed88]">te depășește.</span>
             </h2>
-
-            <div className="flex justify-center items-center gap-8">
-              {/* Toggle pentru temă */}
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-xl">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-6 bg-white/20 rounded-full p-1 flex items-center">
-                    <div className="w-4 h-4 bg-white rounded-full shadow-lg"></div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <svg
-                      className="w-5 h-5 text-white"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                      />
-                    </svg>
-                    <svg
-                      className="w-5 h-5 text-white/60"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                      />
-                    </svg>
-                  </div>
-                </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 text-left group card-group">
+              <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card">
+                <div className="text-2xl mb-3">🚫</div>
+                <h4 className="nohemi-black text-white text-lg mb-2">
+                  1. Ești invizibil pentru clienți noi
+                </h4>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  Fără un website modern și o prezență activă în social media,
+                  afacerea ta nici nu există în ochii celor care te caută
+                  online.
+                </p>
               </div>
-
-              {/* Toggle pentru limbă */}
-              <div className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-xl">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-6 bg-white/20 rounded-full p-1 flex items-center">
-                    <div className="w-4 h-4 bg-white rounded-full shadow-lg"></div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <span className="text-white font-medium">RO</span>
-                    <span className="text-white/60 font-medium">EN</span>
-                  </div>
-                </div>
+              <div className="bg-gradient-to-b from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card">
+                <div className="text-2xl mb-3">💔</div>
+                <h4 className="nohemi-black text-white text-lg mb-2">
+                  2. Pierzi încrederea celor care te găsesc
+                </h4>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  Un brand incoerent, un site neprofesionist sau lipsa
+                  activității transmit nesiguranță. Clienții aleg concurența,
+                  chiar dacă produsele sau serviciile tale sunt mai bune.
+                </p>
+              </div>
+              <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card">
+                <div className="text-2xl mb-3">⏳</div>
+                <h4 className="nohemi-black text-white text-lg mb-2">
+                  3. Ratezi oportunități de creștere
+                </h4>
+                <p className="text-white/80 text-sm leading-relaxed">
+                  Fără o strategie digitală, pierzi timp și bani pe tactici care
+                  nu dau rezultate. Între timp, competiția ta avansează și
+                  câștigă piața.
+                </p>
               </div>
             </div>
           </div>
         </FadeInElement>
+
+        {/* Secțiunea de preferințe a fost eliminată; toggle-ul de limbă e în navbar */}
 
         {/* Linie subțire cu umbră */}
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
@@ -375,8 +384,8 @@ export default function Home() {
         {/* Secțiunea "Despre noi" */}
         <FadeInElement delay={400}>
           <div id="despre" className="text-center mb-8">
-            <h3 className="nohemi-heading text-xl md:text-2xl text-white mb-8">
-              Despre noi
+            <h3 className="nohemi-heading text-2xl md:text-4xl text-white mb-8">
+              Afacerea ta merită vizibilitate, încredere și creștere.
             </h3>
           </div>
 
@@ -384,22 +393,71 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-24">
             {/* Card 1 - Fără CMS */}
             <FadeInElement delay={100} direction="up">
-              <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
-                <div className="text-center">
-                  <h4 className="nohemi-medium text-base md:text-lg text-white leading-tight">
-                    <span className="text-[#ffed88] font-semibold">Nu</span>{" "}
-                    folosim CMS-uri,{" "}
-                    <span className="text-[#ffed88] font-semibold">nu</span>{" "}
-                    folosim template-uri, facem doar site-uri scrise întregime
-                    de noi în cod ca designul tău să fie{" "}
-                    <span className="text-[#ffed88] font-semibold">unic</span>{" "}
-                    și personalizat
-                  </h4>
+              <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card min-h-[240px]">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2"
+                      stroke="#ffed88"
+                      className="w-5 h-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 12.75l6 6 9-13.5"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="nohemi-black text-white text-lg mb-1">
+                      🛠️ Configurăm soluții personalizate pentru afacerea ta
+                    </h5>
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      Fiecare business are particularități unice – și soluțiile
+                      noastre sunt create să ți se potrivească perfect.
+                    </p>
+                  </div>
                 </div>
               </div>
             </FadeInElement>
 
-            {/* Card 2 - Proiecte Finalizate */}
+            {/* Beneficiu 2 */}
+            <FadeInElement delay={100} direction="up">
+              <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card min-h-[240px]">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2"
+                      stroke="#ffed88"
+                      className="w-5 h-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 12.75l6 6 9-13.5"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="nohemi-black text-white text-lg mb-1">
+                      💻 Site-uri și aplicații web realizate de la 0
+                    </h5>
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      Dezvoltate pe măsura brandului tău, cu design modern și
+                      funcționalitate impecabilă.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </FadeInElement>
+
+            {/* Beneficiu 3 */}
             <FadeInElement delay={200} direction="up">
               <div className="bg-gradient-to-b from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
                 <div className="text-center">
@@ -428,52 +486,112 @@ export default function Home() {
                       />
                     </svg>
                   </div>
+                  <div>
+                    <h5 className="nohemi-black text-white text-lg mb-1">
+                      ⏱️ Salvezi timp prețios
+                    </h5>
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      Ne ocupăm de tot ce ține de imaginea ta în online, astfel
+                      încât tu să te concentrezi pe creșterea afacerii.
+                    </p>
+                  </div>
                 </div>
               </div>
             </FadeInElement>
 
             {/* Card 3 - Experiență */}
             <FadeInElement delay={300} direction="up">
-              <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
-                <div className="text-center">
-                  <p className="text-[#ffed88] text-base font-medium mb-3">
-                    Experiență
-                  </p>
-                  <h4 className="nohemi-black text-2xl text-white">5+ Ani</h4>
+              <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card min-h-[240px]">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2"
+                      stroke="#ffed88"
+                      className="w-5 h-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 12.75l6 6 9-13.5"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="nohemi-black text-white text-lg mb-1">
+                      🧠 Experiență în 10+ domenii de activitate
+                    </h5>
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      Am lucrat cu business-uri din multiple industrii și știm
+                      ce funcționează pentru fiecare.
+                    </p>
+                  </div>
                 </div>
               </div>
             </FadeInElement>
 
             {/* Card 4 - Clienți Mulțumiți */}
             <FadeInElement delay={400} direction="up">
-              <div className="bg-gradient-to-tr from-black/50 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
-                <div className="text-center">
-                  <p className="text-[#ffed88] text-base font-medium mb-3">
-                    Clienți mulțumiți
-                  </p>
-                  <h4 className="nohemi-black text-2xl text-white">
-                    150+ Clienți
-                  </h4>
+              <div className="bg-gradient-to-tr from-black/50 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card min-h-[240px]">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2"
+                      stroke="#ffed88"
+                      className="w-5 h-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 12.75l6 6 9-13.5"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="nohemi-black text-white text-lg mb-1">
+                      📈 Strategii de marketing optimizate
+                    </h5>
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      Servicii premium, adaptate la bugetul tău, astfel încât să
+                      obții rezultate fără costuri exagerate.
+                    </p>
+                  </div>
                 </div>
               </div>
             </FadeInElement>
 
             {/* Card 5 - Social Media */}
             <FadeInElement delay={500} direction="up">
-              <div className="bg-gradient-to-t from-black/60 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
-                <div className="text-center">
-                  <p className="text-[#ffed88] text-base font-medium mb-4">
-                    Rezultate social media
-                  </p>
-                  <div className="space-y-2">
-                    <h4 className="nohemi-black text-2xl text-white">
-                      100M+ views
-                    </h4>
-                    <h4 className="nohemi-black text-lg text-white">
-                      50k+ urmăritori
-                    </h4>
-                    <p className="text-[#ffed88] text-sm font-medium">
-                      aduse clienților noștri
+              <div className="bg-gradient-to-tl from-black/50 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card min-h-[240px]">
+                <div className="flex items-start gap-4">
+                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="2"
+                      stroke="#ffed88"
+                      className="w-5 h-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M4.5 12.75l6 6 9-13.5"
+                      />
+                    </svg>
+                  </div>
+                  <div>
+                    <h5 className="nohemi-black text-white text-lg mb-1">
+                      💰 Prețuri accesibile
+                    </h5>
+                    <p className="text-white/80 text-sm leading-relaxed">
+                      Fără promisiuni deșarte. Primești rapoarte clare și o
+                      colaborare bazată pe încredere.
                     </p>
                   </div>
                 </div>
@@ -500,7 +618,8 @@ export default function Home() {
         <FadeInElement delay={600}>
           <div id="servicii" className="text-center mb-8">
             <h3 className="nohemi-heading text-xl md:text-2xl text-white">
-              Serviciile noastre
+              {t("services_t1")}
+              <span className="text-[#ffed88]">{t("services_h1")}</span>
             </h3>
           </div>
 
@@ -520,10 +639,10 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4">
                       <h3 className="text-white text-2xl font-bold mb-2">
-                        WEB DEVELOPMENT
+                        {t("svc_web_title")}
                       </h3>
                       <p className="text-white/80 text-sm font-medium">
-                        MODERN SITES
+                        {t("svc_web_sub")}
                       </p>
                     </div>
                     <div className="absolute top-4 right-4">
@@ -562,10 +681,10 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4">
                       <h3 className="text-white text-2xl font-bold mb-2">
-                        SOCIAL MEDIA
+                        {t("svc_social_title")}
                       </h3>
                       <p className="text-white/80 text-sm font-medium">
-                        STRATEGY
+                        {t("svc_social_sub")}
                       </p>
                     </div>
                     <div className="absolute top-4 right-4">
@@ -604,10 +723,10 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4">
                       <h3 className="text-white text-2xl font-bold mb-2">
-                        BRANDING
+                        {t("svc_brand_title")}
                       </h3>
                       <p className="text-white/80 text-sm font-medium">
-                        IDENTITY
+                        {t("svc_brand_sub")}
                       </p>
                     </div>
                     <div className="absolute top-4 right-4">
@@ -641,7 +760,8 @@ export default function Home() {
         <FadeInElement delay={1000} direction="up">
           <div id="portofoliu" className="text-center mb-8">
             <h3 className="nohemi-heading text-xl md:text-2xl text-white">
-              Portofoliul nostru
+              {t("portfolio_t1")}
+              <span className="text-[#ffed88]">{t("portfolio_h1")}</span>
             </h3>
           </div>
         </FadeInElement>
@@ -652,11 +772,146 @@ export default function Home() {
         {/* Linie subțire cu umbră */}
         <div className="w-32 h-px bg-white/30 mx-auto mt-24 mb-16 shadow-lg shadow-white/20"></div>
 
+        {/* Proces de lucru - 3 pași */}
+        <FadeInElement delay={400}>
+          <div id="despre" className="text-center mb-8">
+            <h3 className="nohemi-heading text-2xl md:text-4xl text-white mb-8">
+              Ideentitatea ta in online incepe acum!
+            </h3>
+          </div>
+        </FadeInElement>
+        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-24 justify-items-center">
+          {/* Pasul 1 */}
+          <FadeInElement delay={1000} direction="up">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="nohemi-black text-2xl text-[#ffed88]">1</span>
+              </div>
+              <h3 className="nohemi-medium text-xl text-white mb-4">
+                Intalnire initiala
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Prezentarea afacerii, nevoile clientului, obiectivele
+                proiectului
+              </p>
+            </div>
+          </FadeInElement>
+
+          {/* Pasul 2 */}
+          <FadeInElement delay={1200} direction="up">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="nohemi-black text-2xl text-[#ffed88]">2</span>
+              </div>
+              <h3 className="nohemi-medium text-xl text-white mb-4">
+                Sedinta de Consultare
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Înțelegem nevoile tale, analizăm concurența și stabilim pasii
+                spre succes
+              </p>
+            </div>
+          </FadeInElement>
+
+          {/* Pasul 3 */}
+          <FadeInElement delay={1400} direction="up">
+            <div className="text-center">
+              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="nohemi-black text-2xl text-[#ffed88]">3</span>
+              </div>
+              <h3 className="nohemi-medium text-xl text-white mb-4">
+                Convertim rezultatele in profit
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                Cu ajutorul strategiilor noastre, creștem vizibilitatea și
+                încrederea în afacerea ta
+              </p>
+            </div>
+          </FadeInElement>
+        </div>
+
+        {/* Linie subțire cu umbră */}
+        <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
+
+        {/* Secțiune explicativă */}
+        <FadeInElement delay={300} direction="up">
+          <div className="max-w-6xl mx-auto px-6 mb-16">
+            <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-8 md:p-12 shadow-[0_0_40px_rgba(255,255,255,0.08)]">
+              <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#ffed88]/10 blur-3xl pointer-events-none"></div>
+              <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-[#ffed88]/10 blur-3xl pointer-events-none"></div>
+              <h3 className="nohemi-heading text-3xl md:text-4xl text-white mb-2 relative z-10">
+                <span className="text-[#ffed88]">Noi înțelegem</span>, să crești
+                o afacere nu este ușor.
+              </h3>
+              <div className="h-px w-16 bg-[#ffed88] mb-6 relative z-10"></div>
+              <div className="space-y-5 relative z-10">
+                <p className="nohemi-medium text-base md:text-lg text-white/85 leading-8">
+                  La Grizzly Media Pro, știm că ești genul de antreprenor care
+                  își dorește să își vadă afacerea crescând și să inspire
+                  încredere clienților. Pentru asta, ai nevoie de o identitate
+                  digitală clară, un site modern și o strategie de marketing
+                  care să aducă rezultate.
+                </p>
+                <p className="nohemi-medium text-base md:text-lg text-white/85 leading-8">
+                  Problema este că, fără o prezență bine construită în online,
+                  rămâi invizibil, pierzi clienți și ai impresia că business-ul
+                  stagnează. Știm cât de frustrant și descurajator poate fi.
+                </p>
+                <p className="nohemi-medium text-base md:text-lg text-white/85 leading-8">
+                  Noi credem că nicio afacere nu ar trebui să piardă
+                  oportunități doar pentru că nu are imaginea digitală
+                  potrivită. Înțelegem provocările prin care treci și știm cât
+                  de greu este să faci totul singur.
+                </p>
+                <p className="nohemi-medium text-base md:text-lg text-white/85 leading-8">
+                  De aceea, configurăm soluții personalizate, dezvoltăm site-uri
+                  și aplicații web de la zero, creăm strategii de marketing
+                  optimizate și ne ocupăm de întreaga ta prezență online, ca tu
+                  să îți salvezi timpul și să te concentrezi pe creșterea
+                  afacerii.
+                </p>
+                <div className="mt-2">
+                  <p className="nohemi-medium text-base md:text-lg text-white/90 mb-3">
+                    Iată cum funcționează:
+                  </p>
+                  <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <li className="flex items-start gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
+                      <span className="w-7 h-7 rounded-full bg-[#ffed88]/20 text-[#ffed88] nohemi-black flex items-center justify-center text-sm">
+                        1
+                      </span>
+                      <span className="text-white/85 text-sm md:text-base">
+                        Ne contactezi și ne spui obiectivele tale
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
+                      <span className="w-7 h-7 rounded-full bg-[#ffed88]/20 text-[#ffed88] nohemi-black flex items-center justify-center text-sm">
+                        2
+                      </span>
+                      <span className="text-white/85 text-sm md:text-base">
+                        Îți propunem soluția potrivită
+                      </span>
+                    </li>
+                    <li className="flex items-start gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
+                      <span className="w-7 h-7 rounded-full bg-[#ffed88]/20 text-[#ffed88] nohemi-black flex items-center justify-center text-sm">
+                        3
+                      </span>
+                      <span className="text-white/85 text-sm md:text-base">
+                        Implementăm și monitorizăm pentru rezultate reale
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </FadeInElement>
+
         {/* Secțiunea de contact */}
         <FadeInElement delay={1100} direction="up">
           <div id="contact" className="text-center mb-12">
             <h3 className="nohemi-heading text-2xl md:text-3xl text-white mb-12">
-              Contacteaza-ne
+              {t("contact_t1")}
+              <span className="text-[#ffed88]">{t("contact_h1")}</span>
             </h3>
           </div>
         </FadeInElement>
@@ -684,11 +939,11 @@ export default function Home() {
                     </svg>
                   </div>
                   <h4 className="nohemi-medium text-base md:text-lg text-white leading-tight mb-4">
-                    Telefon
+                    {t("label_phone")}
                   </h4>
                   <div className="flex justify-center mt-4">
                     <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg flex items-center justify-center gap-3">
-                      <span>Contactează-ne</span>
+                      <span>{t("btn_contact_us")}</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -729,11 +984,11 @@ export default function Home() {
                     </svg>
                   </div>
                   <h4 className="nohemi-medium text-base md:text-lg text-white leading-tight mb-4">
-                    Email
+                    {t("label_email")}
                   </h4>
                   <div className="flex justify-center mt-4">
                     <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg flex items-center justify-center gap-3">
-                      <span>Contactează-ne</span>
+                      <span>{t("btn_contact_us")}</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -768,11 +1023,11 @@ export default function Home() {
                     </svg>
                   </div>
                   <h4 className="nohemi-medium text-base md:text-lg text-white leading-tight mb-4">
-                    WhatsApp
+                    {t("label_whatsapp")}
                   </h4>
                   <div className="flex justify-center mt-4">
                     <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg flex items-center justify-center gap-3">
-                      <span>Contactează-ne</span>
+                      <span>{t("btn_contact_us")}</span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -798,7 +1053,7 @@ export default function Home() {
           <FadeInElement delay={1500} direction="up">
             <div className="text-center">
               <h4 className="nohemi-medium text-2xl text-white mb-8">
-                Ne poti urmari si pe:
+                {t("social_follow")}
               </h4>
 
               <div className="flex justify-center space-x-8">
@@ -883,8 +1138,7 @@ export default function Home() {
                   />
                 </div>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  Transformăm viziunea ta în realitate digitală cu design
-                  personalizat și tehnologii de ultimă generație.
+                  {t("footer_tagline")}
                 </p>
               </div>
 
@@ -893,32 +1147,32 @@ export default function Home() {
                 {/* Quick Links */}
                 <div>
                   <h4 className="nohemi-medium text-white text-sm mb-4">
-                    Navigare
+                    {t("footer_nav_label")}
                   </h4>
                   <div className="grid grid-cols-2 gap-2">
                     <a
                       href="#despre"
                       className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                     >
-                      Despre noi
+                      {t("footer_nav_about")}
                     </a>
                     <a
                       href="#servicii"
                       className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                     >
-                      Servicii
+                      {t("footer_nav_services")}
                     </a>
                     <a
                       href="#portofoliu"
                       className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                     >
-                      Portofoliu
+                      {t("footer_nav_portfolio")}
                     </a>
                     <a
                       href="#contact"
                       className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                     >
-                      Contact
+                      {t("footer_nav_contact")}
                     </a>
                   </div>
                 </div>
@@ -926,7 +1180,7 @@ export default function Home() {
                 {/* Contact și Social */}
                 <div>
                   <h4 className="nohemi-medium text-white text-sm mb-4">
-                    Contact
+                    {t("footer_contact_label")}
                   </h4>
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
@@ -969,7 +1223,7 @@ export default function Home() {
                 {/* Social Media */}
                 <div>
                   <h4 className="nohemi-medium text-white text-sm mb-4">
-                    Social Media
+                    {t("footer_social_label")}
                   </h4>
                   <div className="flex space-x-3">
                     <a
@@ -1028,7 +1282,7 @@ export default function Home() {
             {/* Bottom section with legal links */}
             <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10">
               <p className="text-white/50 text-sm mb-4 md:mb-0">
-                © 2024 Grizzly Media Pro. Toate drepturile rezervate.
+                {t("footer_rights")}
               </p>
 
               <div className="flex flex-wrap gap-4 text-sm">
@@ -1036,19 +1290,19 @@ export default function Home() {
                   href="/politica-confidentialitate"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
                 >
-                  Politica de Confidențialitate
+                  {t("privacy_policy")}
                 </a>
                 <a
                   href="/politica-cookies"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
                 >
-                  Politica de Cookies
+                  {t("cookies_policy")}
                 </a>
                 <a
                   href="/termeni-conditii"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
                 >
-                  Termeni și Condiții
+                  {t("terms_conditions")}
                 </a>
                 <a
                   href="https://anpc.ro"
@@ -1056,7 +1310,7 @@ export default function Home() {
                   rel="noopener noreferrer"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
                 >
-                  ANPC
+                  {t("anpc_label")}
                 </a>
               </div>
             </div>

@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import FadeInElement from "../components/FadeInElement";
 import { useState, useEffect } from "react";
+import { useLanguage } from "../i18n/LanguageProvider";
 import {
   SiReact,
   SiNextdotjs,
@@ -21,6 +23,7 @@ import {
 } from "react-icons/si";
 
 export default function DezvoltareWeb() {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -93,30 +96,10 @@ export default function DezvoltareWeb() {
                 isScrolled ? "opacity-100" : "opacity-0"
               }`}
             >
-              <a
-                href="/#servicii"
-                className="text-white/80 hover:text-white transition-colors duration-300"
-              >
-                Servicii
-              </a>
-              <a
-                href="/#portofoliu"
-                className="text-white/80 hover:text-white transition-colors duration-300"
-              >
-                Portofoliu
-              </a>
-              <a
-                href="/#despre"
-                className="text-white/80 hover:text-white transition-colors duration-300"
-              >
-                Despre
-              </a>
-              <a
-                href="/#contact"
-                className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
-              >
-                Contact
-              </a>
+              <a href="/#servicii" className="text-white/80 hover:text-white transition-colors duration-300">{t("nav_services")}</a>
+              <a href="/#portofoliu" className="text-white/80 hover:text-white transition-colors duration-300">{t("nav_portfolio")}</a>
+              <a href="/#despre" className="text-white/80 hover:text-white transition-colors duration-300">{t("nav_about")}</a>
+              <a href="/#contact" className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]">{t("nav_contact")}</a>
             </div>
 
             {/* Hamburger menu pentru mobile */}
@@ -239,12 +222,7 @@ export default function DezvoltareWeb() {
               >
                 Despre
               </a>
-              <a
-                href="/#contact"
-                className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
-              >
-                Contact
-              </a>
+              <a href="/#contact" className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]">{t("cta_schedule")}</a>
             </div>
 
             {/* Hamburger menu pentru mobile */}
@@ -273,25 +251,25 @@ export default function DezvoltareWeb() {
           </div>
         </header>
 
+        
+
         {/* Conținut centrat în partea de sus */}
         <div className="flex-1 flex items-center justify-center relative z-10">
           <div className="text-center px-6 max-w-6xl mx-auto">
             <h1 className="nohemi-heading text-4xl md:text-6xl text-white mb-6 leading-tight">
-              Dezvoltare <span className="text-[#ffed88]">Web</span> <br />
-              <span className="text-[#ffed88]">Modernă</span> și{" "}
-              <span className="text-[#ffed88]">Personalizată</span>
+              {t("devweb_hero_t1")}<span className="text-[#ffed88]">{t("devweb_hero_h1")}</span> <br />
+              <span className="text-[#ffed88]">{t("devweb_hero_h2")}</span>{t("devweb_hero_t3")}<span className="text-[#ffed88]">{t("devweb_hero_h3")}</span>
             </h1>
             <p className="nohemi-medium text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto">
-              Transformăm viziunea ta într-un site web modern, rapid și
-              optimizat pentru conversii
+              {t("devweb_hero_p")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
-                Începe Proiectul
-              </button>
-              <button className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
-                Vezi Portofoliul
-              </button>
+              <Link href="/#contact" className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
+                {t("devweb_cta_start")}
+              </Link>
+              <Link href="/#portofoliu" className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
+                {t("devweb_cta_portfolio")}
+              </Link>
             </div>
           </div>
         </div>
@@ -318,12 +296,11 @@ export default function DezvoltareWeb() {
         <FadeInElement delay={0}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Serviciile Noastre de{" "}
-              <span className="text-[#ffed88]">Web Development</span>
+              {t("devweb_services_h_t1")} 
+              <span className="text-[#ffed88]">{t("devweb_services_h_h1")}</span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              Oferim soluții complete de dezvoltare web, de la site-uri simple
-              până la aplicații complexe
+              {t("devweb_services_desc")}
             </p>
           </div>
         </FadeInElement>
@@ -350,18 +327,17 @@ export default function DezvoltareWeb() {
                   </svg>
                 </div>
                 <h3 className="nohemi-medium text-xl text-white mb-3">
-                  Site-uri de Prezentare
+                  {t("devweb_card_corp_title")}
                 </h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Site-uri profesionale pentru companii, cu design modern și
-                  funcționalități avansate
+                  {t("devweb_card_corp_desc")}
                 </p>
               </div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li>• Design responsive și modern</li>
-                <li>• Optimizare SEO</li>
-                <li>• Integrare cu sisteme de management</li>
-                <li>• Suport tehnic continuu</li>
+                <li>{t("devweb_card_corp_li1")}</li>
+                <li>{t("devweb_card_corp_li2")}</li>
+                <li>{t("devweb_card_corp_li3")}</li>
+                <li>{t("devweb_card_corp_li4")}</li>
               </ul>
             </div>
           </FadeInElement>
@@ -386,18 +362,17 @@ export default function DezvoltareWeb() {
                   </svg>
                 </div>
                 <h3 className="nohemi-medium text-xl text-white mb-3">
-                  E-commerce
+                  {t("devweb_card_ecom_title")}
                 </h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Magazin online complet cu sistem de plăți, gestionare produse
-                  și analytics
+                  {t("devweb_card_ecom_desc")}
                 </p>
               </div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li>• Sistem de plăți securizat</li>
-                <li>• Gestionare produse și stoc</li>
-                <li>• Dashboard administrativ</li>
-                <li>• Integrare cu transportatori</li>
+                <li>{t("devweb_card_ecom_li1")}</li>
+                <li>{t("devweb_card_ecom_li2")}</li>
+                <li>{t("devweb_card_ecom_li3")}</li>
+                <li>{t("devweb_card_ecom_li4")}</li>
               </ul>
             </div>
           </FadeInElement>
@@ -422,18 +397,17 @@ export default function DezvoltareWeb() {
                   </svg>
                 </div>
                 <h3 className="nohemi-medium text-xl text-white mb-3">
-                  Web/Mobile
+                  {t("devweb_card_app_title")}
                 </h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Aplicații web complexe și personalizate pentru nevoile
-                  specifice ale afacerii tale
+                  {t("devweb_card_app_desc")}
                 </p>
               </div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li>• Aplicații custom</li>
-                <li>• API-uri și integrații</li>
-                <li>• Baze de date complexe</li>
-                <li>• Scalabilitate avansată</li>
+                <li>{t("devweb_card_app_li1")}</li>
+                <li>{t("devweb_card_app_li2")}</li>
+                <li>{t("devweb_card_app_li3")}</li>
+                <li>{t("devweb_card_app_li4")}</li>
               </ul>
             </div>
           </FadeInElement>
@@ -446,12 +420,11 @@ export default function DezvoltareWeb() {
         <FadeInElement delay={800}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Procesul Nostru de{" "}
-              <span className="text-[#ffed88]">Dezvoltare</span>
+              {t("devweb_process_h_t1")}
+              <span className="text-[#ffed88]">{t("devweb_process_h_h1")}</span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              O metodologie clară și transparentă pentru a transforma ideea ta
-              în realitate digitală
+              {t("devweb_process_desc")}
             </p>
           </div>
         </FadeInElement>
@@ -465,11 +438,10 @@ export default function DezvoltareWeb() {
                 <span className="nohemi-black text-2xl text-[#ffed88]">1</span>
               </div>
               <h3 className="nohemi-medium text-xl text-white mb-4">
-                Consultare
+                {t("devweb_step1_title")}
               </h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Înțelegem nevoile tale, analizăm concurența și stabilim
-                obiectivele proiectului
+                {t("devweb_step1_desc")}
               </p>
             </div>
           </FadeInElement>
@@ -480,11 +452,8 @@ export default function DezvoltareWeb() {
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">2</span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">Design</h3>
-              <p className="text-white/70 text-sm leading-relaxed">
-                Creăm mockup-uri și prototipuri interactive pentru a vizualiza
-                rezultatul final
-              </p>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("devweb_step2_title")}</h3>
+              <p className="text-white/70 text-sm leading-relaxed">{t("devweb_step2_desc")}</p>
             </div>
           </FadeInElement>
 
@@ -495,11 +464,10 @@ export default function DezvoltareWeb() {
                 <span className="nohemi-black text-2xl text-[#ffed88]">3</span>
               </div>
               <h3 className="nohemi-medium text-xl text-white mb-4">
-                Dezvoltare
+                {t("devweb_step3_title")}
               </h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Programăm site-ul folosind tehnologii moderne și optimizăm
-                pentru performanță
+                {t("devweb_step3_desc")}
               </p>
             </div>
           </FadeInElement>
@@ -510,10 +478,9 @@ export default function DezvoltareWeb() {
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">4</span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">Lansare</h3>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("devweb_step4_title")}</h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Deployăm site-ul, testăm funcționalitățile și oferim suport
-                post-lansare
+                {t("devweb_step4_desc")}
               </p>
             </div>
           </FadeInElement>
@@ -526,11 +493,10 @@ export default function DezvoltareWeb() {
         <FadeInElement delay={1800}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Tehnologiile <span className="text-[#ffed88]">Noastre</span>
+              {t("devweb_tech_h_t1")}<span className="text-[#ffed88]">{t("devweb_tech_h_h1")}</span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              Folosim cele mai moderne tehnologii pentru a crea site-uri rapide,
-              securizate și scalabile
+              {t("devweb_tech_desc")}
             </p>
           </div>
         </FadeInElement>
@@ -618,19 +584,17 @@ export default function DezvoltareWeb() {
         <FadeInElement delay={2200}>
           <div className="text-center mb-24">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Gata să începem <span className="text-[#ffed88]">proiectul</span>{" "}
-              tău?
+              {t("devweb_cta_h_t1")}<span className="text-[#ffed88]">{t("devweb_cta_h_h1")}</span>{t("devweb_cta_h_t2")}
             </h2>
             <p className="nohemi-medium text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-              Contactează-ne pentru o consultație gratuită și să discutăm despre
-              cum putem transforma viziunea ta în realitate digitală
+              {t("devweb_cta_p")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
-                Contactează-ne Acum
+                {t("devweb_cta_primary")}
               </button>
               <button className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
-                Vezi Portofoliul
+                {t("devweb_cta_secondary")}
               </button>
             </div>
           </div>
