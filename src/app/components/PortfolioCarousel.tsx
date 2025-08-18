@@ -1,9 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { useLanguage } from "../i18n/LanguageProvider";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 export default function PortfolioCarousel() {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [slideDirection, setSlideDirection] = useState<"left" | "right" | null>(
     null
@@ -63,40 +65,40 @@ export default function PortfolioCarousel() {
   };
 
   const tabs = [
-    { id: "pagini-prezentare", label: "Pagini de prezentare" },
-    { id: "magazine-online", label: "Magazine online" },
-    { id: "aplicatii", label: "Aplicații web/mobile" },
-    { id: "social-media", label: "Rezultate social media" },
-    { id: "altele", label: "Altele" },
+    { id: "pagini-prezentare", label: t("tab_pages") },
+    { id: "magazine-online", label: t("tab_shops") },
+    { id: "aplicatii", label: t("tab_apps") },
+    { id: "social-media", label: t("tab_social") },
+    { id: "altele", label: t("tab_other") },
   ];
 
   const slides = [
     {
-      title: "Vera Papara Psiholog",
-      subtitle: "Site pentru psiholog",
+      title: t("slide_vera_title"),
+      subtitle: t("slide_vera_subtitle"),
       image: "/verasite.png",
-      description: "Site profesional pentru cabinetul de psihologie.",
+      description: t("slide_vera_desc"),
       category: "pagini-prezentare",
     },
     {
-      title: "CMD External Group",
-      subtitle: "Web design + Official Event Presentation",
+      title: t("slide_cmd_title"),
+      subtitle: t("slide_cmd_subtitle"),
       image: "/cmdsite.png",
-      description: "Professional web design and development services.",
+      description: t("slide_cmd_desc"),
       category: "pagini-prezentare",
     },
     {
-      title: "CursPlus",
-      subtitle: "Landing page",
+      title: t("slide_curs_title"),
+      subtitle: t("slide_curs_subtitle"),
       image: "/cursplussite.png",
-      description: "Educational platform and course management system.",
+      description: t("slide_curs_desc"),
       category: "pagini-prezentare",
     },
     {
-      title: "HRZ Media",
-      subtitle: "Web design & branding",
+      title: t("slide_hrz_title"),
+      subtitle: t("slide_hrz_subtitle"),
       image: "/hrzmediasite.png",
-      description: "Creative media agency and branding solutions.",
+      description: t("slide_hrz_desc"),
       category: "pagini-prezentare",
     },
   ];
@@ -261,9 +263,7 @@ export default function PortfolioCarousel() {
                   {slide.description}
                 </p>
                 <div className="flex items-center justify-center gap-2">
-                  <span className="text-[#ffed88] text-xs sm:text-sm font-medium">
-                    View
-                  </span>
+                  <span className="text-[#ffed88] text-xs sm:text-sm font-medium">{t("view_label")}</span>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -289,7 +289,7 @@ export default function PortfolioCarousel() {
           <button
             onClick={prevSlide}
             className="portfolio-nav-button w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-110"
-            aria-label="Previous slide"
+            aria-label={t("prev_slide")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -323,7 +323,7 @@ export default function PortfolioCarousel() {
           <button
             onClick={nextSlide}
             className="portfolio-nav-button w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-110"
-            aria-label="Next slide"
+            aria-label={t("next_slide")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

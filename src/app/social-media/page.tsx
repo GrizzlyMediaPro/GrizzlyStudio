@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import FadeInElement from "../components/FadeInElement";
 import { useState, useEffect } from "react";
+import CountUp from "../components/CountUp";
 import {
   SiInstagram,
   SiTiktok,
@@ -13,8 +15,10 @@ import {
   SiSnapchat,
   SiPinterest,
 } from "react-icons/si";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function SocialMedia() {
+  const { t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -89,27 +93,27 @@ export default function SocialMedia() {
             >
               <a
                 href="/#servicii"
-                className="text-white/80 hover:text-white transition-colors duration-300"
+                className="text-white/80 hover:text-white transition-colors durataion-300"
               >
-                Servicii
+                {t("nav_services")}
               </a>
               <a
                 href="/#portofoliu"
-                className="text-white/80 hover:text-white transition-colors duration-300"
+                className="text-white/80 hover:text-white transition-colors durataion-300"
               >
-                Portofoliu
+                {t("nav_portfolio")}
               </a>
               <a
                 href="/#despre"
-                className="text-white/80 hover:text-white transition-colors duration-300"
+                className="text-white/80 hover:text-white transition-colors durataion-300"
               >
-                Despre
+                {t("nav_about")}
               </a>
               <a
                 href="/#contact"
                 className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
               >
-                Contact
+                {t("nav_contact")}
               </a>
             </div>
 
@@ -159,28 +163,28 @@ export default function SocialMedia() {
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
-                Servicii
+                {t("nav_services")}
               </a>
               <a
                 href="/#portofoliu"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
-                Portofoliu
+                {t("nav_portfolio")}
               </a>
               <a
                 href="/#despre"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
-                Despre
+                {t("nav_about")}
               </a>
               <a
                 href="/#contact"
                 onClick={closeMobileMenu}
                 className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8"
               >
-                Contact
+                {t("nav_contact")}
               </a>
             </div>
           </div>
@@ -219,25 +223,25 @@ export default function SocialMedia() {
                 href="/#servicii"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Servicii
+                {t("nav_services")}
               </a>
               <a
                 href="/#portofoliu"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Portofoliu
+                {t("nav_portfolio")}
               </a>
               <a
                 href="/#despre"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Despre
+                {t("nav_about")}
               </a>
               <a
                 href="/#contact"
                 className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
               >
-                Contact
+                {t("nav_contact")}
               </a>
             </div>
 
@@ -271,22 +275,20 @@ export default function SocialMedia() {
         <div className="flex-1 flex items-center justify-center relative z-10">
           <div className="text-center px-6 max-w-6xl mx-auto">
             <h1 className="nohemi-heading text-4xl md:text-6xl text-white mb-6 leading-tight">
-              Social Media <span className="text-[#ffed88]">Marketing</span>{" "}
+              {t("social_hero_t1")}<span className="text-[#ffed88]">{t("social_hero_h1")}</span>{" "}
               <br />
-              <span className="text-[#ffed88]">Strategic</span> și{" "}
-              <span className="text-[#ffed88]">Creativ</span>
+              <span className="text-[#ffed88]">{t("social_hero_h2")}</span>{t("social_hero_t2")}<span className="text-[#ffed88]">{t("social_hero_h3")}</span>
             </h1>
             <p className="nohemi-medium text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto">
-              Transformăm brandul tău într-o prezență digitală puternică cu
-              strategii personalizate și conținut viral
+              {t("social_hero_p")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
-                Începe Campania
-              </button>
-              <button className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
-                Vezi Rezultatele
-              </button>
+              <Link href="/#contact" className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
+                {t("social_hero_cta_start")}
+              </Link>
+              <Link href="/#portofoliu" className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
+                {t("social_hero_cta_results")}
+              </Link>
             </div>
           </div>
         </div>
@@ -313,12 +315,10 @@ export default function SocialMedia() {
         <FadeInElement delay={0}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Serviciile Noastre de{" "}
-              <span className="text-[#ffed88]">Social Media</span>
+              {t("social_services_h_t1")}<span className="text-[#ffed88]">{t("social_services_h_h1")}</span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              Oferim soluții complete de marketing pe social media, de la
-              strategie până la conținut viral
+              {t("social_services_desc")}
             </p>
           </div>
         </FadeInElement>
@@ -345,18 +345,17 @@ export default function SocialMedia() {
                   </svg>
                 </div>
                 <h3 className="nohemi-medium text-xl text-white mb-3">
-                  Strategie și Planificare
+                  {t("social_card_strategy_title")}
                 </h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Dezvoltăm strategii personalizate pentru fiecare platformă
-                  social media
+                  {t("social_card_strategy_desc")}
                 </p>
               </div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li>• Analiză concurență și piață</li>
-                <li>• Planificare editorială</li>
-                <li>• Strategii de creștere</li>
-                <li>• Calendar de conținut</li>
+                <li>{t("social_card_strategy_li1")}</li>
+                <li>{t("social_card_strategy_li2")}</li>
+                <li>{t("social_card_strategy_li3")}</li>
+                <li>{t("social_card_strategy_li4")}</li>
               </ul>
             </div>
           </FadeInElement>
@@ -380,19 +379,16 @@ export default function SocialMedia() {
                     />
                   </svg>
                 </div>
-                <h3 className="nohemi-medium text-xl text-white mb-3">
-                  Creare Conținut
-                </h3>
+                <h3 className="nohemi-medium text-xl text-white mb-3">{t("social_card_content_title")}</h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Conținut creativ și viral adaptat pentru fiecare platformă
-                  social media
+                  {t("social_card_content_desc")}
                 </p>
               </div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li>• Postări și stories</li>
-                <li>• Video-uri și reels</li>
-                <li>• Design grafic</li>
-                <li>• Conținut viral</li>
+                <li>{t("social_card_content_li1")}</li>
+                <li>{t("social_card_content_li2")}</li>
+                <li>{t("social_card_content_li3")}</li>
+                <li>{t("social_card_content_li4")}</li>
               </ul>
             </div>
           </FadeInElement>
@@ -416,19 +412,16 @@ export default function SocialMedia() {
                     />
                   </svg>
                 </div>
-                <h3 className="nohemi-medium text-xl text-white mb-3">
-                  Gestionare și Monitorizare
-                </h3>
+                <h3 className="nohemi-medium text-xl text-white mb-3">{t("social_card_manage_title")}</h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Gestionăm toate conturile tale și monitorizăm performanța în
-                  timp real
+                  {t("social_card_manage_desc")}
                 </p>
               </div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li>• Gestionare conturi</li>
-                <li>• Răspuns comentarii</li>
-                <li>• Rapoarte performanță</li>
-                <li>• Optimizare continuă</li>
+                <li>{t("social_card_manage_li1")}</li>
+                <li>{t("social_card_manage_li2")}</li>
+                <li>{t("social_card_manage_li3")}</li>
+                <li>{t("social_card_manage_li4")}</li>
               </ul>
             </div>
           </FadeInElement>
@@ -441,12 +434,9 @@ export default function SocialMedia() {
         <FadeInElement delay={800}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Platformele <span className="text-[#ffed88]">Noastre</span>
+              {t("social_platforms_h_t1")}<span className="text-[#ffed88]">{t("social_platforms_h_h1")}</span>
             </h2>
-            <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              Lucrăm cu toate platformele sociale pentru a-ți maximiza prezența
-              digitală
-            </p>
+            <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">{t("social_platforms_desc")}</p>
           </div>
         </FadeInElement>
 
@@ -508,78 +498,63 @@ export default function SocialMedia() {
         <FadeInElement delay={1200}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Rezultatele <span className="text-[#ffed88]">Noastre</span>
+              {t("social_results_h_t1")}<span className="text-[#ffed88]">{t("social_results_h_h1")}</span>
             </h2>
-            <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              Transformăm brandurile în influențatori digitali cu rezultate
-              măsurabile
-            </p>
+            <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">{t("social_results_desc")}</p>
           </div>
         </FadeInElement>
 
         {/* Grid cu rezultate */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
           {/* Rezultat 1 */}
-          <FadeInElement delay={1400} direction="up">
+          <FadeInElement delay={200} direction="up">
             <div className="text-center">
-              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
-                  100M+
+                  <CountUp end={10000000} suffix="+" />
                 </span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">Views</h3>
-              <p className="text-white/70 text-sm leading-relaxed">
-                Vizualizări generate pentru clienții noștri
-              </p>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("social_res_views_title")}</h3>
+              <p className="text-white/70 text-sm leading-relaxed">{t("social_res_views_desc")}</p>
             </div>
           </FadeInElement>
 
           {/* Rezultat 2 */}
-          <FadeInElement delay={1600} direction="up">
+          <FadeInElement delay={250} direction="up">
             <div className="text-center">
-              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
-                  50k+
+                  <CountUp end={15000} suffix="+" />
                 </span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">
-                Followers
-              </h3>
-              <p className="text-white/70 text-sm leading-relaxed">
-                Urmăritori adăugați clienților noștri
-              </p>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("social_res_followers_title")}</h3>
+              <p className="text-white/70 text-sm leading-relaxed">{t("social_res_followers_desc")}</p>
             </div>
           </FadeInElement>
 
           {/* Rezultat 3 */}
-          <FadeInElement delay={1800} direction="up">
+          <FadeInElement delay={300} direction="up">
             <div className="text-center">
-              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
-                  500%
+                  <CountUp end={200} suffix="%" />
                 </span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">
-                Creștere
-              </h3>
-              <p className="text-white/70 text-sm leading-relaxed">
-                Creștere medie în engagement
-              </p>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("social_res_growth_title")}</h3>
+              <p className="text-white/70 text-sm leading-relaxed">{t("social_res_growth_desc")}</p>
             </div>
           </FadeInElement>
 
           {/* Rezultat 4 */}
-          <FadeInElement delay={2000} direction="up">
+          <FadeInElement delay={350} direction="up">
             <div className="text-center">
-              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
-                  150+
+                    <CountUp end={20} suffix="+" />
                 </span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">Clienți</h3>
-              <p className="text-white/70 text-sm leading-relaxed">
-                Clienți mulțumiți cu rezultate
-              </p>
+              <h3 className="nohemi-medium text-xl text-white mb-4">{t("social_res_clients_title")}</h3>
+              <p className="text-white/70 text-sm leading-relaxed">{t("social_res_clients_desc")}</p>
             </div>
           </FadeInElement>
         </div>
@@ -591,21 +566,16 @@ export default function SocialMedia() {
         <FadeInElement delay={2200}>
           <div className="text-center mb-24">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Gata să începem <span className="text-[#ffed88]">campania</span>{" "}
-              ta?
+              {t("social_cta_h_t1")}<span className="text-[#ffed88]">{t("social_cta_h_h1")}</span>{t("social_cta_h_t2")}
             </h2>
-            <p className="nohemi-medium text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-              Contactează-ne pentru o consultație gratuită și să discutăm despre
-              cum putem transforma brandul tău într-o prezență virală pe social
-              media
-            </p>
+            <p className="nohemi-medium text-lg text-white/80 mb-8 max-w-2xl mx-auto">{t("social_cta_p")}</p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
-                Contactează-ne Acum
-              </button>
-              <button className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
-                Vezi Portofoliul
-              </button>
+              <Link href="/#contact" className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
+                {t("social_cta_primary")}
+              </Link>
+              <Link href="/#portofoliu" className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all durataion-300 border border-white/20 text-lg">
+                {t("social_cta_secondary")}
+              </Link>
             </div>
           </div>
         </FadeInElement>
@@ -625,52 +595,25 @@ export default function SocialMedia() {
                     className="object-contain"
                   />
                 </div>
-                <p className="text-white/60 text-sm leading-relaxed">
-                  Transformăm brandurile în influențatori digitali cu strategii
-                  personalizate și conținut viral.
-                </p>
+                <p className="text-white/60 text-sm leading-relaxed">{t("social_footer_tagline")}</p>
               </div>
 
               {/* Quick links și contact */}
               <div className="flex flex-col sm:flex-row gap-8">
                 {/* Quick Links */}
                 <div>
-                  <h4 className="nohemi-medium text-white text-sm mb-4">
-                    Navigare
-                  </h4>
+                  <h4 className="nohemi-medium text-white text-sm mb-4">{t("footer_nav_label")}</h4>
                   <div className="grid grid-cols-2 gap-2">
-                    <a
-                      href="/#despre"
-                      className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
-                    >
-                      Despre noi
-                    </a>
-                    <a
-                      href="/#servicii"
-                      className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
-                    >
-                      Servicii
-                    </a>
-                    <a
-                      href="/#portofoliu"
-                      className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
-                    >
-                      Portofoliu
-                    </a>
-                    <a
-                      href="/#contact"
-                      className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
-                    >
-                      Contact
-                    </a>
+                    <a href="/#despre" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_about")}</a>
+                    <a href="/#servicii" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_services")}</a>
+                    <a href="/#portofoliu" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_portfolio")}</a>
+                    <a href="/#contact" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_contact")}</a>
                   </div>
                 </div>
 
                 {/* Contact */}
                 <div>
-                  <h4 className="nohemi-medium text-white text-sm mb-4">
-                    Contact
-                  </h4>
+                  <h4 className="nohemi-medium text-white text-sm mb-4">{t("footer_contact_label")}</h4>
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
                       <a
@@ -713,29 +656,12 @@ export default function SocialMedia() {
 
             {/* Bottom section */}
             <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10">
-              <p className="text-white/50 text-sm mb-4 md:mb-0">
-                © 2024 Grizzly Media Pro. Toate drepturile rezervate.
-              </p>
+              <p className="text-white/50 text-sm mb-4 md:mb-0">{t("footer_rights")}</p>
 
               <div className="flex flex-wrap gap-4 text-sm">
-                <a
-                  href="/politica-confidentialitate"
-                  className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
-                >
-                  Politica de Confidențialitate
-                </a>
-                <a
-                  href="/politica-cookies"
-                  className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
-                >
-                  Politica de Cookies
-                </a>
-                <a
-                  href="/termeni-conditii"
-                  className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
-                >
-                  Termeni și Condiții
-                </a>
+                <a href="/politica-confidentialitate" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300">{t("privacy_policy")}</a>
+                <a href="/politica-cookies" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300">{t("cookies_policy")}</a>
+                <a href="/termeni-conditii" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300">{t("terms_conditions")}</a>
               </div>
             </div>
           </div>
