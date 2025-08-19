@@ -69,16 +69,25 @@ export default function PortfolioCarousel() {
     { id: "magazine-online", label: t("tab_shops") },
     { id: "aplicatii", label: t("tab_apps") },
     { id: "social-media", label: t("tab_social") },
-    { id: "altele", label: t("tab_other") },
   ];
 
-  const slides = [
+  type SlideItem = {
+    title: string;
+    subtitle: string;
+    image: string;
+    description: string;
+    category: string;
+    url?: string;
+  };
+
+  const slides: SlideItem[] = [
     {
       title: t("slide_vera_title"),
       subtitle: t("slide_vera_subtitle"),
       image: "/verasite.png",
       description: t("slide_vera_desc"),
       category: "pagini-prezentare",
+      url: "https://www.verapapara.ro/",
     },
     {
       title: t("slide_cmd_title"),
@@ -86,6 +95,7 @@ export default function PortfolioCarousel() {
       image: "/cmdsite.png",
       description: t("slide_cmd_desc"),
       category: "pagini-prezentare",
+      url: "https://www.cmdexternalgroup.ro/",
     },
     {
       title: t("slide_curs_title"),
@@ -93,6 +103,7 @@ export default function PortfolioCarousel() {
       image: "/cursplussite.png",
       description: t("slide_curs_desc"),
       category: "pagini-prezentare",
+      url: "https://www.cursplus.ro/",
     },
     {
       title: t("slide_hrz_title"),
@@ -100,6 +111,105 @@ export default function PortfolioCarousel() {
       image: "/hrzmediasite.png",
       description: t("slide_hrz_desc"),
       category: "pagini-prezentare",
+      url: "https://www.hrz-media.com/",
+    },
+    {
+      title: t("slide_aef_title"),
+      subtitle: t("slide_aef_subtitle"),
+      image: "/aef.png",
+      description: t("slide_aef_desc"),
+      category: "pagini-prezentare",
+      url: "https://aef-one.vercel.app/",
+    },
+    {
+      title: t("slide_comp_title"),
+      subtitle: t("slide_comp_subtitle"),
+      image: "/comp.png",
+      description: t("slide_comp_desc"),
+      category: "pagini-prezentare",
+      url: "https://www.competizione.ro/",
+    },
+    {
+      title: t("slide_abr_title"),
+      subtitle: t("slide_abr_subtitle"),
+      image: "/abr.png",
+      description: t("slide_abr_desc"),
+      category: "pagini-prezentare",
+      url: "https://abraham-asociatii.ro/",
+    },
+    {
+      title: t("slide_agro_title"),
+      subtitle: t("slide_agro_subtitle"),
+      image: "/agro.png",
+      description: t("slide_agro_desc"),
+      category: "pagini-prezentare",
+      url: "https://agrodrona.ro/",
+    },
+    // Magazine online
+    {
+      title: t("slide_screen_title"),
+      subtitle: t("slide_screen_subtitle"),
+      image: "/screen.png",
+      description: t("slide_screen_desc"),
+      category: "magazine-online",
+      url: "https://screenshield.ro/",
+    },
+    {
+      title: t("slide_voc_title"),
+      subtitle: t("slide_voc_subtitle"),
+      image: "/voc.png",
+      description: t("slide_voc_desc"),
+      category: "aplicatii",
+      url: "https://www.voceacampusului.ro/",
+    },
+    // Social media results (rez1 - rez6)
+    {
+      title: t("social_slide_title"),
+      subtitle: "",
+      image: "/rez1.png",
+      description: t("social_slide_desc"),
+      category: "social-media",
+      url: "",
+    },
+    {
+      title: t("social_slide_title"),
+      subtitle: "",
+      image: "/rez2.png",
+      description: t("social_slide_desc"),
+      category: "social-media",
+      url: "",
+    },
+    {
+      title: t("social_slide_title"),
+      subtitle: "",
+      image: "/rez3.png",
+      description: t("social_slide_desc"),
+      category: "social-media",
+      url: "",
+    },
+    {
+      title: t("social_slide_title"),
+      subtitle: "",
+      image: "/rez4.png",
+      description: t("social_slide_desc"),
+      category: "social-media",
+      url: "",
+    },
+    {
+      title: t("social_slide_title"),
+      subtitle: "",
+      image: "/rez5.png",
+      description: t("social_slide_desc"),
+      category: "social-media",
+      url: "",
+    },
+    {
+      title: t("social_slide_title"),
+      subtitle: "",
+      image: "/rez6.png",
+      description: t("social_slide_desc"),
+      category: "social-media",
+      url: "",
     },
   ];
 
@@ -262,23 +372,49 @@ export default function PortfolioCarousel() {
                 <p className="text-white/80 text-xs sm:text-sm mb-3">
                   {slide.description}
                 </p>
-                <div className="flex items-center justify-center gap-2">
-                  <span className="text-[#ffed88] text-xs sm:text-sm font-medium">{t("view_label")}</span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="#ffed88"
-                    className="size-3 sm:size-4"
+                {slide.url ? (
+                  <a
+                    href={slide.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 text-[#ffed88] text-xs sm:text-sm font-medium hover:opacity-80 transition-opacity"
+                    aria-label={`${t("view_label")} ${slide.title}`}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-                    />
-                  </svg>
-                </div>
+                    <span>{t("view_label")}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="#ffed88"
+                      className="size-3 sm:size-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </a>
+                ) : (
+                  <div className="inline-flex items-center justify-center gap-2 text-[#ffed88] text-xs sm:text-sm font-medium opacity-50 cursor-not-allowed select-none">
+                    <span>{t("view_label")}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="#ffed88"
+                      className="size-3 sm:size-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </div>
+                )}
               </div>
             </div>
           ))}
