@@ -3,281 +3,35 @@
 import Image from "next/image";
 import PortfolioCarousel from "./components/PortfolioCarousel";
 import FadeInElement from "./components/FadeInElement";
-import { useState, useEffect } from "react";
+import NavBar from "./components/NavBar";
+
 import { useLanguage } from "./i18n/LanguageProvider";
 
 export default function Home() {
-  const { t, lang, setLang } = useLanguage();
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 100);
-    };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
-  useEffect(() => {
-    // Închide meniul mobil când se face scroll
-    const handleScrollClose = () => {
-      if (isMobileMenuOpen) {
-        setIsMobileMenuOpen(false);
-      }
-    };
-
-    window.addEventListener("scroll", handleScrollClose);
-    return () => window.removeEventListener("scroll", handleScrollClose);
-  }, [isMobileMenuOpen]);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
-  const closeMobileMenu = () => {
-    setIsMobileMenuOpen(false);
-  };
 
   return (
     <div className="min-h-screen bg-black relative">
       {/* Efect de glow în centru */}
       <div className="absolute inset-0 glow-effect pointer-events-none"></div>
 
-      {/* Navbar care apare după scroll */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-700 ease-out ${
-          isScrolled
-            ? "opacity-100 translate-y-0"
-            : "opacity-0 -translate-y-full"
-        }`}
-      >
-        <div
-          className="bg-[#0d0d0e80] border-b border-gray-600/30"
-          style={{
-            WebkitBackdropFilter: "blur(50px)",
-            backdropFilter: "blur(50px)",
-          }}
-        >
-          <div className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
-            {/* Logo în navbar - în stânga */}
-            <div className="flex items-center">
-              <Image
-                src="/grizzlylogo.png"
-                alt="Grizzly Media Pro Logo"
-                width={280}
-                height={65}
-                className="object-contain transition-all duration-500"
-              />
-            </div>
-
-            {/* Meniu în navbar - în dreapta */}
-            <div
-              className={`hidden md:flex items-center space-x-8 transition-all duration-700 ease-out ${
-                isScrolled ? "opacity-100" : "opacity-0"
-              }`}
-            >
-              <a
-                href="#servicii"
-                className="text-white/80 hover:text-white transition-colors duration-300"
-              >
-                {t("nav_services")}
-              </a>
-              <a
-                href="#portofoliu"
-                className="text-white/80 hover:text-white transition-colors duration-300"
-              >
-                {t("nav_portfolio")}
-              </a>
-              <a
-                href="#despre"
-                className="text-white/80 hover:text-white transition-colors duration-300"
-              >
-                {t("nav_about")}
-              </a>
-              <a
-                href="#contact"
-                className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
-              >
-                {t("nav_contact")}
-              </a>
-              {/* Toggle limbă mutat sub navbar */}
-            </div>
-
-            {/* Hamburger menu pentru mobile */}
-            <button
-              onClick={toggleMobileMenu}
-              className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 transition-all duration-700 ease-out"
-            >
-              <span
-                className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
-                }`}
-              ></span>
-              <span
-                className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? "opacity-0" : ""
-                }`}
-              ></span>
-              <span
-                className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
-              ></span>
-            </button>
-          </div>
-        </div>
-      </nav>
+      {/* NavBar component */}
+      <NavBar />
 
      
 
-      {/* Mobile menu overlay */}
-      <div
-        className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ${
-          isMobileMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
-        }`}
-        style={{ top: "80px" }}
-      >
-        {/* Menu content - full screen */}
-        <div
-          className={`absolute inset-0 bg-[#0d0d0e] transform transition-transform duration-300 ${
-            isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"
-          }`}
-        >
-          {/* Menu items */}
-          <div className="flex flex-col justify-center items-center h-full">
-            <div className="flex flex-col space-y-8 text-center">
-              <a
-                href="#servicii"
-                onClick={closeMobileMenu}
-                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
-              >
-                Servicii
-              </a>
-              <a
-                href="#portofoliu"
-                onClick={closeMobileMenu}
-                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
-              >
-                Portofoliu
-              </a>
-              <a
-                href="#despre"
-                onClick={closeMobileMenu}
-                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
-              >
-                Despre
-              </a>
-              <a
-                href="#contact"
-                onClick={closeMobileMenu}
-                className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8"
-              >
-                Programeaza o intalnire!
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
       {/* Hero Fullscreen cu imaginea de contact în partea de jos */}
       <section className="relative h-screen flex flex-col">
-        {/* Header cu logo și meniu - poziționat absolut în partea de sus */}
-        <header
-          className={`absolute top-0 left-0 right-0 z-20 transition-all duration-700 ease-out ${
-            isScrolled ? "p-6 pt-6" : "p-6 pt-8"
-          }`}
-        >
-          <div className="flex items-center justify-between w-full max-w-6xl mx-auto relative">
-            {/* Logo */}
-            <div className="flex items-center">
-              <Image
-                src="/grizzlylogo.png"
-                alt="Grizzly Media Pro Logo"
-                width={280}
-                height={65}
-                className="object-contain transition-all duration-700 ease-out"
-              />
-            </div>
 
-            {/* Meniu în hero - în dreapta */}
-            <div
-              className={`hidden md:flex items-center space-x-8 transition-all duration-700 ease-out ${
-                isScrolled ? "opacity-0" : "opacity-100"
-              }`}
-            >
-              <a
-                href="#servicii"
-                className="text-white/80 hover:text-white transition-colors duration-300"
-              >
-                {t("nav_services")}
-              </a>
-              <a
-                href="#portofoliu"
-                className="text-white/80 hover:text-white transition-colors duration-300"
-              >
-                {t("nav_portfolio")}
-              </a>
-              <a
-                href="#despre"
-                className="text-white/80 hover:text-white transition-colors duration-300"
-              >
-                {t("nav_about")}
-              </a>
-              <a
-                href="#contact"
-                className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
-              >
-                {t("cta_schedule")}
-              </a>
-            </div>
-
-            {/* Hamburger menu pentru mobile - în dreapta ca în navbar */}
-            <button
-              onClick={toggleMobileMenu}
-              className={`md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 transition-all duration-700 ease-out ${
-                isScrolled ? "opacity-0" : "opacity-100"
-              }`}
-            >
-              <span
-                className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
-                }`}
-              ></span>
-              <span
-                className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? "opacity-0" : ""
-                }`}
-              ></span>
-              <span
-                className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
-                  isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
-                }`}
-              ></span>
-            </button>
-          </div>
-        </header>
 
 
         
- {/* Toggle limbă sub navbar, centrat (non-fixed) */}
- <div className="mt-24 flex justify-center z-10">
-        <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-3 py-1 flex items-center gap-2 shadow-[0_0_20px_rgba(255,255,255,0.15)]">
-          <span className={`text-xs font-medium ${lang === "ro" ? "text-white" : "text-white/60"}`}>RO</span>
-          <button
-            onClick={() => setLang(lang === "ro" ? "en" : "ro")}
-            className="w-12 h-7 bg-white/10 border border-white/20 rounded-full p-1 flex items-center hover:bg-white/20 transition"
-            aria-label="Language toggle"
-          >
-            <div className={`w-5 h-5 bg-white rounded-full shadow-lg transition-transform ${lang === "en" ? "translate-x-5" : "translate-x-0"}`}></div>
-          </button>
-          <span className={`text-xs font-medium ${lang === "en" ? "text-white" : "text-white/60"}`}>EN</span>
-        </div>
-      </div>
+
 
 
 
@@ -329,21 +83,21 @@ export default function Home() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 text-left group card-group">
               <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card">
-                <div className="text-2xl mb-3">🚫</div>
+                
                 <h4 className="nohemi-black text-white text-lg mb-2">{t("stake_1_title")}</h4>
                 <p className="text-white/80 text-sm leading-relaxed">
                   {t("stake_1_desc")}
                 </p>
               </div>
               <div className="bg-gradient-to-b from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card">
-                <div className="text-2xl mb-3">💔</div>
+                
                 <h4 className="nohemi-black text-white text-lg mb-2">{t("stake_2_title")}</h4>
                 <p className="text-white/80 text-sm leading-relaxed">
                   {t("stake_2_desc")}
                 </p>
               </div>
               <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card">
-                <div className="text-2xl mb-3">⏳</div>
+                
                 <h4 className="nohemi-black text-white text-lg mb-2">{t("stake_3_title")}</h4>
                 <p className="text-white/80 text-sm leading-relaxed">
                   {t("stake_3_desc")}
@@ -353,7 +107,7 @@ export default function Home() {
           </div>
         </FadeInElement>
 
-        {/* Secțiunea de preferințe a fost eliminată; toggle-ul de limbă e în navbar */}
+
 
         {/* Linie subțire cu umbră */}
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
@@ -374,11 +128,11 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="#ffed88" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l-1.496-3.031m0 0l-3.031-1.496m3.031 1.496l3.031-1.496m-3.031 1.496l-1.496-3.031" />
                     </svg>
                   </div>
                   <div>
-                    <h5 className="nohemi-black text-white text-lg mb-1">🛠️{t("benefit_1_title")}</h5>
+                    <h5 className="nohemi-black text-white text-lg mb-1">{t("benefit_1_title")}</h5>
                     <p className="text-white/80 text-sm leading-relaxed">
                     {t("benefit_1_desc")}
                     </p>
@@ -393,11 +147,11 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="#ffed88" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
                     </svg>
                   </div>
                   <div>
-                    <h5 className="nohemi-black text-white text-lg mb-1">💻{t("benefit_2_title")}</h5>
+                    <h5 className="nohemi-black text-white text-lg mb-1">{t("benefit_2_title")}</h5>
                     <p className="text-white/80 text-sm leading-relaxed">
                       {t("benefit_2_desc")}
                     </p>
@@ -412,11 +166,11 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="#ffed88" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div>
-                    <h5 className="nohemi-black text-white text-lg mb-1">⏱️{t("benefit_3_title")}</h5>
+                    <h5 className="nohemi-black text-white text-lg mb-1">{t("benefit_3_title")}</h5>
                     <p className="text-white/80 text-sm leading-relaxed">
                       {t("benefit_3_desc")}
                     </p>
@@ -431,11 +185,11 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="#ffed88" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
                     </svg>
                   </div>
                   <div>
-                    <h5 className="nohemi-black text-white text-lg mb-1">🧠{t("benefit_4_title")}</h5>
+                    <h5 className="nohemi-black text-white text-lg mb-1">{t("benefit_4_title")}</h5>
                     <p className="text-white/80 text-sm leading-relaxed">
                       {t("benefit_4_desc")}
                     </p>
@@ -450,11 +204,11 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="#ffed88" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a2.25 2.25 0 002.25 2.25l3.75-3.75m-3.75-3.75l-3.75 3.75" />
                     </svg>
                   </div>
                   <div>
-                    <h5 className="nohemi-black text-white text-lg mb-1">📈{t("benefit_5_title")}</h5>
+                    <h5 className="nohemi-black text-white text-lg mb-1">{t("benefit_5_title")}</h5>
                     <p className="text-white/80 text-sm leading-relaxed">
                     {t("benefit_5_desc")}
                     </p>
@@ -469,11 +223,11 @@ export default function Home() {
                 <div className="flex items-start gap-4">
                   <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="#ffed88" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </div>
                   <div>
-                    <h5 className="nohemi-black text-white text-lg mb-1">💰{t("benefit_6_title")}</h5>
+                    <h5 className="nohemi-black text-white text-lg mb-1">{t("benefit_6_title")}</h5>
                     <p className="text-white/80 text-sm leading-relaxed">
                       {t("benefit_6_desc")}
                     </p>

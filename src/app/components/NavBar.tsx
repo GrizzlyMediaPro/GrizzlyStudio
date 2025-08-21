@@ -5,9 +5,10 @@ import { useEffect, useState } from "react";
 import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function NavBar() {
-	const { t } = useLanguage();
+	const { t, lang, setLang } = useLanguage();
 	const [isScrolled, setIsScrolled] = useState(false);
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -25,8 +26,28 @@ export default function NavBar() {
 		return () => window.removeEventListener("scroll", handleScrollClose);
 	}, [isMobileMenuOpen]);
 
+	// Închide dropdown-ul de limbă când se face click în afara lui
+	useEffect(() => {
+		const handleClickOutside = (event: MouseEvent) => {
+			const target = event.target as Element;
+			if (!target.closest('.language-dropdown')) {
+				setIsLanguageDropdownOpen(false);
+			}
+		};
+
+		document.addEventListener('mousedown', handleClickOutside);
+		return () => document.removeEventListener('mousedown', handleClickOutside);
+	}, []);
+
 	const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 	const closeMobileMenu = () => setIsMobileMenuOpen(false);
+
+	const toggleLanguageDropdown = () => setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+
+	const changeLanguage = (newLang: "ro" | "en") => {
+		setLang(newLang);
+		setIsLanguageDropdownOpen(false);
+	};
 
 	return (
 		<>
@@ -68,6 +89,47 @@ export default function NavBar() {
 							>
 								{t("nav_contact")}
 							</a>
+							
+							{/* Buton de limbă cu dropdown */}
+							<div className="relative language-dropdown">
+								<button
+									onClick={toggleLanguageDropdown}
+									className="text-white/80 hover:text-white transition-colors duration-300 flex items-center gap-2"
+									aria-label="Language selector"
+								>
+									<span className="font-medium">{lang === "ro" ? "RO" : "EN"}</span>
+									<svg
+										className={`w-4 h-4 transition-transform duration-300 ${isLanguageDropdownOpen ? "rotate-180" : ""}`}
+										fill="none"
+										stroke="currentColor"
+										viewBox="0 0 24 24"
+									>
+										<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+									</svg>
+								</button>
+								
+								{/* Dropdown pentru limbă */}
+								{isLanguageDropdownOpen && (
+									<div className="absolute top-full right-0 mt-2 bg-[#0d0d0e] border border-white/20 rounded-lg shadow-[0_0_40px_rgba(255,255,255,0.15)] backdrop-blur-md overflow-hidden z-50">
+										<button
+											onClick={() => changeLanguage("ro")}
+											className={`w-full px-4 py-3 text-left hover:bg-white/10 transition-colors duration-200 ${
+												lang === "ro" ? "text-[#ffed88] bg-white/5" : "text-white/80"
+											}`}
+										>
+											RO
+										</button>
+										<button
+											onClick={() => changeLanguage("en")}
+											className={`w-full px-4 py-3 text-left hover:bg-white/10 transition-colors duration-200 ${
+												lang === "en" ? "text-[#ffed88] bg-white/5" : "text-white/80"
+											}`}
+										>
+											EN
+										</button>
+									</div>
+								)}
+							</div>
 						</div>
 
 						<button
@@ -104,6 +166,49 @@ export default function NavBar() {
 							<a href="/#contact" onClick={closeMobileMenu} className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8">
 								{t("cta_schedule")}
 							</a>
+							
+							{/* Buton de limbă pentru mobile */}
+							<div className="mt-8 flex justify-center">
+								<div className="relative language-dropdown">
+									<button
+										onClick={toggleLanguageDropdown}
+										className="text-white/80 hover:text-white transition-colors duration-300 flex items-center gap-2"
+										aria-label="Language selector"
+									>
+										<span className="text-2xl font-medium">{lang === "ro" ? "RO" : "EN"}</span>
+										<svg
+											className={`w-5 h-5 transition-transform duration-300 ${isLanguageDropdownOpen ? "rotate-180" : ""}`}
+											fill="none"
+											stroke="currentColor"
+											viewBox="0 0 24 24"
+										>
+											<path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+										</svg>
+									</button>
+									
+									{/* Dropdown pentru limbă - mobile */}
+									{isLanguageDropdownOpen && (
+										<div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-[#0d0d0e] border border-white/20 rounded-lg shadow-[0_0_40px_rgba(255,255,255,0.15)] backdrop-blur-md overflow-hidden z-50 min-w-[80px]">
+											<button
+												onClick={() => changeLanguage("ro")}
+												className={`w-full px-4 py-3 text-center hover:bg-white/10 transition-colors duration-200 ${
+													lang === "ro" ? "text-[#ffed88] bg-white/5" : "text-white/80"
+												}`}
+											>
+												RO
+											</button>
+											<button
+												onClick={() => changeLanguage("en")}
+												className={`w-full px-4 py-3 text-center hover:bg-white/10 transition-colors duration-200 ${
+													lang === "en" ? "text-[#ffed88] bg-white/5" : "text-white/80"
+												}`}
+											>
+												EN
+											</button>
+										</div>
+									)}
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>

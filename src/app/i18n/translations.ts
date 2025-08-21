@@ -38,7 +38,7 @@ export const translations: TranslationDictionary = {
     ro: "Fără un website modern și o prezență activă în social media, afacerea ta nici nu există în ochii celor care te caută online.",
     en: "Without a modern website and active social media presence, your business doesn't even exist in the eyes of those searching online.",
   },
-  stake_2_title: { ro: "2. Pierzi încrederea celor care te găsesc", en: "2. You lose credibility to those who find you" },
+  stake_2_title: { ro: "2. Pierzi încrederea clientilor", en: "2. You lose faith from clients" },
   stake_2_desc: {
     ro: "Un brand incoerent, un site neprofesionist sau lipsa activității transmit nesiguranță. Clienții aleg concurența, chiar dacă produsele sau serviciile tale sunt mai bune.",
     en: "An inconsistent brand, an unprofessional website, or lack of activity transmit uncertainty. Clients choose the competition, even if your products or services are better.",
