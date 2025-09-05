@@ -8,7 +8,7 @@ interface UseIntersectionObserverOptions {
 
 export const useIntersectionObserver = (options: UseIntersectionObserverOptions = {}) => {
   const [isVisible, setIsVisible] = useState(false);
-  const elementRef = useRef<HTMLElement | null>(null);
+  const elementRef = useRef<HTMLDivElement | null>(null);
 
   const {
     threshold = [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],

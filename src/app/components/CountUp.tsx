@@ -15,7 +15,7 @@ export default function CountUp({ end, durationMs = 2000, suffix = "" }: CountUp
 
   useEffect(() => {
     if (!isVisible) return;
-    let start = 0;
+    const start = 0;
     const startTime = performance.now();
 
     const step = (now: number) => {
@@ -33,7 +33,7 @@ export default function CountUp({ end, durationMs = 2000, suffix = "" }: CountUp
   }, [isVisible, end, durationMs]);
 
   return (
-    <span ref={elementRef as any} className="nohemi-black">
+    <span ref={elementRef} className="nohemi-black">
       {value.toLocaleString()} {suffix}
     </span>
   );

@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useLanguage } from "../i18n/LanguageProvider";
 
@@ -62,7 +63,7 @@ export default function NavBar() {
 				>
 					<div className="max-w-6xl mx-auto px-6 py-6 flex items-center justify-between">
 						<div className="flex items-center">
-							<a href="/">
+							<Link href="/">
 								<Image
 									src="/grizzlylogo.png"
 									alt="Grizzly Media Pro Logo"
@@ -70,25 +71,25 @@ export default function NavBar() {
 									height={55}
 									className="object-contain transition-all duration-500"
 								/>
-							</a>
+							</Link>
 						</div>
 
 						<div className="hidden md:flex items-center space-x-8">
-							<a href="/#servicii" className="text-white/80 hover:text-white transition-colors duration-300">
+							<Link href="/#servicii" className="text-white/80 hover:text-white transition-colors duration-300">
 								{t("nav_services")}
-							</a>
-							<a href="/#portofoliu" className="text-white/80 hover:text-white transition-colors duration-300">
+							</Link>
+							<Link href="/#portofoliu" className="text-white/80 hover:text-white transition-colors duration-300">
 								{t("nav_portfolio")}
-							</a>
-							<a href="/#despre" className="text-white/80 hover:text-white transition-colors duration-300">
+							</Link>
+							<Link href="/#despre" className="text-white/80 hover:text-white transition-colors duration-300">
 								{t("nav_about")}
-							</a>
-							<a
+							</Link>
+							<Link
 								href="/#contact"
 								className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
 							>
 								{t("nav_contact")}
-							</a>
+							</Link>
 							
 							{/* Buton de limbă cu dropdown */}
 							<div className="relative language-dropdown">
@@ -154,18 +155,18 @@ export default function NavBar() {
 				<div className={`absolute inset-0 bg-[#0d0d0e] transform transition-transform duration-300 ${isMobileMenuOpen ? "translate-y-0" : "-translate-y-full"}`}>
 					<div className="flex flex-col justify-center items-center h-full">
 						<div className="flex flex-col space-y-8 text-center">
-							<a href="/#servicii" onClick={closeMobileMenu} className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4">
+							<Link href="/#servicii" onClick={closeMobileMenu} className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4">
 								{t("nav_services")}
-							</a>
-							<a href="/#portofoliu" onClick={closeMobileMenu} className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4">
+							</Link>
+							<Link href="/#portofoliu" onClick={closeMobileMenu} className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4">
 								{t("nav_portfolio")}
-							</a>
-							<a href="/#despre" onClick={closeMobileMenu} className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4">
+							</Link>
+							<Link href="/#despre" onClick={closeMobileMenu} className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4">
 								{t("nav_about")}
-							</a>
-							<a href="/#contact" onClick={closeMobileMenu} className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8">
+							</Link>
+							<Link href="/#contact" onClick={closeMobileMenu} className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8">
 								{t("cta_schedule")}
-							</a>
+							</Link>
 							
 							{/* Buton de limbă pentru mobile */}
 							<div className="mt-8 flex justify-center">

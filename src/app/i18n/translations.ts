@@ -20,6 +20,16 @@ export const translations: TranslationDictionary = {
   hero_t2: { ro: ", construim ", en: ", we build " },
   hero_h2: { ro: "branduri", en: "brands" },
   hero_t3: { ro: ".", en: "." },
+  
+  // Hero description
+  hero_desc_t1: { ro: "Grizzly Media Pro este o agenție de dezvoltare digitală specializată în ", en: "Grizzly Media Pro is a digital development agency specialized in " },
+  hero_desc_h1: { ro: "web development", en: "web development" },
+  hero_desc_t2: { ro: ", ", en: ", " },
+  hero_desc_h2: { ro: "mobile development", en: "mobile development" },
+  hero_desc_t3: { ro: " și ", en: " and " },
+  hero_desc_h3: { ro: "marketing online", en: "online marketing" },
+  hero_desc_t4: { ro: ". Transformăm viziunea ta în realitate digitală cu soluții personalizate și tehnologii de ultimă generație.", en: ". We turn your vision into digital reality with personalized solutions and cutting-edge technologies." },
+  
   prefs_heading: { ro: "Mai întâi, alege-ți preferințele", en: "First, choose your preferences" },
 
   // Stakes section
@@ -91,6 +101,35 @@ export const translations: TranslationDictionary = {
     ro: "Fără promisiuni deșarte. Primești rapoarte clare și o colaborare bazată pe încredere.",
     en: "No false promises. You get clear reports and a partnership based on trust.",
   },
+
+  // Beneficii noi - carduri cu statistici
+  benefit_no_cms_text: {
+    ro: "Nu folosim CMS-uri, nu folosim template-uri, facem doar site-uri scrise întregime de noi în cod ca designul tău să fie unic și personalizat",
+    en: "We don't use CMS, we don't use templates, we only make websites written entirely by us in code so your design is unique and personalized"
+  },
+  benefit_no_cms_highlight1: { ro: "Nu", en: "We don't" },
+  benefit_no_cms_highlight2: { ro: "nu", en: "don't" },
+  benefit_no_cms_highlight3: { ro: "unic", en: "unique" },
+  benefit_no_cms_text1: { ro: " folosim CMS-uri, ", en: " use CMS, " },
+  benefit_no_cms_text2: { ro: " folosim template-uri, facem doar site-uri scrise întregime de noi în cod ca designul tău să fie ", en: " use templates, we only make websites written entirely by us in code so your design is " },
+  benefit_no_cms_text3: { ro: " și personalizat", en: " and personalized" },
+
+  benefit_projects_label: { ro: "Finalizate", en: "Completed" },
+  benefit_projects_count: { ro: "50 Proiecte", en: "50 Projects" },
+  benefit_projects_view: { ro: "Vezi", en: "View" },
+
+  benefit_experience_label: { ro: "Domenii de activitate", en: "Domains of activity" },
+  benefit_experience_years: { ro: "10+", en: "10+" },
+
+  benefit_clients_label: { ro: "Clienți mulțumiți", en: "Satisfied clients" },
+  benefit_clients_count: { ro: "25+ Clienți", en: "25+ Clients" },
+
+  benefit_social_label: { ro: "Rezultate social media", en: "Social media results" },
+  benefit_social_views: { ro: "10M+ views", en: "10M+ views" },
+  benefit_social_followers: { ro: "10k+ urmăritori", en: "10k+ followers" },
+  benefit_social_desc: { ro: "aduse clienților noștri", en: "brought to our clients" },
+
+  benefit_contact_button: { ro: "Contactează-ne", en: "Contact us" },
 
   // 3-step process
   process_heading: { ro: "Ideentitatea ta in online incepe acum!", en: "Your online identity starts now!" },

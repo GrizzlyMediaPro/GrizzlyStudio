@@ -69,8 +69,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Descriere agentie sub hero */}
+      <section className="py-16 bg-black">
+        <div className="max-w-6xl mx-auto px-6">
+          <FadeInElement delay={0}>
+            <div className="text-center">
+              <p className="nohemi-medium text-lg md:text-xl text-white/80 leading-relaxed max-w-4xl mx-auto">
+                {t("hero_desc_t1")}
+                <span className="text-[#ffed88] font-semibold">
+                  {t("hero_desc_h1")}
+                </span>
+                {t("hero_desc_t2")}
+                <span className="text-[#ffed88] font-semibold">
+                  {t("hero_desc_h2")}
+                </span>
+                {t("hero_desc_t3")}
+                <span className="text-[#ffed88] font-semibold">
+                  {t("hero_desc_h3")}
+                </span>
+                {t("hero_desc_t4")}
+              </p>
+            </div>
+          </FadeInElement>
+        </div>
+      </section>
+
       {/* Sectiune stakes */}
-      <main className="max-w-6xl mx-auto px-6 py-12 relative z-10">
+      <main className="max-w-6xl mx-auto px-6 py-24 relative z-10">
         {/* Descriere agentie */}
         <FadeInElement delay={0}>
           <div className="text-center mb-16">
@@ -81,29 +106,29 @@ export default function Home() {
               {t("stakes_t2")}
               <span className="text-[#ffed88]">{t("stakes_h3")}</span>
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 text-left group card-group">
-              <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card">
-                
-                <h4 className="nohemi-black text-white text-lg mb-2">{t("stake_1_title")}</h4>
-                <p className="text-white/80 text-sm leading-relaxed">
-                  {t("stake_1_desc")}
-                </p>
-              </div>
-              <div className="bg-gradient-to-b from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card">
-                
-                <h4 className="nohemi-black text-white text-lg mb-2">{t("stake_2_title")}</h4>
-                <p className="text-white/80 text-sm leading-relaxed">
-                  {t("stake_2_desc")}
-                </p>
-              </div>
-              <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card">
-                
-                <h4 className="nohemi-black text-white text-lg mb-2">{t("stake_3_title")}</h4>
-                <p className="text-white/80 text-sm leading-relaxed">
-                  {t("stake_3_desc")}
-                </p>
-              </div>
-            </div>
+                         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 text-left">
+               <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer">
+                 
+                 <h4 className="nohemi-black text-white text-lg mb-2">{t("stake_1_title")}</h4>
+                 <p className="text-white/80 text-sm leading-relaxed">
+                   {t("stake_1_desc")}
+                 </p>
+               </div>
+               <div className="bg-gradient-to-b from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer">
+                 
+                 <h4 className="nohemi-black text-white text-lg mb-2">{t("stake_2_title")}</h4>
+                 <p className="text-white/80 text-sm leading-relaxed">
+                   {t("stake_2_desc")}
+                 </p>
+               </div>
+               <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer">
+                 
+                 <h4 className="nohemi-black text-white text-lg mb-2">{t("stake_3_title")}</h4>
+                 <p className="text-white/80 text-sm leading-relaxed">
+                   {t("stake_3_desc")}
+                 </p>
+               </div>
+             </div>
           </div>
         </FadeInElement>
 
@@ -120,118 +145,113 @@ export default function Home() {
             </h3>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-24 group card-group">
-            
-            {/* Beneficiu 1 */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-24">
+            {/* Card 1 - Fără CMS */}
             <FadeInElement delay={100} direction="up">
-              <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card min-h-[240px]">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="#ffed88" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M11.42 15.17L17.25 21A2.652 2.652 0 0021 17.25l-5.877-5.877M11.42 15.17l-1.496-3.031m0 0l-3.031-1.496m3.031 1.496l3.031-1.496m-3.031 1.496l-1.496-3.031" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 className="nohemi-black text-white text-lg mb-1">{t("benefit_1_title")}</h5>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                    {t("benefit_1_desc")}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </FadeInElement>
-            
-            {/* Beneficiu 2 */}
-            <FadeInElement delay={100} direction="up">
-              <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card min-h-[240px]">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="#ffed88" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9 17.25v1.007a3 3 0 01-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0115 18.257V17.25m6-12V15a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 15V5.25m18 0A2.25 2.25 0 0018.75 3H5.25A2.25 2.25 0 003 5.25m18 0V12a2.25 2.25 0 01-2.25 2.25H5.25A2.25 2.25 0 013 12V5.25" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 className="nohemi-black text-white text-lg mb-1">{t("benefit_2_title")}</h5>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      {t("benefit_2_desc")}
-                    </p>
-                  </div>
+              <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
+                <div className="text-center">
+                  <h4 className="nohemi-medium text-base md:text-lg text-white leading-tight">
+                    <span className="text-[#ffed88] font-semibold">{t("benefit_no_cms_highlight1")}</span>
+                    {t("benefit_no_cms_text1")}
+                    <span className="text-[#ffed88] font-semibold">{t("benefit_no_cms_highlight2")}</span>
+                    {t("benefit_no_cms_text2")}
+                    <span className="text-[#ffed88] font-semibold">{t("benefit_no_cms_highlight3")}</span>
+                    {t("benefit_no_cms_text3")}
+                  </h4>
                 </div>
               </div>
             </FadeInElement>
 
-            {/* Beneficiu 3 */}
+            {/* Card 2 - Proiecte Finalizate */}
             <FadeInElement delay={200} direction="up">
-              <div className="bg-gradient-to-b from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card min-h-[240px]">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="#ffed88" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <div className="bg-gradient-to-b from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
+                <div className="text-center">
+                  <p className="text-[#ffed88] text-base font-medium mb-3">
+                    {t("benefit_projects_label")}
+                  </p>
+                  <h4 className="nohemi-black text-2xl text-white mb-4">
+                    {t("benefit_projects_count")}
+                  </h4>
+                  <a href="#portofoliu" className="flex items-center justify-center gap-2 hover:opacity-80 transition-opacity">
+                    <span className="text-[#ffed88] text-base font-medium">
+                      {t("benefit_projects_view")}
+                    </span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="#ffed88"
+                      className="size-5"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                      />
                     </svg>
-                  </div>
-                  <div>
-                    <h5 className="nohemi-black text-white text-lg mb-1">{t("benefit_3_title")}</h5>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      {t("benefit_3_desc")}
-                    </p>
-                  </div>
+                  </a>
                 </div>
               </div>
             </FadeInElement>
 
-            {/* Beneficiu 4 */}
+            {/* Card 3 - Experiență */}
             <FadeInElement delay={300} direction="up">
-              <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card min-h-[240px]">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="#ffed88" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 className="nohemi-black text-white text-lg mb-1">{t("benefit_4_title")}</h5>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      {t("benefit_4_desc")}
-                    </p>
-                  </div>
+              <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
+                <div className="text-center">
+                  <p className="text-[#ffed88] text-base font-medium mb-3">
+                    {t("benefit_experience_label")}
+                  </p>
+                  <h4 className="nohemi-black text-2xl text-white">{t("benefit_experience_years")}</h4>
                 </div>
               </div>
             </FadeInElement>
 
-            {/* Beneficiu 5 */}
+            {/* Card 4 - Clienți Mulțumiți */}
             <FadeInElement delay={400} direction="up">
-              <div className="bg-gradient-to-tr from-black/50 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card min-h-[240px]">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="#ffed88" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 18L9 11.25l4.306 4.306a2.25 2.25 0 002.25 2.25l3.75-3.75m-3.75-3.75l-3.75 3.75" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 className="nohemi-black text-white text-lg mb-1">{t("benefit_5_title")}</h5>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                    {t("benefit_5_desc")}
+              <div className="bg-gradient-to-tr from-black/50 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
+                <div className="text-center">
+                  <p className="text-[#ffed88] text-base font-medium mb-3">
+                    {t("benefit_clients_label")}
+                  </p>
+                  <h4 className="nohemi-black text-2xl text-white">
+                    {t("benefit_clients_count")}
+                  </h4>
+                </div>
+              </div>
+            </FadeInElement>
+
+            {/* Card 5 - Social Media */}
+            <FadeInElement delay={500} direction="up">
+              <div className="bg-gradient-to-t from-black/60 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
+                <div className="text-center">
+                  <p className="text-[#ffed88] text-base font-medium mb-4">
+                    {t("benefit_social_label")}
+                  </p>
+                  <div className="space-y-2">
+                    <h4 className="nohemi-black text-2xl text-white">
+                      {t("benefit_social_views")}
+                    </h4>
+                    <h4 className="nohemi-black text-lg text-white">
+                      {t("benefit_social_followers")}
+                    </h4>
+                    <p className="text-[#ffed88] text-sm font-medium">
+                      {t("benefit_social_desc")}
                     </p>
                   </div>
                 </div>
               </div>
             </FadeInElement>
 
-            {/* Beneficiu 6 */}
-            <FadeInElement delay={500} direction="up">
-              <div className="bg-gradient-to-tl from-black/50 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer card min-h-[240px]">
-                <div className="flex items-start gap-4">
-                  <div className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="#ffed88" className="w-5 h-5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div>
-                    <h5 className="nohemi-black text-white text-lg mb-1">{t("benefit_6_title")}</h5>
-                    <p className="text-white/80 text-sm leading-relaxed">
-                      {t("benefit_6_desc")}
-                    </p>
-                  </div>
+            {/* Card 6 - Contact */}
+            <FadeInElement delay={600} direction="up">
+              <div className="bg-gradient-to-tl from-black/50 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
+                <div className="text-center">
+                  <a href="#contact" className="inline-block">
+                    <button className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-base">
+                      {t("benefit_contact_button")}
+                    </button>
+                  </a>
                 </div>
               </div>
             </FadeInElement>

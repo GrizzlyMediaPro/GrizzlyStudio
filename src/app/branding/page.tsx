@@ -73,7 +73,7 @@ export default function Branding() {
           <div className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
             {/* Logo în navbar - în stânga */}
             <div className="flex items-center">
-              <a href="/">
+              <Link href="/">
                 <Image
                   src="/grizzlylogo.png"
                   alt="Grizzly Media Pro Logo"
@@ -81,7 +81,7 @@ export default function Branding() {
                   height={65}
                   className="object-contain transition-all duration-500"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Meniu în navbar - în dreapta */}
@@ -90,30 +90,30 @@ export default function Branding() {
                 isScrolled ? "opacity-100" : "opacity-0"
               }`}
             >
-              <a
+              <Link
                 href="/#servicii"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
                 {t("nav_services")}
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#portofoliu"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
                 {t("nav_portfolio")}
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#despre"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
                 {t("nav_about")}
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#contact"
                 className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
               >
                 {t("nav_contact")}
-              </a>
+              </Link>
             </div>
 
             {/* Hamburger menu pentru mobile */}
@@ -157,34 +157,34 @@ export default function Branding() {
         >
           <div className="flex flex-col justify-center items-center h-full">
             <div className="flex flex-col space-y-8 text-center">
-              <a
+              <Link
                 href="/#servicii"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
                 {t("nav_services")}
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#portofoliu"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
                 {t("nav_portfolio")}
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#despre"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
                 {t("nav_about")}
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#contact"
                 onClick={closeMobileMenu}
                 className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8"
               >
                 {t("nav_contact")}
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -201,7 +201,7 @@ export default function Branding() {
           <div className="flex items-center justify-between w-full max-w-6xl mx-auto relative">
             {/* Logo */}
             <div className="flex items-center">
-              <a href="/">
+              <Link href="/">
                 <Image
                   src="/grizzlylogo.png"
                   alt="Grizzly Media Pro Logo"
@@ -209,7 +209,7 @@ export default function Branding() {
                   height={65}
                   className="object-contain transition-all duration-700 ease-out"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Meniu în hero - în dreapta */}
@@ -218,30 +218,30 @@ export default function Branding() {
                 isScrolled ? "opacity-0" : "opacity-100"
               }`}
             >
-              <a
+              <Link
                 href="/#servicii"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
                 {t("nav_services")}
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#portofoliu"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
                 {t("nav_portfolio")}
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#despre"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
                 {t("nav_about")}
-              </a>
-              <a
+              </Link>
+              <Link
                 href="/#contact"
                 className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
               >
                 {t("nav_contact")}
-              </a>
+              </Link>
             </div>
 
             {/* Hamburger menu pentru mobile */}
@@ -675,10 +675,10 @@ export default function Branding() {
                 <div>
                   <h4 className="nohemi-medium text-white text-sm mb-4">{t("footer_nav_label")}</h4>
                   <div className="grid grid-cols-2 gap-2">
-                    <a href="/#despre" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_about")}</a>
-                    <a href="/#servicii" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_services")}</a>
-                    <a href="/#portofoliu" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_portfolio")}</a>
-                    <a href="/#contact" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_contact")}</a>
+                    <Link href="/#despre" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_about")}</Link>
+                    <Link href="/#servicii" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_services")}</Link>
+                    <Link href="/#portofoliu" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_portfolio")}</Link>
+                    <Link href="/#contact" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm">{t("footer_nav_contact")}</Link>
                   </div>
                 </div>
 
@@ -732,9 +732,9 @@ export default function Branding() {
               <p className="text-white/50 text-sm mb-4 md:mb-0">{t("footer_rights")}</p>
 
               <div className="flex flex-wrap gap-4 text-sm">
-                <a href="/politica-confidentialitate" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300">{t("privacy_policy")}</a>
-                <a href="/politica-cookies" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300">{t("cookies_policy")}</a>
-                <a href="/termeni-conditii" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300">{t("terms_conditions")}</a>
+                <Link href="/politica-confidentialitate" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300">{t("privacy_policy")}</Link>
+                <Link href="/politica-cookies" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300">{t("cookies_policy")}</Link>
+                <Link href="/termeni-conditii" className="text-white/70 hover:text-[#ffed88] transition-colors duration-300">{t("terms_conditions")}</Link>
               </div>
             </div>
           </div>

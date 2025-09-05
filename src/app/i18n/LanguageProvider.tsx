@@ -28,7 +28,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     return (id: string) => {
       const entry = translations[id as keyof typeof translations];
       if (!entry) return id;
-      return (entry as any)[lang] || (entry as any).ro || id;
+      return entry[lang] || entry.ro || id;
     };
   }, [lang]);
 
