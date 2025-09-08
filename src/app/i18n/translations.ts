@@ -9,7 +9,7 @@ export const translations: TranslationDictionary = {
   nav_portfolio: { ro: "Portofoliu", en: "Portfolio" },
   nav_about: { ro: "Despre", en: "About" },
   nav_contact: { ro: "Contact", en: "Contact" },
-  cta_schedule: { ro: "Programeaza o intalnire!", en: "Schedule a meeting!" },
+  cta_schedule: { ro: "Programează o întâlnire!", en: "Schedule a meeting!" },
   hero_title: {
     ro: "Nu construim doar site-uri, construim branduri.",
     en: "We don't just build websites, we build brands.",
@@ -20,6 +20,10 @@ export const translations: TranslationDictionary = {
   hero_t2: { ro: ", construim ", en: ", we build " },
   hero_h2: { ro: "branduri", en: "brands" },
   hero_t3: { ro: ".", en: "." },
+  hero_subheading: { 
+    ro: "Transformăm viziunea ta în realitate digitală cu design personalizat și tehnologii de ultimă generație.", 
+    en: "We turn your vision into digital reality with custom design and cutting-edge technologies." 
+  },
   
   // Hero description
   hero_desc_t1: { ro: "Grizzly Media Pro este o agenție de dezvoltare digitală specializată în ", en: "Grizzly Media Pro is a digital development agency specialized in " },
@@ -48,7 +52,7 @@ export const translations: TranslationDictionary = {
     ro: "Fără un website modern și o prezență activă în social media, afacerea ta nici nu există în ochii celor care te caută online.",
     en: "Without a modern website and active social media presence, your business doesn't even exist in the eyes of those searching online.",
   },
-  stake_2_title: { ro: "2. Pierzi încrederea clientilor", en: "2. You lose faith from clients" },
+  stake_2_title: { ro: "2. Pierzi încrederea clienților", en: "2. You lose faith from clients" },
   stake_2_desc: {
     ro: "Un brand incoerent, un site neprofesionist sau lipsa activității transmit nesiguranță. Clienții aleg concurența, chiar dacă produsele sau serviciile tale sunt mai bune.",
     en: "An inconsistent brand, an unprofessional website, or lack of activity transmit uncertainty. Clients choose the competition, even if your products or services are better.",
@@ -104,14 +108,14 @@ export const translations: TranslationDictionary = {
 
   // Beneficii noi - carduri cu statistici
   benefit_no_cms_text: {
-    ro: "Nu folosim CMS-uri, nu folosim template-uri, facem doar site-uri scrise întregime de noi în cod ca designul tău să fie unic și personalizat",
+    ro: "Nu folosim CMS-uri, nu folosim template-uri, facem doar site-uri scrise în întregime de noi în cod ca designul tău să fie unic și personalizat",
     en: "We don't use CMS, we don't use templates, we only make websites written entirely by us in code so your design is unique and personalized"
   },
   benefit_no_cms_highlight1: { ro: "Nu", en: "We don't" },
   benefit_no_cms_highlight2: { ro: "nu", en: "don't" },
   benefit_no_cms_highlight3: { ro: "unic", en: "unique" },
   benefit_no_cms_text1: { ro: " folosim CMS-uri, ", en: " use CMS, " },
-  benefit_no_cms_text2: { ro: " folosim template-uri, facem doar site-uri scrise întregime de noi în cod ca designul tău să fie ", en: " use templates, we only make websites written entirely by us in code so your design is " },
+  benefit_no_cms_text2: { ro: " folosim template-uri, facem doar site-uri scrise în întregime de noi în cod ca designul tău să fie ", en: " use templates, we only make websites written entirely by us in code so your design is " },
   benefit_no_cms_text3: { ro: " și personalizat", en: " and personalized" },
 
   benefit_projects_label: { ro: "Finalizate", en: "Completed" },
@@ -132,18 +136,18 @@ export const translations: TranslationDictionary = {
   benefit_contact_button: { ro: "Contactează-ne", en: "Contact us" },
 
   // 3-step process
-  process_heading: { ro: "Ideentitatea ta in online incepe acum!", en: "Your online identity starts now!" },
-  process_1_title: { ro: "Intalnire initiala", en: "Initial meeting" },
+  process_heading: { ro: "Identitatea ta în online începe acum!", en: "Your online identity starts now!" },
+  process_1_title: { ro: "Întâlnire inițială", en: "Initial meeting" },
   process_1_desc: {
     ro: "Prezentarea afacerii, nevoile clientului, obiectivele proiectului",
     en: "Business presentation, client needs, project objectives",
   },
-  process_2_title: { ro: "Sedinta de Consultare", en: "Consultation meeting" },
+  process_2_title: { ro: "Ședința de Consultare", en: "Consultation meeting" },
   process_2_desc: {
-    ro: "Înțelegem nevoile tale, analizăm concurența și stabilim pasii spre succes",
+    ro: "Înțelegem nevoile tale, analizăm concurența și stabilim pașii spre succes",
     en: "We understand your needs, analyze the competition, and set the steps to success",
   },
-  process_3_title: { ro: "Convertim rezultatele in profit", en: "Turn results into profit" },
+  process_3_title: { ro: "Convertim rezultatele în profit", en: "Turn results into profit" },
   process_3_desc: {
     ro: "Cu ajutorul strategiilor noastre, creștem vizibilitatea și încrederea în afacerea ta",
     en: "With our strategies, we increase visibility and credibility in your business",
@@ -183,10 +187,10 @@ export const translations: TranslationDictionary = {
   portfolio_heading: { ro: "Portofoliul nostru", en: "Our portfolio" },
   portfolio_t1: { ro: "Portofoliul ", en: "Our " },
   portfolio_h1: { ro: "nostru", en: "portfolio" },
-  contact_heading: { ro: "Contacteaza-ne", en: "Contact us" },
-  contact_t1: { ro: "Contacteaza-", en: "Contact " },
+  contact_heading: { ro: "Contactează-ne", en: "Contact us" },
+  contact_t1: { ro: "Contactează-", en: "Contact " },
   contact_h1: { ro: "ne", en: "us" },
-  social_follow: { ro: "Ne poti urmari si pe:", en: "You can follow us on:" },
+  social_follow: { ro: "Ne poți urmări și pe:", en: "You can follow us on:" },
   // Services segmented
   services_t1: { ro: "Serviciile ", en: "Our " },
   services_h1: { ro: "noastre", en: "services" },
@@ -242,6 +246,16 @@ export const translations: TranslationDictionary = {
   slide_agro_title: { ro: "Agrodrona", en: "Agrodrona" },
   slide_agro_subtitle: { ro: "Drone agricole", en: "Agricultural drones" },
   slide_agro_desc: { ro: "Tehnologie de vârf pentru o agricultură de succes.", en: "Cutting-edge technology for successful agriculture." },
+
+  // Platinum Events slide
+  slide_platinum_title: { ro: "Platinum Events", en: "Platinum Events" },
+  slide_platinum_subtitle: { ro: "Organizare evenimente private", en: "Private event planning" },
+  slide_platinum_desc: { ro: "Servicii premium de organizare și management pentru evenimente private exclusive.", en: "Premium organization and management services for exclusive private events." },
+
+  // HashtagMEN slide
+  slide_hashtagmen_title: { ro: "HashtagMEN", en: "HashtagMEN" },
+  slide_hashtagmen_subtitle: { ro: "Frizerie pentru bărbați", en: "Men's barbershop" },
+  slide_hashtagmen_desc: { ro: "Site modern pentru frizerie specializată în servicii profesionale pentru bărbați.", en: "Modern website for a barbershop specialized in professional men's grooming services." },
 
   // ScreenShield slide
   slide_screen_title: { ro: "ScreenShield", en: "ScreenShield" },
@@ -580,8 +594,8 @@ export const translations: TranslationDictionary = {
     en: "As a rule, GRIZZLY DIGITAL S.R.L. will process your personal data for as long as necessary to fulfill the purposes mentioned above. If you are a customer, we will process your data for the duration of the contractual relationship and subsequently according to legal obligations (e.g., financial-accounting documents retained for 10 years)."
   },
   privacy_duration_p2: {
-    ro: "În situația în care sunteți client și vă exercitați opțiunea de ștergere a contului de utilizator, prin email la grizzlymediapro@gmail.com, GRIZZLY DIGITAL S.R.L. va interpreta această acțiune ca opțiunea dumneavoastră de a vă dezabona de la comunicări comerciale. Ștergerea contului nu are ca efect automat ștergerea datelor. Pentru încetarea prelucrării sau ștergerea datelor, vă puteți exercita drepturile detaliate mai jos. Dacă solicitați ștergerea contului, dar există comenzi active, cererea va fi înregistrată după finalizarea acestora. Dacă vă retrageți consimțământul pentru marketing, vom înceta prelucrarea în acest scop, fără a afecta prelucrările anterioare retragerii.",
-    en: "If you are a customer and exercise the option to delete your user account by email at grizzlymediapro@gmail.com, GRIZZLY DIGITAL S.R.L. will treat this as an unsubscribe from commercial communications. Deleting the account does not automatically delete your personal data. To stop processing or to delete your data, you can exercise your rights detailed below. If you request account deletion but have active orders, the request will be recorded after their completion. If you withdraw consent for marketing, we will stop processing for that purpose without affecting processing carried out before withdrawal."
+    ro: "În situația în care sunteți client și vă exercitați opțiunea de ștergere a contului de utilizator, prin email la contact@grizzlymediapro.ro, GRIZZLY DIGITAL S.R.L. va interpreta această acțiune ca opțiunea dumneavoastră de a vă dezabona de la comunicări comerciale. Ștergerea contului nu are ca efect automat ștergerea datelor. Pentru încetarea prelucrării sau ștergerea datelor, vă puteți exercita drepturile detaliate mai jos. Dacă solicitați ștergerea contului, dar există comenzi active, cererea va fi înregistrată după finalizarea acestora. Dacă vă retrageți consimțământul pentru marketing, vom înceta prelucrarea în acest scop, fără a afecta prelucrările anterioare retragerii.",
+    en: "If you are a customer and exercise the option to delete your user account by email at contact@grizzlymediapro.ro, GRIZZLY DIGITAL S.R.L. will treat this as an unsubscribe from commercial communications. Deleting the account does not automatically delete your personal data. To stop processing or to delete your data, you can exercise your rights detailed below. If you request account deletion but have active orders, the request will be recorded after their completion. If you withdraw consent for marketing, we will stop processing for that purpose without affecting processing carried out before withdrawal."
   },
 
   privacy_disclosure_h: { ro: "Dezvăluirea datelor cu caracter personal", en: "Disclosure of personal data" },
@@ -628,7 +642,7 @@ export const translations: TranslationDictionary = {
   privacy_complaints_p: { ro: "Dacă aveți sesizări privind modul de prelucrare a datelor, vă puteți adresa Autorității Naționale de Supraveghere a Prelucrării Datelor cu Caracter Personal sau puteți depune o plângere la instanțele de judecată. De asemenea, vă puteți adresa Autorității pentru Protecția Consumatorilor.", en: "If you have complaints about how your data has been processed, you may contact the National Supervisory Authority for Personal Data Processing or file a complaint with the courts. You may also contact the Consumer Protection Authority." },
 
   privacy_contact_h: { ro: "Contact", en: "Contact" },
-  privacy_contact_p1: { ro: "Pentru orice solicitare sau întrebare legată de prelucrarea datelor, ne puteți scrie la adresa: Județul Dolj, Municipiul Craiova, Strada Constantin Lecca 66, sau la e-mail: grizzlymediapro@gmail.com, ori telefonic: +40750227013.", en: "For any request or question regarding data processing, please write to: Dolj County, Craiova Municipality, 66 Constantin Lecca Street, or email: grizzlymediapro@gmail.com, or by phone: +40750227013." },
+  privacy_contact_p1: { ro: "Pentru orice solicitare sau întrebare legată de prelucrarea datelor, ne puteți scrie la adresa: Județul Dolj, Municipiul Craiova, Strada Constantin Lecca 66, sau la e-mail: contact@grizzlymediapro.ro, ori telefonic: +40750227013.", en: "For any request or question regarding data processing, please write to: Dolj County, Craiova Municipality, 66 Constantin Lecca Street, or email: contact@grizzlymediapro.ro, or by phone: +40750227013." },
   privacy_cookies_note_intro: { ro: "Această pagină de internet folosește fișiere de tip cookie. Pentru mai multe informații, vă rugăm să accesați:", en: "This website uses cookies. For more information, please see:" },
 
   // ===== Pagina Politica de Cookies =====
@@ -806,8 +820,8 @@ export const translations: TranslationDictionary = {
 
   terms_contact_h: { ro: "Contact", en: "Contact" },
   terms_contact_p: {
-    ro: "GRIZZLY DIGITAL S.R.L., Județul Dolj, Municipiul Craiova, Strada Constantin Lecca 66. E-mail: grizzlymediapro@gmail.com, Tel: +40750227013.",
-    en: "GRIZZLY DIGITAL S.R.L., Dolj County, Craiova Municipality, 66 Constantin Lecca Street. Email: grizzlymediapro@gmail.com, Phone: +40750227013."
+    ro: "GRIZZLY DIGITAL S.R.L., Județul Dolj, Municipiul Craiova, Strada Constantin Lecca 66. E-mail: contact@grizzlymediapro.ro, Tel: +40750227013.",
+    en: "GRIZZLY DIGITAL S.R.L., Dolj County, Craiova Municipality, 66 Constantin Lecca Street. Email: contact@grizzlymediapro.ro, Phone: +40750227013."
   }
 };
 

@@ -2,14 +2,10 @@
 
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../i18n/LanguageProvider";
-import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
 
 export default function PortfolioCarousel() {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<"left" | "right" | null>(
-    null
-  );
   const [isAnimating, setIsAnimating] = useState(false);
   const [activeTab, setActiveTab] = useState("pagini-prezentare");
   const [screenSize, setScreenSize] = useState<"mobile" | "tablet" | "desktop">(
@@ -41,15 +37,22 @@ export default function PortfolioCarousel() {
 
   // Touch gesture handlers
   const handleTouchStart = (e: React.TouchEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
     setTouchEnd(e.targetTouches[0].clientX);
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+
     if (!touchStart || !touchEnd) return;
 
     const distance = touchStart - touchEnd;
@@ -144,6 +147,22 @@ export default function PortfolioCarousel() {
       description: t("slide_agro_desc"),
       category: "pagini-prezentare",
       url: "https://agrodrona.ro/",
+    },
+    {
+      title: t("slide_platinum_title"),
+      subtitle: t("slide_platinum_subtitle"),
+      image: "/platinum.png",
+      description: t("slide_platinum_desc"),
+      category: "pagini-prezentare",
+      url: "",
+    },
+    {
+      title: t("slide_hashtagmen_title"),
+      subtitle: t("slide_hashtagmen_subtitle"),
+      image: "/HashtagMEN.png",
+      description: t("slide_hashtagmen_desc"),
+      category: "pagini-prezentare",
+      url: "",
     },
     // Magazine online
     {
@@ -242,12 +261,10 @@ export default function PortfolioCarousel() {
     if (filteredSlides.length === 0) return;
 
     setIsAnimating(true);
-    setSlideDirection("left");
     setCurrentIndex((prev) => (prev + 1) % filteredSlides.length);
     setTimeout(() => {
-      setSlideDirection(null);
       setIsAnimating(false);
-    }, 800);
+    }, 300);
   };
 
   const prevSlide = () => {
@@ -256,14 +273,12 @@ export default function PortfolioCarousel() {
     if (filteredSlides.length === 0) return;
 
     setIsAnimating(true);
-    setSlideDirection("right");
     setCurrentIndex(
       (prev) => (prev - 1 + filteredSlides.length) % filteredSlides.length
     );
     setTimeout(() => {
-      setSlideDirection(null);
       setIsAnimating(false);
-    }, 800);
+    }, 300);
   };
 
   const handleTabChange = (tabId: string) => {
@@ -273,25 +288,18 @@ export default function PortfolioCarousel() {
 
   const visibleSlides = getVisibleSlides();
 
-  // Hook pentru tab-uri
-  const { elementRef: tabsRef, isVisible: tabsVisible } =
-    useIntersectionObserver({
-      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-      triggerOnce: false,
-    }) as { elementRef: React.RefObject<HTMLDivElement>; isVisible: boolean };
+  // Fără animații interne pentru a evita conflictele cu FadeInElement wrapper
 
   return (
-    <div className="portfolio-carousel-container max-w-6xl mx-auto mb-16">
+    <div
+      className="portfolio-carousel-container max-w-6xl mx-auto mb-16"
+      onPointerDown={(e) => e.stopPropagation()}
+      onMouseDown={(e) => e.stopPropagation()}
+      onTouchStart={(e) => e.stopPropagation()}
+      onClick={(e) => e.stopPropagation()}
+    >
       {/* Taburi pentru filtrare - responsive */}
-      <div
-        ref={tabsRef}
-        className="flex justify-center mb-12 transition-all duration-700 ease-out"
-        style={{
-          opacity: tabsVisible ? 1 : 0,
-          transform: tabsVisible ? "translateY(0)" : "translateY(20px)",
-          filter: tabsVisible ? "blur(0px)" : "blur(8px)",
-        }}
-      >
+      <div className="flex justify-center mb-12">
         <div className="portfolio-tabs flex flex-col sm:flex-row sm:justify-evenly flex-wrap gap-2 bg-black/20 backdrop-blur-md rounded-2xl p-2 border border-white/10 w-full sm:max-w-full">
           {tabs.map((tab) => (
             <button
@@ -313,7 +321,7 @@ export default function PortfolioCarousel() {
         {/* Container pentru carduri - responsive cu touch support */}
         <div
           ref={carouselRef}
-          className="portfolio-carousel-scroll flex gap-4 sm:gap-6 pb-6 px-8 justify-center group overflow-visible"
+          className="portfolio-carousel-scroll flex gap-4 sm:gap-6 pb-6 px-0 sm:px-8 justify-center group overflow-visible overscroll-contain touch-pan-x select-none"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -328,12 +336,7 @@ export default function PortfolioCarousel() {
                   : "w-full sm:w-72 md:w-80 lg:w-80"
               } bg-black/40 rounded-2xl p-4 sm:p-6 border border-gray-300/20 shadow-xl transform group-hover:scale-95 group-hover:blur-sm hover:blur-none hover:z-20 hover:scale-110`}
               style={{
-                animation:
-                  slideDirection === "left"
-                    ? "smoothSlideLeft 0.8s ease-out"
-                    : slideDirection === "right"
-                    ? "smoothSlideRight 0.8s ease-out"
-                    : "none",
+                animation: "none",
               }}
             >
               <div className="text-center mb-4">
@@ -423,7 +426,56 @@ export default function PortfolioCarousel() {
         {/* Navigation dots with arrows - responsive */}
         <div className="portfolio-navigation flex justify-center items-center gap-2 sm:gap-4 mt-6">
           <button
-            onClick={prevSlide}
+            type="button"
+            onPointerDown={(e) => {
+              e.stopPropagation();
+              // @ts-ignore - nativeEvent exists on synthetic events in React DOM
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+            }}
+            onMouseDown={(e) => {
+              e.stopPropagation();
+              // @ts-ignore
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+            }}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+              // @ts-ignore
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              // @ts-ignore
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+              prevSlide();
+            }}
             className="portfolio-nav-button w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-110"
             aria-label={t("prev_slide")}
           >
@@ -457,7 +509,56 @@ export default function PortfolioCarousel() {
           </div>
 
           <button
-            onClick={nextSlide}
+            type="button"
+            onPointerDown={(e) => {
+              e.stopPropagation();
+              // @ts-ignore - nativeEvent exists on synthetic events in React DOM
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+            }}
+            onMouseDown={(e) => {
+              e.stopPropagation();
+              // @ts-ignore
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+            }}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+              // @ts-ignore
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              // @ts-ignore
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+              nextSlide();
+            }}
             className="portfolio-nav-button w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-110"
             aria-label={t("next_slide")}
           >
