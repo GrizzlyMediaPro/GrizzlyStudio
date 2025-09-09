@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "ro_RO",
-    url: "https://grizzlymediapro.com",
+    url: "https://grizzlymediapro.ro",
     title: "Grizzly Media Pro - Web Development, Social Media & Branding",
     description:
       "Transformăm viziunea ta în realitate digitală cu site-uri moderne, strategii de marketing și identitate vizuală profesională.",
@@ -81,7 +81,7 @@ export const metadata: Metadata = {
     images: ["/grizzlylogo.png"],
   },
   alternates: {
-    canonical: "https://grizzlymediapro.com",
+    canonical: "https://grizzlymediapro.ro",
   },
   verification: {
     google: "your-google-site-verification-code",

@@ -30,11 +30,11 @@ export const metadata: Metadata = {
     title: "Social Media Marketing | Grizzly Media Pro",
     description:
       "Servicii complete de social media marketing și management pentru creșterea prezenței online",
-    url: "https://grizzlymediapro.com/social-media",
+    url: "https://grizzlymediapro.ro/social-media",
     type: "website",
   },
   alternates: {
-    canonical: "https://grizzlymediapro.com/social-media",
+    canonical: "https://grizzlymediapro.ro/social-media",
   },
 };
 

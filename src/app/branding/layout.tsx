@@ -29,11 +29,11 @@ export const metadata: Metadata = {
     title: "Branding & Design | Grizzly Media Pro",
     description:
       "Servicii profesionale de branding și design grafic pentru identități vizuale puternice",
-    url: "https://grizzlymediapro.com/branding",
+    url: "https://grizzlymediapro.ro/branding",
     type: "website",
   },
   alternates: {
-    canonical: "https://grizzlymediapro.com/branding",
+    canonical: "https://grizzlymediapro.ro/branding",
   },
 };
 

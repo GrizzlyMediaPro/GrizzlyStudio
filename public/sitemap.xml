@@ -6,7 +6,7 @@
   
   <!-- Homepage - Highest Priority -->
   <url>
-    <loc>https://grizzlymediapro.com</loc>
+    <loc>https://grizzlymediapro.ro</loc>
     <lastmod>2024-12-21</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
@@ -14,21 +14,21 @@
   
   <!-- Main Service Pages - High Priority -->
   <url>
-    <loc>https://grizzlymediapro.com/dezvoltare-web</loc>
+    <loc>https://grizzlymediapro.ro/dezvoltare-web</loc>
     <lastmod>2024-12-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://grizzlymediapro.com/social-media</loc>
+    <loc>https://grizzlymediapro.ro/social-media</loc>
     <lastmod>2024-12-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   
   <url>
-    <loc>https://grizzlymediapro.com/branding</loc>
+    <loc>https://grizzlymediapro.ro/branding</loc>
     <lastmod>2024-12-21</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
@@ -36,21 +36,21 @@
   
   <!-- Legal Pages - Lower Priority -->
   <url>
-    <loc>https://grizzlymediapro.com/politica-confidentialitate</loc>
+    <loc>https://grizzlymediapro.ro/politica-confidentialitate</loc>
     <lastmod>2024-12-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://grizzlymediapro.com/politica-cookies</loc>
+    <loc>https://grizzlymediapro.ro/politica-cookies</loc>
     <lastmod>2024-12-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://grizzlymediapro.com/termeni-conditii</loc>
+    <loc>https://grizzlymediapro.ro/termeni-conditii</loc>
     <lastmod>2024-12-21</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>

@@ -91,17 +91,17 @@ export default function Home() {
             "@graph": [
               {
                 "@type": "Organization",
-                "@id": "https://grizzlymediapro.com/#organization",
+                "@id": "https://grizzlymediapro.ro/#organization",
                 name: "Grizzly Media Pro",
                 alternateName: "GRIZZLY DIGITAL S.R.L.",
-                url: "https://grizzlymediapro.com",
+                url: "https://grizzlymediapro.ro",
                 logo: {
                   "@type": "ImageObject",
-                  url: "https://grizzlymediapro.com/grizzlylogo.png",
+                  url: "https://grizzlymediapro.ro/grizzlylogo.png",
                   width: 280,
                   height: 65,
                 },
-                image: "https://grizzlymediapro.com/grizzlylogo.png",
+                image: "https://grizzlymediapro.ro/grizzlylogo.png",
                 description:
                   "Agenție de web development, social media și branding din Craiova. Transformăm viziunea ta în realitate digitală cu site-uri moderne, strategii de marketing și identitate vizuală profesională.",
                 address: {
@@ -129,66 +129,66 @@ export default function Home() {
               },
               {
                 "@type": "WebSite",
-                "@id": "https://grizzlymediapro.com/#website",
-                url: "https://grizzlymediapro.com",
+                "@id": "https://grizzlymediapro.ro/#website",
+                url: "https://grizzlymediapro.ro",
                 name: "Grizzly Media Pro",
                 description:
                   "Agenție de web development, social media și branding din Craiova",
                 publisher: {
-                  "@id": "https://grizzlymediapro.com/#organization",
+                  "@id": "https://grizzlymediapro.ro/#organization",
                 },
                 potentialAction: {
                   "@type": "SearchAction",
-                  target: "https://grizzlymediapro.com/?s={search_term_string}",
+                  target: "https://grizzlymediapro.ro/?s={search_term_string}",
                   "query-input": "required name=search_term_string",
                 },
                 inLanguage: "ro-RO",
               },
               {
                 "@type": "WebPage",
-                "@id": "https://grizzlymediapro.com/#webpage",
-                url: "https://grizzlymediapro.com",
+                "@id": "https://grizzlymediapro.ro/#webpage",
+                url: "https://grizzlymediapro.ro",
                 name: "Grizzly Media Pro | Dezvoltare Web & Marketing Digital",
                 isPartOf: {
-                  "@id": "https://grizzlymediapro.com/#website",
+                  "@id": "https://grizzlymediapro.ro/#website",
                 },
                 about: {
-                  "@id": "https://grizzlymediapro.com/#organization",
+                  "@id": "https://grizzlymediapro.ro/#organization",
                 },
                 description:
                   "Agenție de web development, social media și branding din Craiova. Transformăm viziunea ta în realitate digitală cu site-uri moderne, strategii de marketing și identitate vizuală profesională.",
                 breadcrumb: {
-                  "@id": "https://grizzlymediapro.com/#breadcrumb",
+                  "@id": "https://grizzlymediapro.ro/#breadcrumb",
                 },
                 inLanguage: "ro-RO",
               },
               {
                 "@type": "BreadcrumbList",
-                "@id": "https://grizzlymediapro.com/#breadcrumb",
+                "@id": "https://grizzlymediapro.ro/#breadcrumb",
                 itemListElement: [
                   {
                     "@type": "ListItem",
                     position: 1,
                     name: "Acasă",
-                    item: "https://grizzlymediapro.com",
+                    item: "https://grizzlymediapro.ro",
                   },
                   {
                     "@type": "ListItem",
                     position: 2,
                     name: "Servicii",
-                    item: "https://grizzlymediapro.com#servicii",
+                    item: "https://grizzlymediapro.ro#servicii",
                   },
                   {
                     "@type": "ListItem",
                     position: 3,
                     name: "Portofoliu",
-                    item: "https://grizzlymediapro.com#portofoliu",
+                    item: "https://grizzlymediapro.ro#portofoliu",
                   },
                   {
                     "@type": "ListItem",
                     position: 4,
                     name: "Contact",
-                    item: "https://grizzlymediapro.com#contact",
+                    item: "https://grizzlymediapro.ro#contact",
                   },
                 ],
               },
@@ -198,7 +198,7 @@ export default function Home() {
                 description:
                   "Dezvoltare site-uri și aplicații web moderne, responsive și optimizate pentru performanță",
                 provider: {
-                  "@id": "https://grizzlymediapro.com/#organization",
+                  "@id": "https://grizzlymediapro.ro/#organization",
                 },
                 serviceType: "Web Development",
                 areaServed: "Romania",
@@ -209,7 +209,7 @@ export default function Home() {
                 description:
                   "Strategii de marketing pe social media, creare conținut și management comunități online",
                 provider: {
-                  "@id": "https://grizzlymediapro.com/#organization",
+                  "@id": "https://grizzlymediapro.ro/#organization",
                 },
                 serviceType: "Social Media Marketing",
                 areaServed: "Romania",
@@ -220,7 +220,7 @@ export default function Home() {
                 description:
                   "Crearea identității vizuale, logo design și materiale de branding pentru afaceri",
                 provider: {
-                  "@id": "https://grizzlymediapro.com/#organization",
+                  "@id": "https://grizzlymediapro.ro/#organization",
                 },
                 serviceType: "Branding",
                 areaServed: "Romania",
