@@ -52,16 +52,30 @@ export const translations: TranslationDictionary = {
     ro: "Fără un website modern și o prezență activă în social media, afacerea ta nici nu există în ochii celor care te caută online.",
     en: "Without a modern website and active social media presence, your business doesn't even exist in the eyes of those searching online.",
   },
+  stake_1_highlight1: { ro: "invizibil", en: "invisible" },
+  stake_1_highlight2: { ro: "nu există", en: "doesn't exist" },
+  stake_1_text1: { ro: "Fără un website modern și o prezență activă în social media, afacerea ta nici ", en: "Without a modern website and active social media presence, your business " },
+  stake_1_text2: { ro: " în ochii celor care te caută online.", en: " in the eyes of those searching online." },
   stake_2_title: { ro: "2. Pierzi încrederea clienților", en: "2. You lose faith from clients" },
   stake_2_desc: {
     ro: "Un brand incoerent, un site neprofesionist sau lipsa activității transmit nesiguranță. Clienții aleg concurența, chiar dacă produsele sau serviciile tale sunt mai bune.",
     en: "An inconsistent brand, an unprofessional website, or lack of activity transmit uncertainty. Clients choose the competition, even if your products or services are better.",
   },
+  stake_2_highlight1: { ro: "nesiguranță", en: "uncertainty" },
+  stake_2_highlight2: { ro: "concurența", en: "competition" },
+  stake_2_text1: { ro: "Un brand incoerent, un site neprofesionist sau lipsa activității transmit ", en: "An inconsistent brand, an unprofessional website, or lack of activity transmit " },
+  stake_2_text2: { ro: ". Clienții aleg ", en: ". Clients choose the " },
+  stake_2_text3: { ro: ", chiar dacă produsele sau serviciile tale sunt mai bune.", en: ", even if your products or services are better." },
   stake_3_title: { ro: "3. Ratezi oportunități de creștere", en: "3. You miss growth opportunities" },
   stake_3_desc: {
     ro: "Fără o strategie digitală, pierzi timp și bani pe tactici care nu dau rezultate. Între timp, competiția ta avansează și câștigă piața.",
     en: "Without a digital strategy, you waste time and money on tactics that don't work. Meanwhile, your competition advances and wins the market.",
   },
+  stake_3_highlight1: { ro: "nu dau rezultate", en: "don't work" },
+  stake_3_highlight2: { ro: "câștigă piața", en: "wins the market" },
+  stake_3_text1: { ro: "Fără o strategie digitală, pierzi timp și bani pe tactici care ", en: "Without a digital strategy, you waste time and money on tactics that " },
+  stake_3_text2: { ro: ". Între timp, competiția ta avansează și ", en: ". Meanwhile, your competition advances and " },
+  stake_3_text3: { ro: ".", en: "." },
 
   // Beneficii section heading
   benefits_heading: {
@@ -69,12 +83,12 @@ export const translations: TranslationDictionary = {
     en: "Your business deserves visibility, credibility, and growth.",
   },
   // Benefits segmented
-  benefits_t1: { ro: "Afacerea ta merită ", en: "Your business deserves " },
-  benefits_h1: { ro: "vizibilitate", en: "visibility" },
-  benefits_t2: { ro: ", ", en: ", " },
-  benefits_h2: { ro: "încredere", en: "credibility" },
-  benefits_t3: { ro: " și ", en: " and " },
-  benefits_h3: { ro: "creștere", en: "growth" },
+  benefits_t1: { ro: "Despre ", en: "About " },
+  benefits_h1: { ro: "noi", en: "us" },
+  benefits_t2: { ro: "", en: "" },
+  benefits_h2: { ro: "", en: "" },
+  benefits_t3: { ro: "", en: "" },
+  benefits_h3: { ro: "", en: "" },
   benefit_1_title: { ro: "Configurăm soluții personalizate pentru afacerea ta", en: "We customize solutions for your business" },
   benefit_1_desc: {
     ro: "Fiecare business are particularități unice – și soluțiile noastre sunt create să ți se potrivească perfect.",
@@ -137,6 +151,7 @@ export const translations: TranslationDictionary = {
 
   // 3-step process
   process_heading: { ro: "Identitatea ta în online începe acum!", en: "Your online identity starts now!" },
+  process_desc: { ro: "O metodologie clară și transparentă pentru a transforma ideea ta în realitate digitală", en: "A clear, transparent methodology to turn your idea into digital reality" },
   process_1_title: { ro: "Întâlnire inițială", en: "Initial meeting" },
   process_1_desc: {
     ro: "Prezentarea afacerii, nevoile clientului, obiectivele proiectului",
@@ -409,7 +424,8 @@ export const translations: TranslationDictionary = {
   // Footer
   footer_rights: { ro: "© 2025 Grizzly Media Pro. Toate drepturile rezervate.", en: "© 2025 Grizzly Media Pro. All rights reserved." },
   
-  // ===== Pagina Social Media =====
+  // ===== Pagina Social Media =====git add .
+  
   // Hero
   social_hero_t1: { ro: "Social Media ", en: "Social Media " },
   social_hero_h1: { ro: "Marketing", en: "Marketing" },
@@ -852,7 +868,15 @@ export const translations: TranslationDictionary = {
   terms_contact_p: {
     ro: "GRIZZLY DIGITAL S.R.L., Județul Dolj, Municipiul Craiova, Strada Constantin Lecca 66. E-mail: contact@grizzlymediapro.ro, Tel: +40750227013.",
     en: "GRIZZLY DIGITAL S.R.L., Dolj County, Craiova Municipality, 66 Constantin Lecca Street. Email: contact@grizzlymediapro.ro, Phone: +40750227013."
-  }
+  },
+
+  // 404 Not Found Page
+  not_found_title: { ro: "Pagina nu a fost găsită", en: "Page not found" },
+  not_found_description: { ro: "Se pare că pagina pe care o cauți nu există sau a fost mutată. Nu te îngrijora, te ajutăm să găsești ceea ce cauți!", en: "It seems the page you're looking for doesn't exist or has been moved. Don't worry, we'll help you find what you're looking for!" },
+  not_found_home_button: { ro: "Înapoi acasă", en: "Back to home" },
+  not_found_contact_button: { ro: "Contactează-ne", en: "Contact us" },
+  not_found_helpful_links: { ro: "Linkuri utile:", en: "Helpful links:" },
+  not_found_need_help: { ro: "Ai nevoie de ajutor?", en: "Need help?" }
 };
 
 

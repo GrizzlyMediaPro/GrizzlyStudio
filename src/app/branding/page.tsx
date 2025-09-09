@@ -233,37 +233,8 @@ export default function Branding() {
         >
           <div className="flex flex-col justify-center items-center h-full">
             <div className="flex flex-col space-y-8 text-center">
-              <Link
-                href="/#servicii"
-                onClick={closeMobileMenu}
-                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
-              >
-                {t("nav_services")}
-              </Link>
-              <Link
-                href="/#portofoliu"
-                onClick={closeMobileMenu}
-                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
-              >
-                {t("nav_portfolio")}
-              </Link>
-              <Link
-                href="/#despre"
-                onClick={closeMobileMenu}
-                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
-              >
-                {t("nav_about")}
-              </Link>
-              <Link
-                href="/#contact"
-                onClick={closeMobileMenu}
-                className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8"
-              >
-                {t("nav_contact")}
-              </Link>
-
-              {/* Buton de limbă pentru mobile */}
-              <div className="mt-8 flex justify-center">
+              {/* Buton de limbă pentru mobile - primul element */}
+              <div className="flex justify-center">
                 <div className="relative language-dropdown">
                   <button
                     onClick={toggleLanguageDropdown}
@@ -317,6 +288,35 @@ export default function Branding() {
                   )}
                 </div>
               </div>
+
+              <Link
+                href="/#servicii"
+                onClick={closeMobileMenu}
+                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
+              >
+                {t("nav_services")}
+              </Link>
+              <Link
+                href="/#portofoliu"
+                onClick={closeMobileMenu}
+                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
+              >
+                {t("nav_portfolio")}
+              </Link>
+              <Link
+                href="/#despre"
+                onClick={closeMobileMenu}
+                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
+              >
+                {t("nav_about")}
+              </Link>
+              <Link
+                href="/#contact"
+                onClick={closeMobileMenu}
+                className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8"
+              >
+                {t("nav_contact")}
+              </Link>
             </div>
           </div>
         </div>
@@ -326,9 +326,14 @@ export default function Branding() {
       <section className="relative h-screen flex flex-col">
         {/* Header cu logo și meniu - poziționat absolut în partea de sus */}
         <header
-          className={`absolute top-0 left-0 right-0 z-20 transition-all duration-700 ease-out ${
+          className={`absolute top-0 left-0 right-0 z-20 transition-all duration-700 ease-out animate-fade-in-up ${
             isScrolled ? "p-6 pt-6" : "p-6 pt-8"
           }`}
+          style={{
+            animationDelay: "100ms",
+            animationDuration: "800ms",
+            animationFillMode: "both",
+          }}
         >
           <div className="flex items-center justify-between w-full max-w-6xl mx-auto relative">
             {/* Logo */}
@@ -458,7 +463,14 @@ export default function Branding() {
 
         {/* Conținut centrat în partea de sus */}
         <div className="flex-1 flex items-center justify-center relative z-10">
-          <div className="text-center px-6 max-w-6xl mx-auto">
+          <div
+            className="text-center px-6 max-w-6xl mx-auto animate-fade-in-up"
+            style={{
+              animationDelay: "300ms",
+              animationDuration: "1200ms",
+              animationFillMode: "both",
+            }}
+          >
             <h1 className="nohemi-heading text-4xl md:text-6xl text-white mb-6 leading-tight">
               {t("brand_hero_t1")}
               <span className="text-[#ffed88]">{t("brand_hero_h1")}</span>{" "}
@@ -488,9 +500,16 @@ export default function Branding() {
         </div>
 
         {/* Imaginea hero absolută */}
-        <div className="absolute top-1/2 left-0 right-0 h-[90%] z-0 md:top-1/2 top-1/3">
+        <div className="absolute left-0 right-0 h-[90%] z-0 md:top-1/2 top-1/3">
           <div className="max-w-6xl mx-auto h-full relative overflow-hidden">
-            <div className="absolute inset-0">
+            <div
+              className="absolute inset-0 animate-fade-in-up"
+              style={{
+                animationDelay: "600ms",
+                animationDuration: "1500ms",
+                animationFillMode: "both",
+              }}
+            >
               <Image
                 src="/heroedge2.PNG"
                 alt="Hero Background"
