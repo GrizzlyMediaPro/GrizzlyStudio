@@ -38,6 +38,26 @@ html {
   scroll-padding-top: 150px;
 }
 
+/* Notch area styling for mobile devices */
+@supports (padding: max(0px)) {
+  body {
+    padding-top: env(safe-area-inset-top);
+    background-color: #000000;
+  }
+
+  /* Ensure the notch area is black */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: env(safe-area-inset-top);
+    background-color: #000000;
+    z-index: 9999;
+  }
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
