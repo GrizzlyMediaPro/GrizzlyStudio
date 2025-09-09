@@ -1,11 +1,11 @@
 # Robots.txt for Grizzly Media Pro
-# https://grizzlymediapro.com
+# https://grizzlymediapro.ro
 
 User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://grizzlymediapro.com/sitemap.xml
+Sitemap: https://grizzlymediapro.ro/sitemap.xml
 
 # Disallow admin areas (if any)
 Disallow: /admin/

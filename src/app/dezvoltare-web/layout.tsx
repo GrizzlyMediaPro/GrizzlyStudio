@@ -30,11 +30,11 @@ export const metadata: Metadata = {
     title: "Dezvoltare Web | Grizzly Media Pro",
     description:
       "Servicii profesionale de dezvoltare web și aplicații mobile cu tehnologii moderne",
-    url: "https://grizzlymediapro.com/dezvoltare-web",
+    url: "https://grizzlymediapro.ro/dezvoltare-web",
     type: "website",
   },
   alternates: {
-    canonical: "https://grizzlymediapro.com/dezvoltare-web",
+    canonical: "https://grizzlymediapro.ro/dezvoltare-web",
   },
 };
 

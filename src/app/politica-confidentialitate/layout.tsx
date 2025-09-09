@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     follow: true,
   },
   alternates: {
-    canonical: "https://grizzlymediapro.com/politica-confidentialitate",
+    canonical: "https://grizzlymediapro.ro/politica-confidentialitate",
   },
 };
 
