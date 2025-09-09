@@ -10,15 +10,19 @@ interface FadeInSectionProps {
   rootMargin?: string;
   triggerOnce?: boolean;
   delay?: number;
+  duration?: number;
+  distance?: number;
 }
 
 export default function FadeInSection({
   children,
   className = "",
-  threshold = 0.1,
-  rootMargin = "0px",
-  triggerOnce = false,
+  threshold = 0.15,
+  rootMargin = "-20px 0px",
+  triggerOnce = true,
   delay = 0,
+  duration = 600, // Puțin mai lung pentru secțiuni mari
+  distance = 20, // Distanță puțin mai mare pentru secțiuni
 }: FadeInSectionProps) {
   const { elementRef, isVisible } = useIntersectionObserver({
     threshold,
@@ -29,11 +33,16 @@ export default function FadeInSection({
   return (
     <div
       ref={elementRef}
-      className={`transition-all duration-1000 ease-out ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-      } ${className}`}
+      className={`transition-all ease-out ${className}`}
       style={{
+        opacity: isVisible ? 1 : 0,
+        transform: isVisible
+          ? "translate3d(0, 0, 0)"
+          : `translate3d(0, ${distance}px, 0)`,
+        transitionDuration: `${duration}ms`,
         transitionDelay: `${delay}ms`,
+        transitionProperty: "opacity, transform",
+        willChange: "opacity, transform",
       }}
     >
       {children}

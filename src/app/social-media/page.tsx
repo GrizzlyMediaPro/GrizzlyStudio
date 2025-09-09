@@ -234,37 +234,8 @@ export default function SocialMedia() {
         >
           <div className="flex flex-col justify-center items-center h-full">
             <div className="flex flex-col space-y-8 text-center">
-              <Link
-                href="/#servicii"
-                onClick={closeMobileMenu}
-                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
-              >
-                {t("nav_services")}
-              </Link>
-              <Link
-                href="/#portofoliu"
-                onClick={closeMobileMenu}
-                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
-              >
-                {t("nav_portfolio")}
-              </Link>
-              <Link
-                href="/#despre"
-                onClick={closeMobileMenu}
-                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
-              >
-                {t("nav_about")}
-              </Link>
-              <Link
-                href="/#contact"
-                onClick={closeMobileMenu}
-                className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8"
-              >
-                {t("nav_contact")}
-              </Link>
-
-              {/* Buton de limbă pentru mobile */}
-              <div className="mt-8 flex justify-center">
+              {/* Buton de limbă pentru mobile - primul element */}
+              <div className="flex justify-center">
                 <div className="relative language-dropdown">
                   <button
                     onClick={toggleLanguageDropdown}
@@ -318,6 +289,35 @@ export default function SocialMedia() {
                   )}
                 </div>
               </div>
+
+              <Link
+                href="/#servicii"
+                onClick={closeMobileMenu}
+                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
+              >
+                {t("nav_services")}
+              </Link>
+              <Link
+                href="/#portofoliu"
+                onClick={closeMobileMenu}
+                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
+              >
+                {t("nav_portfolio")}
+              </Link>
+              <Link
+                href="/#despre"
+                onClick={closeMobileMenu}
+                className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
+              >
+                {t("nav_about")}
+              </Link>
+              <Link
+                href="/#contact"
+                onClick={closeMobileMenu}
+                className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8"
+              >
+                {t("nav_contact")}
+              </Link>
             </div>
           </div>
         </div>
@@ -739,7 +739,7 @@ export default function SocialMedia() {
           <FadeInElement delay={200} direction="up">
             <div className="text-center">
               <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="nohemi-black text-2xl text-[#ffed88]">
+                <span className="nohemi-black text-lg text-[#ffed88]">
                   <CountUp end={10000000} suffix="+" />
                 </span>
               </div>
@@ -756,7 +756,7 @@ export default function SocialMedia() {
           <FadeInElement delay={250} direction="up">
             <div className="text-center">
               <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="nohemi-black text-2xl text-[#ffed88]">
+                <span className="nohemi-black text-lg text-[#ffed88]">
                   <CountUp end={15000} suffix="+" />
                 </span>
               </div>
@@ -773,7 +773,7 @@ export default function SocialMedia() {
           <FadeInElement delay={300} direction="up">
             <div className="text-center">
               <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="nohemi-black text-2xl text-[#ffed88]">
+                <span className="nohemi-black text-lg text-[#ffed88]">
                   <CountUp end={200} suffix="%" />
                 </span>
               </div>
@@ -790,7 +790,7 @@ export default function SocialMedia() {
           <FadeInElement delay={350} direction="up">
             <div className="text-center">
               <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                <span className="nohemi-black text-2xl text-[#ffed88]">
+                <span className="nohemi-black text-lg text-[#ffed88]">
                   <CountUp end={20} suffix="+" />
                 </span>
               </div>

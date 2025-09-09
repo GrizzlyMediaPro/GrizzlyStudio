@@ -535,37 +535,8 @@ export default function Home() {
           >
             <div className="flex flex-col justify-center items-center h-full">
               <div className="flex flex-col space-y-8 text-center">
-                <Link
-                  href="/#servicii"
-                  onClick={closeMobileMenu}
-                  className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
-                >
-                  {t("nav_services")}
-                </Link>
-                <Link
-                  href="/#portofoliu"
-                  onClick={closeMobileMenu}
-                  className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
-                >
-                  {t("nav_portfolio")}
-                </Link>
-                <Link
-                  href="/#despre"
-                  onClick={closeMobileMenu}
-                  className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
-                >
-                  {t("nav_about")}
-                </Link>
-                <Link
-                  href="/#contact"
-                  onClick={closeMobileMenu}
-                  className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8"
-                >
-                  {t("nav_contact")}
-                </Link>
-
-                {/* Buton de limbă pentru mobile */}
-                <div className="mt-8 flex justify-center">
+                {/* Buton de limbă pentru mobile - primul element */}
+                <div className="flex justify-center">
                   <div className="relative language-dropdown">
                     <button
                       onClick={toggleLanguageDropdown}
@@ -619,6 +590,35 @@ export default function Home() {
                     )}
                   </div>
                 </div>
+
+                <Link
+                  href="/#servicii"
+                  onClick={closeMobileMenu}
+                  className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
+                >
+                  {t("nav_services")}
+                </Link>
+                <Link
+                  href="/#portofoliu"
+                  onClick={closeMobileMenu}
+                  className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
+                >
+                  {t("nav_portfolio")}
+                </Link>
+                <Link
+                  href="/#despre"
+                  onClick={closeMobileMenu}
+                  className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
+                >
+                  {t("nav_about")}
+                </Link>
+                <Link
+                  href="/#contact"
+                  onClick={closeMobileMenu}
+                  className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8"
+                >
+                  {t("nav_contact")}
+                </Link>
               </div>
             </div>
           </div>
@@ -707,6 +707,11 @@ export default function Home() {
 
         {/* Sectiune stakes */}
         <main className="max-w-6xl mx-auto px-6 py-24 relative z-10">
+          {/* Linie subțire cu umbră */}
+          <FadeInElement delay={0} direction="up">
+            <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
+          </FadeInElement>
+
           {/* Descriere agentie */}
           <FadeInElement delay={0}>
             <div className="text-center mb-16">
@@ -718,53 +723,83 @@ export default function Home() {
                 <span className="text-[#ffed88]">{t("stakes_h3")}</span>
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8 text-left">
-                <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer">
-                  <h4 className="nohemi-black text-white text-lg mb-2">
-                    {t("stake_1_title")}
-                  </h4>
-                  <p className="text-white/80 text-sm leading-relaxed">
-                    {t("stake_1_desc")}
-                  </p>
-                </div>
-                <div className="bg-gradient-to-b from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer">
-                  <h4 className="nohemi-black text-white text-lg mb-2">
-                    {t("stake_2_title")}
-                  </h4>
-                  <p className="text-white/80 text-sm leading-relaxed">
-                    {t("stake_2_desc")}
-                  </p>
-                </div>
-                <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer">
-                  <h4 className="nohemi-black text-white text-lg mb-2">
-                    {t("stake_3_title")}
-                  </h4>
-                  <p className="text-white/80 text-sm leading-relaxed">
-                    {t("stake_3_desc")}
-                  </p>
-                </div>
+                <FadeInElement delay={100} direction="up">
+                  <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer aspect-square flex flex-col justify-center">
+                    <div className="text-center">
+                      <h4 className="text-[#ffed88] text-base font-medium mb-3">
+                        {t("stake_1_title")}
+                      </h4>
+                      <p className="nohemi-medium text-base md:text-lg text-white leading-tight">
+                        {t("stake_1_text1")}
+                        <span className="text-[#ffed88] font-semibold">
+                          {t("stake_1_highlight1")}
+                        </span>
+                        {t("stake_1_text2")}
+                      </p>
+                    </div>
+                  </div>
+                </FadeInElement>
+                <FadeInElement delay={250} direction="up">
+                  <div className="bg-gradient-to-b from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer aspect-square flex flex-col justify-center">
+                    <div className="text-center">
+                      <h4 className="text-[#ffed88] text-base font-medium mb-3">
+                        {t("stake_2_title")}
+                      </h4>
+                      <p className="nohemi-medium text-base md:text-lg text-white leading-tight">
+                        {t("stake_2_text1")}
+                        <span className="text-[#ffed88] font-semibold">
+                          {t("stake_2_highlight1")}
+                        </span>
+                        {t("stake_2_text2")}
+                        <span className="text-[#ffed88] font-semibold">
+                          {t("stake_2_highlight2")}
+                        </span>
+                        {t("stake_2_text3")}
+                      </p>
+                    </div>
+                  </div>
+                </FadeInElement>
+                <FadeInElement delay={400} direction="up">
+                  <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 cursor-pointer aspect-square flex flex-col justify-center">
+                    <div className="text-center">
+                      <h4 className="text-[#ffed88] text-base font-medium mb-3">
+                        {t("stake_3_title")}
+                      </h4>
+                      <p className="nohemi-medium text-base md:text-lg text-white leading-tight">
+                        {t("stake_3_text1")}
+                        <span className="text-[#ffed88] font-semibold">
+                          {t("stake_3_highlight1")}
+                        </span>
+                        {t("stake_3_text2")}
+                        <span className="text-[#ffed88] font-semibold">
+                          {t("stake_3_highlight2")}
+                        </span>
+                        {t("stake_3_text3")}
+                      </p>
+                    </div>
+                  </div>
+                </FadeInElement>
               </div>
             </div>
           </FadeInElement>
 
           {/* Linie subțire cu umbră */}
-          <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
+          <FadeInElement delay={0} direction="up">
+            <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
+          </FadeInElement>
 
           {/* Secțiunea "Beneficii" */}
-          <FadeInElement delay={400}>
+          <FadeInElement delay={0}>
             <div id="despre" className="text-center mb-8">
-              <h3 className="nohemi-heading text-2xl md:text-4xl text-white mb-8">
+              <h2 className="nohemi-heading text-xl md:text-2xl text-white">
                 {t("benefits_t1")}
                 <span className="text-[#ffed88]">{t("benefits_h1")}</span>
-                {t("benefits_t2")}
-                <span className="text-[#ffed88]">{t("benefits_h2")}</span>
-                {t("benefits_t3")}
-                <span className="text-[#ffed88]">{t("benefits_h3")}</span>
-              </h3>
+              </h2>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-24">
               {/* Card 1 - Fără CMS */}
-              <FadeInElement delay={100} direction="up">
+              <FadeInElement delay={0} direction="up">
                 <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
                   <div className="text-center">
                     <h4 className="nohemi-medium text-base md:text-lg text-white leading-tight">
@@ -786,7 +821,7 @@ export default function Home() {
               </FadeInElement>
 
               {/* Card 2 - Proiecte Finalizate */}
-              <FadeInElement delay={200} direction="up">
+              <FadeInElement delay={100} direction="up">
                 <div className="bg-gradient-to-b from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
                   <div className="text-center">
                     <p className="text-[#ffed88] text-base font-medium mb-3">
@@ -822,7 +857,7 @@ export default function Home() {
               </FadeInElement>
 
               {/* Card 3 - Experiență */}
-              <FadeInElement delay={300} direction="up">
+              <FadeInElement delay={200} direction="up">
                 <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
                   <div className="text-center">
                     <p className="text-[#ffed88] text-base font-medium mb-3">
@@ -836,7 +871,7 @@ export default function Home() {
               </FadeInElement>
 
               {/* Card 4 - Clienți Mulțumiți */}
-              <FadeInElement delay={400} direction="up">
+              <FadeInElement delay={300} direction="up">
                 <div className="bg-gradient-to-tr from-black/50 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
                   <div className="text-center">
                     <p className="text-[#ffed88] text-base font-medium mb-3">
@@ -850,7 +885,7 @@ export default function Home() {
               </FadeInElement>
 
               {/* Card 5 - Social Media */}
-              <FadeInElement delay={500} direction="up">
+              <FadeInElement delay={400} direction="up">
                 <div className="bg-gradient-to-t from-black/60 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
                   <div className="text-center">
                     <p className="text-[#ffed88] text-base font-medium mb-4">
@@ -872,7 +907,7 @@ export default function Home() {
               </FadeInElement>
 
               {/* Card 6 - Contact */}
-              <FadeInElement delay={600} direction="up">
+              <FadeInElement delay={500} direction="up">
                 <div className="bg-gradient-to-tl from-black/50 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
                   <div className="text-center">
                     <a href="#contact" className="inline-block">
@@ -890,7 +925,7 @@ export default function Home() {
           <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
           {/* Sub-heading pentru servicii */}
-          <FadeInElement delay={600}>
+          <FadeInElement delay={0}>
             <div id="servicii" className="text-center mb-8">
               <h2 className="nohemi-heading text-xl md:text-2xl text-white">
                 {t("services_t1")}
@@ -901,7 +936,7 @@ export default function Home() {
             {/* Secțiunea cu carduri */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto group card-group">
               {/* Card 1 */}
-              <FadeInElement delay={700} direction="up">
+              <FadeInElement delay={100} direction="up">
                 <a href="/dezvoltare-web" className="block">
                   <div className="bg-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl group-hover:scale-95 hover:scale-110 hover:z-20 card cursor-pointer">
                     <div className="relative h-[500px]">
@@ -943,7 +978,7 @@ export default function Home() {
               </FadeInElement>
 
               {/* Card 2 */}
-              <FadeInElement delay={800} direction="up">
+              <FadeInElement delay={250} direction="up">
                 <a href="/social-media" className="block">
                   <div className="bg-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl group-hover:scale-95 hover:scale-110 hover:z-20 card cursor-pointer">
                     <div className="relative h-[500px]">
@@ -985,7 +1020,7 @@ export default function Home() {
               </FadeInElement>
 
               {/* Card 3 */}
-              <FadeInElement delay={900} direction="up">
+              <FadeInElement delay={400} direction="up">
                 <a href="/branding" className="block">
                   <div className="bg-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl group-hover:scale-95 hover:scale-110 hover:z-20 card cursor-pointer">
                     <div className="relative h-[500px]">
@@ -1032,7 +1067,7 @@ export default function Home() {
           <div className="w-32 h-px bg-white/30 mx-auto mt-24 mb-16 shadow-lg shadow-white/20"></div>
 
           {/* Heading pentru portofoliu */}
-          <FadeInElement delay={200} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div id="portofoliu" className="text-center mb-8">
               <h2 className="nohemi-heading text-xl md:text-2xl text-white">
                 {t("portfolio_t1")}
@@ -1042,26 +1077,29 @@ export default function Home() {
           </FadeInElement>
 
           {/* Carousel pentru portofoliu */}
-          <FadeInElement delay={400} direction="up">
+          <FadeInElement delay={0} direction="up">
             <PortfolioCarousel />
           </FadeInElement>
 
           {/* Linie subțire cu umbră */}
-          <FadeInElement delay={600} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div className="w-32 h-px bg-white/30 mx-auto mt-24 mb-16 shadow-lg shadow-white/20"></div>
           </FadeInElement>
 
           {/* Proces de lucru - 3 pași */}
-          <FadeInElement delay={400}>
-            <div id="despre" className="text-center mb-8">
-              <h2 className="nohemi-heading text-2xl md:text-4xl text-white mb-8">
+          <FadeInElement delay={0}>
+            <div id="despre" className="text-center mb-16">
+              <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
                 {t("process_heading")}
               </h2>
+              <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
+                {t("process_desc")}
+              </p>
             </div>
           </FadeInElement>
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-24 justify-items-center">
             {/* Pasul 1 */}
-            <FadeInElement delay={1000} direction="up">
+            <FadeInElement delay={100} direction="up">
               <div className="text-center">
                 <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="nohemi-black text-2xl text-[#ffed88]">
@@ -1078,7 +1116,7 @@ export default function Home() {
             </FadeInElement>
 
             {/* Pasul 2 */}
-            <FadeInElement delay={1200} direction="up">
+            <FadeInElement delay={250} direction="up">
               <div className="text-center">
                 <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="nohemi-black text-2xl text-[#ffed88]">
@@ -1095,7 +1133,7 @@ export default function Home() {
             </FadeInElement>
 
             {/* Pasul 3 */}
-            <FadeInElement delay={1400} direction="up">
+            <FadeInElement delay={400} direction="up">
               <div className="text-center">
                 <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                   <span className="nohemi-black text-2xl text-[#ffed88]">
@@ -1116,7 +1154,7 @@ export default function Home() {
           <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
           {/* Secțiune explicativă */}
-          <FadeInElement delay={300} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div className="max-w-6xl mx-auto px-0 mb-16">
               <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-8 md:p-12 shadow-[0_0_40px_rgba(255,255,255,0.08)]">
                 <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#ffed88]/10 blur-3xl pointer-events-none"></div>
@@ -1175,8 +1213,13 @@ export default function Home() {
             </div>
           </FadeInElement>
 
+          {/* Linie subțire cu umbră */}
+          <FadeInElement delay={0} direction="up">
+            <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
+          </FadeInElement>
+
           {/* Secțiunea de contact */}
-          <FadeInElement delay={1100} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div id="contact" className="text-center mb-12">
               <h2 className="nohemi-heading text-2xl md:text-3xl text-white mb-12">
                 {t("contact_t1")}
@@ -1189,7 +1232,7 @@ export default function Home() {
             {/* 3 Carduri pentru contact în stilul "Despre noi" */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto mb-16">
               {/* Card 1 - Telefon */}
-              <FadeInElement delay={1200} direction="up">
+              <FadeInElement delay={100} direction="up">
                 <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.25)]">
                   <div className="text-center">
                     <div className="flex justify-center mb-4">
@@ -1237,7 +1280,7 @@ export default function Home() {
               </FadeInElement>
 
               {/* Card 2 - Email */}
-              <FadeInElement delay={1300} direction="up">
+              <FadeInElement delay={250} direction="up">
                 <div className="bg-gradient-to-b from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.25)]">
                   <div className="text-center">
                     <div className="flex justify-center mb-4">
@@ -1285,7 +1328,7 @@ export default function Home() {
               </FadeInElement>
 
               {/* Card 3 - WhatsApp */}
-              <FadeInElement delay={1400} direction="up">
+              <FadeInElement delay={400} direction="up">
                 <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center shadow-[0_0_40px_rgba(255,255,255,0.15)] hover:shadow-[0_0_60px_rgba(255,255,255,0.25)]">
                   <div className="text-center">
                     <div className="flex justify-center mb-4">
@@ -1330,7 +1373,7 @@ export default function Home() {
             </div>
 
             {/* Social Media - păstrat ca este */}
-            <FadeInElement delay={1500} direction="up">
+            <FadeInElement delay={0} direction="up">
               <div className="text-center">
                 <h4 className="nohemi-medium text-2xl text-white mb-8">
                   {t("social_follow")}
@@ -1406,7 +1449,7 @@ export default function Home() {
           </div>
 
           {/* Contact Image Section */}
-          <FadeInElement delay={300} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div className="relative w-full mt-24">
               <div className="max-w-6xl mx-auto">
                 <Image
