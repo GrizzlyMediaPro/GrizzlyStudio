@@ -548,7 +548,7 @@ export default function DezvoltareWeb() {
         {/* Grid cu servicii */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
           {/* Site-uri Corporate */}
-          <FadeInElement delay={200} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-8 border border-gray-300/20 shadow-xl transition-all duration-500 hover:scale-105">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -583,7 +583,7 @@ export default function DezvoltareWeb() {
           </FadeInElement>
 
           {/* E-commerce */}
-          <FadeInElement delay={400} direction="up">
+          <FadeInElement delay={100} direction="up">
             <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-8 border border-gray-300/20 shadow-xl transition-all duration-500 hover:scale-105">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -618,7 +618,7 @@ export default function DezvoltareWeb() {
           </FadeInElement>
 
           {/* Aplicații Web */}
-          <FadeInElement delay={600} direction="up">
+          <FadeInElement delay={200} direction="up">
             <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-8 border border-gray-300/20 shadow-xl transition-all duration-500 hover:scale-105">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -657,7 +657,7 @@ export default function DezvoltareWeb() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea Proces de Lucru */}
-        <FadeInElement delay={800}>
+        <FadeInElement delay={100}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
               {t("devweb_process_h_t1")}
@@ -672,7 +672,7 @@ export default function DezvoltareWeb() {
         {/* Proces de lucru - 4 pași */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
           {/* Pasul 1 */}
-          <FadeInElement delay={1000} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div className="text-center">
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">1</span>
@@ -687,7 +687,7 @@ export default function DezvoltareWeb() {
           </FadeInElement>
 
           {/* Pasul 2 */}
-          <FadeInElement delay={1200} direction="up">
+          <FadeInElement delay={100} direction="up">
             <div className="text-center">
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">2</span>
@@ -702,7 +702,7 @@ export default function DezvoltareWeb() {
           </FadeInElement>
 
           {/* Pasul 3 */}
-          <FadeInElement delay={1400} direction="up">
+          <FadeInElement delay={200} direction="up">
             <div className="text-center">
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">3</span>
@@ -717,7 +717,7 @@ export default function DezvoltareWeb() {
           </FadeInElement>
 
           {/* Pasul 4 */}
-          <FadeInElement delay={1600} direction="up">
+          <FadeInElement delay={300} direction="up">
             <div className="text-center">
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">4</span>
@@ -736,7 +736,7 @@ export default function DezvoltareWeb() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea Tehnologii */}
-        <FadeInElement delay={1800}>
+        <FadeInElement delay={0}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
               {t("devweb_tech_h_t1")}
@@ -809,11 +809,7 @@ export default function DezvoltareWeb() {
               icon: <SiTailwindcss className="w-8 h-8 text-white" />,
             },
           ].map((tech, index) => (
-            <FadeInElement
-              key={tech.name}
-              delay={2000 + index * 100}
-              direction="up"
-            >
+            <FadeInElement key={tech.name} delay={index * 50} direction="up">
               <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-xl p-6 border border-gray-300/20 text-center transition-all duration-300 hover:scale-105">
                 <div className="flex justify-center mb-3">{tech.icon}</div>
                 <h3 className="nohemi-medium text-white text-sm">
@@ -828,7 +824,7 @@ export default function DezvoltareWeb() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea CTA */}
-        <FadeInElement delay={2200}>
+        <FadeInElement delay={0}>
           <div className="text-center mb-24">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
               {t("devweb_cta_h_t1")}
@@ -839,12 +835,18 @@ export default function DezvoltareWeb() {
               {t("devweb_cta_p")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
+              <Link
+                href="/#contact"
+                className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg"
+              >
                 {t("devweb_cta_primary")}
-              </button>
-              <button className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
+              </Link>
+              <Link
+                href="/#portofoliu"
+                className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg"
+              >
                 {t("devweb_cta_secondary")}
-              </button>
+              </Link>
             </div>
           </div>
         </FadeInElement>

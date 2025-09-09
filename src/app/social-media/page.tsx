@@ -543,7 +543,7 @@ export default function SocialMedia() {
         {/* Grid cu servicii */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
           {/* Strategie și Planificare */}
-          <FadeInElement delay={200} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-8 border border-gray-300/20 shadow-xl transition-all duration-500 hover:scale-105">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -578,7 +578,7 @@ export default function SocialMedia() {
           </FadeInElement>
 
           {/* Creare Conținut */}
-          <FadeInElement delay={400} direction="up">
+          <FadeInElement delay={100} direction="up">
             <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-8 border border-gray-300/20 shadow-xl transition-all duration-500 hover:scale-105">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -613,7 +613,7 @@ export default function SocialMedia() {
           </FadeInElement>
 
           {/* Gestionare și Monitorizare */}
-          <FadeInElement delay={600} direction="up">
+          <FadeInElement delay={200} direction="up">
             <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-8 border border-gray-300/20 shadow-xl transition-all duration-500 hover:scale-105">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -652,7 +652,7 @@ export default function SocialMedia() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea Platforme Social Media */}
-        <FadeInElement delay={800}>
+        <FadeInElement delay={100}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
               {t("social_platforms_h_t1")}
@@ -704,7 +704,7 @@ export default function SocialMedia() {
           ].map((platform, index) => (
             <FadeInElement
               key={platform.name}
-              delay={1000 + index * 100}
+              delay={index * 50}
               direction="up"
             >
               <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-xl p-6 border border-gray-300/20 text-center transition-all duration-300 hover:scale-105">
@@ -721,7 +721,7 @@ export default function SocialMedia() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea Rezultate */}
-        <FadeInElement delay={1200}>
+        <FadeInElement delay={100}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
               {t("social_results_h_t1")}
@@ -736,7 +736,7 @@ export default function SocialMedia() {
         {/* Grid cu rezultate */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
           {/* Rezultat 1 */}
-          <FadeInElement delay={200} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div className="text-center">
               <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-lg text-[#ffed88]">
@@ -753,7 +753,7 @@ export default function SocialMedia() {
           </FadeInElement>
 
           {/* Rezultat 2 */}
-          <FadeInElement delay={250} direction="up">
+          <FadeInElement delay={100} direction="up">
             <div className="text-center">
               <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-lg text-[#ffed88]">
@@ -770,7 +770,7 @@ export default function SocialMedia() {
           </FadeInElement>
 
           {/* Rezultat 3 */}
-          <FadeInElement delay={300} direction="up">
+          <FadeInElement delay={200} direction="up">
             <div className="text-center">
               <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-lg text-[#ffed88]">
@@ -787,7 +787,7 @@ export default function SocialMedia() {
           </FadeInElement>
 
           {/* Rezultat 4 */}
-          <FadeInElement delay={350} direction="up">
+          <FadeInElement delay={300} direction="up">
             <div className="text-center">
               <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-lg text-[#ffed88]">
@@ -808,7 +808,7 @@ export default function SocialMedia() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea CTA */}
-        <FadeInElement delay={2200}>
+        <FadeInElement delay={100}>
           <div className="text-center mb-24">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
               {t("social_cta_h_t1")}
@@ -827,7 +827,7 @@ export default function SocialMedia() {
               </Link>
               <Link
                 href="/#portofoliu"
-                className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all durataion-300 border border-white/20 text-lg"
+                className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg"
               >
                 {t("social_cta_secondary")}
               </Link>
