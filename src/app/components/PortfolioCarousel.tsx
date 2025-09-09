@@ -1,13 +1,11 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
-import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function PortfolioCarousel() {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<"left" | "right" | null>(
-    null
-  );
   const [isAnimating, setIsAnimating] = useState(false);
   const [activeTab, setActiveTab] = useState("pagini-prezentare");
   const [screenSize, setScreenSize] = useState<"mobile" | "tablet" | "desktop">(
@@ -39,15 +37,22 @@ export default function PortfolioCarousel() {
 
   // Touch gesture handlers
   const handleTouchStart = (e: React.TouchEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
     setTouchEnd(null);
     setTouchStart(e.targetTouches[0].clientX);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
     setTouchEnd(e.targetTouches[0].clientX);
   };
 
-  const handleTouchEnd = () => {
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    e.stopPropagation();
+    e.preventDefault();
+
     if (!touchStart || !touchEnd) return;
 
     const distance = touchStart - touchEnd;
@@ -63,41 +68,215 @@ export default function PortfolioCarousel() {
   };
 
   const tabs = [
-    { id: "pagini-prezentare", label: "Pagini de prezentare" },
-    { id: "magazine-online", label: "Magazine online" },
-    { id: "aplicatii", label: "Aplicații web/mobile" },
-    { id: "social-media", label: "Rezultate social media" },
-    { id: "altele", label: "Altele" },
+    { id: "pagini-prezentare", label: t("tab_pages") },
+    { id: "magazine-online", label: t("tab_shops") },
+    { id: "aplicatii", label: t("tab_apps") },
+    { id: "social-media", label: t("tab_social") },
   ];
 
-  const slides = [
+  type SlideItem = {
+    title: string;
+    subtitle: string;
+    image: string;
+    description: string;
+    category: string;
+    url?: string;
+  };
+
+  const slides: SlideItem[] = [
     {
-      title: "Vera Papara Psiholog",
-      subtitle: "Site pentru psiholog",
+      title: t("slide_vera_title"),
+      subtitle: t("slide_vera_subtitle"),
       image: "/verasite.png",
-      description: "Site profesional pentru cabinetul de psihologie.",
+      description: t("slide_vera_desc"),
       category: "pagini-prezentare",
+      url: "https://www.verapapara.ro/",
     },
     {
-      title: "CMD External Group",
-      subtitle: "Web design + Official Event Presentation",
+      title: t("slide_cmd_title"),
+      subtitle: t("slide_cmd_subtitle"),
       image: "/cmdsite.png",
-      description: "Professional web design and development services.",
+      description: t("slide_cmd_desc"),
       category: "pagini-prezentare",
+      url: "https://www.cmdexternalgroup.ro/",
     },
     {
-      title: "CursPlus",
-      subtitle: "Landing page",
+      title: t("slide_curs_title"),
+      subtitle: t("slide_curs_subtitle"),
       image: "/cursplussite.png",
-      description: "Educational platform and course management system.",
+      description: t("slide_curs_desc"),
       category: "pagini-prezentare",
+      url: "https://www.cursplus.ro/",
     },
     {
-      title: "HRZ Media",
-      subtitle: "Web design & branding",
+      title: t("slide_hrz_title"),
+      subtitle: t("slide_hrz_subtitle"),
       image: "/hrzmediasite.png",
-      description: "Creative media agency and branding solutions.",
+      description: t("slide_hrz_desc"),
       category: "pagini-prezentare",
+      url: "https://www.hrz-media.com/",
+    },
+    {
+      title: t("slide_aef_title"),
+      subtitle: t("slide_aef_subtitle"),
+      image: "/aef.png",
+      description: t("slide_aef_desc"),
+      category: "pagini-prezentare",
+      url: "https://aef-one.vercel.app/",
+    },
+    {
+      title: t("slide_comp_title"),
+      subtitle: t("slide_comp_subtitle"),
+      image: "/comp.png",
+      description: t("slide_comp_desc"),
+      category: "pagini-prezentare",
+      url: "https://www.competizione.ro/",
+    },
+    {
+      title: t("slide_abr_title"),
+      subtitle: t("slide_abr_subtitle"),
+      image: "/abr.png",
+      description: t("slide_abr_desc"),
+      category: "pagini-prezentare",
+      url: "https://abraham-asociatii.ro/",
+    },
+    {
+      title: t("slide_agro_title"),
+      subtitle: t("slide_agro_subtitle"),
+      image: "/agro.png",
+      description: t("slide_agro_desc"),
+      category: "pagini-prezentare",
+      url: "https://agrodrona.ro/",
+    },
+    {
+      title: t("slide_platinum_title"),
+      subtitle: t("slide_platinum_subtitle"),
+      image: "/platinum.png",
+      description: t("slide_platinum_desc"),
+      category: "pagini-prezentare",
+      url: "https://www.platinumsocial.ro/",
+    },
+    {
+      title: t("slide_hashtagmen_title"),
+      subtitle: t("slide_hashtagmen_subtitle"),
+      image: "/HashtagMEN.png",
+      description: t("slide_hashtagmen_desc"),
+      category: "pagini-prezentare",
+      url: "https://www.hashtagmen.ro/",
+    },
+    // Magazine online
+    {
+      title: t("slide_screen_title"),
+      subtitle: t("slide_screen_subtitle"),
+      image: "/screen.png",
+      description: t("slide_screen_desc"),
+      category: "magazine-online",
+      url: "https://screenshield.ro/",
+    },
+    {
+      title: t("slide_rouh_title"),
+      subtitle: t("slide_rouh_subtitle"),
+      image: "/rouh.png",
+      description: t("slide_rouh_desc"),
+      category: "magazine-online",
+      url: "Launching Soon",
+    },
+    {
+      title: t("slide_smarthomes_title"),
+      subtitle: t("slide_smarthomes_subtitle"),
+      image: "/smarthomes.png",
+      description: t("slide_smarthomes_desc"),
+      category: "magazine-online",
+      url: "https://www.smarthomemall.ro/",
+    },
+    {
+      title: t("slide_amarg_title"),
+      subtitle: t("slide_amarg_subtitle"),
+      image: "/amarg.png",
+      description: t("slide_amarg_desc"),
+      category: "magazine-online",
+      url: "Inactive",
+    },
+    {
+      title: t("slide_treasurebox_title"),
+      subtitle: t("slide_treasurebox_subtitle"),
+      image: "/treasurebox.png",
+      description: t("slide_treasurebox_desc"),
+      category: "magazine-online",
+      url: "Inactive",
+    },
+    {
+      title: t("slide_voc_title"),
+      subtitle: t("slide_voc_subtitle"),
+      image: "/voc.png",
+      description: t("slide_voc_desc"),
+      category: "aplicatii",
+      url: "https://www.voceacampusului.ro/",
+    },
+    {
+      title: t("slide_picpossible_title"),
+      subtitle: t("slide_picpossible_subtitle"),
+      image: "/picpossible.png",
+      description: t("slide_picpossible_desc"),
+      category: "aplicatii",
+      url: "Launching Soon",
+    },
+    {
+      title: t("slide_quicklearn_title"),
+      subtitle: t("slide_quicklearn_subtitle"),
+      image: "/quicklearn.png",
+      description: t("slide_quicklearn_desc"),
+      category: "aplicatii",
+      url: "Launching Soon",
+    },
+    // Social media results (rez1 - rez6)
+    {
+      title: t("social_slide_title"),
+      subtitle: "",
+      image: "/rez1.jpg",
+      description: t("social_slide_desc"),
+      category: "social-media",
+      url: "",
+    },
+    {
+      title: t("social_slide_title"),
+      subtitle: "",
+      image: "/rez4.jpg",
+      description: t("social_slide_desc"),
+      category: "social-media",
+      url: "",
+    },
+    {
+      title: t("social_slide_title"),
+      subtitle: "",
+      image: "/rez2.jpg",
+      description: t("social_slide_desc"),
+      category: "social-media",
+      url: "",
+    },
+    {
+      title: t("social_slide_title"),
+      subtitle: "",
+      image: "/rez3.jpg",
+      description: t("social_slide_desc"),
+      category: "social-media",
+      url: "",
+    },
+    {
+      title: t("social_slide_title"),
+      subtitle: "",
+      image: "/rez6.jpg",
+      description: t("social_slide_desc"),
+      category: "social-media",
+      url: "",
+    },
+    {
+      title: t("social_slide_title"),
+      subtitle: "",
+      image: "/rez6.png",
+      description: t("social_slide_desc"),
+      category: "social-media",
+      url: "",
     },
   ];
 
@@ -130,12 +309,10 @@ export default function PortfolioCarousel() {
     if (filteredSlides.length === 0) return;
 
     setIsAnimating(true);
-    setSlideDirection("left");
     setCurrentIndex((prev) => (prev + 1) % filteredSlides.length);
     setTimeout(() => {
-      setSlideDirection(null);
       setIsAnimating(false);
-    }, 800);
+    }, 300);
   };
 
   const prevSlide = () => {
@@ -144,14 +321,12 @@ export default function PortfolioCarousel() {
     if (filteredSlides.length === 0) return;
 
     setIsAnimating(true);
-    setSlideDirection("right");
     setCurrentIndex(
       (prev) => (prev - 1 + filteredSlides.length) % filteredSlides.length
     );
     setTimeout(() => {
-      setSlideDirection(null);
       setIsAnimating(false);
-    }, 800);
+    }, 300);
   };
 
   const handleTabChange = (tabId: string) => {
@@ -161,25 +336,18 @@ export default function PortfolioCarousel() {
 
   const visibleSlides = getVisibleSlides();
 
-  // Hook pentru tab-uri
-  const { elementRef: tabsRef, isVisible: tabsVisible } =
-    useIntersectionObserver({
-      threshold: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1],
-      triggerOnce: false,
-    }) as { elementRef: React.RefObject<HTMLDivElement>; isVisible: boolean };
+  // Fără animații interne pentru a evita conflictele cu FadeInElement wrapper
 
   return (
-    <div className="portfolio-carousel-container max-w-6xl mx-auto mb-16">
+    <div
+      className="portfolio-carousel-container max-w-6xl mx-auto mb-16"
+      onPointerDown={(e) => e.stopPropagation()}
+      onMouseDown={(e) => e.stopPropagation()}
+      onTouchStart={(e) => e.stopPropagation()}
+      onClick={(e) => e.stopPropagation()}
+    >
       {/* Taburi pentru filtrare - responsive */}
-      <div
-        ref={tabsRef}
-        className="flex justify-center mb-12 transition-all duration-700 ease-out"
-        style={{
-          opacity: tabsVisible ? 1 : 0,
-          transform: tabsVisible ? "translateY(0)" : "translateY(20px)",
-          filter: tabsVisible ? "blur(0px)" : "blur(8px)",
-        }}
-      >
+      <div className="flex justify-center mb-12">
         <div className="portfolio-tabs flex flex-col sm:flex-row sm:justify-evenly flex-wrap gap-2 bg-black/20 backdrop-blur-md rounded-2xl p-2 border border-white/10 w-full sm:max-w-full">
           {tabs.map((tab) => (
             <button
@@ -201,7 +369,7 @@ export default function PortfolioCarousel() {
         {/* Container pentru carduri - responsive cu touch support */}
         <div
           ref={carouselRef}
-          className="portfolio-carousel-scroll flex gap-4 sm:gap-6 pb-6 px-8 justify-center group overflow-visible"
+          className="portfolio-carousel-scroll flex gap-4 sm:gap-6 pb-6 px-0 sm:px-8 justify-center group overflow-visible overscroll-contain touch-pan-x select-none"
           onTouchStart={handleTouchStart}
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
@@ -216,12 +384,7 @@ export default function PortfolioCarousel() {
                   : "w-full sm:w-72 md:w-80 lg:w-80"
               } bg-black/40 rounded-2xl p-4 sm:p-6 border border-gray-300/20 shadow-xl transform group-hover:scale-95 group-hover:blur-sm hover:blur-none hover:z-20 hover:scale-110`}
               style={{
-                animation:
-                  slideDirection === "left"
-                    ? "smoothSlideLeft 0.8s ease-out"
-                    : slideDirection === "right"
-                    ? "smoothSlideRight 0.8s ease-out"
-                    : "none",
+                animation: "none",
               }}
             >
               <div className="text-center mb-4">
@@ -260,25 +423,57 @@ export default function PortfolioCarousel() {
                 <p className="text-white/80 text-xs sm:text-sm mb-3">
                   {slide.description}
                 </p>
-                <div className="flex items-center justify-center gap-2">
-                  <span className="text-[#ffed88] text-xs sm:text-sm font-medium">
-                    View
-                  </span>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth="1.5"
-                    stroke="#ffed88"
-                    className="size-3 sm:size-4"
+                {slide.url === "Launching Soon" ? (
+                  <div className="inline-flex items-center justify-center gap-2 text-[#ffed88] text-xs sm:text-sm font-medium">
+                    <span>Launching Soon</span>
+                  </div>
+                ) : slide.url === "Inactive" ? (
+                  <div className="inline-flex items-center justify-center gap-2 text-gray-400 text-xs sm:text-sm font-medium opacity-50">
+                    <span>Inactive</span>
+                  </div>
+                ) : slide.url ? (
+                  <a
+                    href={slide.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center justify-center gap-2 text-[#ffed88] text-xs sm:text-sm font-medium hover:opacity-80 transition-opacity"
+                    aria-label={`${t("view_label")} ${slide.title}`}
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
-                    />
-                  </svg>
-                </div>
+                    <span>{t("view_label")}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="#ffed88"
+                      className="size-3 sm:size-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </a>
+                ) : (
+                  <div className="inline-flex items-center justify-center gap-2 text-[#ffed88] text-xs sm:text-sm font-medium opacity-50 cursor-not-allowed select-none">
+                    <span>{t("view_label")}</span>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      strokeWidth="1.5"
+                      stroke="#ffed88"
+                      className="size-3 sm:size-4"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                      />
+                    </svg>
+                  </div>
+                )}
               </div>
             </div>
           ))}
@@ -287,9 +482,58 @@ export default function PortfolioCarousel() {
         {/* Navigation dots with arrows - responsive */}
         <div className="portfolio-navigation flex justify-center items-center gap-2 sm:gap-4 mt-6">
           <button
-            onClick={prevSlide}
+            type="button"
+            onPointerDown={(e) => {
+              e.stopPropagation();
+              // @ts-ignore - nativeEvent exists on synthetic events in React DOM
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+            }}
+            onMouseDown={(e) => {
+              e.stopPropagation();
+              // @ts-ignore
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+            }}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+              // @ts-ignore
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              // @ts-ignore
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+              prevSlide();
+            }}
             className="portfolio-nav-button w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-110"
-            aria-label="Previous slide"
+            aria-label={t("prev_slide")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -321,9 +565,58 @@ export default function PortfolioCarousel() {
           </div>
 
           <button
-            onClick={nextSlide}
+            type="button"
+            onPointerDown={(e) => {
+              e.stopPropagation();
+              // @ts-ignore - nativeEvent exists on synthetic events in React DOM
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+            }}
+            onMouseDown={(e) => {
+              e.stopPropagation();
+              // @ts-ignore
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+            }}
+            onTouchStart={(e) => {
+              e.stopPropagation();
+              // @ts-ignore
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              // @ts-ignore
+              if (
+                e.nativeEvent &&
+                typeof e.nativeEvent.stopImmediatePropagation === "function"
+              ) {
+                // @ts-ignore
+                e.nativeEvent.stopImmediatePropagation();
+              }
+              e.preventDefault();
+              nextSlide();
+            }}
             className="portfolio-nav-button w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-110"
-            aria-label="Next slide"
+            aria-label={t("next_slide")}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

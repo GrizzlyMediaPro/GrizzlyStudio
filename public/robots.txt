@@ -1,0 +1,38 @@
+# Robots.txt for Grizzly Media Pro
+# https://grizzlymediapro.com
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://grizzlymediapro.com/sitemap.xml
+
+# Disallow admin areas (if any)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /_next/static/
+
+# Allow all search engines to crawl everything else
+Crawl-delay: 1
+
+# Important pages for sitelinks
+# Homepage
+Allow: /
+# Services
+Allow: /#servicii
+# Portfolio  
+Allow: /#portofoliu
+# About
+Allow: /#despre
+# Contact
+Allow: /#contact
+
+# Service pages
+Allow: /dezvoltare-web
+Allow: /social-media
+Allow: /branding
+
+# Legal pages
+Allow: /politica-confidentialitate
+Allow: /politica-cookies
+Allow: /termeni-conditii

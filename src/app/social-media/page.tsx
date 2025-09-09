@@ -1,8 +1,10 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import FadeInElement from "../components/FadeInElement";
 import { useState, useEffect } from "react";
+import CountUp from "../components/CountUp";
 import {
   SiInstagram,
   SiTiktok,
@@ -13,10 +15,13 @@ import {
   SiSnapchat,
   SiPinterest,
 } from "react-icons/si";
+import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function SocialMedia() {
+  const { t, lang, setLang } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -39,12 +44,33 @@ export default function SocialMedia() {
     return () => window.removeEventListener("scroll", handleScrollClose);
   }, [isMobileMenuOpen]);
 
+  // Închide dropdown-ul de limbă când se face click în afara lui
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest(".language-dropdown")) {
+        setIsLanguageDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const toggleLanguageDropdown = () =>
+    setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+
+  const changeLanguage = (newLang: "ro" | "en") => {
+    setLang(newLang);
+    setIsLanguageDropdownOpen(false);
   };
 
   return (
@@ -70,15 +96,15 @@ export default function SocialMedia() {
           <div className="max-w-6xl mx-auto px-6 py-8 flex items-center justify-between">
             {/* Logo în navbar - în stânga */}
             <div className="flex items-center">
-              <a href="/">
+              <Link href="/">
                 <Image
                   src="/grizzlylogo.png"
                   alt="Grizzly Media Pro Logo"
-                  width={280}
-                  height={65}
-                  className="object-contain transition-all duration-500"
+                  width={220}
+                  height={55}
+                  className="object-contain transition-all duration-500 md:w-[280px] md:h-[65px]"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Meniu în navbar - în dreapta */}
@@ -87,30 +113,84 @@ export default function SocialMedia() {
                 isScrolled ? "opacity-100" : "opacity-0"
               }`}
             >
-              <a
+              <Link
                 href="/#servicii"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Servicii
-              </a>
-              <a
+                {t("nav_services")}
+              </Link>
+              <Link
                 href="/#portofoliu"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Portofoliu
-              </a>
-              <a
+                {t("nav_portfolio")}
+              </Link>
+              <Link
                 href="/#despre"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Despre
-              </a>
-              <a
+                {t("nav_about")}
+              </Link>
+              <Link
                 href="/#contact"
                 className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
               >
-                Contact
-              </a>
+                {t("nav_contact")}
+              </Link>
+
+              {/* Buton de limbă cu dropdown */}
+              <div className="relative language-dropdown">
+                <button
+                  onClick={toggleLanguageDropdown}
+                  className="text-white/80 hover:text-white transition-colors duration-300 flex items-center gap-2"
+                  aria-label="Language selector"
+                >
+                  <span className="font-medium">
+                    {lang === "ro" ? "RO" : "EN"}
+                  </span>
+                  <svg
+                    className={`w-4 h-4 transition-transform duration-300 ${
+                      isLanguageDropdownOpen ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                {/* Dropdown pentru limbă */}
+                {isLanguageDropdownOpen && (
+                  <div className="absolute top-full right-0 mt-2 bg-[#0d0d0e] border border-white/20 rounded-lg shadow-[0_0_40px_rgba(255,255,255,0.15)] backdrop-blur-md overflow-hidden z-50">
+                    <button
+                      onClick={() => changeLanguage("ro")}
+                      className={`w-full px-4 py-3 text-left hover:bg-white/10 transition-colors duration-200 ${
+                        lang === "ro"
+                          ? "text-[#ffed88] bg-white/5"
+                          : "text-white/80"
+                      }`}
+                    >
+                      RO
+                    </button>
+                    <button
+                      onClick={() => changeLanguage("en")}
+                      className={`w-full px-4 py-3 text-left hover:bg-white/10 transition-colors duration-200 ${
+                        lang === "en"
+                          ? "text-[#ffed88] bg-white/5"
+                          : "text-white/80"
+                      }`}
+                    >
+                      EN
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Hamburger menu pentru mobile */}
@@ -154,34 +234,90 @@ export default function SocialMedia() {
         >
           <div className="flex flex-col justify-center items-center h-full">
             <div className="flex flex-col space-y-8 text-center">
-              <a
+              <Link
                 href="/#servicii"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
-                Servicii
-              </a>
-              <a
+                {t("nav_services")}
+              </Link>
+              <Link
                 href="/#portofoliu"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
-                Portofoliu
-              </a>
-              <a
+                {t("nav_portfolio")}
+              </Link>
+              <Link
                 href="/#despre"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
-                Despre
-              </a>
-              <a
+                {t("nav_about")}
+              </Link>
+              <Link
                 href="/#contact"
                 onClick={closeMobileMenu}
                 className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8"
               >
-                Contact
-              </a>
+                {t("nav_contact")}
+              </Link>
+
+              {/* Buton de limbă pentru mobile */}
+              <div className="mt-8 flex justify-center">
+                <div className="relative language-dropdown">
+                  <button
+                    onClick={toggleLanguageDropdown}
+                    className="text-white/80 hover:text-white transition-colors duration-300 flex items-center gap-2"
+                    aria-label="Language selector"
+                  >
+                    <span className="text-2xl font-medium">
+                      {lang === "ro" ? "RO" : "EN"}
+                    </span>
+                    <svg
+                      className={`w-5 h-5 transition-transform duration-300 ${
+                        isLanguageDropdownOpen ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* Dropdown pentru limbă - mobile */}
+                  {isLanguageDropdownOpen && (
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-[#0d0d0e] border border-white/20 rounded-lg shadow-[0_0_40px_rgba(255,255,255,0.15)] backdrop-blur-md overflow-hidden z-50 min-w-[80px]">
+                      <button
+                        onClick={() => changeLanguage("ro")}
+                        className={`w-full px-4 py-3 text-center hover:bg-white/10 transition-colors duration-200 ${
+                          lang === "ro"
+                            ? "text-[#ffed88] bg-white/5"
+                            : "text-white/80"
+                        }`}
+                      >
+                        RO
+                      </button>
+                      <button
+                        onClick={() => changeLanguage("en")}
+                        className={`w-full px-4 py-3 text-center hover:bg-white/10 transition-colors duration-200 ${
+                          lang === "en"
+                            ? "text-[#ffed88] bg-white/5"
+                            : "text-white/80"
+                        }`}
+                      >
+                        EN
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -198,15 +334,15 @@ export default function SocialMedia() {
           <div className="flex items-center justify-between w-full max-w-6xl mx-auto relative">
             {/* Logo */}
             <div className="flex items-center">
-              <a href="/">
+              <Link href="/">
                 <Image
                   src="/grizzlylogo.png"
                   alt="Grizzly Media Pro Logo"
-                  width={280}
-                  height={65}
-                  className="object-contain transition-all duration-700 ease-out"
+                  width={220}
+                  height={55}
+                  className="object-contain transition-all duration-700 ease-out md:w-[280px] md:h-[65px]"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Meniu în hero - în dreapta */}
@@ -215,30 +351,84 @@ export default function SocialMedia() {
                 isScrolled ? "opacity-0" : "opacity-100"
               }`}
             >
-              <a
+              <Link
                 href="/#servicii"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Servicii
-              </a>
-              <a
+                {t("nav_services")}
+              </Link>
+              <Link
                 href="/#portofoliu"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Portofoliu
-              </a>
-              <a
+                {t("nav_portfolio")}
+              </Link>
+              <Link
                 href="/#despre"
                 className="text-white/80 hover:text-white transition-colors duration-300"
               >
-                Despre
-              </a>
-              <a
+                {t("nav_about")}
+              </Link>
+              <Link
                 href="/#contact"
                 className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
               >
-                Contact
-              </a>
+                {t("nav_contact")}
+              </Link>
+
+              {/* Buton de limbă cu dropdown */}
+              <div className="relative language-dropdown">
+                <button
+                  onClick={toggleLanguageDropdown}
+                  className="text-white/80 hover:text-white transition-colors duration-300 flex items-center gap-2"
+                  aria-label="Language selector"
+                >
+                  <span className="font-medium">
+                    {lang === "ro" ? "RO" : "EN"}
+                  </span>
+                  <svg
+                    className={`w-4 h-4 transition-transform duration-300 ${
+                      isLanguageDropdownOpen ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                {/* Dropdown pentru limbă */}
+                {isLanguageDropdownOpen && (
+                  <div className="absolute top-full right-0 mt-2 bg-[#0d0d0e] border border-white/20 rounded-lg shadow-[0_0_40px_rgba(255,255,255,0.15)] backdrop-blur-md overflow-hidden z-50">
+                    <button
+                      onClick={() => changeLanguage("ro")}
+                      className={`w-full px-4 py-3 text-left hover:bg-white/10 transition-colors duration-200 ${
+                        lang === "ro"
+                          ? "text-[#ffed88] bg-white/5"
+                          : "text-white/80"
+                      }`}
+                    >
+                      RO
+                    </button>
+                    <button
+                      onClick={() => changeLanguage("en")}
+                      className={`w-full px-4 py-3 text-left hover:bg-white/10 transition-colors duration-200 ${
+                        lang === "en"
+                          ? "text-[#ffed88] bg-white/5"
+                          : "text-white/80"
+                      }`}
+                    >
+                      EN
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Hamburger menu pentru mobile */}
@@ -271,22 +461,29 @@ export default function SocialMedia() {
         <div className="flex-1 flex items-center justify-center relative z-10">
           <div className="text-center px-6 max-w-6xl mx-auto">
             <h1 className="nohemi-heading text-4xl md:text-6xl text-white mb-6 leading-tight">
-              Social Media <span className="text-[#ffed88]">Marketing</span>{" "}
+              {t("social_hero_t1")}
+              <span className="text-[#ffed88]">{t("social_hero_h1")}</span>{" "}
               <br />
-              <span className="text-[#ffed88]">Strategic</span> și{" "}
-              <span className="text-[#ffed88]">Creativ</span>
+              <span className="text-[#ffed88]">{t("social_hero_h2")}</span>
+              {t("social_hero_t2")}
+              <span className="text-[#ffed88]">{t("social_hero_h3")}</span>
             </h1>
             <p className="nohemi-medium text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto">
-              Transformăm brandul tău într-o prezență digitală puternică cu
-              strategii personalizate și conținut viral
+              {t("social_hero_p")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
-                Începe Campania
-              </button>
-              <button className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
-                Vezi Rezultatele
-              </button>
+              <Link
+                href="/#contact"
+                className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg"
+              >
+                {t("social_hero_cta_start")}
+              </Link>
+              <Link
+                href="/#portofoliu"
+                className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg"
+              >
+                {t("social_hero_cta_results")}
+              </Link>
             </div>
           </div>
         </div>
@@ -313,12 +510,13 @@ export default function SocialMedia() {
         <FadeInElement delay={0}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Serviciile Noastre de{" "}
-              <span className="text-[#ffed88]">Social Media</span>
+              {t("social_services_h_t1")}
+              <span className="text-[#ffed88]">
+                {t("social_services_h_h1")}
+              </span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              Oferim soluții complete de marketing pe social media, de la
-              strategie până la conținut viral
+              {t("social_services_desc")}
             </p>
           </div>
         </FadeInElement>
@@ -345,18 +543,17 @@ export default function SocialMedia() {
                   </svg>
                 </div>
                 <h3 className="nohemi-medium text-xl text-white mb-3">
-                  Strategie și Planificare
+                  {t("social_card_strategy_title")}
                 </h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Dezvoltăm strategii personalizate pentru fiecare platformă
-                  social media
+                  {t("social_card_strategy_desc")}
                 </p>
               </div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li>• Analiză concurență și piață</li>
-                <li>• Planificare editorială</li>
-                <li>• Strategii de creștere</li>
-                <li>• Calendar de conținut</li>
+                <li>{t("social_card_strategy_li1")}</li>
+                <li>{t("social_card_strategy_li2")}</li>
+                <li>{t("social_card_strategy_li3")}</li>
+                <li>{t("social_card_strategy_li4")}</li>
               </ul>
             </div>
           </FadeInElement>
@@ -381,18 +578,17 @@ export default function SocialMedia() {
                   </svg>
                 </div>
                 <h3 className="nohemi-medium text-xl text-white mb-3">
-                  Creare Conținut
+                  {t("social_card_content_title")}
                 </h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Conținut creativ și viral adaptat pentru fiecare platformă
-                  social media
+                  {t("social_card_content_desc")}
                 </p>
               </div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li>• Postări și stories</li>
-                <li>• Video-uri și reels</li>
-                <li>• Design grafic</li>
-                <li>• Conținut viral</li>
+                <li>{t("social_card_content_li1")}</li>
+                <li>{t("social_card_content_li2")}</li>
+                <li>{t("social_card_content_li3")}</li>
+                <li>{t("social_card_content_li4")}</li>
               </ul>
             </div>
           </FadeInElement>
@@ -417,18 +613,17 @@ export default function SocialMedia() {
                   </svg>
                 </div>
                 <h3 className="nohemi-medium text-xl text-white mb-3">
-                  Gestionare și Monitorizare
+                  {t("social_card_manage_title")}
                 </h3>
                 <p className="text-white/70 text-sm leading-relaxed">
-                  Gestionăm toate conturile tale și monitorizăm performanța în
-                  timp real
+                  {t("social_card_manage_desc")}
                 </p>
               </div>
               <ul className="space-y-2 text-sm text-white/60">
-                <li>• Gestionare conturi</li>
-                <li>• Răspuns comentarii</li>
-                <li>• Rapoarte performanță</li>
-                <li>• Optimizare continuă</li>
+                <li>{t("social_card_manage_li1")}</li>
+                <li>{t("social_card_manage_li2")}</li>
+                <li>{t("social_card_manage_li3")}</li>
+                <li>{t("social_card_manage_li4")}</li>
               </ul>
             </div>
           </FadeInElement>
@@ -441,11 +636,13 @@ export default function SocialMedia() {
         <FadeInElement delay={800}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Platformele <span className="text-[#ffed88]">Noastre</span>
+              {t("social_platforms_h_t1")}
+              <span className="text-[#ffed88]">
+                {t("social_platforms_h_h1")}
+              </span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              Lucrăm cu toate platformele sociale pentru a-ți maximiza prezența
-              digitală
+              {t("social_platforms_desc")}
             </p>
           </div>
         </FadeInElement>
@@ -508,11 +705,11 @@ export default function SocialMedia() {
         <FadeInElement delay={1200}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Rezultatele <span className="text-[#ffed88]">Noastre</span>
+              {t("social_results_h_t1")}
+              <span className="text-[#ffed88]">{t("social_results_h_h1")}</span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-              Transformăm brandurile în influențatori digitali cu rezultate
-              măsurabile
+              {t("social_results_desc")}
             </p>
           </div>
         </FadeInElement>
@@ -520,65 +717,69 @@ export default function SocialMedia() {
         {/* Grid cu rezultate */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
           {/* Rezultat 1 */}
-          <FadeInElement delay={1400} direction="up">
+          <FadeInElement delay={200} direction="up">
             <div className="text-center">
-              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
-                  100M+
+                  <CountUp end={10000000} suffix="+" />
                 </span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">Views</h3>
+              <h3 className="nohemi-medium text-xl text-white mb-4">
+                {t("social_res_views_title")}
+              </h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Vizualizări generate pentru clienții noștri
+                {t("social_res_views_desc")}
               </p>
             </div>
           </FadeInElement>
 
           {/* Rezultat 2 */}
-          <FadeInElement delay={1600} direction="up">
+          <FadeInElement delay={250} direction="up">
             <div className="text-center">
-              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
-                  50k+
+                  <CountUp end={15000} suffix="+" />
                 </span>
               </div>
               <h3 className="nohemi-medium text-xl text-white mb-4">
-                Followers
+                {t("social_res_followers_title")}
               </h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Urmăritori adăugați clienților noștri
+                {t("social_res_followers_desc")}
               </p>
             </div>
           </FadeInElement>
 
           {/* Rezultat 3 */}
-          <FadeInElement delay={1800} direction="up">
+          <FadeInElement delay={300} direction="up">
             <div className="text-center">
-              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
-                  500%
+                  <CountUp end={200} suffix="%" />
                 </span>
               </div>
               <h3 className="nohemi-medium text-xl text-white mb-4">
-                Creștere
+                {t("social_res_growth_title")}
               </h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Creștere medie în engagement
+                {t("social_res_growth_desc")}
               </p>
             </div>
           </FadeInElement>
 
           {/* Rezultat 4 */}
-          <FadeInElement delay={2000} direction="up">
+          <FadeInElement delay={350} direction="up">
             <div className="text-center">
-              <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
+              <div className="w-40 h-40 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
-                  150+
+                  <CountUp end={20} suffix="+" />
                 </span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">Clienți</h3>
+              <h3 className="nohemi-medium text-xl text-white mb-4">
+                {t("social_res_clients_title")}
+              </h3>
               <p className="text-white/70 text-sm leading-relaxed">
-                Clienți mulțumiți cu rezultate
+                {t("social_res_clients_desc")}
               </p>
             </div>
           </FadeInElement>
@@ -591,21 +792,26 @@ export default function SocialMedia() {
         <FadeInElement delay={2200}>
           <div className="text-center mb-24">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              Gata să începem <span className="text-[#ffed88]">campania</span>{" "}
-              ta?
+              {t("social_cta_h_t1")}
+              <span className="text-[#ffed88]">{t("social_cta_h_h1")}</span>
+              {t("social_cta_h_t2")}
             </h2>
             <p className="nohemi-medium text-lg text-white/80 mb-8 max-w-2xl mx-auto">
-              Contactează-ne pentru o consultație gratuită și să discutăm despre
-              cum putem transforma brandul tău într-o prezență virală pe social
-              media
+              {t("social_cta_p")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
-                Contactează-ne Acum
-              </button>
-              <button className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
-                Vezi Portofoliul
-              </button>
+              <Link
+                href="/#contact"
+                className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg"
+              >
+                {t("social_cta_primary")}
+              </Link>
+              <Link
+                href="/#portofoliu"
+                className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all durataion-300 border border-white/20 text-lg"
+              >
+                {t("social_cta_secondary")}
+              </Link>
             </div>
           </div>
         </FadeInElement>
@@ -626,8 +832,7 @@ export default function SocialMedia() {
                   />
                 </div>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  Transformăm brandurile în influențatori digitali cu strategii
-                  personalizate și conținut viral.
+                  {t("social_footer_tagline")}
                 </p>
               </div>
 
@@ -636,40 +841,40 @@ export default function SocialMedia() {
                 {/* Quick Links */}
                 <div>
                   <h4 className="nohemi-medium text-white text-sm mb-4">
-                    Navigare
+                    {t("footer_nav_label")}
                   </h4>
                   <div className="grid grid-cols-2 gap-2">
-                    <a
+                    <Link
                       href="/#despre"
                       className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                     >
-                      Despre noi
-                    </a>
-                    <a
+                      {t("footer_nav_about")}
+                    </Link>
+                    <Link
                       href="/#servicii"
                       className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                     >
-                      Servicii
-                    </a>
-                    <a
+                      {t("footer_nav_services")}
+                    </Link>
+                    <Link
                       href="/#portofoliu"
                       className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                     >
-                      Portofoliu
-                    </a>
-                    <a
+                      {t("footer_nav_portfolio")}
+                    </Link>
+                    <Link
                       href="/#contact"
                       className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                     >
-                      Contact
-                    </a>
+                      {t("footer_nav_contact")}
+                    </Link>
                   </div>
                 </div>
 
                 {/* Contact */}
                 <div>
                   <h4 className="nohemi-medium text-white text-sm mb-4">
-                    Contact
+                    {t("footer_contact_label")}
                   </h4>
                   <div className="space-y-3">
                     <div className="flex items-center space-x-3">
@@ -691,7 +896,7 @@ export default function SocialMedia() {
                     </div>
                     <div className="flex items-center space-x-3">
                       <a
-                        href="mailto:grizzlymediapro@gmail.com"
+                        href="mailto:contact@grizzlymediapro.ro"
                         className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
                       >
                         <svg
@@ -703,7 +908,7 @@ export default function SocialMedia() {
                         </svg>
                       </a>
                       <span className="text-white/60 text-sm">
-                        grizzlymediapro@gmail.com
+                        contact@grizzlymediapro.ro
                       </span>
                     </div>
                   </div>
@@ -714,28 +919,28 @@ export default function SocialMedia() {
             {/* Bottom section */}
             <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10">
               <p className="text-white/50 text-sm mb-4 md:mb-0">
-                © 2024 Grizzly Media Pro. Toate drepturile rezervate.
+                {t("footer_rights")}
               </p>
 
               <div className="flex flex-wrap gap-4 text-sm">
-                <a
+                <Link
                   href="/politica-confidentialitate"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
                 >
-                  Politica de Confidențialitate
-                </a>
-                <a
+                  {t("privacy_policy")}
+                </Link>
+                <Link
                   href="/politica-cookies"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
                 >
-                  Politica de Cookies
-                </a>
-                <a
+                  {t("cookies_policy")}
+                </Link>
+                <Link
                   href="/termeni-conditii"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
                 >
-                  Termeni și Condiții
-                </a>
+                  {t("terms_conditions")}
+                </Link>
               </div>
             </div>
           </div>
