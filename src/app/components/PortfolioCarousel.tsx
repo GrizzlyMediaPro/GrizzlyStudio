@@ -154,7 +154,7 @@ export default function PortfolioCarousel() {
       image: "/platinum.png",
       description: t("slide_platinum_desc"),
       category: "pagini-prezentare",
-      url: "",
+      url: "https://www.platinumsocial.ro/",
     },
     {
       title: t("slide_hashtagmen_title"),
@@ -162,7 +162,7 @@ export default function PortfolioCarousel() {
       image: "/HashtagMEN.png",
       description: t("slide_hashtagmen_desc"),
       category: "pagini-prezentare",
-      url: "",
+      url: "https://www.hashtagmen.ro/",
     },
     // Magazine online
     {
@@ -174,6 +174,38 @@ export default function PortfolioCarousel() {
       url: "https://screenshield.ro/",
     },
     {
+      title: t("slide_rouh_title"),
+      subtitle: t("slide_rouh_subtitle"),
+      image: "/rouh.png",
+      description: t("slide_rouh_desc"),
+      category: "magazine-online",
+      url: "Launching Soon",
+    },
+    {
+      title: t("slide_smarthomes_title"),
+      subtitle: t("slide_smarthomes_subtitle"),
+      image: "/smarthomes.png",
+      description: t("slide_smarthomes_desc"),
+      category: "magazine-online",
+      url: "https://www.smarthomemall.ro/",
+    },
+    {
+      title: t("slide_amarg_title"),
+      subtitle: t("slide_amarg_subtitle"),
+      image: "/amarg.png",
+      description: t("slide_amarg_desc"),
+      category: "magazine-online",
+      url: "Inactive",
+    },
+    {
+      title: t("slide_treasurebox_title"),
+      subtitle: t("slide_treasurebox_subtitle"),
+      image: "/treasurebox.png",
+      description: t("slide_treasurebox_desc"),
+      category: "magazine-online",
+      url: "Inactive",
+    },
+    {
       title: t("slide_voc_title"),
       subtitle: t("slide_voc_subtitle"),
       image: "/voc.png",
@@ -181,11 +213,27 @@ export default function PortfolioCarousel() {
       category: "aplicatii",
       url: "https://www.voceacampusului.ro/",
     },
+    {
+      title: t("slide_picpossible_title"),
+      subtitle: t("slide_picpossible_subtitle"),
+      image: "/picpossible.png",
+      description: t("slide_picpossible_desc"),
+      category: "aplicatii",
+      url: "Launching Soon",
+    },
+    {
+      title: t("slide_quicklearn_title"),
+      subtitle: t("slide_quicklearn_subtitle"),
+      image: "/quicklearn.png",
+      description: t("slide_quicklearn_desc"),
+      category: "aplicatii",
+      url: "Launching Soon",
+    },
     // Social media results (rez1 - rez6)
     {
       title: t("social_slide_title"),
       subtitle: "",
-      image: "/rez1.png",
+      image: "/rez1.jpg",
       description: t("social_slide_desc"),
       category: "social-media",
       url: "",
@@ -193,7 +241,7 @@ export default function PortfolioCarousel() {
     {
       title: t("social_slide_title"),
       subtitle: "",
-      image: "/rez2.png",
+      image: "/rez4.jpg",
       description: t("social_slide_desc"),
       category: "social-media",
       url: "",
@@ -201,7 +249,7 @@ export default function PortfolioCarousel() {
     {
       title: t("social_slide_title"),
       subtitle: "",
-      image: "/rez3.png",
+      image: "/rez2.jpg",
       description: t("social_slide_desc"),
       category: "social-media",
       url: "",
@@ -209,7 +257,7 @@ export default function PortfolioCarousel() {
     {
       title: t("social_slide_title"),
       subtitle: "",
-      image: "/rez4.png",
+      image: "/rez3.jpg",
       description: t("social_slide_desc"),
       category: "social-media",
       url: "",
@@ -217,7 +265,7 @@ export default function PortfolioCarousel() {
     {
       title: t("social_slide_title"),
       subtitle: "",
-      image: "/rez5.png",
+      image: "/rez6.jpg",
       description: t("social_slide_desc"),
       category: "social-media",
       url: "",
@@ -375,7 +423,15 @@ export default function PortfolioCarousel() {
                 <p className="text-white/80 text-xs sm:text-sm mb-3">
                   {slide.description}
                 </p>
-                {slide.url ? (
+                {slide.url === "Launching Soon" ? (
+                  <div className="inline-flex items-center justify-center gap-2 text-[#ffed88] text-xs sm:text-sm font-medium">
+                    <span>Launching Soon</span>
+                  </div>
+                ) : slide.url === "Inactive" ? (
+                  <div className="inline-flex items-center justify-center gap-2 text-gray-400 text-xs sm:text-sm font-medium opacity-50">
+                    <span>Inactive</span>
+                  </div>
+                ) : slide.url ? (
                   <a
                     href={slide.url}
                     target="_blank"

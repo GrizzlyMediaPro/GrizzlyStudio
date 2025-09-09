@@ -257,6 +257,36 @@ export const translations: TranslationDictionary = {
   slide_hashtagmen_subtitle: { ro: "Frizerie pentru bărbați", en: "Men's barbershop" },
   slide_hashtagmen_desc: { ro: "Site modern pentru frizerie specializată în servicii profesionale pentru bărbați.", en: "Modern website for a barbershop specialized in professional men's grooming services." },
 
+  // QuickLearn slide
+  slide_quicklearn_title: { ro: "QuickLearn", en: "QuickLearn" },
+  slide_quicklearn_subtitle: { ro: "Platformă e-learning", en: "E-learning platform" },
+  slide_quicklearn_desc: { ro: "Platformă e-learning cu credențiale și certificate securizate prin blockchain.", en: "An e-learning platform with blockchain secured credentials and certificates." },
+
+  // Picpossible slide
+  slide_picpossible_title: { ro: "Picpossible", en: "Picpossible" },
+  slide_picpossible_subtitle: { ro: "Joc mobil multiplayer", en: "Multiplayer mobile game" },
+  slide_picpossible_desc: { ro: "Joc mobil de spotting multiplayer, construit cu Expo, folosind web sockets și funcționalități avansate.", en: "A multiplayer mobile spotting game built with Expo, using web sockets and many other functions." },
+
+  // Rouh slide
+  slide_rouh_title: { ro: "Rouh", en: "Rouh" },
+  slide_rouh_subtitle: { ro: "Magazin online parfumuri", en: "Online perfume store" },
+  slide_rouh_desc: { ro: "Magazin online specializat în vânzarea de parfumuri și produse de parfumerie.", en: "Online store specialized in selling perfumes and perfumery products." },
+
+  // SmartHomeMall slide
+  slide_smarthomes_title: { ro: "SmartHomeMall", en: "SmartHomeMall" },
+  slide_smarthomes_subtitle: { ro: "Magazin online sisteme smart home", en: "Smart home systems online store" },
+  slide_smarthomes_desc: { ro: "Magazin online pentru vânzarea de sisteme și produse pentru case inteligente.", en: "Online store for selling smart home systems and products." },
+
+  // Amarg slide
+  slide_amarg_title: { ro: "Amarg", en: "Amarg" },
+  slide_amarg_subtitle: { ro: "Magazin online haine urbane", en: "Urban clothing online store" },
+  slide_amarg_desc: { ro: "Magazin online specializat în haine urbane și fashion contemporan.", en: "Online store specialized in urban clothing and contemporary fashion." },
+
+  // TreasureBoxRomania slide
+  slide_treasurebox_title: { ro: "TreasureBoxRomania", en: "TreasureBoxRomania" },
+  slide_treasurebox_subtitle: { ro: "Magazin online mystery box-uri", en: "Mystery box online store" },
+  slide_treasurebox_desc: { ro: "Magazin online care vindea mystery box-uri cu haine și accesorii fashion.", en: "Online store that sold mystery boxes with clothing and fashion accessories." },
+
   // ScreenShield slide
   slide_screen_title: { ro: "ScreenShield", en: "ScreenShield" },
   slide_screen_subtitle: { ro: "Magazin online PPF", en: "PPF online store" },
@@ -377,7 +407,7 @@ export const translations: TranslationDictionary = {
   devweb_cta_secondary: { ro: "Vezi Portofoliul", en: "View portfolio" },
 
   // Footer
-  footer_rights: { ro: "© 2024 Grizzly Media Pro. Toate drepturile rezervate.", en: "© 2024 Grizzly Media Pro. All rights reserved." },
+  footer_rights: { ro: "© 2025 Grizzly Media Pro. Toate drepturile rezervate.", en: "© 2025 Grizzly Media Pro. All rights reserved." },
   
   // ===== Pagina Social Media =====
   // Hero
