@@ -15,18 +15,6 @@ Disallow: /_next/static/
 # Allow all search engines to crawl everything else
 Crawl-delay: 1
 
-# Important pages for sitelinks
-# Homepage
-Allow: /
-# Services
-Allow: /#servicii
-# Portfolio  
-Allow: /#portofoliu
-# About
-Allow: /#despre
-# Contact
-Allow: /#contact
-
 # Service pages
 Allow: /dezvoltare-web
 Allow: /social-media
