@@ -409,7 +409,8 @@ export const translations: TranslationDictionary = {
   // Footer
   footer_rights: { ro: "© 2025 Grizzly Media Pro. Toate drepturile rezervate.", en: "© 2025 Grizzly Media Pro. All rights reserved." },
   
-  // ===== Pagina Social Media =====
+  // ===== Pagina Social Media =====git add .
+  
   // Hero
   social_hero_t1: { ro: "Social Media ", en: "Social Media " },
   social_hero_h1: { ro: "Marketing", en: "Marketing" },
@@ -852,7 +853,15 @@ export const translations: TranslationDictionary = {
   terms_contact_p: {
     ro: "GRIZZLY DIGITAL S.R.L., Județul Dolj, Municipiul Craiova, Strada Constantin Lecca 66. E-mail: contact@grizzlymediapro.ro, Tel: +40750227013.",
     en: "GRIZZLY DIGITAL S.R.L., Dolj County, Craiova Municipality, 66 Constantin Lecca Street. Email: contact@grizzlymediapro.ro, Phone: +40750227013."
-  }
+  },
+
+  // 404 Not Found Page
+  not_found_title: { ro: "Pagina nu a fost găsită", en: "Page not found" },
+  not_found_description: { ro: "Se pare că pagina pe care o cauți nu există sau a fost mutată. Nu te îngrijora, te ajutăm să găsești ceea ce cauți!", en: "It seems the page you're looking for doesn't exist or has been moved. Don't worry, we'll help you find what you're looking for!" },
+  not_found_home_button: { ro: "Înapoi acasă", en: "Back to home" },
+  not_found_contact_button: { ro: "Contactează-ne", en: "Contact us" },
+  not_found_helpful_links: { ro: "Linkuri utile:", en: "Helpful links:" },
+  not_found_need_help: { ro: "Ai nevoie de ajutor?", en: "Need help?" }
 };
 
 

@@ -326,9 +326,14 @@ export default function Branding() {
       <section className="relative h-screen flex flex-col">
         {/* Header cu logo și meniu - poziționat absolut în partea de sus */}
         <header
-          className={`absolute top-0 left-0 right-0 z-20 transition-all duration-700 ease-out ${
+          className={`absolute top-0 left-0 right-0 z-20 transition-all duration-700 ease-out animate-fade-in-up ${
             isScrolled ? "p-6 pt-6" : "p-6 pt-8"
           }`}
+          style={{
+            animationDelay: "100ms",
+            animationDuration: "800ms",
+            animationFillMode: "both",
+          }}
         >
           <div className="flex items-center justify-between w-full max-w-6xl mx-auto relative">
             {/* Logo */}
@@ -458,7 +463,14 @@ export default function Branding() {
 
         {/* Conținut centrat în partea de sus */}
         <div className="flex-1 flex items-center justify-center relative z-10">
-          <div className="text-center px-6 max-w-6xl mx-auto">
+          <div
+            className="text-center px-6 max-w-6xl mx-auto animate-fade-in-up"
+            style={{
+              animationDelay: "300ms",
+              animationDuration: "1200ms",
+              animationFillMode: "both",
+            }}
+          >
             <h1 className="nohemi-heading text-4xl md:text-6xl text-white mb-6 leading-tight">
               {t("brand_hero_t1")}
               <span className="text-[#ffed88]">{t("brand_hero_h1")}</span>{" "}
@@ -488,9 +500,16 @@ export default function Branding() {
         </div>
 
         {/* Imaginea hero absolută */}
-        <div className="absolute top-1/2 left-0 right-0 h-[90%] z-0 md:top-1/2 top-1/3">
+        <div className="absolute left-0 right-0 h-[90%] z-0 md:top-1/2 top-1/3">
           <div className="max-w-6xl mx-auto h-full relative overflow-hidden">
-            <div className="absolute inset-0">
+            <div
+              className="absolute inset-0 animate-fade-in-up"
+              style={{
+                animationDelay: "600ms",
+                animationDuration: "1500ms",
+                animationFillMode: "both",
+              }}
+            >
               <Image
                 src="/heroedge2.PNG"
                 alt="Hero Background"
