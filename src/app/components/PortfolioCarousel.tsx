@@ -485,48 +485,40 @@ export default function PortfolioCarousel() {
             type="button"
             onPointerDown={(e) => {
               e.stopPropagation();
-              // @ts-ignore - nativeEvent exists on synthetic events in React DOM
               if (
                 e.nativeEvent &&
                 typeof e.nativeEvent.stopImmediatePropagation === "function"
               ) {
-                // @ts-ignore
                 e.nativeEvent.stopImmediatePropagation();
               }
               e.preventDefault();
             }}
             onMouseDown={(e) => {
               e.stopPropagation();
-              // @ts-ignore
               if (
                 e.nativeEvent &&
                 typeof e.nativeEvent.stopImmediatePropagation === "function"
               ) {
-                // @ts-ignore
                 e.nativeEvent.stopImmediatePropagation();
               }
               e.preventDefault();
             }}
             onTouchStart={(e) => {
               e.stopPropagation();
-              // @ts-ignore
               if (
                 e.nativeEvent &&
                 typeof e.nativeEvent.stopImmediatePropagation === "function"
               ) {
-                // @ts-ignore
                 e.nativeEvent.stopImmediatePropagation();
               }
               e.preventDefault();
             }}
             onClick={(e) => {
               e.stopPropagation();
-              // @ts-ignore
               if (
                 e.nativeEvent &&
                 typeof e.nativeEvent.stopImmediatePropagation === "function"
               ) {
-                // @ts-ignore
                 e.nativeEvent.stopImmediatePropagation();
               }
               e.preventDefault();
@@ -568,48 +560,40 @@ export default function PortfolioCarousel() {
             type="button"
             onPointerDown={(e) => {
               e.stopPropagation();
-              // @ts-ignore - nativeEvent exists on synthetic events in React DOM
               if (
                 e.nativeEvent &&
                 typeof e.nativeEvent.stopImmediatePropagation === "function"
               ) {
-                // @ts-ignore
                 e.nativeEvent.stopImmediatePropagation();
               }
               e.preventDefault();
             }}
             onMouseDown={(e) => {
               e.stopPropagation();
-              // @ts-ignore
               if (
                 e.nativeEvent &&
                 typeof e.nativeEvent.stopImmediatePropagation === "function"
               ) {
-                // @ts-ignore
                 e.nativeEvent.stopImmediatePropagation();
               }
               e.preventDefault();
             }}
             onTouchStart={(e) => {
               e.stopPropagation();
-              // @ts-ignore
               if (
                 e.nativeEvent &&
                 typeof e.nativeEvent.stopImmediatePropagation === "function"
               ) {
-                // @ts-ignore
                 e.nativeEvent.stopImmediatePropagation();
               }
               e.preventDefault();
             }}
             onClick={(e) => {
               e.stopPropagation();
-              // @ts-ignore
               if (
                 e.nativeEvent &&
                 typeof e.nativeEvent.stopImmediatePropagation === "function"
               ) {
-                // @ts-ignore
                 e.nativeEvent.stopImmediatePropagation();
               }
               e.preventDefault();
