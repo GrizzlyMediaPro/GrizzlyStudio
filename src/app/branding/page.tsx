@@ -540,7 +540,7 @@ export default function Branding() {
         {/* Grid cu servicii */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
           {/* Identitate Vizuală */}
-          <FadeInElement delay={200} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-8 border border-gray-300/20 shadow-xl transition-all duration-500 hover:scale-105">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -575,7 +575,7 @@ export default function Branding() {
           </FadeInElement>
 
           {/* Materiale Promoționale */}
-          <FadeInElement delay={400} direction="up">
+          <FadeInElement delay={100} direction="up">
             <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-8 border border-gray-300/20 shadow-xl transition-all duration-500 hover:scale-105">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -610,7 +610,7 @@ export default function Branding() {
           </FadeInElement>
 
           {/* Strategie de Brand */}
-          <FadeInElement delay={600} direction="up">
+          <FadeInElement delay={200} direction="up">
             <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-8 border border-gray-300/20 shadow-xl transition-all duration-500 hover:scale-105">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -649,7 +649,7 @@ export default function Branding() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea Proces de Branding */}
-        <FadeInElement delay={800}>
+        <FadeInElement delay={100}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
               {t("brand_process_h_t1")}
@@ -664,7 +664,7 @@ export default function Branding() {
         {/* Proces de branding - 4 pași */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
           {/* Pasul 1 */}
-          <FadeInElement delay={1000} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div className="text-center">
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">1</span>
@@ -679,7 +679,7 @@ export default function Branding() {
           </FadeInElement>
 
           {/* Pasul 2 */}
-          <FadeInElement delay={1200} direction="up">
+          <FadeInElement delay={100} direction="up">
             <div className="text-center">
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">2</span>
@@ -694,7 +694,7 @@ export default function Branding() {
           </FadeInElement>
 
           {/* Pasul 3 */}
-          <FadeInElement delay={1400} direction="up">
+          <FadeInElement delay={200} direction="up">
             <div className="text-center">
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">3</span>
@@ -709,7 +709,7 @@ export default function Branding() {
           </FadeInElement>
 
           {/* Pasul 4 */}
-          <FadeInElement delay={1600} direction="up">
+          <FadeInElement delay={300} direction="up">
             <div className="text-center">
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">4</span>
@@ -728,7 +728,7 @@ export default function Branding() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea Instrumente Design */}
-        <FadeInElement delay={1800}>
+        <FadeInElement delay={100}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
               {t("brand_tools_h_t1")}
@@ -767,11 +767,7 @@ export default function Branding() {
               icon: <SiBlender className="w-8 h-8 text-white" />,
             },
           ].map((tool, index) => (
-            <FadeInElement
-              key={tool.name}
-              delay={2000 + index * 100}
-              direction="up"
-            >
+            <FadeInElement key={tool.name} delay={index * 50} direction="up">
               <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-xl p-6 border border-gray-300/20 text-center transition-all duration-300 hover:scale-105">
                 <div className="flex justify-center mb-3">{tool.icon}</div>
                 <h3 className="nohemi-medium text-white text-sm">
@@ -786,7 +782,7 @@ export default function Branding() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea Rezultate */}
-        <FadeInElement delay={2200}>
+        <FadeInElement delay={200}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
               {t("brand_results_h_t1")}
@@ -801,7 +797,7 @@ export default function Branding() {
         {/* Grid cu rezultate */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
           {/* Rezultat 1 */}
-          <FadeInElement delay={2400} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div className="text-center">
               <div className="w-25 h-25 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
@@ -818,7 +814,7 @@ export default function Branding() {
           </FadeInElement>
 
           {/* Rezultat 2 */}
-          <FadeInElement delay={2600} direction="up">
+          <FadeInElement delay={100} direction="up">
             <div className="text-center">
               <div className="w-25 h-25 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
@@ -835,7 +831,7 @@ export default function Branding() {
           </FadeInElement>
 
           {/* Rezultat 3 */}
-          <FadeInElement delay={2800} direction="up">
+          <FadeInElement delay={200} direction="up">
             <div className="text-center">
               <div className="w-25 h-25 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">9</span>
@@ -850,7 +846,7 @@ export default function Branding() {
           </FadeInElement>
 
           {/* Rezultat 4 */}
-          <FadeInElement delay={3000} direction="up">
+          <FadeInElement delay={300} direction="up">
             <div className="text-center">
               <div className="w-25 h-25 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">
@@ -871,7 +867,7 @@ export default function Branding() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea CTA */}
-        <FadeInElement delay={3200}>
+        <FadeInElement delay={100}>
           <div className="text-center mb-24">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
               {t("brand_cta_h_t1")}
