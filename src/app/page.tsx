@@ -669,7 +669,7 @@ export default function Home() {
                 }}
               >
                 <Image
-                  src="/heroedge2.PNG"
+                  src="/heroedge2.png"
                   alt="Hero Background"
                   fill
                   className="object-contain opacity-50"

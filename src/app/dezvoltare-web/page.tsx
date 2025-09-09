@@ -517,7 +517,7 @@ export default function DezvoltareWeb() {
               }}
             >
               <Image
-                src="/heroedge2.PNG"
+                src="/heroedge2.png"
                 alt="Hero Background"
                 fill
                 className="object-contain opacity-25"
