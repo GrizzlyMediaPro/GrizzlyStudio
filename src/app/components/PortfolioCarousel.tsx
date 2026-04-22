@@ -9,9 +9,6 @@ import { normalizeSocialEmbedUrl } from "@/lib/social-embed";
 export default function PortfolioCarousel() {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
-  const [slideDirection, setSlideDirection] = useState<"left" | "right" | null>(
-    null
-  );
   const [isAnimating, setIsAnimating] = useState(false);
   const [activeTab, setActiveTab] = useState<PortfolioCategory>("PAGINI_PREZENTARE");
   const [screenSize, setScreenSize] = useState<"mobile" | "tablet" | "desktop">(
@@ -27,7 +24,7 @@ export default function PortfolioCarousel() {
   useEffect(() => {
     const handleResize = () => {
       const width = window.innerWidth;
-      if (width < 768) {
+      if (width < 640) {
         setScreenSize("mobile");
       } else if (width < 1024) {
         setScreenSize("tablet");
@@ -130,12 +127,10 @@ export default function PortfolioCarousel() {
     if (filteredSlides.length === 0) return;
 
     setIsAnimating(true);
-    setSlideDirection("left");
     setCurrentIndex((prev) => (prev + 1) % filteredSlides.length);
     setTimeout(() => {
-      setSlideDirection(null);
       setIsAnimating(false);
-    }, 800);
+    }, 300);
   };
 
   const prevSlide = () => {
@@ -144,14 +139,12 @@ export default function PortfolioCarousel() {
     if (filteredSlides.length === 0) return;
 
     setIsAnimating(true);
-    setSlideDirection("right");
     setCurrentIndex(
       (prev) => (prev - 1 + filteredSlides.length) % filteredSlides.length
     );
     setTimeout(() => {
-      setSlideDirection(null);
       setIsAnimating(false);
-    }, 800);
+    }, 300);
   };
 
   const handleTabChange = (tabId: PortfolioCategory) => {
@@ -197,7 +190,13 @@ export default function PortfolioCarousel() {
     }) as { elementRef: React.RefObject<HTMLDivElement>; isVisible: boolean };
 
   return (
-    <div className="portfolio-carousel-container max-w-6xl mx-auto mb-16">
+    <div
+      className="portfolio-carousel-container max-w-6xl mx-auto mb-16"
+      onPointerDown={(e) => e.stopPropagation()}
+      onMouseDown={(e) => e.stopPropagation()}
+      onTouchStart={(e) => e.stopPropagation()}
+      onClick={(e) => e.stopPropagation()}
+    >
       {/* Taburi pentru filtrare - responsive */}
       <div
         ref={tabsRef}
@@ -225,14 +224,11 @@ export default function PortfolioCarousel() {
         </div>
       </div>
 
-      <div className="relative">
+      <div className="relative px-0 sm:px-4 md:px-6">
         {/* Container pentru carduri - responsive cu touch support */}
         <div
           ref={carouselRef}
-          className="portfolio-carousel-scroll flex gap-4 sm:gap-6 pb-6 px-8 justify-center group overflow-visible"
-          onTouchStart={handleTouchStart}
-          onTouchMove={handleTouchMove}
-          onTouchEnd={handleTouchEnd}
+          className="portfolio-carousel-scroll flex gap-2 sm:gap-4 md:gap-6 pb-6 justify-center group overflow-visible overscroll-contain select-none"
         >
           {visibleSlides.map((slide, index) => {
             const embedSrc = normalizeSocialEmbedUrl(slide.embedUrl);
@@ -353,62 +349,146 @@ export default function PortfolioCarousel() {
         </div>
 
         {/* Navigation dots with arrows - responsive */}
-        <div className="portfolio-navigation flex justify-center items-center gap-2 sm:gap-4 mt-6">
-          <button
-            onClick={prevSlide}
-            className="portfolio-nav-button w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-110"
-            aria-label={t("prev_slide")}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="white"
-              className="size-4 sm:size-5"
+        <FadeInElement delay={200} direction="up">
+          <div className="portfolio-navigation flex justify-center items-center gap-2 sm:gap-4 mt-6">
+            <button
+              type="button"
+              onPointerDown={(e) => {
+                e.stopPropagation();
+                if (
+                  e.nativeEvent &&
+                  typeof e.nativeEvent.stopImmediatePropagation === "function"
+                ) {
+                  e.nativeEvent.stopImmediatePropagation();
+                }
+                e.preventDefault();
+              }}
+              onMouseDown={(e) => {
+                e.stopPropagation();
+                if (
+                  e.nativeEvent &&
+                  typeof e.nativeEvent.stopImmediatePropagation === "function"
+                ) {
+                  e.nativeEvent.stopImmediatePropagation();
+                }
+                e.preventDefault();
+              }}
+              onTouchStart={(e) => {
+                e.stopPropagation();
+                if (
+                  e.nativeEvent &&
+                  typeof e.nativeEvent.stopImmediatePropagation === "function"
+                ) {
+                  e.nativeEvent.stopImmediatePropagation();
+                }
+                e.preventDefault();
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (
+                  e.nativeEvent &&
+                  typeof e.nativeEvent.stopImmediatePropagation === "function"
+                ) {
+                  e.nativeEvent.stopImmediatePropagation();
+                }
+                e.preventDefault();
+                prevSlide();
+              }}
+              className="portfolio-nav-button w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-110"
+              aria-label={t("prev_slide")}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M15.75 19.5L8.25 12l7.5-7.5"
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="white"
+                className="size-4 sm:size-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 19.5L8.25 12l7.5-7.5"
+                />
+              </svg>
+            </button>
 
-          <div className="flex items-center gap-1 sm:gap-2">
-            {getFilteredSlides().map((_, index) => (
-              <div
-                key={index}
-                className={`portfolio-dot h-2 rounded-full transition-all duration-300 ${
-                  currentIndex === index
-                    ? "w-6 sm:w-8 bg-white active"
-                    : "w-2 bg-white/30"
-                }`}
-              ></div>
-            ))}
+            <div className="flex items-center gap-1 sm:gap-2">
+              {getFilteredSlides().map((_, index) => (
+                <div
+                  key={index}
+                  className={`portfolio-dot h-2 rounded-full transition-all duration-300 ${
+                    currentIndex === index
+                      ? "w-6 sm:w-8 bg-white active"
+                      : "w-2 bg-white/30"
+                  }`}
+                ></div>
+              ))}
+            </div>
+
+            <button
+              type="button"
+              onPointerDown={(e) => {
+                e.stopPropagation();
+                if (
+                  e.nativeEvent &&
+                  typeof e.nativeEvent.stopImmediatePropagation === "function"
+                ) {
+                  e.nativeEvent.stopImmediatePropagation();
+                }
+                e.preventDefault();
+              }}
+              onMouseDown={(e) => {
+                e.stopPropagation();
+                if (
+                  e.nativeEvent &&
+                  typeof e.nativeEvent.stopImmediatePropagation === "function"
+                ) {
+                  e.nativeEvent.stopImmediatePropagation();
+                }
+                e.preventDefault();
+              }}
+              onTouchStart={(e) => {
+                e.stopPropagation();
+                if (
+                  e.nativeEvent &&
+                  typeof e.nativeEvent.stopImmediatePropagation === "function"
+                ) {
+                  e.nativeEvent.stopImmediatePropagation();
+                }
+                e.preventDefault();
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                if (
+                  e.nativeEvent &&
+                  typeof e.nativeEvent.stopImmediatePropagation === "function"
+                ) {
+                  e.nativeEvent.stopImmediatePropagation();
+                }
+                e.preventDefault();
+                nextSlide();
+              }}
+              className="portfolio-nav-button w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-110"
+              aria-label={t("next_slide")}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="white"
+                className="size-4 sm:size-5"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                />
+              </svg>
+            </button>
           </div>
-
-          <button
-            onClick={nextSlide}
-            className="portfolio-nav-button w-8 h-8 sm:w-10 sm:h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20 transition-all duration-300 ease-in-out hover:scale-110"
-            aria-label={t("next_slide")}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="white"
-              className="size-4 sm:size-5"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M8.25 4.5l7.5 7.5-7.5 7.5"
-              />
-            </svg>
-          </button>
-        </div>
+        </FadeInElement>
       </div>
 
       {selectedSlide ? (

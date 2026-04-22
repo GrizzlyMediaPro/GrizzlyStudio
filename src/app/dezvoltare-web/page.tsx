@@ -23,9 +23,10 @@ import {
 } from "react-icons/si";
 
 export default function DezvoltareWeb() {
-  const { t } = useLanguage();
+  const { t, lang, setLang } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -48,12 +49,33 @@ export default function DezvoltareWeb() {
     return () => window.removeEventListener("scroll", handleScrollClose);
   }, [isMobileMenuOpen]);
 
+  // Închide dropdown-ul de limbă când se face click în afara lui
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Element;
+      if (!target.closest(".language-dropdown")) {
+        setIsLanguageDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   const closeMobileMenu = () => {
     setIsMobileMenuOpen(false);
+  };
+
+  const toggleLanguageDropdown = () =>
+    setIsLanguageDropdownOpen(!isLanguageDropdownOpen);
+
+  const changeLanguage = (newLang: "ro" | "en") => {
+    setLang(newLang);
+    setIsLanguageDropdownOpen(false);
   };
 
   return (
@@ -83,9 +105,9 @@ export default function DezvoltareWeb() {
                 <Image
                   src="/grizzlylogo.png"
                   alt="Grizzly Media Pro Logo"
-                  width={280}
-                  height={65}
-                  className="object-contain transition-all duration-500"
+                  width={220}
+                  height={55}
+                  className="object-contain transition-all duration-500 md:w-[280px] md:h-[65px]"
                 />
               </Link>
             </div>
@@ -96,10 +118,84 @@ export default function DezvoltareWeb() {
                 isScrolled ? "opacity-100" : "opacity-0"
               }`}
             >
-              <Link href="/#servicii" className="text-white/80 hover:text-white transition-colors duration-300">{t("nav_services")}</Link>
-              <Link href="/#portofoliu" className="text-white/80 hover:text-white transition-colors duration-300">{t("nav_portfolio")}</Link>
-              <Link href="/#despre" className="text-white/80 hover:text-white transition-colors duration-300">{t("nav_about")}</Link>
-              <Link href="/#contact" className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]">{t("nav_contact")}</Link>
+              <Link
+                href="/#servicii"
+                className="text-white/80 hover:text-white transition-colors duration-300"
+              >
+                {t("nav_services")}
+              </Link>
+              <Link
+                href="/#portofoliu"
+                className="text-white/80 hover:text-white transition-colors duration-300"
+              >
+                {t("nav_portfolio")}
+              </Link>
+              <Link
+                href="/#despre"
+                className="text-white/80 hover:text-white transition-colors duration-300"
+              >
+                {t("nav_about")}
+              </Link>
+              <Link
+                href="/#contact"
+                className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+              >
+                {t("nav_contact")}
+              </Link>
+
+              {/* Buton de limbă cu dropdown */}
+              <div className="relative language-dropdown">
+                <button
+                  onClick={toggleLanguageDropdown}
+                  className="text-white/80 hover:text-white transition-colors duration-300 flex items-center gap-2"
+                  aria-label="Language selector"
+                >
+                  <span className="font-medium">
+                    {lang === "ro" ? "RO" : "EN"}
+                  </span>
+                  <svg
+                    className={`w-4 h-4 transition-transform duration-300 ${
+                      isLanguageDropdownOpen ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                {/* Dropdown pentru limbă */}
+                {isLanguageDropdownOpen && (
+                  <div className="absolute top-full right-0 mt-2 bg-[#0d0d0e] border border-white/20 rounded-lg shadow-[0_0_40px_rgba(255,255,255,0.15)] backdrop-blur-md overflow-hidden z-50">
+                    <button
+                      onClick={() => changeLanguage("ro")}
+                      className={`w-full px-4 py-3 text-left hover:bg-white/10 transition-colors duration-200 ${
+                        lang === "ro"
+                          ? "text-[#ffed88] bg-white/5"
+                          : "text-white/80"
+                      }`}
+                    >
+                      RO
+                    </button>
+                    <button
+                      onClick={() => changeLanguage("en")}
+                      className={`w-full px-4 py-3 text-left hover:bg-white/10 transition-colors duration-200 ${
+                        lang === "en"
+                          ? "text-[#ffed88] bg-white/5"
+                          : "text-white/80"
+                      }`}
+                    >
+                      EN
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Hamburger menu pentru mobile */}
@@ -143,33 +239,89 @@ export default function DezvoltareWeb() {
         >
           <div className="flex flex-col justify-center items-center h-full">
             <div className="flex flex-col space-y-8 text-center">
+              {/* Buton de limbă pentru mobile - primul element */}
+              <div className="flex justify-center">
+                <div className="relative language-dropdown">
+                  <button
+                    onClick={toggleLanguageDropdown}
+                    className="text-white/80 hover:text-white transition-colors duration-300 flex items-center gap-2"
+                    aria-label="Language selector"
+                  >
+                    <span className="text-2xl font-medium">
+                      {lang === "ro" ? "RO" : "EN"}
+                    </span>
+                    <svg
+                      className={`w-5 h-5 transition-transform duration-300 ${
+                        isLanguageDropdownOpen ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* Dropdown pentru limbă - mobile */}
+                  {isLanguageDropdownOpen && (
+                    <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-[#0d0d0e] border border-white/20 rounded-lg shadow-[0_0_40px_rgba(255,255,255,0.15)] backdrop-blur-md overflow-hidden z-50 min-w-[80px]">
+                      <button
+                        onClick={() => changeLanguage("ro")}
+                        className={`w-full px-4 py-3 text-center hover:bg-white/10 transition-colors duration-200 ${
+                          lang === "ro"
+                            ? "text-[#ffed88] bg-white/5"
+                            : "text-white/80"
+                        }`}
+                      >
+                        RO
+                      </button>
+                      <button
+                        onClick={() => changeLanguage("en")}
+                        className={`w-full px-4 py-3 text-center hover:bg-white/10 transition-colors duration-200 ${
+                          lang === "en"
+                            ? "text-[#ffed88] bg-white/5"
+                            : "text-white/80"
+                        }`}
+                      >
+                        EN
+                      </button>
+                    </div>
+                  )}
+                </div>
+              </div>
+
               <Link
                 href="/#servicii"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
-                Servicii
+                {t("nav_services")}
               </Link>
               <Link
                 href="/#portofoliu"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
-                Portofoliu
+                {t("nav_portfolio")}
               </Link>
               <Link
                 href="/#despre"
                 onClick={closeMobileMenu}
                 className="text-white/80 hover:text-white transition-colors duration-300 text-2xl font-medium py-4"
               >
-                Despre
+                {t("nav_about")}
               </Link>
               <Link
                 href="/#contact"
                 onClick={closeMobileMenu}
                 className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-xl mt-8"
               >
-                Contact
+                {t("nav_contact")}
               </Link>
             </div>
           </div>
@@ -180,9 +332,14 @@ export default function DezvoltareWeb() {
       <section className="relative h-screen flex flex-col">
         {/* Header cu logo și meniu - poziționat absolut în partea de sus */}
         <header
-          className={`absolute top-0 left-0 right-0 z-20 transition-all duration-700 ease-out ${
+          className={`absolute top-0 left-0 right-0 z-20 transition-all duration-700 ease-out animate-fade-in-up ${
             isScrolled ? "p-6 pt-6" : "p-6 pt-8"
           }`}
+          style={{
+            animationDelay: "100ms",
+            animationDuration: "800ms",
+            animationFillMode: "both",
+          }}
         >
           <div className="flex items-center justify-between w-full max-w-6xl mx-auto relative">
             {/* Logo */}
@@ -191,9 +348,9 @@ export default function DezvoltareWeb() {
                 <Image
                   src="/grizzlylogo.png"
                   alt="Grizzly Media Pro Logo"
-                  width={280}
-                  height={65}
-                  className="object-contain transition-all duration-700 ease-out"
+                  width={220}
+                  height={55}
+                  className="object-contain transition-all duration-700 ease-out md:w-[280px] md:h-[65px]"
                 />
               </Link>
             </div>
@@ -222,7 +379,66 @@ export default function DezvoltareWeb() {
               >
                 Despre
               </Link>
-              <Link href="/#contact" className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]">{t("cta_schedule")}</Link>
+              <Link
+                href="/#contact"
+                className="bg-white/10 backdrop-blur-md text-white px-6 py-3 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)]"
+              >
+                {t("nav_contact")}
+              </Link>
+
+              {/* Buton de limbă cu dropdown */}
+              <div className="relative language-dropdown">
+                <button
+                  onClick={toggleLanguageDropdown}
+                  className="text-white/80 hover:text-white transition-colors duration-300 flex items-center gap-2"
+                  aria-label="Language selector"
+                >
+                  <span className="font-medium">
+                    {lang === "ro" ? "RO" : "EN"}
+                  </span>
+                  <svg
+                    className={`w-4 h-4 transition-transform duration-300 ${
+                      isLanguageDropdownOpen ? "rotate-180" : ""
+                    }`}
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </button>
+
+                {/* Dropdown pentru limbă */}
+                {isLanguageDropdownOpen && (
+                  <div className="absolute top-full right-0 mt-2 bg-[#0d0d0e] border border-white/20 rounded-lg shadow-[0_0_40px_rgba(255,255,255,0.15)] backdrop-blur-md overflow-hidden z-50">
+                    <button
+                      onClick={() => changeLanguage("ro")}
+                      className={`w-full px-4 py-3 text-left hover:bg-white/10 transition-colors duration-200 ${
+                        lang === "ro"
+                          ? "text-[#ffed88] bg-white/5"
+                          : "text-white/80"
+                      }`}
+                    >
+                      RO
+                    </button>
+                    <button
+                      onClick={() => changeLanguage("en")}
+                      className={`w-full px-4 py-3 text-left hover:bg-white/10 transition-colors duration-200 ${
+                        lang === "en"
+                          ? "text-[#ffed88] bg-white/5"
+                          : "text-white/80"
+                      }`}
+                    >
+                      EN
+                    </button>
+                  </div>
+                )}
+              </div>
             </div>
 
             {/* Hamburger menu pentru mobile */}
@@ -251,23 +467,38 @@ export default function DezvoltareWeb() {
           </div>
         </header>
 
-        
-
         {/* Conținut centrat în partea de sus */}
         <div className="flex-1 flex items-center justify-center relative z-10">
-          <div className="text-center px-6 max-w-6xl mx-auto">
+          <div
+            className="text-center px-6 max-w-6xl mx-auto animate-fade-in-up"
+            style={{
+              animationDelay: "300ms",
+              animationDuration: "1200ms",
+              animationFillMode: "both",
+            }}
+          >
             <h1 className="nohemi-heading text-4xl md:text-6xl text-white mb-6 leading-tight">
-              {t("devweb_hero_t1")}<span className="text-[#ffed88]">{t("devweb_hero_h1")}</span> <br />
-              <span className="text-[#ffed88]">{t("devweb_hero_h2")}</span>{t("devweb_hero_t3")}<span className="text-[#ffed88]">{t("devweb_hero_h3")}</span>
+              {t("devweb_hero_t1")}
+              <span className="text-[#ffed88]">{t("devweb_hero_h1")}</span>{" "}
+              <br />
+              <span className="text-[#ffed88]">{t("devweb_hero_h2")}</span>
+              {t("devweb_hero_t3")}
+              <span className="text-[#ffed88]">{t("devweb_hero_h3")}</span>
             </h1>
             <p className="nohemi-medium text-lg md:text-xl text-white/80 mb-8 max-w-3xl mx-auto">
               {t("devweb_hero_p")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/#contact" className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
+              <Link
+                href="/#contact"
+                className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg"
+              >
                 {t("devweb_cta_start")}
               </Link>
-              <Link href="/#portofoliu" className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
+              <Link
+                href="/#portofoliu"
+                className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg"
+              >
                 {t("devweb_cta_portfolio")}
               </Link>
             </div>
@@ -275,11 +506,18 @@ export default function DezvoltareWeb() {
         </div>
 
         {/* Imaginea hero absolută */}
-        <div className="absolute top-1/2 left-0 right-0 h-[90%] z-0 md:top-1/2 top-1/3">
+        <div className="absolute left-0 right-0 h-[90%] z-0 md:top-1/2 top-1/3">
           <div className="max-w-6xl mx-auto h-full relative overflow-hidden">
-            <div className="absolute inset-0">
+            <div
+              className="absolute inset-0 animate-fade-in-up"
+              style={{
+                animationDelay: "600ms",
+                animationDuration: "1500ms",
+                animationFillMode: "both",
+              }}
+            >
               <Image
-                src="/heroedge2.PNG"
+                src="/heroedge2.png"
                 alt="Hero Background"
                 fill
                 className="object-contain opacity-25"
@@ -296,8 +534,10 @@ export default function DezvoltareWeb() {
         <FadeInElement delay={0}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              {t("devweb_services_h_t1")} 
-              <span className="text-[#ffed88]">{t("devweb_services_h_h1")}</span>
+              {t("devweb_services_h_t1")}
+              <span className="text-[#ffed88]">
+                {t("devweb_services_h_h1")}
+              </span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
               {t("devweb_services_desc")}
@@ -308,7 +548,7 @@ export default function DezvoltareWeb() {
         {/* Grid cu servicii */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-24">
           {/* Site-uri Corporate */}
-          <FadeInElement delay={200} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-8 border border-gray-300/20 shadow-xl transition-all duration-500 hover:scale-105">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -343,7 +583,7 @@ export default function DezvoltareWeb() {
           </FadeInElement>
 
           {/* E-commerce */}
-          <FadeInElement delay={400} direction="up">
+          <FadeInElement delay={100} direction="up">
             <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-8 border border-gray-300/20 shadow-xl transition-all duration-500 hover:scale-105">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -378,7 +618,7 @@ export default function DezvoltareWeb() {
           </FadeInElement>
 
           {/* Aplicații Web */}
-          <FadeInElement delay={600} direction="up">
+          <FadeInElement delay={200} direction="up">
             <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-8 border border-gray-300/20 shadow-xl transition-all duration-500 hover:scale-105">
               <div className="text-center mb-6">
                 <div className="w-16 h-16 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -417,7 +657,7 @@ export default function DezvoltareWeb() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea Proces de Lucru */}
-        <FadeInElement delay={800}>
+        <FadeInElement delay={100}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
               {t("devweb_process_h_t1")}
@@ -432,7 +672,7 @@ export default function DezvoltareWeb() {
         {/* Proces de lucru - 4 pași */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
           {/* Pasul 1 */}
-          <FadeInElement delay={1000} direction="up">
+          <FadeInElement delay={0} direction="up">
             <div className="text-center">
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">1</span>
@@ -447,18 +687,22 @@ export default function DezvoltareWeb() {
           </FadeInElement>
 
           {/* Pasul 2 */}
-          <FadeInElement delay={1200} direction="up">
+          <FadeInElement delay={100} direction="up">
             <div className="text-center">
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">2</span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">{t("devweb_step2_title")}</h3>
-              <p className="text-white/70 text-sm leading-relaxed">{t("devweb_step2_desc")}</p>
+              <h3 className="nohemi-medium text-xl text-white mb-4">
+                {t("devweb_step2_title")}
+              </h3>
+              <p className="text-white/70 text-sm leading-relaxed">
+                {t("devweb_step2_desc")}
+              </p>
             </div>
           </FadeInElement>
 
           {/* Pasul 3 */}
-          <FadeInElement delay={1400} direction="up">
+          <FadeInElement delay={200} direction="up">
             <div className="text-center">
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">3</span>
@@ -473,12 +717,14 @@ export default function DezvoltareWeb() {
           </FadeInElement>
 
           {/* Pasul 4 */}
-          <FadeInElement delay={1600} direction="up">
+          <FadeInElement delay={300} direction="up">
             <div className="text-center">
               <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="nohemi-black text-2xl text-[#ffed88]">4</span>
               </div>
-              <h3 className="nohemi-medium text-xl text-white mb-4">{t("devweb_step4_title")}</h3>
+              <h3 className="nohemi-medium text-xl text-white mb-4">
+                {t("devweb_step4_title")}
+              </h3>
               <p className="text-white/70 text-sm leading-relaxed">
                 {t("devweb_step4_desc")}
               </p>
@@ -490,10 +736,11 @@ export default function DezvoltareWeb() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea Tehnologii */}
-        <FadeInElement delay={1800}>
+        <FadeInElement delay={0}>
           <div className="text-center mb-16">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              {t("devweb_tech_h_t1")}<span className="text-[#ffed88]">{t("devweb_tech_h_h1")}</span>
+              {t("devweb_tech_h_t1")}
+              <span className="text-[#ffed88]">{t("devweb_tech_h_h1")}</span>
             </h2>
             <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
               {t("devweb_tech_desc")}
@@ -562,11 +809,7 @@ export default function DezvoltareWeb() {
               icon: <SiTailwindcss className="w-8 h-8 text-white" />,
             },
           ].map((tech, index) => (
-            <FadeInElement
-              key={tech.name}
-              delay={2000 + index * 100}
-              direction="up"
-            >
+            <FadeInElement key={tech.name} delay={index * 50} direction="up">
               <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-xl p-6 border border-gray-300/20 text-center transition-all duration-300 hover:scale-105">
                 <div className="flex justify-center mb-3">{tech.icon}</div>
                 <h3 className="nohemi-medium text-white text-sm">
@@ -581,21 +824,29 @@ export default function DezvoltareWeb() {
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
         {/* Secțiunea CTA */}
-        <FadeInElement delay={2200}>
+        <FadeInElement delay={0}>
           <div className="text-center mb-24">
             <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-              {t("devweb_cta_h_t1")}<span className="text-[#ffed88]">{t("devweb_cta_h_h1")}</span>{t("devweb_cta_h_t2")}
+              {t("devweb_cta_h_t1")}
+              <span className="text-[#ffed88]">{t("devweb_cta_h_h1")}</span>
+              {t("devweb_cta_h_t2")}
             </h2>
             <p className="nohemi-medium text-lg text-white/80 mb-8 max-w-2xl mx-auto">
               {t("devweb_cta_p")}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg">
+              <Link
+                href="/#contact"
+                className="bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_25px_rgba(255,255,255,0.4)] text-lg"
+              >
                 {t("devweb_cta_primary")}
-              </button>
-              <button className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg">
+              </Link>
+              <Link
+                href="/#portofoliu"
+                className="bg-transparent text-white px-8 py-4 rounded-full font-medium hover:bg-white/10 transition-all duration-300 border border-white/20 text-lg"
+              >
                 {t("devweb_cta_secondary")}
-              </button>
+              </Link>
             </div>
           </div>
         </FadeInElement>
@@ -681,7 +932,7 @@ export default function DezvoltareWeb() {
                     </div>
                     <div className="flex items-center space-x-3">
                       <a
-                        href="mailto:grizzlymediapro@gmail.com"
+                        href="mailto:contact@grizzlymediapro.ro"
                         className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
                       >
                         <svg
@@ -693,7 +944,7 @@ export default function DezvoltareWeb() {
                         </svg>
                       </a>
                       <span className="text-white/60 text-sm">
-                        grizzlymediapro@gmail.com
+                        contact@grizzlymediapro.ro
                       </span>
                     </div>
                   </div>
@@ -704,7 +955,7 @@ export default function DezvoltareWeb() {
             {/* Bottom section */}
             <div className="flex flex-col md:flex-row justify-between items-center pt-6 border-t border-white/10">
               <p className="text-white/50 text-sm mb-4 md:mb-0">
-                © 2024 Grizzly Media Pro. Toate drepturile rezervate.
+                © 2025 Grizzly Media Pro. Toate drepturile rezervate.
               </p>
 
               <div className="flex flex-wrap gap-4 text-sm">
