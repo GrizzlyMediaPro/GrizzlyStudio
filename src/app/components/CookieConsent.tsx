@@ -1,10 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function CookieConsent() {
-  const { t } = useLanguage();
   const [isVisible, setIsVisible] = useState(false);
   const [isAccepted, setIsAccepted] = useState(false);
 

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import FadeInElement from "../components/FadeInElement";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import CountUp from "../components/CountUp";
 import {
   SiInstagram,
@@ -23,13 +23,12 @@ export default function SocialMedia() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 100);
+      setIsScrolled(window.scrollY > 100);
     };
-
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -108,11 +107,7 @@ export default function SocialMedia() {
             </div>
 
             {/* Meniu în navbar - în dreapta */}
-            <div
-              className={`hidden md:flex items-center space-x-8 transition-all duration-700 ease-out ${
-                isScrolled ? "opacity-100" : "opacity-0"
-              }`}
-            >
+            <div className="flex max-md:!hidden items-center space-x-8">
               <Link
                 href="/#servicii"
                 className="text-white/80 hover:text-white transition-colors duration-300"
@@ -196,7 +191,7 @@ export default function SocialMedia() {
             {/* Hamburger menu pentru mobile */}
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 transition-all duration-700 ease-out"
+              className="hidden max-md:!flex flex-col justify-center items-center w-8 h-8 space-y-1.5 transition-all duration-700 ease-out"
             >
               <span
                 className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
@@ -220,7 +215,7 @@ export default function SocialMedia() {
 
       {/* Mobile menu overlay */}
       <div
-        className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ${
+        className={`hidden max-md:!block fixed inset-0 z-40 transition-all duration-300 ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -352,7 +347,7 @@ export default function SocialMedia() {
 
             {/* Meniu în hero - în dreapta */}
             <div
-              className={`hidden md:flex items-center space-x-8 transition-all duration-700 ease-out ${
+              className={`flex max-md:!hidden items-center space-x-8 transition-all duration-700 ease-out ${
                 isScrolled ? "opacity-0" : "opacity-100"
               }`}
             >
@@ -439,7 +434,7 @@ export default function SocialMedia() {
             {/* Hamburger menu pentru mobile */}
             <button
               onClick={toggleMobileMenu}
-              className={`md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 transition-all duration-700 ease-out ${
+              className={`hidden max-md:!flex flex-col justify-center items-center w-8 h-8 space-y-1.5 transition-all duration-700 ease-out ${
                 isScrolled ? "opacity-0" : "opacity-100"
               }`}
             >

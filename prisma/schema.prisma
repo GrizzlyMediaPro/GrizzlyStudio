@@ -1,0 +1,36 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// MongoDB datasource for portfolio admin content.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+enum PortfolioCategory {
+  PAGINI_PREZENTARE
+  MAGAZINE_ONLINE
+  APLICATII
+  SOCIAL_MEDIA
+}
+
+model PortfolioItem {
+  id          String            @id @default(auto()) @map("_id") @db.ObjectId
+  title       String
+  subtitle    String            @default("")
+  description String
+  image       String
+  url         String?
+  embedUrl    String?
+  category    PortfolioCategory
+  position    Int
+  createdAt   DateTime          @default(now())
+  updatedAt   DateTime          @updatedAt
+
+  @@index([category, position])
+}
