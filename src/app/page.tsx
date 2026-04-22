@@ -5,7 +5,7 @@ import Link from "next/link";
 import PortfolioCarousel from "./components/PortfolioCarousel";
 import FadeInElement from "./components/FadeInElement";
 import CookieConsent from "./components/CookieConsent";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect } from "react";
 import { useLanguage } from "./i18n/LanguageProvider";
 
 export default function Home() {
@@ -14,13 +14,12 @@ export default function Home() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isLanguageDropdownOpen, setIsLanguageDropdownOpen] = useState(false);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      setIsScrolled(scrollPosition > 100);
+      setIsScrolled(window.scrollY > 100);
     };
-
-    window.addEventListener("scroll", handleScroll);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -45,6 +44,9 @@ export default function Home() {
         if (element) {
           element.scrollIntoView({ behavior: "smooth" });
         }
+        const syncScrollState = () => setIsScrolled(window.scrollY > 100);
+        setTimeout(syncScrollState, 400);
+        setTimeout(syncScrollState, 1000);
       }, 100); // Delay minim pentru a se asigura că DOM-ul este gata
 
       return () => clearTimeout(timer);
@@ -261,7 +263,7 @@ export default function Home() {
 
             {/* Meniu în hero - în dreapta */}
             <div
-              className={`hidden md:flex items-center space-x-8 transition-all duration-700 ease-out ${
+              className={`flex max-md:!hidden items-center space-x-8 transition-all duration-700 ease-out ${
                 isScrolled ? "opacity-0" : "opacity-100"
               }`}
             >
@@ -352,7 +354,7 @@ export default function Home() {
             {/* Hamburger menu pentru mobile */}
             <button
               onClick={toggleMobileMenu}
-              className={`md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 transition-all duration-700 ease-out ${
+              className={`hidden max-md:!flex flex-col justify-center items-center w-8 h-8 space-y-1.5 transition-all duration-700 ease-out ${
                 isScrolled ? "opacity-0" : "opacity-100"
               }`}
             >
@@ -405,11 +407,7 @@ export default function Home() {
               </div>
 
               {/* Meniu în navbar - în dreapta */}
-              <div
-                className={`hidden md:flex items-center space-x-8 transition-all duration-700 ease-out ${
-                  isScrolled ? "opacity-100" : "opacity-0"
-                }`}
-              >
+              <div className="flex max-md:!hidden items-center space-x-8">
                 <Link
                   href="/#servicii"
                   className="text-white/80 hover:text-white transition-colors duration-300"
@@ -497,7 +495,7 @@ export default function Home() {
               {/* Hamburger menu pentru mobile */}
               <button
                 onClick={toggleMobileMenu}
-                className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5 transition-all duration-700 ease-out"
+                className="hidden max-md:!flex flex-col justify-center items-center w-8 h-8 space-y-1.5 transition-all duration-700 ease-out"
               >
                 <span
                   className={`block w-6 h-0.5 bg-white transition-all duration-300 ${
@@ -521,7 +519,7 @@ export default function Home() {
 
         {/* Mobile menu overlay */}
         <div
-          className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ${
+          className={`hidden max-md:!block fixed inset-0 z-40 transition-all duration-300 ${
             isMobileMenuOpen
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
@@ -936,9 +934,9 @@ export default function Home() {
             {/* Secțiunea cu carduri */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto group card-group">
               {/* Card 1 */}
-              <FadeInElement delay={100} direction="up">
+              <FadeInElement delay={0} direction="up" duration={600}>
                 <a href="/dezvoltare-web" className="block">
-                  <div className="bg-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl group-hover:scale-95 hover:scale-110 hover:z-20 card cursor-pointer">
+                  <div className="bg-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl group-hover:scale-95 hover:!scale-110 hover:!z-20 card cursor-pointer">
                     <div className="relative h-[500px]">
                       <Image
                         src="/card1.PNG"
@@ -978,9 +976,9 @@ export default function Home() {
               </FadeInElement>
 
               {/* Card 2 */}
-              <FadeInElement delay={250} direction="up">
+              <FadeInElement delay={150} direction="up" duration={600}>
                 <a href="/social-media" className="block">
-                  <div className="bg-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl group-hover:scale-95 hover:scale-110 hover:z-20 card cursor-pointer">
+                  <div className="bg-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl group-hover:scale-95 hover:!scale-110 hover:!z-20 card cursor-pointer">
                     <div className="relative h-[500px]">
                       <Image
                         src="/card2.jpg"
@@ -1020,9 +1018,9 @@ export default function Home() {
               </FadeInElement>
 
               {/* Card 3 */}
-              <FadeInElement delay={400} direction="up">
+              <FadeInElement delay={300} direction="up" duration={600}>
                 <a href="/branding" className="block">
-                  <div className="bg-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl group-hover:scale-95 hover:scale-110 hover:z-20 card cursor-pointer">
+                  <div className="bg-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl group-hover:scale-95 hover:!scale-110 hover:!z-20 card cursor-pointer">
                     <div className="relative h-[500px]">
                       <Image
                         src="/card3.PNG"

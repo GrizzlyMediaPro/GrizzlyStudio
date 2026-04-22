@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from "react";
 
 interface UseIntersectionObserverOptions {
   threshold?: number | number[];
@@ -6,15 +6,17 @@ interface UseIntersectionObserverOptions {
   triggerOnce?: boolean;
 }
 
-export const useIntersectionObserver = (options: UseIntersectionObserverOptions = {}) => {
+export const useIntersectionObserver = (
+  options: UseIntersectionObserverOptions = {}
+) => {
   const [isVisible, setIsVisible] = useState(false);
-  const [hasTriggered, setHasTriggered] = useState(false);
+  const hasTriggeredRef = useRef(false);
   const elementRef = useRef<HTMLDivElement | null>(null);
 
   const {
-    threshold = 0.15, // Simplificat pentru performanță mai bună
-    rootMargin = '-20px 0px', // Trigger puțin mai târziu pentru timing mai natural
-    triggerOnce = true // Default true pentru performanță mai bună
+    threshold = 0.15,
+    rootMargin = "-20px 0px",
+    triggerOnce = true,
   } = options;
 
   useEffect(() => {
@@ -24,13 +26,14 @@ export const useIntersectionObserver = (options: UseIntersectionObserverOptions 
     const observer = new IntersectionObserver(
       ([entry]) => {
         const isIntersecting = entry.isIntersecting;
-        
-        if (isIntersecting && !hasTriggered) {
+
+        if (isIntersecting) {
+          if (triggerOnce && hasTriggeredRef.current) return;
           setIsVisible(true);
           if (triggerOnce) {
-            setHasTriggered(true);
+            hasTriggeredRef.current = true;
           }
-        } else if (!triggerOnce && !isIntersecting) {
+        } else if (!triggerOnce) {
           setIsVisible(false);
         }
       },
@@ -45,7 +48,7 @@ export const useIntersectionObserver = (options: UseIntersectionObserverOptions 
     return () => {
       observer.unobserve(element);
     };
-  }, [threshold, rootMargin, triggerOnce, hasTriggered]);
+  }, [threshold, rootMargin, triggerOnce]);
 
   return { elementRef, isVisible };
-}; 
+};

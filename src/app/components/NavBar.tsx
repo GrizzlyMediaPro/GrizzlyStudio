@@ -78,7 +78,7 @@ export default function NavBar() {
               </Link>
             </div>
 
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="flex max-md:!hidden items-center space-x-8">
               <Link
                 href="/#servicii"
                 className="text-white/80 hover:text-white transition-colors duration-300"
@@ -161,7 +161,7 @@ export default function NavBar() {
 
             <button
               onClick={toggleMobileMenu}
-              className="md:hidden flex flex-col justify-center items-center w-8 h-8 space-y-1.5"
+              className="hidden max-md:!flex flex-col justify-center items-center w-8 h-8 space-y-1.5"
               aria-label="Toggle mobile menu"
             >
               <span
@@ -185,7 +185,7 @@ export default function NavBar() {
       </nav>
 
       <div
-        className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ${
+        className={`hidden max-md:!block fixed inset-0 z-40 transition-all duration-300 ${
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
