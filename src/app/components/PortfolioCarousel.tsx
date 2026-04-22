@@ -3,6 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import { useLanguage } from "../i18n/LanguageProvider";
 import { useIntersectionObserver } from "../hooks/useIntersectionObserver";
+import type { PortfolioCategory } from "@/lib/portfolio-types";
+import { normalizeSocialEmbedUrl } from "@/lib/social-embed";
 
 export default function PortfolioCarousel() {
   const { t } = useLanguage();
@@ -11,12 +13,14 @@ export default function PortfolioCarousel() {
     null
   );
   const [isAnimating, setIsAnimating] = useState(false);
-  const [activeTab, setActiveTab] = useState("pagini-prezentare");
+  const [activeTab, setActiveTab] = useState<PortfolioCategory>("PAGINI_PREZENTARE");
   const [screenSize, setScreenSize] = useState<"mobile" | "tablet" | "desktop">(
     "desktop"
   );
+  const [slides, setSlides] = useState<SlideItem[]>([]);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
+  const [selectedSlide, setSelectedSlide] = useState<SlideItem | null>(null);
   const carouselRef = useRef<HTMLDivElement>(null);
 
   // Hook pentru detectarea dimensiunii ecranului
@@ -64,154 +68,38 @@ export default function PortfolioCarousel() {
     }
   };
 
-  const tabs = [
-    { id: "pagini-prezentare", label: t("tab_pages") },
-    { id: "magazine-online", label: t("tab_shops") },
-    { id: "aplicatii", label: t("tab_apps") },
-    { id: "social-media", label: t("tab_social") },
-  ];
-
   type SlideItem = {
+    id: string;
     title: string;
     subtitle: string;
     image: string;
     description: string;
-    category: string;
+    category: PortfolioCategory;
+    embedUrl?: string | null;
     url?: string;
+    position: number;
   };
 
-  const slides: SlideItem[] = [
-    {
-      title: t("slide_vera_title"),
-      subtitle: t("slide_vera_subtitle"),
-      image: "/verasite.png",
-      description: t("slide_vera_desc"),
-      category: "pagini-prezentare",
-      url: "https://www.verapapara.ro/",
-    },
-    {
-      title: t("slide_cmd_title"),
-      subtitle: t("slide_cmd_subtitle"),
-      image: "/cmdsite.png",
-      description: t("slide_cmd_desc"),
-      category: "pagini-prezentare",
-      url: "https://www.cmdexternalgroup.ro/",
-    },
-    {
-      title: t("slide_curs_title"),
-      subtitle: t("slide_curs_subtitle"),
-      image: "/cursplussite.png",
-      description: t("slide_curs_desc"),
-      category: "pagini-prezentare",
-      url: "https://www.cursplus.ro/",
-    },
-    {
-      title: t("slide_hrz_title"),
-      subtitle: t("slide_hrz_subtitle"),
-      image: "/hrzmediasite.png",
-      description: t("slide_hrz_desc"),
-      category: "pagini-prezentare",
-      url: "https://www.hrz-media.com/",
-    },
-    {
-      title: t("slide_aef_title"),
-      subtitle: t("slide_aef_subtitle"),
-      image: "/aef.png",
-      description: t("slide_aef_desc"),
-      category: "pagini-prezentare",
-      url: "https://aef-one.vercel.app/",
-    },
-    {
-      title: t("slide_comp_title"),
-      subtitle: t("slide_comp_subtitle"),
-      image: "/comp.png",
-      description: t("slide_comp_desc"),
-      category: "pagini-prezentare",
-      url: "https://www.competizione.ro/",
-    },
-    {
-      title: t("slide_abr_title"),
-      subtitle: t("slide_abr_subtitle"),
-      image: "/abr.png",
-      description: t("slide_abr_desc"),
-      category: "pagini-prezentare",
-      url: "https://abraham-asociatii.ro/",
-    },
-    {
-      title: t("slide_agro_title"),
-      subtitle: t("slide_agro_subtitle"),
-      image: "/agro.png",
-      description: t("slide_agro_desc"),
-      category: "pagini-prezentare",
-      url: "https://agrodrona.ro/",
-    },
-    // Magazine online
-    {
-      title: t("slide_screen_title"),
-      subtitle: t("slide_screen_subtitle"),
-      image: "/screen.png",
-      description: t("slide_screen_desc"),
-      category: "magazine-online",
-      url: "https://screenshield.ro/",
-    },
-    {
-      title: t("slide_voc_title"),
-      subtitle: t("slide_voc_subtitle"),
-      image: "/voc.png",
-      description: t("slide_voc_desc"),
-      category: "aplicatii",
-      url: "https://www.voceacampusului.ro/",
-    },
-    // Social media results (rez1 - rez6)
-    {
-      title: t("social_slide_title"),
-      subtitle: "",
-      image: "/rez1.png",
-      description: t("social_slide_desc"),
-      category: "social-media",
-      url: "",
-    },
-    {
-      title: t("social_slide_title"),
-      subtitle: "",
-      image: "/rez2.png",
-      description: t("social_slide_desc"),
-      category: "social-media",
-      url: "",
-    },
-    {
-      title: t("social_slide_title"),
-      subtitle: "",
-      image: "/rez3.png",
-      description: t("social_slide_desc"),
-      category: "social-media",
-      url: "",
-    },
-    {
-      title: t("social_slide_title"),
-      subtitle: "",
-      image: "/rez4.png",
-      description: t("social_slide_desc"),
-      category: "social-media",
-      url: "",
-    },
-    {
-      title: t("social_slide_title"),
-      subtitle: "",
-      image: "/rez5.png",
-      description: t("social_slide_desc"),
-      category: "social-media",
-      url: "",
-    },
-    {
-      title: t("social_slide_title"),
-      subtitle: "",
-      image: "/rez6.png",
-      description: t("social_slide_desc"),
-      category: "social-media",
-      url: "",
-    },
+  const tabs: { id: PortfolioCategory; label: string }[] = [
+    { id: "PAGINI_PREZENTARE", label: t("tab_pages") },
+    { id: "MAGAZINE_ONLINE", label: t("tab_shops") },
+    { id: "APLICATII", label: t("tab_apps") },
+    { id: "SOCIAL_MEDIA", label: t("tab_social") },
   ];
+
+  useEffect(() => {
+    const loadSlides = async () => {
+      try {
+        const response = await fetch("/api/portfolio-items", { cache: "no-store" });
+        const data = (await response.json()) as SlideItem[];
+        setSlides(data);
+      } catch {
+        setSlides([]);
+      }
+    };
+
+    void loadSlides();
+  }, []);
 
   const getFilteredSlides = () => {
     return slides.filter((slide) => slide.category === activeTab);
@@ -266,12 +154,40 @@ export default function PortfolioCarousel() {
     }, 800);
   };
 
-  const handleTabChange = (tabId: string) => {
+  const handleTabChange = (tabId: PortfolioCategory) => {
     setActiveTab(tabId);
     setCurrentIndex(0); // Reset la primul slide când schimbi tab-ul
   };
 
+  const openSlideModal = (slide: SlideItem) => {
+    setSelectedSlide(slide);
+  };
+
+  const closeSlideModal = () => {
+    setSelectedSlide(null);
+  };
+
+  useEffect(() => {
+    if (!selectedSlide) return;
+
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        closeSlideModal();
+      }
+    };
+
+    const originalOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    document.addEventListener("keydown", handleEscape);
+
+    return () => {
+      document.body.style.overflow = originalOverflow;
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [selectedSlide]);
+
   const visibleSlides = getVisibleSlides();
+  const selectedSlideEmbedSrc = normalizeSocialEmbedUrl(selectedSlide?.embedUrl);
 
   // Hook pentru tab-uri
   const { elementRef: tabsRef, isVisible: tabsVisible } =
@@ -292,12 +208,12 @@ export default function PortfolioCarousel() {
           filter: tabsVisible ? "blur(0px)" : "blur(8px)",
         }}
       >
-        <div className="portfolio-tabs flex flex-col sm:flex-row sm:justify-evenly flex-wrap gap-2 bg-black/20 backdrop-blur-md rounded-2xl p-2 border border-white/10 w-full sm:max-w-full">
+        <div className="portfolio-tabs flex flex-nowrap sm:justify-evenly gap-3 overflow-x-auto bg-black/20 backdrop-blur-md rounded-2xl p-3 border border-white/10 w-full">
           {tabs.map((tab) => (
             <button
               key={tab.id}
               onClick={() => handleTabChange(tab.id)}
-              className={`portfolio-tab px-3 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all duration-300 ease-in-out whitespace-nowrap flex-shrink-0 ${
+              className={`portfolio-tab px-5 py-3 rounded-xl text-sm sm:text-base font-semibold transition-all duration-300 ease-in-out whitespace-nowrap flex-shrink-0 ${
                 activeTab === tab.id
                   ? "bg-white text-black shadow-lg"
                   : "text-white/70 hover:text-white hover:bg-white/10"
@@ -318,15 +234,17 @@ export default function PortfolioCarousel() {
           onTouchMove={handleTouchMove}
           onTouchEnd={handleTouchEnd}
         >
-          {visibleSlides.map((slide, index) => (
-            <div
-              key={`${slide.originalIndex}-${currentIndex}`}
+          {visibleSlides.map((slide, index) => {
+            const embedSrc = normalizeSocialEmbedUrl(slide.embedUrl);
+            return (
+              <div
+              key={`${slide.id}-${currentIndex}`}
               className={`portfolio-card flex-shrink-0 transition-all duration-700 ease-out ${
                 // Responsive sizing pentru carduri
                 index === 1 && visibleSlides.length > 2
                   ? "w-full sm:w-[20rem] md:w-[26rem] lg:w-[26rem]"
                   : "w-full sm:w-72 md:w-80 lg:w-80"
-              } bg-black/40 rounded-2xl p-4 sm:p-6 border border-gray-300/20 shadow-xl transform group-hover:scale-95 group-hover:blur-sm hover:blur-none hover:z-20 hover:scale-110`}
+              } bg-black/40 rounded-2xl p-4 sm:p-6 border border-gray-300/20 shadow-xl transform group-hover:scale-95 group-hover:blur-sm hover:blur-none hover:z-20 hover:scale-110 cursor-pointer`}
               style={{
                 animation:
                   slideDirection === "left"
@@ -335,6 +253,7 @@ export default function PortfolioCarousel() {
                     ? "smoothSlideRight 0.8s ease-out"
                     : "none",
               }}
+              onClick={() => openSlideModal(slide)}
             >
               <div className="text-center mb-4">
                 <h4 className="nohemi-black text-lg sm:text-xl text-white mb-2">
@@ -355,16 +274,27 @@ export default function PortfolioCarousel() {
                 } rounded-3xl p-2 sm:p-3 mb-4`}
               >
                 <div className="w-full h-full rounded-2xl overflow-visible">
-                  <div
-                    className="w-full h-full bg-cover bg-center rounded-2xl"
-                    style={{
-                      backgroundImage: `url(${slide.image})`,
-                      backgroundSize: "contain",
-                      backgroundRepeat: "no-repeat",
-                      backgroundPosition: "center",
-                      filter: "drop-shadow(0 0 20px rgba(255,255,255,0.3))",
-                    }}
-                  ></div>
+                  {slide.category === "SOCIAL_MEDIA" && embedSrc ? (
+                    <iframe
+                      src={embedSrc}
+                      className="w-full h-full rounded-2xl border border-white/20 bg-black"
+                      title={slide.title}
+                      loading="lazy"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      allowFullScreen
+                    />
+                  ) : (
+                    <div
+                      className="w-full h-full bg-cover bg-center rounded-2xl"
+                      style={{
+                        backgroundImage: `url(${slide.image})`,
+                        backgroundSize: "contain",
+                        backgroundRepeat: "no-repeat",
+                        backgroundPosition: "center",
+                        filter: "drop-shadow(0 0 20px rgba(255,255,255,0.3))",
+                      }}
+                    ></div>
+                  )}
                 </div>
               </div>
 
@@ -379,6 +309,7 @@ export default function PortfolioCarousel() {
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center gap-2 text-[#ffed88] text-xs sm:text-sm font-medium hover:opacity-80 transition-opacity"
                     aria-label={`${t("view_label")} ${slide.title}`}
+                    onClick={(event) => event.stopPropagation()}
                   >
                     <span>{t("view_label")}</span>
                     <svg
@@ -417,7 +348,8 @@ export default function PortfolioCarousel() {
                 )}
               </div>
             </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Navigation dots with arrows - responsive */}
@@ -478,6 +410,93 @@ export default function PortfolioCarousel() {
           </button>
         </div>
       </div>
+
+      {selectedSlide ? (
+        <div
+          className="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm p-4 sm:p-6 flex items-center justify-center"
+          onClick={closeSlideModal}
+          role="dialog"
+          aria-modal="true"
+          aria-label={selectedSlide.title}
+        >
+          <div
+            className="w-full max-w-5xl bg-[#121212] border border-white/20 rounded-2xl p-4 sm:p-6"
+            onClick={(event) => event.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4 mb-4">
+              <div>
+                <h4 className="nohemi-black text-xl sm:text-2xl text-white">
+                  {selectedSlide.title}
+                </h4>
+                <p className="text-[#ffed88] text-sm sm:text-base mt-1">
+                  {selectedSlide.subtitle}
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={closeSlideModal}
+                className="w-9 h-9 rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+                aria-label="Inchide"
+              >
+                ✕
+              </button>
+            </div>
+
+            <div className="rounded-2xl overflow-hidden border border-white/10 bg-black mb-4">
+              {selectedSlide.category === "SOCIAL_MEDIA" && selectedSlideEmbedSrc ? (
+                <iframe
+                  src={selectedSlideEmbedSrc}
+                  className="w-full h-[60vh]"
+                  title={selectedSlide.title}
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                />
+              ) : (
+                <img
+                  src={selectedSlide.image}
+                  alt={selectedSlide.title}
+                  className="w-full max-h-[70vh] object-contain bg-black"
+                />
+              )}
+            </div>
+
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+              <p className="text-white/80 text-sm sm:text-base">
+                {selectedSlide.description}
+              </p>
+              {selectedSlide.url ? (
+                <a
+                  href={selectedSlide.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-xl bg-[#ffed88] text-black text-sm sm:text-base font-semibold hover:opacity-90 transition-opacity"
+                >
+                  <span>{t("view_label")}</span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="size-4 sm:size-5"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25"
+                    />
+                  </svg>
+                </a>
+              ) : (
+                <div className="inline-flex items-center justify-center gap-2 px-5 py-2 rounded-xl bg-white/10 text-white/60 text-sm sm:text-base font-semibold cursor-not-allowed select-none">
+                  <span>{t("view_label")}</span>
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+      ) : null}
     </div>
   );
 }
