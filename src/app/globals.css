@@ -185,7 +185,17 @@ body {
   animation: scrollRight 40s linear infinite;
 }
 
+.animate-scroll-left-slow {
+  animation: scrollLeft 60s linear infinite;
+}
+
+.animate-scroll-right-slow {
+  animation: scrollRight 60s linear infinite;
+}
+
 .animate-scroll-left:hover,
-.animate-scroll-right:hover {
+.animate-scroll-right:hover,
+.animate-scroll-left-slow:hover,
+.animate-scroll-right-slow:hover {
   animation-play-state: paused;
 }

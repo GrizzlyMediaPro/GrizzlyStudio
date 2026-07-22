@@ -873,62 +873,57 @@ export const translations: TranslationDictionary = {
   // Testimonials section
   testimonials_title: { ro: "Ce spun clienții noștri", en: "What our clients say" },
   testimonials_highlight: { ro: " despre noi", en: " about us" },
+  testimonials_read_more: { ro: "Citește mai mult", en: "Read more" },
+  testimonials_close: { ro: "Închide", en: "Close" },
 
   testimonial_1_quote: {
-    ro: "Grizzly Media Pro ne-a transformat complet prezența online. Site-ul nostru arată incredibil și a crescut vânzările cu 40% în primele 3 luni.",
-    en: "Grizzly Media Pro completely transformed our online presence. Our website looks incredible and increased sales by 40% in the first 3 months."
+    ro: "Colaborarea a fost una excelentă de la început până la sfârșit. Echipa a fost profesionistă, promptă și atentă la toate detaliile, iar comunicarea a fost foarte bună pe tot parcursul. Rezultatul final a fost exact așa cum mi-am dorit. Recomand cu încredere oricui își dorește servicii de calitate și o experiență fără griji!",
+    en: "The collaboration was excellent from start to finish. The team was professional, prompt and attentive to every detail, and communication was great throughout. The final result was exactly what I wanted. I confidently recommend them to anyone looking for quality services and a worry-free experience!"
   },
-  testimonial_1_name: { ro: "Alexandru M.", en: "Alexandru M." },
-  testimonial_1_company: { ro: "TechVision Solutions", en: "TechVision Solutions" },
+  testimonial_1_name: { ro: "Mihai", en: "Mihai" },
+  testimonial_1_company: { ro: "Gama Invest", en: "Gama Invest" },
 
   testimonial_2_quote: {
-    ro: "Echipa lor este extraordinară. Au înțeles viziunea noastră din prima întâlnire și au livrat un brand complet care ne reprezintă perfect.",
-    en: "Their team is extraordinary. They understood our vision from the first meeting and delivered a complete brand that represents us perfectly."
+    ro: "Am avut o colaborare excelentă cu echipa Grizzly Media Pro pentru dezvoltarea magazinului meu online de produse coreene. M-au ajutat cu realizarea site-ului, cu reclamele și administrarea lor, dar și cu filmarea conținutului. Totul a decurs foarte ușor, iar comunicarea a fost mereu deschisă și eficientă. Mi-a plăcut că s-au implicat cu adevărat, au venit cu idei bune și au fost atenți la detalii. Se vede că pun pasiune în ceea ce fac și că își doresc să obțină rezultate, nu doar să bifeze niște task-uri. Îi recomand cu drag oricui caută o echipă de încredere și profesionistă cu care să lucreze.",
+    en: "I had an excellent collaboration with the Grizzly Media Pro team for developing my online store of Korean products. They helped with the website, ads and their management, as well as content filming. Everything went smoothly, and communication was always open and efficient. I liked that they truly got involved, came up with good ideas and paid attention to details. You can tell they put passion into what they do and aim for results, not just to check off tasks. I gladly recommend them to anyone looking for a trustworthy, professional team."
   },
-  testimonial_2_name: { ro: "Maria D.", en: "Maria D." },
-  testimonial_2_company: { ro: "Bloom Cosmetics", en: "Bloom Cosmetics" },
+  testimonial_2_name: { ro: "Cristi V.", en: "Cristi V." },
+  testimonial_2_company: { ro: "K-Wonderland", en: "K-Wonderland" },
 
   testimonial_3_quote: {
-    ro: "Social media management-ul lor ne-a adus o creștere organică de 300%. Sunt proactivi, creativi și mereu disponibili pentru noi.",
-    en: "Their social media management brought us 300% organic growth. They are proactive, creative and always available for us."
+    ro: "Colaborarea a fost foarte bună pe tot parcursul proiectului. A fost foarte simplu să lucrăm datorită comunicării eficiente și prin prisma acestui lucru au livrat un site exact cum mi-am imaginat. Recomand cu încredere oricui caută seriozitate și profesionalism.",
+    en: "The collaboration was very good throughout the project. It was easy to work together thanks to efficient communication, and as a result they delivered a website exactly as I imagined. I confidently recommend them to anyone looking for seriousness and professionalism."
   },
-  testimonial_3_name: { ro: "Andrei P.", en: "Andrei P." },
-  testimonial_3_company: { ro: "FitLife Academy", en: "FitLife Academy" },
+  testimonial_3_name: { ro: "Mihai C.", en: "Mihai C." },
+  testimonial_3_company: { ro: "RealImob", en: "RealImob" },
 
   testimonial_4_quote: {
-    ro: "Am lucrat cu mai multe agenții înainte, dar Grizzly este pe alt nivel. Comunicarea e impecabilă și rezultatele vorbesc de la sine.",
-    en: "We worked with multiple agencies before, but Grizzly is on another level. Communication is impeccable and results speak for themselves."
+    ro: "Colaborarea cu Grizzly Media Pro a fost una excelentă încă de la început. M-au impresionat prin profesionalism, seriozitate și implicarea de care dau dovadă în fiecare proiect. M-au ajutat atât cu realizarea și dezvoltarea site-ului, cât și cu promovarea în mediul online și crearea de reel-uri pentru activitatea mea din domeniul stomatologic. Fiecare material este realizat cu atenție la detalii, creativitate și înțelegerea foarte bună a imaginii pe care îmi doresc să o transmit. Îi recomand cu toată încrederea oricui își dorește servicii de marketing și promovare realizate la un nivel înalt.",
+    en: "Working with Grizzly Media Pro has been excellent from the start. They impressed me with their professionalism, seriousness and the dedication they show in every project. They helped with building and developing the website, as well as online promotion and creating reels for my dental practice. Every piece of content is made with attention to detail, creativity and a strong understanding of the image I want to convey. I fully recommend them to anyone looking for high-level marketing and promotion services."
   },
-  testimonial_4_name: { ro: "Elena S.", en: "Elena S." },
-  testimonial_4_company: { ro: "Urban Realty", en: "Urban Realty" },
+  testimonial_4_name: { ro: "Andreea H.", en: "Andreea H." },
+  testimonial_4_company: { ro: "Stomatologie", en: "Dental Practice" },
 
   testimonial_5_quote: {
-    ro: "De când am început colaborarea cu Grizzly, am trecut de la 0 la 50+ clienți noi pe lună doar din online. Investiția s-a recuperat în prima lună.",
-    en: "Since starting with Grizzly, we went from 0 to 50+ new clients per month from online alone. The investment was recovered in the first month."
+    ro: "Colaborarea noastră cu Grizzly Media Pro (website, social media și ads) a fost exact genul de parteneriat pe care îl cauți când vrei să crești sănătos: comunicare ușoară, reacție rapidă și multă răbdare. Ce am apreciat cel mai mult a fost focusul lor real pe client — indiferent de situație, de câte modificări au apărut pe parcurs sau de cât de multe solicitări am avut, au rămas implicați, flexibili și orientați pe soluții. Pentru noi, Grizzly Media Pro a însemnat nu doar execuție bună, ci și suport constant și o atitudine profesionistă, prietenoasă.",
+    en: "Our collaboration with Grizzly Media Pro (website, social media and ads) was exactly the kind of partnership you look for when you want healthy growth: easy communication, quick response and a lot of patience. What I appreciated most was their real focus on the client — no matter the situation, how many changes came along the way or how many requests we had, they stayed involved, flexible and solution-oriented. For us, Grizzly Media Pro meant not only good execution, but also constant support and a professional, friendly attitude."
   },
-  testimonial_5_name: { ro: "Cristian V.", en: "Cristian V." },
-  testimonial_5_company: { ro: "AutoDetailing Pro", en: "AutoDetailing Pro" },
+  testimonial_5_name: { ro: "Anamaria Velicu", en: "Anamaria Velicu" },
+  testimonial_5_company: { ro: "C.M.D. EXTERNAL GROUP SRL", en: "C.M.D. EXTERNAL GROUP SRL" },
 
   testimonial_6_quote: {
-    ro: "Site-ul pe care l-au creat pentru restaurantul nostru este o operă de artă. Rezervările online au crescut cu 200% și primim complimente zilnic.",
-    en: "The website they created for our restaurant is a work of art. Online reservations increased by 200% and we receive compliments daily."
+    ro: "Am colaborat cu Grizzly Media Pro pentru dezvoltarea website-ului SmartHomeMall și pentru activități conexe de comunicare. Am apreciat în mod special abordarea lor structurată: au clarificat cerințele de la început, au propus soluții concrete și au gestionat modificările apărute pe parcurs fără întârzieri inutile. Comunicarea a fost constantă și profesionistă, iar livrările au fost făcute cu atenție la detalii. Pentru noi, Grizzly Media Pro a fost un partener pe care te poți baza atunci când ai nevoie de rezultate, nu doar de execuție.",
+    en: "We collaborated with Grizzly Media Pro on developing the SmartHomeMall website and related communication activities. I especially appreciated their structured approach: they clarified requirements from the start, proposed concrete solutions and handled changes along the way without unnecessary delays. Communication was consistent and professional, and deliveries were made with attention to detail. For us, Grizzly Media Pro was a partner you can rely on when you need results, not just execution."
   },
-  testimonial_6_name: { ro: "Diana R.", en: "Diana R." },
-  testimonial_6_company: { ro: "La Dolce Vita", en: "La Dolce Vita" },
+  testimonial_6_name: { ro: "Jean Velicu", en: "Jean Velicu" },
+  testimonial_6_company: { ro: "SmartHomeMall", en: "SmartHomeMall" },
 
   testimonial_7_quote: {
-    ro: "Profesionalism, creativitate și atenție la detalii. Grizzly Media Pro a fost cea mai bună decizie pe care am luat-o pentru business-ul meu.",
-    en: "Professionalism, creativity and attention to detail. Grizzly Media Pro was the best decision I made for my business."
+    ro: "Interacțiunea mea cu Grizzly Media Pro a fost una super profesionistă și productivă. Am apelat la ei pentru platforma de studenți Vocea Campusului. Au făcut proiectul de la zero și nu doar că au reușit să implementeze toate ideile mele, dar au și contribuit la dezvoltarea lor. Chiar și după finalizarea proiectului m-au susținut cu tot ce am avut nevoie (promovare pe social media) și mi-au oferit consultanță gratuită în momentele de impas. Colaborarea cu ei nu a fost doar contractuală, ci și o experiență de socializare și prietenie. Pot spune că oricând am apelat la ei pentru modificări aduse platformei au fost foarte prompți și m-au ajutat fără vreo obligație. Întotdeauna răspunsul lor era „suntem la început de drum și un client fericit ne aduce și nouă mulțumire că am putut ajuta”. Încă un lucru pe care trebuie să îl menționez este că în momentul în care spun că vor face ceva, se țin de cuvânt, chiar dacă unele lucruri nu sunt menționate în contractul de colaborare. În concluzie, recomand serviciile Grizzly Media Pro.",
+    en: "My experience with Grizzly Media Pro was highly professional and productive. I turned to them for the student platform Vocea Campusului. They built the project from scratch and not only implemented all my ideas, but also contributed to developing them. Even after the project was finished, they supported me with everything I needed (social media promotion) and offered free consulting in difficult moments. Working with them wasn't just contractual — it was also a social and friendly experience. Whenever I asked for platform changes, they were very prompt and helped without any obligation. Their answer was always “we're at the beginning of the road, and a happy client also brings us the satisfaction of having helped.” One more thing: when they say they'll do something, they keep their word, even if some things aren't mentioned in the contract. In conclusion, I recommend Grizzly Media Pro's services."
   },
-  testimonial_7_name: { ro: "Mihai T.", en: "Mihai T." },
-  testimonial_7_company: { ro: "StartUp Hub", en: "StartUp Hub" },
-
-  testimonial_8_quote: {
-    ro: "Recomand cu încredere Grizzly pentru oricine vrea să-și ducă afacerea la următorul nivel. Sunt partenerii digitali perfecți.",
-    en: "I confidently recommend Grizzly to anyone who wants to take their business to the next level. They are the perfect digital partners."
-  },
-  testimonial_8_name: { ro: "Ioana L.", en: "Ioana L." },
-  testimonial_8_company: { ro: "GreenLeaf Studio", en: "GreenLeaf Studio" },
+  testimonial_7_name: { ro: "Liviu C.", en: "Liviu C." },
+  testimonial_7_company: { ro: "Vocea Campusului", en: "Vocea Campusului" },
 
   // 404 Not Found Page
   not_found_title: { ro: "Pagina nu a fost găsită", en: "Page not found" },

@@ -5,6 +5,7 @@ import Link from "next/link";
 import PortfolioCarousel from "./components/PortfolioCarousel";
 import FadeInElement from "./components/FadeInElement";
 import CookieConsent from "./components/CookieConsent";
+import TestimonialsSection from "./components/TestimonialsSection";
 import { useState, useEffect, useLayoutEffect } from "react";
 import { useLanguage } from "./i18n/LanguageProvider";
 
@@ -718,71 +719,7 @@ export default function Home() {
         </section>
 
         {/* Secțiunea testimoniale */}
-        <div className="pt-10 md:pt-24 pb-8 md:pb-12 relative z-10">
-          <FadeInElement delay={0} direction="up">
-            <div className="text-center mb-12 px-6">
-              <h2 className="nohemi-heading text-2xl md:text-3xl text-white">
-                {t("testimonials_title")}
-                <span className="text-[#ffed88]">{t("testimonials_highlight")}</span>
-              </h2>
-            </div>
-          </FadeInElement>
-
-          <div className="w-full overflow-hidden relative">
-            <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
-            <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
-
-            {/* Rândul 1 - se mișcă spre stânga */}
-            <div className="flex animate-scroll-left mb-6">
-              {[1, 2, 3, 4, 1, 2, 3, 4].map((num, idx) => (
-                <div
-                  key={`row1-${idx}`}
-                  className="flex-shrink-0 w-[320px] md:w-[400px] mx-3 bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20"
-                >
-                  <p className="text-white/80 text-sm md:text-base leading-relaxed mb-4 italic">
-                    &ldquo;{t(`testimonial_${num}_quote`)}&rdquo;
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[#ffed88]/20 flex items-center justify-center">
-                      <span className="text-[#ffed88] text-sm font-bold">
-                        {t(`testimonial_${num}_name`).charAt(0)}
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-white text-sm font-medium">{t(`testimonial_${num}_name`)}</p>
-                      <p className="text-[#ffed88] text-xs">{t(`testimonial_${num}_company`)}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            {/* Rândul 2 - se mișcă spre dreapta */}
-            <div className="flex animate-scroll-right">
-              {[5, 6, 7, 8, 5, 6, 7, 8].map((num, idx) => (
-                <div
-                  key={`row2-${idx}`}
-                  className="flex-shrink-0 w-[320px] md:w-[400px] mx-3 bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20"
-                >
-                  <p className="text-white/80 text-sm md:text-base leading-relaxed mb-4 italic">
-                    &ldquo;{t(`testimonial_${num}_quote`)}&rdquo;
-                  </p>
-                  <div className="flex items-center gap-3">
-                    <div className="w-9 h-9 rounded-full bg-[#ffed88]/20 flex items-center justify-center">
-                      <span className="text-[#ffed88] text-sm font-bold">
-                        {t(`testimonial_${num}_name`).charAt(0)}
-                      </span>
-                    </div>
-                    <div>
-                      <p className="text-white text-sm font-medium">{t(`testimonial_${num}_name`)}</p>
-                      <p className="text-[#ffed88] text-xs">{t(`testimonial_${num}_company`)}</p>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
+        <TestimonialsSection />
 
         {/* Logo-uri parteneri */}
         <div className="w-full overflow-hidden py-6 md:py-12 relative">
