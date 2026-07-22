@@ -8,6 +8,20 @@ import CookieConsent from "./components/CookieConsent";
 import { useState, useEffect, useLayoutEffect } from "react";
 import { useLanguage } from "./i18n/LanguageProvider";
 
+const LARGE_PARTNER_LOGOS = [
+  "Screenshot_2026-06-25_at_17.31.16-removebg-preview",
+  "logo-albun-fullcopy",
+  "sigla smart home",
+  "logo-vocea",
+];
+
+function getPartnerLogoClassName(logo: string): string {
+  const size = LARGE_PARTNER_LOGOS.some((name) => logo.includes(name))
+    ? "h-12 md:h-16"
+    : "h-8 md:h-10";
+  return `${size} w-auto object-contain opacity-50 hover:opacity-100 transition-opacity duration-300 grayscale hover:grayscale-0`;
+}
+
 export default function Home() {
   const { t, lang, setLang } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
@@ -679,7 +693,7 @@ export default function Home() {
         </section>
 
         {/* Descriere agentie sub hero */}
-        <section className="py-16 bg-black">
+        <section className="py-8 md:py-16 bg-black">
           <div className="max-w-6xl mx-auto px-6">
             <FadeInElement delay={0}>
               <div className="text-center">
@@ -703,8 +717,146 @@ export default function Home() {
           </div>
         </section>
 
+        {/* Secțiunea testimoniale */}
+        <div className="pt-10 md:pt-24 pb-8 md:pb-12 relative z-10">
+          <FadeInElement delay={0} direction="up">
+            <div className="text-center mb-12 px-6">
+              <h2 className="nohemi-heading text-2xl md:text-3xl text-white">
+                {t("testimonials_title")}
+                <span className="text-[#ffed88]">{t("testimonials_highlight")}</span>
+              </h2>
+            </div>
+          </FadeInElement>
+
+          <div className="w-full overflow-hidden relative">
+            <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
+            <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
+
+            {/* Rândul 1 - se mișcă spre stânga */}
+            <div className="flex animate-scroll-left mb-6">
+              {[1, 2, 3, 4, 1, 2, 3, 4].map((num, idx) => (
+                <div
+                  key={`row1-${idx}`}
+                  className="flex-shrink-0 w-[320px] md:w-[400px] mx-3 bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20"
+                >
+                  <p className="text-white/80 text-sm md:text-base leading-relaxed mb-4 italic">
+                    &ldquo;{t(`testimonial_${num}_quote`)}&rdquo;
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-[#ffed88]/20 flex items-center justify-center">
+                      <span className="text-[#ffed88] text-sm font-bold">
+                        {t(`testimonial_${num}_name`).charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="text-white text-sm font-medium">{t(`testimonial_${num}_name`)}</p>
+                      <p className="text-[#ffed88] text-xs">{t(`testimonial_${num}_company`)}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            {/* Rândul 2 - se mișcă spre dreapta */}
+            <div className="flex animate-scroll-right">
+              {[5, 6, 7, 8, 5, 6, 7, 8].map((num, idx) => (
+                <div
+                  key={`row2-${idx}`}
+                  className="flex-shrink-0 w-[320px] md:w-[400px] mx-3 bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20"
+                >
+                  <p className="text-white/80 text-sm md:text-base leading-relaxed mb-4 italic">
+                    &ldquo;{t(`testimonial_${num}_quote`)}&rdquo;
+                  </p>
+                  <div className="flex items-center gap-3">
+                    <div className="w-9 h-9 rounded-full bg-[#ffed88]/20 flex items-center justify-center">
+                      <span className="text-[#ffed88] text-sm font-bold">
+                        {t(`testimonial_${num}_name`).charAt(0)}
+                      </span>
+                    </div>
+                    <div>
+                      <p className="text-white text-sm font-medium">{t(`testimonial_${num}_name`)}</p>
+                      <p className="text-[#ffed88] text-xs">{t(`testimonial_${num}_company`)}</p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Logo-uri parteneri */}
+        <div className="w-full overflow-hidden py-6 md:py-12 relative">
+          {/* Rândul 1 - spre stânga */}
+          <div className="flex animate-scroll-left items-center mb-6">
+            {[
+              "/logoparteneri/logo-aipm.webp",
+              "/logoparteneri/logo1.webp",
+              "/logoparteneri/logo-vocea.webp",
+              "/logoparteneri/sigla smart home.svg",
+              "/logoparteneri/logo.9de6ec29.png",
+              "/logoparteneri/logo-albun-fullcopy.webp",
+              "/logoparteneri/logo_cortech.svg",
+              "/logoparteneri/logo.3b206f0d.png",
+              "/logoparteneri/logo.webp",
+              "/logoparteneri/logo.svg",
+              "/logoparteneri/logo-aipm.webp",
+              "/logoparteneri/logo1.webp",
+              "/logoparteneri/logo-vocea.webp",
+              "/logoparteneri/sigla smart home.svg",
+              "/logoparteneri/logo.9de6ec29.png",
+              "/logoparteneri/logo-albun-fullcopy.webp",
+              "/logoparteneri/logo_cortech.svg",
+              "/logoparteneri/logo.3b206f0d.png",
+              "/logoparteneri/logo.webp",
+              "/logoparteneri/logo.svg",
+            ].map((logo, idx) => (
+              <div key={`partner-r1-${idx}`} className="flex-shrink-0 mx-8 md:mx-12">
+                <img
+                  src={logo}
+                  alt="Partner logo"
+                  className={getPartnerLogoClassName(logo)}
+                />
+              </div>
+            ))}
+          </div>
+
+          {/* Rândul 2 - spre dreapta */}
+          <div className="flex animate-scroll-right items-center">
+            {[
+              "/logoparteneri/2ndlogogolden.webp",
+              "/logoparteneri/logo-k2-inversed.avif",
+              "/logoparteneri/logo-competizione-plaser-wh.png",
+              "/logoparteneri/logo-no-background.png",
+              "/logoparteneri/logo_alb.342f4ea0.svg",
+              "/logoparteneri/Screenshot_2026-06-08_at_14.18.58-removebg-preview.png",
+              "/logoparteneri/Screenshot_2026-06-08_at_14.19.52-removebg-preview.png",
+              "/logoparteneri/Screenshot_2026-06-08_at_14.20.46-removebg-preview.png",
+              "/logoparteneri/Screenshot_2026-06-25_at_17.31.16-removebg-preview.png",
+              "/logoparteneri/Screenshot_2026-06-25_at_17.34.39-removebg-preview.png",
+              "/logoparteneri/2ndlogogolden.webp",
+              "/logoparteneri/logo-k2-inversed.avif",
+              "/logoparteneri/logo-competizione-plaser-wh.png",
+              "/logoparteneri/logo-no-background.png",
+              "/logoparteneri/logo_alb.342f4ea0.svg",
+              "/logoparteneri/Screenshot_2026-06-08_at_14.18.58-removebg-preview.png",
+              "/logoparteneri/Screenshot_2026-06-08_at_14.19.52-removebg-preview.png",
+              "/logoparteneri/Screenshot_2026-06-08_at_14.20.46-removebg-preview.png",
+              "/logoparteneri/Screenshot_2026-06-25_at_17.31.16-removebg-preview.png",
+              "/logoparteneri/Screenshot_2026-06-25_at_17.34.39-removebg-preview.png",
+            ].map((logo, idx) => (
+              <div key={`partner-r2-${idx}`} className="flex-shrink-0 mx-8 md:mx-12">
+                <img
+                  src={logo}
+                  alt="Partner logo"
+                  className={getPartnerLogoClassName(logo)}
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
         {/* Sectiune stakes */}
-        <main className="max-w-6xl mx-auto px-6 py-24 relative z-10">
+        <main className="max-w-6xl mx-auto px-6 py-12 md:py-24 relative z-10">
           {/* Linie subțire cu umbră */}
           <FadeInElement delay={0} direction="up">
             <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>

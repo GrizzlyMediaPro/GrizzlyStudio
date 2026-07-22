@@ -870,6 +870,66 @@ export const translations: TranslationDictionary = {
     en: "GRIZZLY DIGITAL S.R.L., Dolj County, Craiova Municipality, 66 Constantin Lecca Street. Email: contact@grizzlymediapro.ro, Phone: +40750227013."
   },
 
+  // Testimonials section
+  testimonials_title: { ro: "Ce spun clienții noștri", en: "What our clients say" },
+  testimonials_highlight: { ro: " despre noi", en: " about us" },
+
+  testimonial_1_quote: {
+    ro: "Grizzly Media Pro ne-a transformat complet prezența online. Site-ul nostru arată incredibil și a crescut vânzările cu 40% în primele 3 luni.",
+    en: "Grizzly Media Pro completely transformed our online presence. Our website looks incredible and increased sales by 40% in the first 3 months."
+  },
+  testimonial_1_name: { ro: "Alexandru M.", en: "Alexandru M." },
+  testimonial_1_company: { ro: "TechVision Solutions", en: "TechVision Solutions" },
+
+  testimonial_2_quote: {
+    ro: "Echipa lor este extraordinară. Au înțeles viziunea noastră din prima întâlnire și au livrat un brand complet care ne reprezintă perfect.",
+    en: "Their team is extraordinary. They understood our vision from the first meeting and delivered a complete brand that represents us perfectly."
+  },
+  testimonial_2_name: { ro: "Maria D.", en: "Maria D." },
+  testimonial_2_company: { ro: "Bloom Cosmetics", en: "Bloom Cosmetics" },
+
+  testimonial_3_quote: {
+    ro: "Social media management-ul lor ne-a adus o creștere organică de 300%. Sunt proactivi, creativi și mereu disponibili pentru noi.",
+    en: "Their social media management brought us 300% organic growth. They are proactive, creative and always available for us."
+  },
+  testimonial_3_name: { ro: "Andrei P.", en: "Andrei P." },
+  testimonial_3_company: { ro: "FitLife Academy", en: "FitLife Academy" },
+
+  testimonial_4_quote: {
+    ro: "Am lucrat cu mai multe agenții înainte, dar Grizzly este pe alt nivel. Comunicarea e impecabilă și rezultatele vorbesc de la sine.",
+    en: "We worked with multiple agencies before, but Grizzly is on another level. Communication is impeccable and results speak for themselves."
+  },
+  testimonial_4_name: { ro: "Elena S.", en: "Elena S." },
+  testimonial_4_company: { ro: "Urban Realty", en: "Urban Realty" },
+
+  testimonial_5_quote: {
+    ro: "De când am început colaborarea cu Grizzly, am trecut de la 0 la 50+ clienți noi pe lună doar din online. Investiția s-a recuperat în prima lună.",
+    en: "Since starting with Grizzly, we went from 0 to 50+ new clients per month from online alone. The investment was recovered in the first month."
+  },
+  testimonial_5_name: { ro: "Cristian V.", en: "Cristian V." },
+  testimonial_5_company: { ro: "AutoDetailing Pro", en: "AutoDetailing Pro" },
+
+  testimonial_6_quote: {
+    ro: "Site-ul pe care l-au creat pentru restaurantul nostru este o operă de artă. Rezervările online au crescut cu 200% și primim complimente zilnic.",
+    en: "The website they created for our restaurant is a work of art. Online reservations increased by 200% and we receive compliments daily."
+  },
+  testimonial_6_name: { ro: "Diana R.", en: "Diana R." },
+  testimonial_6_company: { ro: "La Dolce Vita", en: "La Dolce Vita" },
+
+  testimonial_7_quote: {
+    ro: "Profesionalism, creativitate și atenție la detalii. Grizzly Media Pro a fost cea mai bună decizie pe care am luat-o pentru business-ul meu.",
+    en: "Professionalism, creativity and attention to detail. Grizzly Media Pro was the best decision I made for my business."
+  },
+  testimonial_7_name: { ro: "Mihai T.", en: "Mihai T." },
+  testimonial_7_company: { ro: "StartUp Hub", en: "StartUp Hub" },
+
+  testimonial_8_quote: {
+    ro: "Recomand cu încredere Grizzly pentru oricine vrea să-și ducă afacerea la următorul nivel. Sunt partenerii digitali perfecți.",
+    en: "I confidently recommend Grizzly to anyone who wants to take their business to the next level. They are the perfect digital partners."
+  },
+  testimonial_8_name: { ro: "Ioana L.", en: "Ioana L." },
+  testimonial_8_company: { ro: "GreenLeaf Studio", en: "GreenLeaf Studio" },
+
   // 404 Not Found Page
   not_found_title: { ro: "Pagina nu a fost găsită", en: "Page not found" },
   not_found_description: { ro: "Se pare că pagina pe care o cauți nu există sau a fost mutată. Nu te îngrijora, te ajutăm să găsești ceea ce cauți!", en: "It seems the page you're looking for doesn't exist or has been moved. Don't worry, we'll help you find what you're looking for!" },
