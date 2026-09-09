@@ -31,25 +31,25 @@ export default function Footer() {
               </h4>
               <div className="grid grid-cols-2 gap-2">
                 <a
-                  href="#despre"
+                  href="/#despre"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                 >
                   {t("footer_nav_about")}
                 </a>
                 <a
-                  href="#servicii"
+                  href="/#servicii"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                 >
                   {t("footer_nav_services")}
                 </a>
                 <a
-                  href="#portofoliu"
+                  href="/#portofoliu"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                 >
                   {t("footer_nav_portfolio")}
                 </a>
                 <a
-                  href="#contact"
+                  href="/#contact"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                 >
                   {t("footer_nav_contact")}

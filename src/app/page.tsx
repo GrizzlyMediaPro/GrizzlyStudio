@@ -15,6 +15,42 @@ const LARGE_PARTNER_LOGOS = [
   "logo-vocea",
 ];
 
+// Caruselele infinite folosesc translateX(-50%): track-ul trebuie să conțină două
+// jumătăți identice, iar fiecare jumătate să fie mai lată decât viewport-ul.
+// `times` trebuie să fie par.
+function repeat<T>(items: T[], times: number): T[] {
+  return Array.from({ length: times }, () => items).flat();
+}
+
+const TESTIMONIALS_ROW_1 = [1, 2, 3, 4];
+const TESTIMONIALS_ROW_2 = [5, 6, 7];
+
+const PARTNER_LOGOS_ROW_1 = [
+  "/logoparteneri/logo-vocea.webp",
+  "/logoparteneri/sigla smart home.svg",
+  "/logoparteneri/logo-aipm.webp",
+  "/logoparteneri/logo1.webp",
+  "/logoparteneri/logo.9de6ec29.png",
+  "/logoparteneri/logo-albun-fullcopy.webp",
+  "/logoparteneri/logo_cortech.svg",
+  "/logoparteneri/logo.3b206f0d.png",
+  "/logoparteneri/logo.webp",
+  "/logoparteneri/logo.svg",
+];
+
+const PARTNER_LOGOS_ROW_2 = [
+  "/logoparteneri/2ndlogogolden.webp",
+  "/logoparteneri/logo-k2-inversed.avif",
+  "/logoparteneri/logo-competizione-plaser-wh.png",
+  "/logoparteneri/logo-no-background.png",
+  "/logoparteneri/logo_alb.342f4ea0.svg",
+  "/logoparteneri/Screenshot_2026-06-08_at_14.18.58-removebg-preview.png",
+  "/logoparteneri/Screenshot_2026-06-08_at_14.19.52-removebg-preview.png",
+  "/logoparteneri/Screenshot_2026-06-08_at_14.20.46-removebg-preview.png",
+  "/logoparteneri/Screenshot_2026-06-25_at_17.31.16-removebg-preview.png",
+  "/logoparteneri/Screenshot_2026-06-25_at_17.34.39-removebg-preview.png",
+];
+
 function getPartnerLogoClassName(logo: string): string {
   const size = LARGE_PARTNER_LOGOS.some((name) => logo.includes(name))
     ? "h-12 md:h-16"
@@ -119,7 +155,7 @@ export default function Home() {
                 },
                 image: "https://grizzlymediapro.ro/grizzlylogo.png",
                 description:
-                  "Agenție de web development, social media și branding din Craiova. Transformăm viziunea ta în realitate digitală cu site-uri moderne, strategii de marketing și identitate vizuală profesională.",
+                  "Partener de dezvoltare software, AI, automatizări și strategie digitală din Craiova. Construim aplicații web și mobile, platforme și soluții adaptate business-ului tău.",
                 address: {
                   "@type": "PostalAddress",
                   streetAddress: "Strada Constantin Lecca 66",
@@ -149,7 +185,7 @@ export default function Home() {
                 url: "https://grizzlymediapro.ro",
                 name: "Grizzly Media Pro",
                 description:
-                  "Agenție de web development, social media și branding din Craiova",
+                  "Partener de dezvoltare software, AI, automatizări și strategie digitală din Craiova",
                 publisher: {
                   "@id": "https://grizzlymediapro.ro/#organization",
                 },
@@ -164,7 +200,7 @@ export default function Home() {
                 "@type": "WebPage",
                 "@id": "https://grizzlymediapro.ro/#webpage",
                 url: "https://grizzlymediapro.ro",
-                name: "Grizzly Media Pro | Dezvoltare Web & Marketing Digital",
+                name: "Grizzly Media Pro | Software Development, AI & Digital Strategy",
                 isPartOf: {
                   "@id": "https://grizzlymediapro.ro/#website",
                 },
@@ -172,7 +208,7 @@ export default function Home() {
                   "@id": "https://grizzlymediapro.ro/#organization",
                 },
                 description:
-                  "Agenție de web development, social media și branding din Craiova. Transformăm viziunea ta în realitate digitală cu site-uri moderne, strategii de marketing și identitate vizuală profesională.",
+                  "Partener de dezvoltare software, AI, automatizări și strategie digitală din Craiova. Construim aplicații web și mobile, platforme și soluții adaptate business-ului tău.",
                 breadcrumb: {
                   "@id": "https://grizzlymediapro.ro/#breadcrumb",
                 },
@@ -197,8 +233,9 @@ export default function Home() {
                   {
                     "@type": "ListItem",
                     position: 3,
-                    name: "Portofoliu",
+                    name: "Proiecte",
                     item: "https://grizzlymediapro.ro#portofoliu",
+
                   },
                   {
                     "@type": "ListItem",
@@ -210,36 +247,39 @@ export default function Home() {
               },
               {
                 "@type": "Service",
-                name: "Web Development",
+                name: "Software Development",
                 description:
-                  "Dezvoltare site-uri și aplicații web moderne, responsive și optimizate pentru performanță",
+                  "Construim aplicații web și mobile, platforme digitale și soluții software custom, adaptate proceselor și obiectivelor business-ului tău.",
                 provider: {
                   "@id": "https://grizzlymediapro.ro/#organization",
                 },
-                serviceType: "Web Development",
+                serviceType: "Software Development",
                 areaServed: "Romania",
+                url: "https://grizzlymediapro.ro/software-development",
               },
               {
                 "@type": "Service",
-                name: "Social Media Marketing",
+                name: "AI & Automation",
                 description:
-                  "Strategii de marketing pe social media, creare conținut și management comunități online",
+                  "Integrăm soluții AI, automatizăm procese repetitive și conectăm sistemele pe care business-ul tău le folosește deja.",
                 provider: {
                   "@id": "https://grizzlymediapro.ro/#organization",
                 },
-                serviceType: "Social Media Marketing",
+                serviceType: "AI & Automation",
                 areaServed: "Romania",
+                url: "https://grizzlymediapro.ro/ai-automation",
               },
               {
                 "@type": "Service",
-                name: "Branding & Design",
+                name: "Digital Strategy",
                 description:
-                  "Crearea identității vizuale, logo design și materiale de branding pentru afaceri",
+                  "Combinăm perspectiva de business cu marketingul digital pentru a construi strategii de creștere, promovare și comunicare adaptate fiecărui brand.",
                 provider: {
                   "@id": "https://grizzlymediapro.ro/#organization",
                 },
-                serviceType: "Branding",
+                serviceType: "Digital Strategy",
                 areaServed: "Romania",
+                url: "https://grizzlymediapro.ro/digital-strategy",
               },
             ],
           }),
@@ -291,7 +331,7 @@ export default function Home() {
               <Link
                 href="/#portofoliu"
                 className="text-white/80 hover:text-white transition-colors duration-300"
-                title="Portofoliu proiecte web development și design"
+                title="Proiecte web development, mobile, AI și automatizări"
               >
                 {t("nav_portfolio")}
               </Link>
@@ -432,7 +472,7 @@ export default function Home() {
                 <Link
                   href="/#portofoliu"
                   className="text-white/80 hover:text-white transition-colors duration-300"
-                  title="Portofoliu proiecte web development și design"
+                  title="Proiecte web development, mobile, AI și automatizări"
                 >
                   {t("nav_portfolio")}
                 </Link>
@@ -732,9 +772,9 @@ export default function Home() {
             <div className="absolute left-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none"></div>
             <div className="absolute right-0 top-0 bottom-0 w-24 md:w-40 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none"></div>
 
-            {/* Rândul 1 - se mișcă spre stânga */}
-            <div className="flex animate-scroll-left mb-6">
-              {[1, 2, 3, 4, 1, 2, 3, 4].map((num, idx) => (
+            {/* Rândul 1 - se mișcă spre stânga — software / web development first */}
+            <div className="flex w-max animate-scroll-left mb-6" style={{ animationDuration: "80s" }}>
+              {repeat(TESTIMONIALS_ROW_1, 4).map((num, idx) => (
                 <div
                   key={`row1-${idx}`}
                   className="flex-shrink-0 w-[320px] md:w-[400px] mx-3 bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20"
@@ -758,8 +798,8 @@ export default function Home() {
             </div>
 
             {/* Rândul 2 - se mișcă spre dreapta */}
-            <div className="flex animate-scroll-right">
-              {[5, 6, 7, 8, 5, 6, 7, 8].map((num, idx) => (
+            <div className="flex w-max animate-scroll-right" style={{ animationDuration: "90s" }}>
+              {repeat(TESTIMONIALS_ROW_2, 6).map((num, idx) => (
                 <div
                   key={`row2-${idx}`}
                   className="flex-shrink-0 w-[320px] md:w-[400px] mx-3 bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20"
@@ -787,29 +827,8 @@ export default function Home() {
         {/* Logo-uri parteneri */}
         <div className="w-full overflow-hidden py-6 md:py-12 relative">
           {/* Rândul 1 - spre stânga */}
-          <div className="flex animate-scroll-left items-center mb-6">
-            {[
-              "/logoparteneri/logo-aipm.webp",
-              "/logoparteneri/logo1.webp",
-              "/logoparteneri/logo-vocea.webp",
-              "/logoparteneri/sigla smart home.svg",
-              "/logoparteneri/logo.9de6ec29.png",
-              "/logoparteneri/logo-albun-fullcopy.webp",
-              "/logoparteneri/logo_cortech.svg",
-              "/logoparteneri/logo.3b206f0d.png",
-              "/logoparteneri/logo.webp",
-              "/logoparteneri/logo.svg",
-              "/logoparteneri/logo-aipm.webp",
-              "/logoparteneri/logo1.webp",
-              "/logoparteneri/logo-vocea.webp",
-              "/logoparteneri/sigla smart home.svg",
-              "/logoparteneri/logo.9de6ec29.png",
-              "/logoparteneri/logo-albun-fullcopy.webp",
-              "/logoparteneri/logo_cortech.svg",
-              "/logoparteneri/logo.3b206f0d.png",
-              "/logoparteneri/logo.webp",
-              "/logoparteneri/logo.svg",
-            ].map((logo, idx) => (
+          <div className="flex w-max animate-scroll-left items-center mb-6" style={{ animationDuration: "80s" }}>
+            {repeat(PARTNER_LOGOS_ROW_1, 4).map((logo, idx) => (
               <div key={`partner-r1-${idx}`} className="flex-shrink-0 mx-8 md:mx-12">
                 <img
                   src={logo}
@@ -821,29 +840,8 @@ export default function Home() {
           </div>
 
           {/* Rândul 2 - spre dreapta */}
-          <div className="flex animate-scroll-right items-center">
-            {[
-              "/logoparteneri/2ndlogogolden.webp",
-              "/logoparteneri/logo-k2-inversed.avif",
-              "/logoparteneri/logo-competizione-plaser-wh.png",
-              "/logoparteneri/logo-no-background.png",
-              "/logoparteneri/logo_alb.342f4ea0.svg",
-              "/logoparteneri/Screenshot_2026-06-08_at_14.18.58-removebg-preview.png",
-              "/logoparteneri/Screenshot_2026-06-08_at_14.19.52-removebg-preview.png",
-              "/logoparteneri/Screenshot_2026-06-08_at_14.20.46-removebg-preview.png",
-              "/logoparteneri/Screenshot_2026-06-25_at_17.31.16-removebg-preview.png",
-              "/logoparteneri/Screenshot_2026-06-25_at_17.34.39-removebg-preview.png",
-              "/logoparteneri/2ndlogogolden.webp",
-              "/logoparteneri/logo-k2-inversed.avif",
-              "/logoparteneri/logo-competizione-plaser-wh.png",
-              "/logoparteneri/logo-no-background.png",
-              "/logoparteneri/logo_alb.342f4ea0.svg",
-              "/logoparteneri/Screenshot_2026-06-08_at_14.18.58-removebg-preview.png",
-              "/logoparteneri/Screenshot_2026-06-08_at_14.19.52-removebg-preview.png",
-              "/logoparteneri/Screenshot_2026-06-08_at_14.20.46-removebg-preview.png",
-              "/logoparteneri/Screenshot_2026-06-25_at_17.31.16-removebg-preview.png",
-              "/logoparteneri/Screenshot_2026-06-25_at_17.34.39-removebg-preview.png",
-            ].map((logo, idx) => (
+          <div className="flex w-max animate-scroll-right items-center" style={{ animationDuration: "80s" }}>
+            {repeat(PARTNER_LOGOS_ROW_2, 4).map((logo, idx) => (
               <div key={`partner-r2-${idx}`} className="flex-shrink-0 mx-8 md:mx-12">
                 <img
                   src={logo}
@@ -938,39 +936,27 @@ export default function Home() {
             <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
           </FadeInElement>
 
-          {/* Secțiunea "Beneficii" */}
+          {/* Secțiunea "Despre noi" */}
           <FadeInElement delay={0}>
             <div id="despre" className="text-center mb-8">
-              <h2 className="nohemi-heading text-xl md:text-2xl text-white">
+              <h2 className="nohemi-heading text-xl md:text-2xl text-white mb-6">
                 {t("benefits_t1")}
                 <span className="text-[#ffed88]">{t("benefits_h1")}</span>
               </h2>
+              <h3 className="nohemi-heading text-2xl md:text-3xl text-white mb-4 max-w-4xl mx-auto leading-tight">
+                {t("about_headline_t1")}
+                <span className="text-[#ffed88]">{t("about_headline_h1")}</span>
+                {t("about_headline_t2")}
+                <span className="text-[#ffed88]">{t("about_headline_h2")}</span>
+                {t("about_headline_t3")}
+              </h3>
+              <p className="nohemi-medium text-base md:text-lg text-white/80 leading-relaxed max-w-4xl mx-auto mb-12">
+                {t("about_body")}
+              </p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto mb-24">
-              {/* Card 1 - Fără CMS */}
-              <FadeInElement delay={0} direction="up">
-                <div className="bg-gradient-to-br from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
-                  <div className="text-center">
-                    <h4 className="nohemi-medium text-base md:text-lg text-white leading-tight">
-                      <span className="text-[#ffed88] font-semibold">
-                        {t("benefit_no_cms_highlight1")}
-                      </span>
-                      {t("benefit_no_cms_text1")}
-                      <span className="text-[#ffed88] font-semibold">
-                        {t("benefit_no_cms_highlight2")}
-                      </span>
-                      {t("benefit_no_cms_text2")}
-                      <span className="text-[#ffed88] font-semibold">
-                        {t("benefit_no_cms_highlight3")}
-                      </span>
-                      {t("benefit_no_cms_text3")}
-                    </h4>
-                  </div>
-                </div>
-              </FadeInElement>
-
-              {/* Card 2 - Proiecte Finalizate */}
+              {/* Card - Proiecte Finalizate */}
               <FadeInElement delay={100} direction="up">
                 <div className="bg-gradient-to-b from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
                   <div className="text-center">
@@ -1006,7 +992,7 @@ export default function Home() {
                 </div>
               </FadeInElement>
 
-              {/* Card 3 - Experiență */}
+              {/* Card - Domenii */}
               <FadeInElement delay={200} direction="up">
                 <div className="bg-gradient-to-bl from-black/10 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
                   <div className="text-center">
@@ -1020,7 +1006,7 @@ export default function Home() {
                 </div>
               </FadeInElement>
 
-              {/* Card 4 - Clienți Mulțumiți */}
+              {/* Card - Clienți */}
               <FadeInElement delay={300} direction="up">
                 <div className="bg-gradient-to-tr from-black/50 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
                   <div className="text-center">
@@ -1034,30 +1020,36 @@ export default function Home() {
                 </div>
               </FadeInElement>
 
-              {/* Card 5 - Social Media */}
+              {/* Card - Capabilități */}
               <FadeInElement delay={400} direction="up">
                 <div className="bg-gradient-to-t from-black/60 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
                   <div className="text-center">
-                    <p className="text-[#ffed88] text-base font-medium mb-4">
-                      {t("benefit_social_label")}
+                    <p className="text-[#ffed88] text-base font-medium mb-3">
+                      {t("benefit_capabilities_label")}
                     </p>
-                    <div className="space-y-2">
-                      <h4 className="nohemi-black text-2xl text-white">
-                        {t("benefit_social_views")}
-                      </h4>
-                      <h4 className="nohemi-black text-lg text-white">
-                        {t("benefit_social_followers")}
-                      </h4>
-                      <p className="text-[#ffed88] text-sm font-medium">
-                        {t("benefit_social_desc")}
-                      </p>
-                    </div>
+                    <h4 className="nohemi-medium text-lg md:text-xl text-white leading-snug px-2">
+                      {t("benefit_capabilities_value")}
+                    </h4>
                   </div>
                 </div>
               </FadeInElement>
 
-              {/* Card 6 - Contact */}
+              {/* Card - Venituri generate */}
               <FadeInElement delay={500} direction="up">
+                <div className="bg-gradient-to-br from-black/50 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
+                  <div className="text-center">
+                    <p className="text-[#ffed88] text-base font-medium mb-3">
+                      {t("benefit_revenue_label")}
+                    </p>
+                    <h4 className="nohemi-black text-2xl text-white">
+                      {t("benefit_revenue_value")}
+                    </h4>
+                  </div>
+                </div>
+              </FadeInElement>
+
+              {/* Card - Contact */}
+              <FadeInElement delay={600} direction="up">
                 <div className="bg-gradient-to-tl from-black/50 via-neutral-900 to-neutral-800 rounded-2xl p-6 border border-gray-300/20 shadow-xl transition-all duration-800 ease-out transform hover:scale-110 hover:z-10 aspect-square flex flex-col justify-center">
                   <div className="text-center">
                     <a href="#contact" className="inline-block">
@@ -1085,24 +1077,24 @@ export default function Home() {
 
             {/* Secțiunea cu carduri */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto group card-group">
-              {/* Card 1 */}
+              {/* Card 1 — Software Development */}
               <FadeInElement delay={0} direction="up" duration={600}>
-                <a href="/dezvoltare-web" className="block">
+                <a href="/software-development" className="block">
                   <div className="bg-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl group-hover:scale-95 hover:!scale-110 hover:!z-20 card cursor-pointer">
                     <div className="relative h-[500px]">
                       <Image
                         src="/card1.PNG"
-                        alt="Web Development"
+                        alt="Software Development"
                         fill
                         className="object-cover transition-all duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4">
                         <h3 className="text-white text-2xl font-bold mb-2">
-                          {t("svc_web_title")}
+                          {t("svc_software_title")}
                         </h3>
                         <p className="text-white/80 text-sm font-medium">
-                          {t("svc_web_sub")}
+                          {t("svc_software_sub")}
                         </p>
                       </div>
                       <div className="absolute top-4 right-4">
@@ -1127,24 +1119,24 @@ export default function Home() {
                 </a>
               </FadeInElement>
 
-              {/* Card 2 */}
+              {/* Card 2 — AI & Automation */}
               <FadeInElement delay={150} direction="up" duration={600}>
-                <a href="/social-media" className="block">
+                <a href="/ai-automation" className="block">
                   <div className="bg-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl group-hover:scale-95 hover:!scale-110 hover:!z-20 card cursor-pointer">
                     <div className="relative h-[500px]">
                       <Image
-                        src="/card2.jpg"
-                        alt="Social Media"
+                        src="/card2.png"
+                        alt="AI & Automation"
                         fill
                         className="object-cover transition-all duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4">
                         <h3 className="text-white text-2xl font-bold mb-2">
-                          {t("svc_social_title")}
+                          {t("svc_ai_title")}
                         </h3>
                         <p className="text-white/80 text-sm font-medium">
-                          {t("svc_social_sub")}
+                          {t("svc_ai_sub")}
                         </p>
                       </div>
                       <div className="absolute top-4 right-4">
@@ -1169,24 +1161,24 @@ export default function Home() {
                 </a>
               </FadeInElement>
 
-              {/* Card 3 */}
+              {/* Card 3 — Digital Strategy */}
               <FadeInElement delay={300} direction="up" duration={600}>
-                <a href="/branding" className="block">
+                <a href="/digital-strategy" className="block">
                   <div className="bg-black rounded-2xl overflow-hidden transition-all duration-500 shadow-2xl group-hover:scale-95 hover:!scale-110 hover:!z-20 card cursor-pointer">
                     <div className="relative h-[500px]">
                       <Image
                         src="/card3.PNG"
-                        alt="Branding"
+                        alt="Digital Strategy"
                         fill
                         className="object-cover transition-all duration-500"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
                       <div className="absolute bottom-4 left-4 right-4">
                         <h3 className="text-white text-2xl font-bold mb-2">
-                          {t("svc_brand_title")}
+                          {t("svc_strategy_title")}
                         </h3>
                         <p className="text-white/80 text-sm font-medium">
-                          {t("svc_brand_sub")}
+                          {t("svc_strategy_sub")}
                         </p>
                       </div>
                       <div className="absolute top-4 right-4">
@@ -1236,132 +1228,132 @@ export default function Home() {
             <div className="w-32 h-px bg-white/30 mx-auto mt-24 mb-16 shadow-lg shadow-white/20"></div>
           </FadeInElement>
 
-          {/* Proces de lucru - 3 pași */}
-          <FadeInElement delay={0}>
-            <div id="despre" className="text-center mb-16">
-              <h2 className="nohemi-heading text-3xl md:text-4xl text-white mb-8">
-                {t("process_heading")}
-              </h2>
-              <p className="nohemi-medium text-lg text-white/80 max-w-4xl mx-auto">
-                {t("process_desc")}
-              </p>
-            </div>
-          </FadeInElement>
-          <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8 mb-24 justify-items-center">
-            {/* Pasul 1 */}
-            <FadeInElement delay={100} direction="up">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="nohemi-black text-2xl text-[#ffed88]">
-                    1
-                  </span>
-                </div>
-                <h3 className="nohemi-medium text-xl text-white mb-4">
-                  {t("process_1_title")}
-                </h3>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  {t("process_1_desc")}
-                </p>
-              </div>
-            </FadeInElement>
-
-            {/* Pasul 2 */}
-            <FadeInElement delay={250} direction="up">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="nohemi-black text-2xl text-[#ffed88]">
-                    2
-                  </span>
-                </div>
-                <h3 className="nohemi-medium text-xl text-white mb-4">
-                  {t("process_2_title")}
-                </h3>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  {t("process_2_desc")}
-                </p>
-              </div>
-            </FadeInElement>
-
-            {/* Pasul 3 */}
-            <FadeInElement delay={400} direction="up">
-              <div className="text-center">
-                <div className="w-20 h-20 bg-[#ffed88]/20 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="nohemi-black text-2xl text-[#ffed88]">
-                    3
-                  </span>
-                </div>
-                <h3 className="nohemi-medium text-xl text-white mb-4">
-                  {t("process_3_title")}
-                </h3>
-                <p className="text-white/70 text-sm leading-relaxed">
-                  {t("process_3_desc")}
-                </p>
-              </div>
-            </FadeInElement>
-          </div>
-
-          {/* Linie subțire cu umbră */}
-          <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
-
-          {/* Secțiune explicativă */}
-          <FadeInElement delay={0} direction="up">
-            <div className="max-w-6xl mx-auto px-0 mb-16">
-              <div className="relative overflow-hidden rounded-2xl border border-white/15 bg-white/5 backdrop-blur-md p-8 md:p-12 shadow-[0_0_40px_rgba(255,255,255,0.08)]">
-                <div className="absolute -top-24 -right-24 w-72 h-72 rounded-full bg-[#ffed88]/10 blur-3xl pointer-events-none"></div>
-                <div className="absolute -bottom-24 -left-24 w-72 h-72 rounded-full bg-[#ffed88]/10 blur-3xl pointer-events-none"></div>
-                <h3 className="nohemi-heading text-3xl md:text-4xl text-white mb-2 relative z-10">
-                  <span className="text-[#ffed88]">{t("explainer_h1")}</span>
-                  {t("explainer_t1")}
-                </h3>
-                <div className="h-px w-16 bg-[#ffed88] mb-6 relative z-10"></div>
-                <div className="space-y-5 relative z-10">
-                  <p className="nohemi-medium text-base md:text-lg text-white/85 leading-8">
-                    {t("explainer_p1")}
-                  </p>
-                  <p className="nohemi-medium text-base md:text-lg text-white/85 leading-8">
-                    {t("explainer_p2")}
-                  </p>
-                  <p className="nohemi-medium text-base md:text-lg text-white/85 leading-8">
-                    {t("explainer_p3")}
-                  </p>
-                  <p className="nohemi-medium text-base md:text-lg text-white/85 leading-8">
-                    {t("explainer_p4")}
-                  </p>
-                  <div className="mt-2">
-                    <p className="nohemi-medium text-base md:text-lg text-white/90 mb-3">
-                      {t("explainer_p5")}
+          {/* Cum lucrăm — proces + mesajul Grizzly */}
+          <section
+            id="cum-lucram"
+            className="max-w-6xl mx-auto mb-16 rounded-2xl border border-white/10 bg-neutral-900/40 overflow-hidden"
+          >
+            {/* Partea 1 — Procesul */}
+            <div className="px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
+              <FadeInElement delay={0} direction="up">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 lg:items-end">
+                  <div className="lg:col-span-6">
+                    <h2 className="nohemi-heading text-3xl md:text-4xl lg:text-5xl text-white leading-[1.1]">
+                      {t("process_heading_t1")}
+                      <span className="text-[#ffed88]">{t("process_heading_h1")}</span>
+                      {t("process_heading_t2")}
+                    </h2>
+                  </div>
+                  <div className="lg:col-span-5 lg:col-start-8">
+                    <p className="nohemi-medium text-base md:text-lg text-white/70 leading-relaxed">
+                      {t("process_desc")}
                     </p>
-                    <ul className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                      <li className="flex flex-col items-center text-center gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
-                        <span className="w-7 h-7 rounded-full bg-[#ffed88]/20 text-[#ffed88] nohemi-black flex items-center justify-center text-sm">
-                          1
-                        </span>
-                        <span className="text-white/85 text-sm md:text-base">
-                          {t("explainer_step1")}
-                        </span>
-                      </li>
-                      <li className="flex  flex-col items-center text-center gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
-                        <span className="w-7 h-7 rounded-full bg-[#ffed88]/20 text-[#ffed88] nohemi-black flex items-center justify-center text-sm">
-                          2
-                        </span>
-                        <span className="text-white/85 text-sm md:text-base">
-                          {t("explainer_step2")}
-                        </span>
-                      </li>
-                      <li className="flex flex-col items-center text-center gap-3 bg-white/5 rounded-xl p-4 border border-white/10">
-                        <span className="w-7 h-7 rounded-full bg-[#ffed88]/20 text-[#ffed88] nohemi-black flex items-center justify-center text-sm">
-                          3
-                        </span>
-                        <span className="text-white/85 text-sm md:text-base">
-                          {t("explainer_step3")}
-                        </span>
-                      </li>
-                    </ul>
                   </div>
                 </div>
+              </FadeInElement>
+
+              {/* Pașii 01 / 02 / 03 — conectați printr-o linie subtilă */}
+              <div className="mt-14 md:mt-20 grid grid-cols-1 md:grid-cols-3 border-t border-white/10">
+                {[
+                  { n: "01", title: "process_1_title", desc: "process_1_desc" },
+                  { n: "02", title: "process_2_title", desc: "process_2_desc" },
+                  { n: "03", title: "process_3_title", desc: "process_3_desc" },
+                ].map((step, index) => (
+                  <FadeInElement
+                    key={step.n}
+                    delay={120 + index * 120}
+                    direction="up"
+                    className={
+                      index > 0
+                        ? "border-t md:border-t-0 md:border-l border-white/10"
+                        : ""
+                    }
+                  >
+                    <div
+                      className={`pt-8 pb-10 md:pt-10 md:pb-2 ${
+                        index > 0 ? "md:pl-8 lg:pl-10" : ""
+                      } ${index < 2 ? "md:pr-8 lg:pr-10" : ""}`}
+                    >
+                      <span className="nohemi-heading block text-5xl md:text-6xl text-white/15 leading-none mb-8 md:mb-10 select-none">
+                        {step.n}
+                      </span>
+                      <h3 className="nohemi-medium text-xl md:text-2xl text-white mb-3">
+                        {t(step.title)}
+                      </h3>
+                      <p className="text-white/70 text-sm md:text-base leading-relaxed">
+                        {t(step.desc)}
+                      </p>
+                    </div>
+                  </FadeInElement>
+                ))}
               </div>
             </div>
-          </FadeInElement>
+
+            {/* Partea 2 — Mesajul Grizzly */}
+            <div className="border-t border-white/10 px-6 py-12 md:px-12 md:py-16 lg:px-16 lg:py-20">
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12">
+                <FadeInElement delay={0} direction="up" className="lg:col-span-6">
+                  <h3 className="nohemi-heading text-2xl md:text-3xl lg:text-4xl text-white leading-[1.15] mb-6">
+                    {t("explainer_heading")}
+                  </h3>
+                  <div className="space-y-4">
+                    <p className="nohemi-medium text-base md:text-lg text-white/70 leading-relaxed">
+                      {t("explainer_p1")}
+                    </p>
+                    <p className="nohemi-medium text-base md:text-lg text-white/85 leading-relaxed">
+                      {t("explainer_p2")}
+                    </p>
+                  </div>
+                </FadeInElement>
+
+                <FadeInElement
+                  delay={120}
+                  direction="up"
+                  className="lg:col-span-5 lg:col-start-8 lg:self-end"
+                >
+                  <ul className="grid grid-cols-1 sm:grid-cols-2 border-t border-white/10">
+                    {[
+                      "explainer_cap_1",
+                      "explainer_cap_2",
+                      "explainer_cap_3",
+                      "explainer_cap_4",
+                    ].map((key, index) => (
+                      <li
+                        key={key}
+                        className={`flex items-baseline gap-4 py-5 border-b border-white/10 ${
+                          index % 2 === 1 ? "sm:pl-6 sm:border-l" : "sm:pr-6"
+                        }`}
+                      >
+                        <span className="text-[#ffed88] text-xs font-medium tabular-nums">
+                          0{index + 1}
+                        </span>
+                        <span className="nohemi-medium text-white text-base md:text-lg">
+                          {t(key)}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </FadeInElement>
+              </div>
+
+              <FadeInElement delay={200} direction="up">
+                <div className="mt-12 md:mt-14 flex flex-col sm:flex-row gap-4">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center justify-center bg-white/10 backdrop-blur-md text-white px-8 py-4 rounded-full font-medium hover:bg-white/20 transition-all duration-300 border border-white/20 text-base md:text-lg"
+                  >
+                    {t("explainer_cta_primary")}
+                  </a>
+                  <a
+                    href="#portofoliu"
+                    className="inline-flex items-center justify-center bg-transparent text-white/80 px-8 py-4 rounded-full font-medium hover:text-white hover:bg-white/5 transition-all duration-300 border border-white/15 text-base md:text-lg"
+                  >
+                    {t("explainer_cta_secondary")}
+                  </a>
+                </div>
+              </FadeInElement>
+            </div>
+          </section>
 
           {/* Linie subțire cu umbră */}
           <FadeInElement delay={0} direction="up">
