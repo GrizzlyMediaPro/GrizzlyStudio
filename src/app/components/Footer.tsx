@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useLanguage } from "../i18n/LanguageProvider";
 
 export default function Footer() {
@@ -30,30 +31,30 @@ export default function Footer() {
                 {t("footer_nav_label")}
               </h4>
               <div className="grid grid-cols-2 gap-2">
-                <a
+                <Link
                   href="/#despre"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                 >
                   {t("footer_nav_about")}
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/#servicii"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                 >
                   {t("footer_nav_services")}
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/#portofoliu"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                 >
                   {t("footer_nav_portfolio")}
-                </a>
-                <a
+                </Link>
+                <Link
                   href="/#contact"
                   className="text-white/70 hover:text-[#ffed88] transition-colors duration-300 text-sm"
                 >
                   {t("footer_nav_contact")}
-                </a>
+                </Link>
               </div>
             </div>
 
@@ -160,24 +161,24 @@ export default function Footer() {
             {t("footer_rights")}
           </p>
           <div className="flex flex-wrap gap-4 text-sm">
-            <a
+            <Link
               href="/politica-confidentialitate"
               className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
             >
               {t("privacy_policy")}
-            </a>
-            <a
+            </Link>
+            <Link
               href="/politica-cookies"
               className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
             >
               {t("cookies_policy")}
-            </a>
-            <a
+            </Link>
+            <Link
               href="/termeni-conditii"
               className="text-white/70 hover:text-[#ffed88] transition-colors duration-300"
             >
               {t("terms_conditions")}
-            </a>
+            </Link>
             <a
               href="https://anpc.ro"
               target="_blank"

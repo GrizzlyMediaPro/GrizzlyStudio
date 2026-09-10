@@ -4,15 +4,27 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "postinstall": "prisma generate",
+    "build": "prisma generate && next build",
     "start": "next start",
     "lint": "next lint"
+  },
+  "allowScripts": {
+    "@clerk/shared": true,
+    "@prisma/client": true,
+    "@prisma/engines": true,
+    "@tailwindcss/oxide": true,
+    "msgpackr-extract": true,
+    "prisma": true,
+    "sharp": true,
+    "unrs-resolver": true
   },
   "dependencies": {
     "@clerk/nextjs": "^7.2.3",
     "@prisma/client": "^6.19.3",
     "@uploadthing/react": "^7.3.3",
     "next": "15.4.10",
+    "prisma": "^6.19.3",
     "react": "19.2.5",
     "react-dom": "19.2.5",
     "react-icons": "^5.5.0",
@@ -27,7 +39,6 @@
     "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
-    "prisma": "^6.19.3",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
