@@ -12,6 +12,14 @@ type DefaultPortfolioItem = {
 
 export const DEFAULT_PORTFOLIO_ITEMS: DefaultPortfolioItem[] = [
   {
+    title: "Vocea Campusului",
+    subtitle: "Platforma comunitara",
+    image: "/voc.png",
+    description: "Aplicatie web cu forum si continut pentru comunitate.",
+    category: "APLICATII",
+    url: "https://www.voceacampusului.ro/",
+  },
+  {
     title: "Vera Papara Psiholog",
     subtitle: "Site pentru psiholog",
     image: "/verasite.png",
@@ -82,14 +90,6 @@ export const DEFAULT_PORTFOLIO_ITEMS: DefaultPortfolioItem[] = [
     description: "Protectie premium PPF pentru sistemele infotainment auto.",
     category: "MAGAZINE_ONLINE",
     url: "https://screenshield.ro/",
-  },
-  {
-    title: "Vocea Campusului",
-    subtitle: "Platforma comunitara",
-    image: "/voc.png",
-    description: "Aplicatie web cu forum si continut pentru comunitate.",
-    category: "APLICATII",
-    url: "https://www.voceacampusului.ro/",
   },
   {
     title: "Rezultat Social Media",

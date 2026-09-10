@@ -14,8 +14,8 @@ export type PortfolioItemInput = {
 };
 
 export const PORTFOLIO_CATEGORY_ORDER: PortfolioCategory[] = [
+  "APLICATII",
   "PAGINI_PREZENTARE",
   "MAGAZINE_ONLINE",
-  "APLICATII",
   "SOCIAL_MEDIA",
 ];

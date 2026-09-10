@@ -17,16 +17,16 @@ type PortfolioItem = {
 };
 
 const CATEGORY_LABELS: Record<PortfolioCategory, string> = {
-  PAGINI_PREZENTARE: "Pagini de prezentare",
-  MAGAZINE_ONLINE: "Magazine online",
-  APLICATII: "Aplicatii",
-  SOCIAL_MEDIA: "Social media",
+  APLICATII: "Aplicații & Platforme",
+  PAGINI_PREZENTARE: "Website-uri",
+  MAGAZINE_ONLINE: "E-commerce",
+  SOCIAL_MEDIA: "Digital Growth",
 };
 
 const CATEGORY_ORDER: PortfolioCategory[] = [
+  "APLICATII",
   "PAGINI_PREZENTARE",
   "MAGAZINE_ONLINE",
-  "APLICATII",
   "SOCIAL_MEDIA",
 ];
 
@@ -45,12 +45,12 @@ const emptyDraft = (category: PortfolioCategory): DraftItem => ({
 
 export default function PortfolioAdminManager() {
   const [items, setItems] = useState<PortfolioItem[]>([]);
-  const [activeCategory, setActiveCategory] = useState<PortfolioCategory>("PAGINI_PREZENTARE");
+  const [activeCategory, setActiveCategory] = useState<PortfolioCategory>("APLICATII");
   const [isLoading, setIsLoading] = useState(true);
   const [isSaving, setIsSaving] = useState(false);
   const [message, setMessage] = useState<string>("");
   const [isUploading, setIsUploading] = useState(false);
-  const [newItem, setNewItem] = useState<DraftItem>(emptyDraft("PAGINI_PREZENTARE"));
+  const [newItem, setNewItem] = useState<DraftItem>(emptyDraft("APLICATII"));
   const [draggedId, setDraggedId] = useState<string | null>(null);
 
   const groupedItems = useMemo(() => {
