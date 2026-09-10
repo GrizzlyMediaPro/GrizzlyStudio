@@ -15,6 +15,25 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/dezvoltare-web",
+        destination: "/software-development",
+        permanent: true,
+      },
+      {
+        source: "/social-media",
+        destination: "/digital-strategy",
+        permanent: true,
+      },
+      {
+        source: "/branding",
+        destination: "/digital-strategy",
+        permanent: true,
+      },
+    ];
+  },
 };
 
 export default nextConfig;

@@ -12,7 +12,7 @@ export default function PortfolioCarousel() {
   const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [activeTab, setActiveTab] = useState<PortfolioCategory>("PAGINI_PREZENTARE");
+  const [activeTab, setActiveTab] = useState<PortfolioCategory>("APLICATII");
   const [screenSize, setScreenSize] = useState<"mobile" | "tablet" | "desktop">(
     "desktop"
   );
@@ -85,9 +85,9 @@ export default function PortfolioCarousel() {
   };
 
   const tabs: { id: PortfolioCategory; label: string }[] = [
+    { id: "APLICATII", label: t("tab_apps") },
     { id: "PAGINI_PREZENTARE", label: t("tab_pages") },
     { id: "MAGAZINE_ONLINE", label: t("tab_shops") },
-    { id: "APLICATII", label: t("tab_apps") },
     { id: "SOCIAL_MEDIA", label: t("tab_social") },
   ];
 

@@ -730,6 +730,21 @@ export default function DezvoltareWeb() {
         {/* Linie subțire cu umbră */}
         <div className="w-32 h-px bg-white/30 mx-auto mb-16 shadow-lg shadow-white/20"></div>
 
+        {/* Diferențiator tehnic secundar */}
+        <FadeInElement delay={0}>
+          <div className="text-center mb-16 max-w-4xl mx-auto">
+            <p className="nohemi-medium text-lg md:text-xl text-white/80 leading-relaxed">
+              <span className="text-[#ffed88] font-semibold">{t("devweb_custom_diff_t1")}</span>
+              {t("devweb_custom_diff_h1")}
+              {t("devweb_custom_diff_t2")}
+              <span className="text-[#ffed88] font-semibold">{t("devweb_custom_diff_h2")}</span>
+              {t("devweb_custom_diff_t3")}
+              <span className="text-[#ffed88] font-semibold">{t("devweb_custom_diff_h3")}</span>
+              {t("devweb_custom_diff_t4")}
+            </p>
+          </div>
+        </FadeInElement>
+
         {/* Secțiunea Tehnologii */}
         <FadeInElement delay={0}>
           <div className="text-center mb-16">
@@ -862,8 +877,8 @@ export default function DezvoltareWeb() {
                   />
                 </div>
                 <p className="text-white/60 text-sm leading-relaxed">
-                  Transformăm viziunea ta în realitate digitală cu design
-                  personalizat și tehnologii de ultimă generație.
+                  Software, AI, automatizări și strategie digitală pentru
+                  business-uri care vor rezultate reale.
                 </p>
               </div>
 

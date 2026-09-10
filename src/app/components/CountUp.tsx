@@ -34,7 +34,7 @@ export default function CountUp({ end, durationMs = 2000, suffix = "" }: CountUp
 
   return (
     <span ref={elementRef} className="nohemi-black">
-      {value.toLocaleString()} {suffix}
+      {value.toLocaleString()}{suffix}
     </span>
   );
 }

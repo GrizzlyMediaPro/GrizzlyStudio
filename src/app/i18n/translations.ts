@@ -6,81 +6,81 @@ export type TranslationDictionary = Record<string, { ro: string; en: string }>; 
 export const translations: TranslationDictionary = {
   // Navbar & Hero
   nav_services: { ro: "Servicii", en: "Services" },
-  nav_portfolio: { ro: "Portofoliu", en: "Portfolio" },
+  nav_portfolio: { ro: "Proiecte", en: "Projects" },
   nav_about: { ro: "Despre", en: "About" },
   nav_contact: { ro: "Contact", en: "Contact" },
   cta_schedule: { ro: "Programează o întâlnire!", en: "Schedule a meeting!" },
   hero_title: {
-    ro: "Nu construim doar site-uri, construim branduri.",
-    en: "We don't just build websites, we build brands.",
+    ro: "Dezvoltăm software care rezolvă probleme reale de business.",
+    en: "We develop software that solves real business problems.",
   },
   // Hero segmented (pentru părți evidențiate)
-  hero_t1: { ro: "Nu construim doar ", en: "We don't just build " },
-  hero_h1: { ro: "site-uri", en: "websites" },
-  hero_t2: { ro: ", construim ", en: ", we build " },
-  hero_h2: { ro: "branduri", en: "brands" },
+  hero_t1: { ro: "Dezvoltăm ", en: "We develop " },
+  hero_h1: { ro: "software", en: "software" },
+  hero_t2: { ro: " care rezolvă ", en: " that solves " },
+  hero_h2: { ro: "probleme reale de business", en: "real business problems" },
   hero_t3: { ro: ".", en: "." },
-  hero_subheading: { 
-    ro: "Transformăm viziunea ta în realitate digitală cu design personalizat și tehnologii de ultimă generație.", 
-    en: "We turn your vision into digital reality with custom design and cutting-edge technologies." 
+  hero_subheading: {
+    ro: "De la platforme web și aplicații mobile la AI, automatizări și strategie digitală.",
+    en: "From web platforms and mobile apps to AI, automation, and digital strategy.",
   },
-  
+
   // Hero description
-  hero_desc_t1: { ro: "Grizzly Media Pro este o agenție de dezvoltare digitală specializată în ", en: "Grizzly Media Pro is a digital development agency specialized in " },
-  hero_desc_h1: { ro: "web development", en: "web development" },
-  hero_desc_t2: { ro: ", ", en: ", " },
-  hero_desc_h2: { ro: "mobile development", en: "mobile development" },
+  hero_desc_t1: { ro: "Grizzly Media Pro este un partener de dezvoltare software și strategie digitală. Construim soluții ", en: "Grizzly Media Pro is a software development and digital strategy partner. We build " },
+  hero_desc_h1: { ro: "web și mobile", en: "web and mobile" },
+  hero_desc_t2: { ro: ", integrăm ", en: " solutions, integrate " },
+  hero_desc_h2: { ro: "AI", en: "AI" },
   hero_desc_t3: { ro: " și ", en: " and " },
-  hero_desc_h3: { ro: "marketing online", en: "online marketing" },
-  hero_desc_t4: { ro: ". Transformăm viziunea ta în realitate digitală cu soluții personalizate și tehnologii de ultimă generație.", en: ". We turn your vision into digital reality with personalized solutions and cutting-edge technologies." },
+  hero_desc_h3: { ro: "automatizăm procese", en: "automate processes" },
+  hero_desc_t4: { ro: ", pornind de la nevoile reale ale fiecărui business.", en: ", starting from each business's real needs." },
   
   prefs_heading: { ro: "Mai întâi, alege-ți preferințele", en: "First, choose your preferences" },
 
   // Stakes section
   stakes_title: {
-    ro: "Fără o prezență digitală clară, clienții te uită și competiția te depășește.",
-    en: "Without a clear digital presence, clients look elsewhere and your competition gets ahead.",
+    ro: "Tehnologia ar trebui să simplifice business-ul, nu să îl complice.",
+    en: "Technology should simplify business, not complicate it.",
   },
   // Stakes segmented (pentru evidențiere)
-  stakes_h1: { ro: "Fără", en: "Without" },
-  stakes_t1: { ro: " o prezență digitală clară, clienții ", en: " a clear digital presence, clients " },
-  stakes_h2: { ro: "te uită", en: "look elsewhere" },
-  stakes_t2: { ro: " și competiția ", en: " and competition " },
-  stakes_h3: { ro: "te depășește.", en: "gets ahead." },
-  stake_1_title: { ro: "1. Ești invizibil pentru clienți noi", en: "1. You're invisible to new clients" },
+  stakes_h1: { ro: "Tehnologia", en: "Technology" },
+  stakes_t1: { ro: " ar trebui să ", en: " should " },
+  stakes_h2: { ro: "simplifice", en: "simplify" },
+  stakes_t2: { ro: " business-ul, nu să îl ", en: " business, not " },
+  stakes_h3: { ro: "complice.", en: "complicate it." },
+  stake_1_title: { ro: "1. Procese care consumă timp", en: "1. Processes that waste time" },
   stake_1_desc: {
-    ro: "Fără un website modern și o prezență activă în social media, afacerea ta nici nu există în ochii celor care te caută online.",
-    en: "Without a modern website and active social media presence, your business doesn't even exist in the eyes of those searching online.",
+    ro: "Task-urile repetitive și procesele manuale încetinesc echipa și consumă resurse care pot fi folosite mai eficient.",
+    en: "Repetitive tasks and manual processes slow the team down and consume resources that could be used more effectively.",
   },
-  stake_1_highlight1: { ro: "invizibil", en: "invisible" },
-  stake_1_highlight2: { ro: "nu există", en: "doesn't exist" },
-  stake_1_text1: { ro: "Fără un website modern și o prezență activă în social media, afacerea ta nici ", en: "Without a modern website and active social media presence, your business " },
-  stake_1_text2: { ro: " în ochii celor care te caută online.", en: " in the eyes of those searching online." },
-  stake_2_title: { ro: "2. Pierzi încrederea clienților", en: "2. You lose faith from clients" },
+  stake_1_highlight1: { ro: "încetinesc echipa", en: "slow the team down" },
+  stake_1_highlight2: { ro: "consumă resurse", en: "consume resources" },
+  stake_1_text1: { ro: "Task-urile repetitive și procesele manuale ", en: "Repetitive tasks and manual processes " },
+  stake_1_text2: { ro: " și consumă resurse care pot fi folosite mai eficient.", en: " and consume resources that could be used more effectively." },
+  stake_2_title: { ro: "2. Sisteme care nu comunică", en: "2. Systems that don't talk to each other" },
   stake_2_desc: {
-    ro: "Un brand incoerent, un site neprofesionist sau lipsa activității transmit nesiguranță. Clienții aleg concurența, chiar dacă produsele sau serviciile tale sunt mai bune.",
-    en: "An inconsistent brand, an unprofessional website, or lack of activity transmit uncertainty. Clients choose the competition, even if your products or services are better.",
+    ro: "Datele și operațiunile sunt împărțite între aplicații, platforme și instrumente care nu funcționează împreună.",
+    en: "Data and operations are split across apps, platforms, and tools that don't work together.",
   },
-  stake_2_highlight1: { ro: "nesiguranță", en: "uncertainty" },
-  stake_2_highlight2: { ro: "concurența", en: "competition" },
-  stake_2_text1: { ro: "Un brand incoerent, un site neprofesionist sau lipsa activității transmit ", en: "An inconsistent brand, an unprofessional website, or lack of activity transmit " },
-  stake_2_text2: { ro: ". Clienții aleg ", en: ". Clients choose the " },
-  stake_2_text3: { ro: ", chiar dacă produsele sau serviciile tale sunt mai bune.", en: ", even if your products or services are better." },
-  stake_3_title: { ro: "3. Ratezi oportunități de creștere", en: "3. You miss growth opportunities" },
+  stake_2_highlight1: { ro: "împărțite", en: "split" },
+  stake_2_highlight2: { ro: "nu funcționează împreună", en: "don't work together" },
+  stake_2_text1: { ro: "Datele și operațiunile sunt ", en: "Data and operations are " },
+  stake_2_text2: { ro: " între aplicații, platforme și instrumente care ", en: " across apps, platforms, and tools that " },
+  stake_2_text3: { ro: ".", en: "." },
+  stake_3_title: { ro: "3. Idei care au nevoie de tehnologie", en: "3. Ideas that need technology" },
   stake_3_desc: {
-    ro: "Fără o strategie digitală, pierzi timp și bani pe tactici care nu dau rezultate. Între timp, competiția ta avansează și câștigă piața.",
-    en: "Without a digital strategy, you waste time and money on tactics that don't work. Meanwhile, your competition advances and wins the market.",
+    ro: "Ai o idee pentru o platformă, o aplicație sau un produs digital, dar ai nevoie de soluția tehnică potrivită pentru a o transforma în realitate.",
+    en: "You have an idea for a platform, an app, or a digital product, but you need the right technical solution to turn it into reality.",
   },
-  stake_3_highlight1: { ro: "nu dau rezultate", en: "don't work" },
-  stake_3_highlight2: { ro: "câștigă piața", en: "wins the market" },
-  stake_3_text1: { ro: "Fără o strategie digitală, pierzi timp și bani pe tactici care ", en: "Without a digital strategy, you waste time and money on tactics that " },
-  stake_3_text2: { ro: ". Între timp, competiția ta avansează și ", en: ". Meanwhile, your competition advances and " },
+  stake_3_highlight1: { ro: "soluția tehnică potrivită", en: "the right technical solution" },
+  stake_3_highlight2: { ro: "transforma în realitate", en: "turn it into reality" },
+  stake_3_text1: { ro: "Ai o idee pentru o platformă, o aplicație sau un produs digital, dar ai nevoie de ", en: "You have an idea for a platform, an app, or a digital product, but you need " },
+  stake_3_text2: { ro: " pentru a o ", en: " to " },
   stake_3_text3: { ro: ".", en: "." },
 
   // Beneficii section heading
   benefits_heading: {
-    ro: "Afacerea ta merită vizibilitate, încredere și creștere.",
-    en: "Your business deserves visibility, credibility, and growth.",
+    ro: "Pornim de la problemă, nu de la tehnologie.",
+    en: "We start from the problem, not from the technology.",
   },
   // Benefits segmented
   benefits_t1: { ro: "Despre ", en: "About " },
@@ -89,15 +89,27 @@ export const translations: TranslationDictionary = {
   benefits_h2: { ro: "", en: "" },
   benefits_t3: { ro: "", en: "" },
   benefits_h3: { ro: "", en: "" },
+
+  // About intro
+  about_headline_t1: { ro: "Pornim de la ", en: "We start from the " },
+  about_headline_h1: { ro: "problemă", en: "problem" },
+  about_headline_t2: { ro: ", nu de la ", en: ", not from the " },
+  about_headline_h2: { ro: "tehnologie", en: "technology" },
+  about_headline_t3: { ro: ".", en: "." },
+  about_body: {
+    ro: "Înțelegem cum funcționează business-ul tău, identificăm unde tehnologia poate aduce valoare și construim soluția potrivită: software web și mobile, AI, automatizări și integrări.",
+    en: "We understand how your business works, identify where technology can add value, and build the right solution: web and mobile software, AI, automation, and integrations.",
+  },
+
   benefit_1_title: { ro: "Configurăm soluții personalizate pentru afacerea ta", en: "We customize solutions for your business" },
   benefit_1_desc: {
-    ro: "Fiecare business are particularități unice – și soluțiile noastre sunt create să ți se potrivească perfect.",
-    en: "Every business is unique – and our solutions are tailored to fit perfectly.",
+    ro: "Fiecare business are particularități proprii, iar soluțiile noastre sunt create să ți se potrivească.",
+    en: "Every business has its own specifics, and our solutions are built to fit yours.",
   },
   benefit_2_title: { ro: "Site-uri și aplicații web realizate de la 0", en: "Website and app development from scratch" },
   benefit_2_desc: {
-    ro: "Dezvoltate pe măsura brandului tău, cu design modern și funcționalitate impecabilă.",
-    en: "Developed to your brand's scale, with modern design and flawless functionality.",
+    ro: "Dezvoltate pe măsura brandului tău, cu design modern și funcționalitate clară.",
+    en: "Built around your brand, with modern design and clear functionality.",
   },
   benefit_3_title: { ro: "Salvezi timp prețios", en: "Save valuable time" },
   benefit_3_desc: {
@@ -120,7 +132,24 @@ export const translations: TranslationDictionary = {
     en: "No false promises. You get clear reports and a partnership based on trust.",
   },
 
-  // Beneficii noi - carduri cu statistici
+  // Beneficii - carduri cu statistici
+  benefit_projects_label: { ro: "Proiecte finalizate", en: "Completed projects" },
+  benefit_projects_count: { ro: "50+", en: "50+" },
+  benefit_projects_view: { ro: "Vezi", en: "View" },
+
+  benefit_experience_label: { ro: "Domenii de activitate", en: "Industries" },
+  benefit_experience_years: { ro: "10+", en: "10+" },
+
+  benefit_clients_label: { ro: "Clienți", en: "Clients" },
+  benefit_clients_count: { ro: "25+", en: "25+" },
+
+  benefit_capabilities_label: { ro: "Ce construim", en: "What we build" },
+  benefit_capabilities_value: { ro: "Web · Mobile · AI · Automation", en: "Web · Mobile · AI · Automation" },
+
+  benefit_revenue_label: { ro: "Generați de platformele noastre", en: "Generated by our platforms" },
+  benefit_revenue_value: { ro: "100.000 €+", en: "€100,000+" },
+
+  // Păstrat pentru pagina Software Development (diferențiator tehnic secundar)
   benefit_no_cms_text: {
     ro: "Nu folosim CMS-uri, nu folosim template-uri, facem doar site-uri scrise în întregime de noi în cod ca designul tău să fie unic și personalizat",
     en: "We don't use CMS, we don't use templates, we only make websites written entirely by us in code so your design is unique and personalized"
@@ -132,16 +161,6 @@ export const translations: TranslationDictionary = {
   benefit_no_cms_text2: { ro: " folosim template-uri, facem doar site-uri scrise în întregime de noi în cod ca designul tău să fie ", en: " use templates, we only make websites written entirely by us in code so your design is " },
   benefit_no_cms_text3: { ro: " și personalizat", en: " and personalized" },
 
-  benefit_projects_label: { ro: "Finalizate", en: "Completed" },
-  benefit_projects_count: { ro: "50 Proiecte", en: "50 Projects" },
-  benefit_projects_view: { ro: "Vezi", en: "View" },
-
-  benefit_experience_label: { ro: "Domenii de activitate", en: "Domains of activity" },
-  benefit_experience_years: { ro: "10+", en: "10+" },
-
-  benefit_clients_label: { ro: "Clienți mulțumiți", en: "Satisfied clients" },
-  benefit_clients_count: { ro: "25+ Clienți", en: "25+ Clients" },
-
   benefit_social_label: { ro: "Rezultate social media", en: "Social media results" },
   benefit_social_views: { ro: "10M+ views", en: "10M+ views" },
   benefit_social_followers: { ro: "10k+ urmăritori", en: "10k+ followers" },
@@ -149,59 +168,56 @@ export const translations: TranslationDictionary = {
 
   benefit_contact_button: { ro: "Contactează-ne", en: "Contact us" },
 
-  // 3-step process
-  process_heading: { ro: "Identitatea ta în online începe acum!", en: "Your online identity starts now!" },
-  process_desc: { ro: "O metodologie clară și transparentă pentru a transforma ideea ta în realitate digitală", en: "A clear, transparent methodology to turn your idea into digital reality" },
-  process_1_title: { ro: "Întâlnire inițială", en: "Initial meeting" },
+  // Cum lucrăm — proces în 3 pași
+  process_heading: { ro: "De la problemă la soluție.", en: "From problem to solution." },
+  process_heading_t1: { ro: "De la problemă la ", en: "From problem to " },
+  process_heading_h1: { ro: "soluție", en: "solution" },
+  process_heading_t2: { ro: ".", en: "." },
+  process_desc: {
+    ro: "Nu pornim de la tehnologie. Începem prin a înțelege business-ul, obiectivele și procesele tale, apoi construim soluția potrivită.",
+    en: "We don't start from technology. We start by understanding your business, goals, and processes, then build the right solution.",
+  },
+  process_1_title: { ro: "Înțelegem", en: "Understand" },
   process_1_desc: {
-    ro: "Prezentarea afacerii, nevoile clientului, obiectivele proiectului",
-    en: "Business presentation, client needs, project objectives",
+    ro: "Discutăm despre business, obiective, procese și problema pe care vrei să o rezolvi.",
+    en: "We talk about your business, goals, processes, and the problem you want to solve.",
   },
-  process_2_title: { ro: "Ședința de Consultare", en: "Consultation meeting" },
+  process_2_title: { ro: "Definim", en: "Define" },
   process_2_desc: {
-    ro: "Înțelegem nevoile tale, analizăm concurența și stabilim pașii spre succes",
-    en: "We understand your needs, analyze the competition, and set the steps to success",
+    ro: "Stabilim soluția, funcționalitățile și direcția tehnică potrivită înainte să începem dezvoltarea.",
+    en: "We set the solution, the features, and the right technical direction before development begins.",
   },
-  process_3_title: { ro: "Convertim rezultatele în profit", en: "Turn results into profit" },
+  process_3_title: { ro: "Construim", en: "Build" },
   process_3_desc: {
-    ro: "Cu ajutorul strategiilor noastre, creștem vizibilitatea și încrederea în afacerea ta",
-    en: "With our strategies, we increase visibility and credibility in your business",
+    ro: "Dezvoltăm, testăm și lansăm soluția, apoi continuăm să o îmbunătățim atunci când este nevoie.",
+    en: "We develop, test, and launch the solution, then keep improving it whenever needed.",
   },
 
-  // Explainer section
-  explainer_title: {
-    ro: "Noi înțelegem, să crești o afacere nu este ușor.",
-    en: "We understand that growing a business is not easy.",
+  // Mesajul Grizzly
+  explainer_heading: {
+    ro: "Nu vindem tehnologie de dragul tehnologiei.",
+    en: "We don't sell technology for its own sake.",
   },
-  // Explainer segmented
-  explainer_h1: { ro: "Noi înțelegem", en: "We get it" },
-  explainer_t1: { ro: ", să crești o afacere nu este ușor.", en: ", growing a business is not easy." },
   explainer_p1: {
-    ro: "La Grizzly Media Pro, știm că ești genul de antreprenor care își dorește să își vadă afacerea crescând și să inspire încredere clienților. Pentru asta, ai nevoie de o identitate digitală clară, un site modern și o strategie de marketing care să aducă rezultate.",
-    en: "At Grizzly Media Pro, we know you're the kind of entrepreneur who wants to see your business grow and inspire trust in your clients. For that, you need a clear digital identity, a modern website, and a marketing strategy that delivers results.",
+    ro: "Uneori soluția este o aplicație. Alteori este o automatizare, o integrare, AI sau pur și simplu o strategie digitală mai bună.",
+    en: "Sometimes the solution is an app. Other times it's an automation, an integration, AI, or simply a better digital strategy.",
   },
   explainer_p2: {
-    ro: "Problema este că, fără o prezență bine construită în online, rămâi invizibil, pierzi clienți și ai impresia că business-ul stagnează. Știm cât de frustrant și descurajator poate fi.",
-    en: "The problem is that without a well-built online presence, you remain invisible, lose clients, and feel like your business is stagnating. We know how frustrating and discouraging that can be.",
+    ro: "Rolul nostru este să înțelegem problema și să alegem soluția care are sens pentru business-ul tău.",
+    en: "Our role is to understand the problem and choose the solution that makes sense for your business.",
   },
-  explainer_p3: {
-    ro: "Noi credem că nicio afacere nu ar trebui să piardă oportunități doar pentru că nu are imaginea digitală potrivită. Înțelegem provocările prin care treci și știm cât de greu este să faci totul singur.",
-    en: "We believe that no business should lose opportunities just because it doesn't have the right digital image. We understand the challenges you face and know how difficult it is to do everything yourself.",
-  },
-  explainer_p4: {
-    ro: "De aceea, configurăm soluții personalizate, dezvoltăm site-uri și aplicații web de la zero, creăm strategii de marketing optimizate și ne ocupăm de întreaga ta prezență online, ca tu să îți salvezi timpul și să te concentrezi pe creșterea afacerii.",
-    en: "That's why we customize solutions, develop websites and apps from scratch, create optimized marketing strategies, and handle your entire online presence so you can save time and focus on growing your business.",
-  },
-  explainer_p5: { ro: "Iată cum funcționează:", en: "Here's how it works:" },
-  explainer_step1: { ro: "Ne contactezi și ne spui obiectivele tale", en: "Contact us and tell us your objectives" },
-  explainer_step2: { ro: "Îți propunem soluția potrivită", en: "We propose the right solution" },
-  explainer_step3: { ro: "Implementăm și monitorizăm pentru rezultate reale", en: "We implement and monitor for real results" },
+  explainer_cap_1: { ro: "Web & Mobile Development", en: "Web & Mobile Development" },
+  explainer_cap_2: { ro: "AI & Automation", en: "AI & Automation" },
+  explainer_cap_3: { ro: "Integrations", en: "Integrations" },
+  explainer_cap_4: { ro: "Digital Strategy", en: "Digital Strategy" },
+  explainer_cta_primary: { ro: "Discută cu noi", en: "Talk to us" },
+  explainer_cta_secondary: { ro: "Vezi proiectele", en: "See our projects" },
 
   // Services/Portfolio/Contact headings
   services_heading: { ro: "Serviciile noastre", en: "Our services" },
-  portfolio_heading: { ro: "Portofoliul nostru", en: "Our portfolio" },
-  portfolio_t1: { ro: "Portofoliul ", en: "Our " },
-  portfolio_h1: { ro: "nostru", en: "portfolio" },
+  portfolio_heading: { ro: "Proiectele noastre", en: "Our projects" },
+  portfolio_t1: { ro: "Proiectele ", en: "Our " },
+  portfolio_h1: { ro: "noastre", en: "projects" },
   contact_heading: { ro: "Contactează-ne", en: "Contact us" },
   contact_t1: { ro: "Contactează-", en: "Contact " },
   contact_h1: { ro: "ne", en: "us" },
@@ -210,19 +226,319 @@ export const translations: TranslationDictionary = {
   services_t1: { ro: "Serviciile ", en: "Our " },
   services_h1: { ro: "noastre", en: "services" },
 
-  // Service cards
-  svc_web_title: { ro: "WEB DEVELOPMENT", en: "WEB DEVELOPMENT" },
-  svc_web_sub: { ro: "SITE-URI MODERNE", en: "MODERN SITES" },
-  svc_social_title: { ro: "SOCIAL MEDIA", en: "SOCIAL MEDIA" },
-  svc_social_sub: { ro: "STRATEGIE", en: "STRATEGY" },
-  svc_brand_title: { ro: "BRANDING", en: "BRANDING" },
-  svc_brand_sub: { ro: "IDENTITATE", en: "IDENTITY" },
+  // Service cards — 3 piloni
+  svc_software_title: { ro: "SOFTWARE DEVELOPMENT", en: "SOFTWARE DEVELOPMENT" },
+  svc_software_sub: { ro: "WEB & MOBILE", en: "WEB & MOBILE" },
+  svc_software_desc: {
+    ro: "Construim aplicații web și mobile, platforme digitale și soluții software custom, adaptate proceselor și obiectivelor business-ului tău.",
+    en: "We build web and mobile apps, digital platforms, and custom software solutions tailored to your business processes and goals.",
+  },
+  svc_ai_title: { ro: "AI & AUTOMATION", en: "AI & AUTOMATION" },
+  svc_ai_sub: { ro: "AI · AUTOMATION · INTEGRATIONS", en: "AI · AUTOMATION · INTEGRATIONS" },
+  svc_ai_desc: {
+    ro: "Integrăm soluții AI, automatizăm procese repetitive și conectăm sistemele pe care business-ul tău le folosește deja.",
+    en: "We integrate AI solutions, automate repetitive processes, and connect the systems your business already uses.",
+  },
+  svc_strategy_title: { ro: "DIGITAL STRATEGY", en: "DIGITAL STRATEGY" },
+  svc_strategy_sub: { ro: "BUSINESS · MARKETING · GROWTH", en: "BUSINESS · MARKETING · GROWTH" },
+  svc_strategy_desc: {
+    ro: "Combinăm perspectiva de business cu marketingul digital pentru a construi strategii de creștere, promovare și comunicare adaptate fiecărui brand.",
+    en: "We combine a business perspective with digital marketing to build growth, promotion, and communication strategies tailored to each brand.",
+  },
+
+  // Legacy keys (păstrate pentru compatibilitate)
+  svc_web_title: { ro: "SOFTWARE DEVELOPMENT", en: "SOFTWARE DEVELOPMENT" },
+  svc_web_sub: { ro: "WEB & MOBILE", en: "WEB & MOBILE" },
+  svc_social_title: { ro: "AI & AUTOMATION", en: "AI & AUTOMATION" },
+  svc_social_sub: { ro: "AI · AUTOMATION · INTEGRATIONS", en: "AI · AUTOMATION · INTEGRATIONS" },
+  svc_brand_title: { ro: "DIGITAL STRATEGY", en: "DIGITAL STRATEGY" },
+  svc_brand_sub: { ro: "BUSINESS · MARKETING · GROWTH", en: "BUSINESS · MARKETING · GROWTH" },
+
+  // Pagini piloni — comune
+  pillar_cta_start: { ro: "Începe Proiectul", en: "Start Project" },
+  pillar_cta_projects: { ro: "Vezi Proiectele", en: "View Projects" },
+  pillar_cta_contact: { ro: "Contactează-ne Acum", en: "Contact us now" },
+
+  // ─── Software Development ───
+  sd_hero_t1: { ro: "Software ", en: "Software " },
+  sd_hero_h1: { ro: "Development", en: "Development" },
+  sd_hero_h2: { ro: "Web", en: "Web" },
+  sd_hero_t2: { ro: " și ", en: " and " },
+  sd_hero_h3: { ro: "Mobile", en: "Mobile" },
+  sd_hero_p: {
+    ro: "Construim aplicații web și mobile, platforme digitale și soluții software custom, adaptate proceselor și obiectivelor business-ului tău.",
+    en: "We build web and mobile apps, digital platforms, and custom software solutions tailored to your business processes and goals.",
+  },
+  sd_services_t1: { ro: "Ce ", en: "What we " },
+  sd_services_h1: { ro: "construim", en: "build" },
+  sd_services_desc: {
+    ro: "Platforme web, aplicații mobile și magazine online, scrise de la zero pe măsura business-ului tău.",
+    en: "Web platforms, mobile apps, and online stores, written from scratch around your business.",
+  },
+  sd_card1_title: { ro: "Aplicații Web & Platforme", en: "Web Apps & Platforms" },
+  sd_card1_desc: {
+    ro: "Platforme, dashboard-uri, sisteme interne și aplicații web care digitalizează procesele business-ului.",
+    en: "Platforms, dashboards, internal systems, and web apps that digitize your business processes.",
+  },
+  sd_card1_li1: { ro: "• Platforme și portaluri custom", en: "• Custom platforms and portals" },
+  sd_card1_li2: { ro: "• Dashboard-uri și panouri de administrare", en: "• Dashboards and admin panels" },
+  sd_card1_li3: { ro: "• Sisteme interne și digitalizarea fluxurilor", en: "• Internal systems and workflow digitization" },
+  sd_card1_li4: { ro: "• Autentificare, roluri și permisiuni", en: "• Authentication, roles, and permissions" },
+  sd_card2_title: { ro: "Aplicații Mobile", en: "Mobile Apps" },
+  sd_card2_desc: {
+    ro: "Aplicații iOS și Android, native sau cross-platform, integrate cu backend-ul și restul ecosistemului tău.",
+    en: "iOS and Android apps, native or cross-platform, integrated with your backend and the rest of your ecosystem.",
+  },
+  sd_card2_li1: { ro: "• iOS și Android dintr-un singur codebase", en: "• iOS and Android from a single codebase" },
+  sd_card2_li2: { ro: "• Notificări push și funcționalități offline", en: "• Push notifications and offline features" },
+  sd_card2_li3: { ro: "• Integrare cu API-uri și servicii externe", en: "• Integration with APIs and external services" },
+  sd_card2_li4: { ro: "• Publicare în App Store și Google Play", en: "• App Store and Google Play publishing" },
+  sd_card3_title: { ro: "Website-uri & E-commerce", en: "Websites & E-commerce" },
+  sd_card3_desc: {
+    ro: "Website-uri de prezentare și magazine online rapide, optimizate SEO și construite fără template-uri.",
+    en: "Fast presentation websites and online stores, SEO-optimized and built without templates.",
+  },
+  sd_card3_li1: { ro: "• Design responsive, scris în cod", en: "• Responsive design, written in code" },
+  sd_card3_li2: { ro: "• Plăți online, stocuri și comenzi", en: "• Online payments, inventory, and orders" },
+  sd_card3_li3: { ro: "• Optimizare SEO tehnică și performanță", en: "• Technical SEO and performance optimization" },
+  sd_card3_li4: { ro: "• Panou de administrare propriu", en: "• Custom admin panel" },
+  sd_process_t1: { ro: "Procesul nostru de ", en: "Our " },
+  sd_process_h1: { ro: "Dezvoltare", en: "Development Process" },
+  sd_process_desc: {
+    ro: "Un proces clar, cu livrări vizibile la fiecare etapă și fără surprize la final.",
+    en: "A clear process with visible deliveries at every stage and no surprises at the end.",
+  },
+  sd_step1_title: { ro: "Discovery", en: "Discovery" },
+  sd_step1_desc: {
+    ro: "Înțelegem business-ul, utilizatorii și problema de rezolvat. Definim împreună scopul și prioritățile.",
+    en: "We understand the business, the users, and the problem to solve. We define scope and priorities together.",
+  },
+  sd_step2_title: { ro: "Arhitectură & Design", en: "Architecture & Design" },
+  sd_step2_desc: {
+    ro: "Stabilim structura tehnică, fluxurile și interfața înainte să scriem prima linie de cod.",
+    en: "We define the technical structure, flows, and interface before writing the first line of code.",
+  },
+  sd_step3_title: { ro: "Dezvoltare", en: "Development" },
+  sd_step3_desc: {
+    ro: "Construim iterativ, cu demo-uri regulate, teste și feedback pe parcurs.",
+    en: "We build iteratively, with regular demos, testing, and feedback along the way.",
+  },
+  sd_step4_title: { ro: "Lansare & Mentenanță", en: "Launch & Maintenance" },
+  sd_step4_desc: {
+    ro: "Publicăm, monitorizăm și continuăm să îmbunătățim soluția după lansare.",
+    en: "We deploy, monitor, and keep improving the solution after launch.",
+  },
+  sd_tech_t1: { ro: "Tehnologiile ", en: "Our " },
+  sd_tech_h1: { ro: "noastre", en: "Technologies" },
+  sd_tech_desc: {
+    ro: "Stack modern, ales pentru performanță, securitate și scalabilitate, nu pentru trenduri.",
+    en: "A modern stack chosen for performance, security, and scalability, not for trends.",
+  },
+  sd_cta_t1: { ro: "Ai un proiect ", en: "Have a " },
+  sd_cta_h1: { ro: "software", en: "software project" },
+  sd_cta_t2: { ro: "?", en: "?" },
+  sd_cta_p: {
+    ro: "Hai să discutăm despre problema pe care vrei să o rezolvi și despre soluția tehnică potrivită.",
+    en: "Let's talk about the problem you want to solve and the right technical solution.",
+  },
+
+  // ─── AI & Automation ───
+  aia_hero_t1: { ro: "AI & ", en: "AI & " },
+  aia_hero_h1: { ro: "Automation", en: "Automation" },
+  aia_hero_h2: { ro: "Automatizări", en: "Automation" },
+  aia_hero_t2: { ro: " și ", en: " and " },
+  aia_hero_h3: { ro: "Integrări", en: "Integrations" },
+  aia_hero_p: {
+    ro: "Integrăm soluții AI, automatizăm procese repetitive și conectăm sistemele pe care business-ul tău le folosește deja.",
+    en: "We integrate AI solutions, automate repetitive processes, and connect the systems your business already uses.",
+  },
+  aia_services_t1: { ro: "Ce ", en: "What we " },
+  aia_services_h1: { ro: "rezolvăm", en: "solve" },
+  aia_services_desc: {
+    ro: "Pornim de la procesele tale reale și identificăm unde AI-ul și automatizarea aduc cel mai mare câștig de timp și claritate.",
+    en: "We start from your real processes and identify where AI and automation bring the biggest gains in time and clarity.",
+  },
+  aia_card1_title: { ro: "Soluții AI", en: "AI Solutions" },
+  aia_card1_desc: {
+    ro: "Integrăm modele AI în aplicațiile și fluxurile tale, acolo unde aduc valoare măsurabilă.",
+    en: "We integrate AI models into your apps and workflows, where they bring measurable value.",
+  },
+  aia_card1_li1: { ro: "• Asistenți AI antrenați pe datele companiei", en: "• AI assistants trained on your company data" },
+  aia_card1_li2: { ro: "• Extragere și clasificare automată de documente", en: "• Automated document extraction and classification" },
+  aia_card1_li3: { ro: "• Generare de conținut operațional: oferte, rapoarte, răspunsuri", en: "• Operational content generation: quotes, reports, replies" },
+  aia_card1_li4: { ro: "• Analiză și sumarizare de date", en: "• Data analysis and summarization" },
+  aia_card2_title: { ro: "Automatizare Procese", en: "Process Automation" },
+  aia_card2_desc: {
+    ro: "Eliminăm task-urile repetitive și fluxurile manuale care consumă timpul echipei.",
+    en: "We remove the repetitive tasks and manual workflows that eat up your team's time.",
+  },
+  aia_card2_li1: { ro: "• Fluxuri automate între aplicații", en: "• Automated workflows between apps" },
+  aia_card2_li2: { ro: "• Notificări, alerte și rapoarte programate", en: "• Notifications, alerts, and scheduled reports" },
+  aia_card2_li3: { ro: "• Procesare automată de comenzi, facturi și formulare", en: "• Automated processing of orders, invoices, and forms" },
+  aia_card2_li4: { ro: "• Sincronizare de date fără intervenție manuală", en: "• Data sync without manual intervention" },
+  aia_card3_title: { ro: "Integrări de Sisteme", en: "System Integrations" },
+  aia_card3_desc: {
+    ro: "Conectăm instrumentele pe care le folosești deja într-un singur flux coerent de date.",
+    en: "We connect the tools you already use into a single coherent data flow.",
+  },
+  aia_card3_li1: { ro: "• CRM, ERP și platforme de facturare", en: "• CRM, ERP, and invoicing platforms" },
+  aia_card3_li2: { ro: "• API-uri și servicii externe", en: "• APIs and external services" },
+  aia_card3_li3: { ro: "• E-commerce, plăți și logistică", en: "• E-commerce, payments, and logistics" },
+  aia_card3_li4: { ro: "• Tool-uri interne și baze de date", en: "• Internal tools and databases" },
+  aia_process_t1: { ro: "Cum ", en: "How we " },
+  aia_process_h1: { ro: "implementăm", en: "implement" },
+  aia_process_desc: {
+    ro: "Automatizarea bună începe cu înțelegerea procesului, nu cu alegerea tool-ului.",
+    en: "Good automation starts with understanding the process, not with picking the tool.",
+  },
+  aia_step1_title: { ro: "Audit Procese", en: "Process Audit" },
+  aia_step1_desc: {
+    ro: "Mapăm fluxurile actuale și identificăm unde se pierde timp sau apar erori.",
+    en: "We map current workflows and identify where time is lost or errors appear.",
+  },
+  aia_step2_title: { ro: "Prioritizare", en: "Prioritization" },
+  aia_step2_desc: {
+    ro: "Alegem automatizările cu cel mai mare impact și cel mai mic risc, cu obiective măsurabile.",
+    en: "We pick the automations with the highest impact and lowest risk, with measurable goals.",
+  },
+  aia_step3_title: { ro: "Implementare", en: "Implementation" },
+  aia_step3_desc: {
+    ro: "Construim și integrăm soluția, testată pe date reale, cu echipa ta implicată.",
+    en: "We build and integrate the solution, tested on real data, with your team involved.",
+  },
+  aia_step4_title: { ro: "Măsurare & Optimizare", en: "Measure & Optimize" },
+  aia_step4_desc: {
+    ro: "Urmărim rezultatele, ajustăm și extindem automatizarea acolo unde are sens.",
+    en: "We track results, adjust, and extend automation where it makes sense.",
+  },
+  aia_diff_t1: { ro: "Nu implementăm AI ", en: "We don't implement AI " },
+  aia_diff_h1: { ro: "de dragul AI-ului", en: "for its own sake" },
+  aia_diff_t2: { ro: ". Dacă problema se rezolvă cu o ", en: ". If the problem can be solved with a " },
+  aia_diff_h2: { ro: "automatizare simplă", en: "simple automation" },
+  aia_diff_t3: { ro: " sau o integrare, ", en: " or an integration, " },
+  aia_diff_h3: { ro: "asta propunem", en: "that's what we propose" },
+  aia_diff_t4: { ro: ".", en: "." },
+  aia_tech_t1: { ro: "Instrumente și ", en: "Tools and " },
+  aia_tech_h1: { ro: "tehnologii", en: "technologies" },
+  aia_tech_desc: {
+    ro: "Combinăm modele AI, platforme de automatizare și cod custom, în funcție de ce are sens pentru fiecare proces.",
+    en: "We combine AI models, automation platforms, and custom code, depending on what makes sense for each process.",
+  },
+  aia_cta_t1: { ro: "Ce proces ai vrea să ", en: "Which process would you like to " },
+  aia_cta_h1: { ro: "automatizezi", en: "automate" },
+  aia_cta_t2: { ro: "?", en: "?" },
+  aia_cta_p: {
+    ro: "Povestește-ne cum lucrează echipa ta acum și îți spunem sincer unde AI-ul și automatizarea au sens, și unde nu.",
+    en: "Tell us how your team works today and we'll tell you honestly where AI and automation make sense, and where they don't.",
+  },
+
+  // ─── Digital Strategy ───
+  ds_hero_t1: { ro: "Digital ", en: "Digital " },
+  ds_hero_h1: { ro: "Strategy", en: "Strategy" },
+  ds_hero_h2: { ro: "Business", en: "Business" },
+  ds_hero_t2: { ro: ", ", en: ", " },
+  ds_hero_h3: { ro: "Marketing", en: "Marketing" },
+  ds_hero_t3: { ro: " & ", en: " & " },
+  ds_hero_h4: { ro: "Growth", en: "Growth" },
+  ds_hero_p: {
+    ro: "Combinăm perspectiva de business cu marketingul digital pentru a construi strategii de creștere, promovare și comunicare adaptate fiecărui brand.",
+    en: "We combine a business perspective with digital marketing to build growth, promotion, and communication strategies tailored to each brand.",
+  },
+  ds_services_t1: { ro: "Ce ", en: "What we " },
+  ds_services_h1: { ro: "oferim", en: "offer" },
+  ds_services_desc: {
+    ro: "Strategie înainte de execuție: definim obiectivele și direcția, apoi alegem canalele și tacticile care contează.",
+    en: "Strategy before execution: we define the goals and direction, then choose the channels and tactics that matter.",
+  },
+  ds_card1_title: { ro: "Strategie & Poziționare", en: "Strategy & Positioning" },
+  ds_card1_desc: {
+    ro: "Clarificăm cine ești, cui te adresezi și ce te diferențiază, înainte să investești în promovare.",
+    en: "We clarify who you are, who you're talking to, and what sets you apart, before you invest in promotion.",
+  },
+  ds_card1_li1: { ro: "• Audit al prezenței digitale actuale", en: "• Audit of your current digital presence" },
+  ds_card1_li2: { ro: "• Definirea audienței și a mesajului", en: "• Audience and message definition" },
+  ds_card1_li3: { ro: "• Poziționare și direcție de comunicare", en: "• Positioning and communication direction" },
+  ds_card1_li4: { ro: "• Plan de acțiune cu obiective măsurabile", en: "• Action plan with measurable goals" },
+  ds_card2_title: { ro: "Marketing Digital", en: "Digital Marketing" },
+  ds_card2_desc: {
+    ro: "Social media, ads și conținut care lucrează împreună, nu izolat.",
+    en: "Social media, ads, and content that work together, not in isolation.",
+  },
+  ds_card2_li1: { ro: "• Management social media și conținut", en: "• Social media and content management" },
+  ds_card2_li2: { ro: "• Campanii Meta Ads și Google Ads", en: "• Meta Ads and Google Ads campaigns" },
+  ds_card2_li3: { ro: "• Producție video, reels și materiale vizuale", en: "• Video production, reels, and visual assets" },
+  ds_card2_li4: { ro: "• Email marketing și automatizări de comunicare", en: "• Email marketing and communication automation" },
+  ds_card3_title: { ro: "Branding & Comunicare", en: "Branding & Communication" },
+  ds_card3_desc: {
+    ro: "Identitate vizuală și mesaj coerent pe toate canalele, online și offline.",
+    en: "Visual identity and a coherent message across all channels, online and offline.",
+  },
+  ds_card3_li1: { ro: "• Logo, identitate vizuală și brand guidelines", en: "• Logo, visual identity, and brand guidelines" },
+  ds_card3_li2: { ro: "• Materiale de prezentare și comunicare", en: "• Presentation and communication materials" },
+  ds_card3_li3: { ro: "• Tone of voice și mesaje-cheie", en: "• Tone of voice and key messages" },
+  ds_card3_li4: { ro: "• Consistență între website, social și offline", en: "• Consistency across website, social, and offline" },
+  ds_process_t1: { ro: "Cum ", en: "How we " },
+  ds_process_h1: { ro: "lucrăm", en: "work" },
+  ds_process_desc: {
+    ro: "Fără tactici la întâmplare. Fiecare acțiune pornește dintr-un obiectiv clar și se măsoară.",
+    en: "No random tactics. Every action starts from a clear goal and gets measured.",
+  },
+  ds_step1_title: { ro: "Analiză", en: "Analysis" },
+  ds_step1_desc: {
+    ro: "Înțelegem business-ul, piața, competiția și situația actuală a brandului.",
+    en: "We understand the business, the market, the competition, and the brand's current state.",
+  },
+  ds_step2_title: { ro: "Strategie", en: "Strategy" },
+  ds_step2_desc: {
+    ro: "Stabilim obiectivele, canalele, mesajul și planul de acțiune.",
+    en: "We define the goals, channels, message, and action plan.",
+  },
+  ds_step3_title: { ro: "Execuție", en: "Execution" },
+  ds_step3_desc: {
+    ro: "Implementăm campanii, conținut și materiale, cu ritm constant și calitate.",
+    en: "We deliver campaigns, content, and materials, with consistent rhythm and quality.",
+  },
+  ds_step4_title: { ro: "Măsurare", en: "Measurement" },
+  ds_step4_desc: {
+    ro: "Urmărim rezultatele, raportăm transparent și optimizăm continuu.",
+    en: "We track results, report transparently, and optimize continuously.",
+  },
+  ds_results_t1: { ro: "Rezultate ", en: "Real " },
+  ds_results_h1: { ro: "reale", en: "results" },
+  ds_results_desc: {
+    ro: "Cifre din campaniile și conturile clienților noștri.",
+    en: "Numbers from our clients' campaigns and accounts.",
+  },
+  ds_res1_title: { ro: "Vizualizări generate", en: "Views generated" },
+  ds_res1_desc: { ro: "pe social media, pentru clienții noștri", en: "on social media, for our clients" },
+  ds_res2_title: { ro: "Urmăritori aduși", en: "Followers gained" },
+  ds_res2_desc: { ro: "creștere organică și plătită pe conturile clienților", en: "organic and paid growth on client accounts" },
+  ds_res3_title: { ro: "Clienți", en: "Clients" },
+  ds_res3_desc: { ro: "din 10+ domenii de activitate", en: "across 10+ industries" },
+  ds_diff_t1: { ro: "Social media, ads sau branding ", en: "Social media, ads, or branding " },
+  ds_diff_h1: { ro: "nu sunt scopul", en: "aren't the goal" },
+  ds_diff_t2: { ro: ". Sunt instrumente. Scopul este ", en: ". They're tools. The goal is " },
+  ds_diff_h2: { ro: "creșterea business-ului", en: "business growth" },
+  ds_diff_t3: { ro: ".", en: "." },
+  ds_tech_t1: { ro: "Canale și ", en: "Channels and " },
+  ds_tech_h1: { ro: "platforme", en: "platforms" },
+  ds_tech_desc: {
+    ro: "Alegem canalele în funcție de unde este audiența ta, nu în funcție de trenduri.",
+    en: "We choose channels based on where your audience is, not based on trends.",
+  },
+  ds_cta_t1: { ro: "Vrei o strategie care ", en: "Want a strategy that " },
+  ds_cta_h1: { ro: "chiar funcționează", en: "actually works" },
+  ds_cta_t2: { ro: "?", en: "?" },
+  ds_cta_p: {
+    ro: "Hai să discutăm despre obiectivele tale și despre ce are sens să faci în online, și ce nu.",
+    en: "Let's talk about your goals and what makes sense to do online, and what doesn't.",
+  },
 
   // Portfolio carousel tabs
-  tab_pages: { ro: "Pagini de prezentare", en: "Presentation pages" },
-  tab_shops: { ro: "Magazine online", en: "Online stores" },
-  tab_apps: { ro: "Aplicații web/mobile", en: "Web/mobile apps" },
-  tab_social: { ro: "Rezultate social media", en: "Social media results" },
+  tab_apps: { ro: "Aplicații & Platforme", en: "Apps & Platforms" },
+  tab_pages: { ro: "Website-uri", en: "Websites" },
+  tab_shops: { ro: "E-commerce", en: "E-commerce" },
+  tab_social: { ro: "Digital Growth", en: "Digital Growth" },
   tab_other: { ro: "Altele", en: "Other" },
 
   // Portfolio slides content
@@ -260,7 +576,7 @@ export const translations: TranslationDictionary = {
   // Agrodrona slide
   slide_agro_title: { ro: "Agrodrona", en: "Agrodrona" },
   slide_agro_subtitle: { ro: "Drone agricole", en: "Agricultural drones" },
-  slide_agro_desc: { ro: "Tehnologie de vârf pentru o agricultură de succes.", en: "Cutting-edge technology for successful agriculture." },
+  slide_agro_desc: { ro: "Tehnologie pentru agricultură modernă.", en: "Technology for modern agriculture." },
 
   // Platinum Events slide
   slide_platinum_title: { ro: "Platinum Events", en: "Platinum Events" },
@@ -323,13 +639,14 @@ export const translations: TranslationDictionary = {
   // Footer nav
   footer_nav_about: { ro: "Despre noi", en: "About us" },
   footer_nav_services: { ro: "Servicii", en: "Services" },
-  footer_nav_portfolio: { ro: "Portofoliu", en: "Portfolio" },
+  footer_nav_portfolio: { ro: "Proiecte", en: "Projects" },
+
   footer_nav_contact: { ro: "Contact", en: "Contact" },
 
   footer_nav_label: { ro: "Navigare", en: "Navigation" },
   footer_contact_label: { ro: "Contact", en: "Contact" },
   footer_social_label: { ro: "Social Media", en: "Social Media" },
-  footer_tagline: { ro: "Transformăm viziunea ta în realitate digitală cu design personalizat și tehnologii de ultimă generație.", en: "We turn your vision into digital reality with custom design and cutting-edge technologies." },
+  footer_tagline: { ro: "Software, AI, automatizări și strategie digitală pentru business-uri care vor rezultate reale.", en: "Software, AI, automation, and digital strategy for businesses that want real results." },
   privacy_policy: { ro: "Politica de Confidențialitate", en: "Privacy Policy" },
   cookies_policy: { ro: "Politica de Cookies", en: "Cookies Policy" },
   terms_conditions: { ro: "Termeni și Condiții", en: "Terms and Conditions" },
@@ -352,8 +669,8 @@ export const translations: TranslationDictionary = {
   devweb_hero_t3: { ro: " și ", en: " and " },
   devweb_hero_h3: { ro: "Personalizată", en: "Custom" },
   devweb_hero_p: {
-    ro: "Transformăm viziunea ta într-un site web modern, rapid și optimizat pentru conversii",
-    en: "We turn your vision into a modern, fast website optimized for conversions",
+    ro: "Construim site-uri web moderne, rapide și optimizate pentru conversii.",
+    en: "We build modern, fast websites optimized for conversions.",
   },
   devweb_cta_start: { ro: "Începe Proiectul", en: "Start Project" },
   devweb_cta_portfolio: { ro: "Vezi Portofoliul", en: "View Portfolio" },
@@ -398,8 +715,8 @@ export const translations: TranslationDictionary = {
   devweb_process_h_t1: { ro: "Procesul Nostru de ", en: "Our " },
   devweb_process_h_h1: { ro: "Dezvoltare", en: "Development Process" },
   devweb_process_desc: {
-    ro: "O metodologie clară și transparentă pentru a transforma ideea ta în realitate digitală",
-    en: "A clear, transparent methodology to turn your idea into digital reality",
+    ro: "Un proces clar, cu livrări vizibile la fiecare etapă.",
+    en: "A clear process with visible deliveries at every stage.",
   },
   devweb_step1_title: { ro: "Consultare", en: "Consultation" },
   devweb_step1_desc: { ro: "Înțelegem nevoile tale, analizăm concurența și stabilim obiectivele proiectului", en: "We understand your needs, analyze competition and set project goals" },
@@ -413,11 +730,18 @@ export const translations: TranslationDictionary = {
   devweb_tech_h_t1: { ro: "Tehnologiile ", en: "Our " },
   devweb_tech_h_h1: { ro: "Noastre", en: "Technologies" },
   devweb_tech_desc: { ro: "Folosim cele mai moderne tehnologii pentru a crea site-uri rapide, securizate și scalabile", en: "We use modern technologies to build fast, secure and scalable websites" },
+  devweb_custom_diff_t1: { ro: "Nu", en: "We don't" },
+  devweb_custom_diff_h1: { ro: " folosim CMS-uri", en: " use CMS platforms" },
+  devweb_custom_diff_t2: { ro: " și ", en: " or " },
+  devweb_custom_diff_h2: { ro: "template-uri", en: "templates" },
+  devweb_custom_diff_t3: { ro: ". Scriem software custom, ca soluția să fie ", en: ". We write custom software so the solution is " },
+  devweb_custom_diff_h3: { ro: "potrivită", en: "right" },
+  devweb_custom_diff_t4: { ro: " pentru business-ul tău.", en: " for your business." },
 
   devweb_cta_h_t1: { ro: "Gata să începem ", en: "Ready to start your " },
   devweb_cta_h_h1: { ro: "proiectul", en: "project" },
   devweb_cta_h_t2: { ro: " tău?", en: "?" },
-  devweb_cta_p: { ro: "Contactează-ne pentru o consultație gratuită și să discutăm despre cum putem transforma viziunea ta în realitate digitală", en: "Contact us for a free consultation and let's discuss how we can turn your vision into digital reality" },
+  devweb_cta_p: { ro: "Contactează-ne pentru o consultație și hai să discutăm despre ce vrei să construiești.", en: "Contact us for a consultation and let's talk about what you want to build." },
   devweb_cta_primary: { ro: "Contactează-ne Acum", en: "Contact us now" },
   devweb_cta_secondary: { ro: "Vezi Portofoliul", en: "View portfolio" },
 
@@ -870,65 +1194,58 @@ export const translations: TranslationDictionary = {
     en: "GRIZZLY DIGITAL S.R.L., Dolj County, Craiova Municipality, 66 Constantin Lecca Street. Email: contact@grizzlymediapro.ro, Phone: +40750227013."
   },
 
-  // Testimonials section
+  // Testimonials section — ordine: software/product partner first
   testimonials_title: { ro: "Ce spun clienții noștri", en: "What our clients say" },
   testimonials_highlight: { ro: " despre noi", en: " about us" },
 
   testimonial_1_quote: {
-    ro: "Grizzly Media Pro ne-a transformat complet prezența online. Site-ul nostru arată incredibil și a crescut vânzările cu 40% în primele 3 luni.",
-    en: "Grizzly Media Pro completely transformed our online presence. Our website looks incredible and increased sales by 40% in the first 3 months."
+    ro: "Interacțiunea mea cu Grizzly Media Pro a fost una super profesionistă și productivă. Am apelat la ei pentru platforma de studenți Vocea Campusului. Au făcut proiectul de la zero și nu doar că au reușit să implementeze toate ideile mele, dar au și contribuit la dezvoltarea lor. Chiar și după finalizarea proiectului m-au susținut cu tot ce am avut nevoie (promovare pe social media) și mi-au oferit consultanță gratuită în momentele de impas. Colaborarea cu ei nu a fost doar contractuală, ci și o experiență de socializare și prietenie. Pot spune că oricând am apelat la ei pentru modificări aduse platformei au fost foarte prompți și m-au ajutat fără vreo obligație. Întotdeauna răspunsul lor era „suntem la început de drum și un client fericit ne aduce și nouă mulțumire că am putut ajuta”. Încă un lucru pe care trebuie să îl menționez este că în momentul în care spun că vor face ceva, se țin de cuvânt, chiar dacă unele lucruri nu sunt menționate în contractul de colaborare. În concluzie, recomand serviciile Grizzly Media Pro.",
+    en: "My interaction with Grizzly Media Pro was highly professional and productive. I turned to them for the Vocea Campusului student platform. They built the project from scratch and not only implemented all my ideas, but also helped develop them further. Even after the project was finished, they supported me with everything I needed (social media promotion) and offered free consulting when I hit dead ends. Working with them wasn't just contractual; it was also a genuine, friendly experience. Whenever I asked for platform changes, they were prompt and helped without any obligation. Their answer was always that they're at the beginning of their journey and a happy client brings them satisfaction too. Another thing worth mentioning: when they say they'll do something, they keep their word, even for things not in the contract. In short, I recommend Grizzly Media Pro."
   },
-  testimonial_1_name: { ro: "Alexandru M.", en: "Alexandru M." },
-  testimonial_1_company: { ro: "TechVision Solutions", en: "TechVision Solutions" },
+  testimonial_1_name: { ro: "Liviu C.", en: "Liviu C." },
+  testimonial_1_company: { ro: "Vocea Campusului", en: "Vocea Campusului" },
 
   testimonial_2_quote: {
-    ro: "Echipa lor este extraordinară. Au înțeles viziunea noastră din prima întâlnire și au livrat un brand complet care ne reprezintă perfect.",
-    en: "Their team is extraordinary. They understood our vision from the first meeting and delivered a complete brand that represents us perfectly."
+    ro: "Am colaborat cu Grizzly Media Pro pentru dezvoltarea website-ului SmartHomeMall și pentru activități conexe de comunicare. Am apreciat în mod special abordarea lor structurată: au clarificat cerințele de la început, au propus soluții concrete și au gestionat modificările apărute pe parcurs fără întârzieri inutile. Comunicarea a fost constantă și profesionistă, iar livrările au fost făcute cu atenție la detalii. Pentru noi, Grizzly Media Pro a fost un partener pe care te poți baza atunci când ai nevoie de rezultate, nu doar de execuție.",
+    en: "We worked with Grizzly Media Pro on developing the SmartHomeMall website and related communication activities. I especially appreciated their structured approach: they clarified requirements from the start, proposed concrete solutions, and handled changes along the way without unnecessary delays. Communication was consistent and professional, and deliveries were done with attention to detail. For us, Grizzly Media Pro was a partner you can rely on when you need results, not just execution."
   },
-  testimonial_2_name: { ro: "Maria D.", en: "Maria D." },
-  testimonial_2_company: { ro: "Bloom Cosmetics", en: "Bloom Cosmetics" },
+  testimonial_2_name: { ro: "Jean Velicu", en: "Jean Velicu" },
+  testimonial_2_company: { ro: "SmartHomeMall", en: "SmartHomeMall" },
 
   testimonial_3_quote: {
-    ro: "Social media management-ul lor ne-a adus o creștere organică de 300%. Sunt proactivi, creativi și mereu disponibili pentru noi.",
-    en: "Their social media management brought us 300% organic growth. They are proactive, creative and always available for us."
+    ro: "Colaborarea a fost una excelentă de la început până la sfârșit. Echipa a fost profesionistă, promptă și atentă la toate detaliile, iar comunicarea a fost foarte bună pe tot parcursul. Rezultatul final a fost exact așa cum mi-am dorit. Recomand cu încredere oricui își dorește servicii de calitate și o experiență fără griji!",
+    en: "The collaboration was excellent from start to finish. The team was professional, prompt, and attentive to every detail, and communication was great throughout. The final result was exactly what I wanted. I confidently recommend them to anyone looking for quality services and a worry-free experience!"
   },
-  testimonial_3_name: { ro: "Andrei P.", en: "Andrei P." },
-  testimonial_3_company: { ro: "FitLife Academy", en: "FitLife Academy" },
+  testimonial_3_name: { ro: "Mihai", en: "Mihai" },
+  testimonial_3_company: { ro: "Gama Invest", en: "Gama Invest" },
 
   testimonial_4_quote: {
-    ro: "Am lucrat cu mai multe agenții înainte, dar Grizzly este pe alt nivel. Comunicarea e impecabilă și rezultatele vorbesc de la sine.",
-    en: "We worked with multiple agencies before, but Grizzly is on another level. Communication is impeccable and results speak for themselves."
+    ro: "Colaborarea a fost foarte bună pe tot parcursul proiectului. A fost foarte simplu să lucrăm datorită comunicării eficiente și prin prisma acestui lucru au livrat un site exact cum mi-am imaginat. Recomand cu încredere oricui caută seriozitate și profesionalism.",
+    en: "The collaboration was very good throughout the project. It was easy to work together thanks to efficient communication, and through that they delivered a website exactly as I imagined. I confidently recommend them to anyone looking for seriousness and professionalism."
   },
-  testimonial_4_name: { ro: "Elena S.", en: "Elena S." },
-  testimonial_4_company: { ro: "Urban Realty", en: "Urban Realty" },
+  testimonial_4_name: { ro: "Mihai C.", en: "Mihai C." },
+  testimonial_4_company: { ro: "RealImob", en: "RealImob" },
 
   testimonial_5_quote: {
-    ro: "De când am început colaborarea cu Grizzly, am trecut de la 0 la 50+ clienți noi pe lună doar din online. Investiția s-a recuperat în prima lună.",
-    en: "Since starting with Grizzly, we went from 0 to 50+ new clients per month from online alone. The investment was recovered in the first month."
+    ro: "Am avut o colaborare excelentă cu echipa Grizzly Media Pro pentru dezvoltarea magazinului meu online de produse coreene. M-au ajutat cu realizarea site-ului, cu reclamele și administrarea lor, dar și cu filmarea conținutului. Totul a decurs foarte ușor, iar comunicarea a fost mereu deschisă și eficientă. Mi-a plăcut că s-au implicat cu adevărat, au venit cu idei bune și au fost atenți la detalii. Se vede că pun pasiune în ceea ce fac și că își doresc să obțină rezultate, nu doar să bifeze niște task-uri. Îi recomand cu drag oricui caută o echipă de încredere și profesionistă cu care să lucreze.",
+    en: "I had an excellent collaboration with the Grizzly Media Pro team for developing my online store of Korean products. They helped with the website, ads and their management, as well as content filming. Everything went smoothly, and communication was always open and efficient. I liked that they truly got involved, came up with good ideas, and paid attention to detail. You can tell they put passion into what they do and aim for results, not just checking off tasks. I gladly recommend them to anyone looking for a trustworthy, professional team."
   },
-  testimonial_5_name: { ro: "Cristian V.", en: "Cristian V." },
-  testimonial_5_company: { ro: "AutoDetailing Pro", en: "AutoDetailing Pro" },
+  testimonial_5_name: { ro: "Cristi V.", en: "Cristi V." },
+  testimonial_5_company: { ro: "K-Wonderland", en: "K-Wonderland" },
 
   testimonial_6_quote: {
-    ro: "Site-ul pe care l-au creat pentru restaurantul nostru este o operă de artă. Rezervările online au crescut cu 200% și primim complimente zilnic.",
-    en: "The website they created for our restaurant is a work of art. Online reservations increased by 200% and we receive compliments daily."
+    ro: "Colaborarea noastră cu Grizzly Media Pro (website, social media și ads) a fost exact genul de parteneriat pe care îl cauți când vrei să crești sănătos: comunicare ușoară, reacție rapidă și multă răbdare. Ce am apreciat cel mai mult a fost focusul lor real pe client: indiferent de situație, de câte modificări au apărut pe parcurs sau de cât de multe solicitări am avut, au rămas implicați, flexibili și orientați pe soluții. Pentru noi, Grizzly Media Pro a însemnat nu doar execuție bună, ci și suport constant și o atitudine profesionistă, prietenoasă.",
+    en: "Our collaboration with Grizzly Media Pro (website, social media, and ads) was exactly the kind of partnership you want when you're looking to grow healthily: easy communication, quick response, and a lot of patience. What I appreciated most was their real focus on the client: no matter the situation, how many changes came up, or how many requests we had, they stayed involved, flexible, and solution-oriented. For us, Grizzly Media Pro meant not just good execution, but constant support and a professional, friendly attitude."
   },
-  testimonial_6_name: { ro: "Diana R.", en: "Diana R." },
-  testimonial_6_company: { ro: "La Dolce Vita", en: "La Dolce Vita" },
+  testimonial_6_name: { ro: "Anamaria Velicu", en: "Anamaria Velicu" },
+  testimonial_6_company: { ro: "C.M.D. EXTERNAL GROUP SRL", en: "C.M.D. EXTERNAL GROUP SRL" },
 
   testimonial_7_quote: {
-    ro: "Profesionalism, creativitate și atenție la detalii. Grizzly Media Pro a fost cea mai bună decizie pe care am luat-o pentru business-ul meu.",
-    en: "Professionalism, creativity and attention to detail. Grizzly Media Pro was the best decision I made for my business."
+    ro: "Colaborarea cu Grizzly Media Pro a fost una excelentă încă de la început. M-au impresionat prin profesionalism, seriozitate și implicarea de care dau dovadă în fiecare proiect. M-au ajutat atât cu realizarea și dezvoltarea site-ului, cât și cu promovarea în mediul online și crearea de reel-uri pentru activitatea mea din domeniul stomatologic. Fiecare material este realizat cu atenție la detalii, creativitate și înțelegerea foarte bună a imaginii pe care îmi doresc să o transmit. Îi recomand cu toată încrederea oricui își dorește servicii de marketing și promovare realizate la un nivel înalt.",
+    en: "Working with Grizzly Media Pro was excellent from the start. They impressed me with their professionalism, seriousness, and involvement in every project. They helped both with building and developing the website, and with online promotion and creating reels for my dental practice. Every piece of content is made with attention to detail, creativity, and a strong understanding of the image I want to convey. I wholeheartedly recommend them to anyone looking for high-level marketing and promotion services."
   },
-  testimonial_7_name: { ro: "Mihai T.", en: "Mihai T." },
-  testimonial_7_company: { ro: "StartUp Hub", en: "StartUp Hub" },
-
-  testimonial_8_quote: {
-    ro: "Recomand cu încredere Grizzly pentru oricine vrea să-și ducă afacerea la următorul nivel. Sunt partenerii digitali perfecți.",
-    en: "I confidently recommend Grizzly to anyone who wants to take their business to the next level. They are the perfect digital partners."
-  },
-  testimonial_8_name: { ro: "Ioana L.", en: "Ioana L." },
-  testimonial_8_company: { ro: "GreenLeaf Studio", en: "GreenLeaf Studio" },
+  testimonial_7_name: { ro: "Andreea H.", en: "Andreea H." },
+  testimonial_7_company: { ro: "Stomatologie", en: "Dental practice" },
 
   // 404 Not Found Page
   not_found_title: { ro: "Pagina nu a fost găsită", en: "Page not found" },
